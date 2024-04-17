@@ -1,0 +1,729 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/zyliang_icon.png">
+  <link rel="icon" href="/img/zyliang_icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Zhiyang Liang (梁智扬)">
+  <meta name="keywords" content="[object Object],[object Object],[object Object]">
+  
+    <meta name="description" content="JSONP: 浏览器端通过&lt;script&gt;标签的src属性, 请求服务器上的数据; 服务器返回一个函数的调用  必须在配置CORS中间件之前声明JSONP的接口 123456app.get(&quot;&#x2F;api&#x2F;jsonp&quot;, (req, res) &#x3D;&gt; &#123;	const funcName &#x3D; req.query.callback &#x2F;&#x2F; 得到函数名称">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node.js Basics (2)">
+<meta property="og:url" content="https://zhiyangliang.github.io/2023/12/03/Node.js%20Basics%20(2)/index.html">
+<meta property="og:site_name" content="Zhiyang Liang (梁智扬)">
+<meta property="og:description" content="JSONP: 浏览器端通过&lt;script&gt;标签的src属性, 请求服务器上的数据; 服务器返回一个函数的调用  必须在配置CORS中间件之前声明JSONP的接口 123456app.get(&quot;&#x2F;api&#x2F;jsonp&quot;, (req, res) &#x3D;&gt; &#123;	const funcName &#x3D; req.query.callback &#x2F;&#x2F; 得到函数名称">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-12-02T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-04-17T01:32:42.972Z">
+<meta property="article:author" content="Zhiyang Liang (梁智扬)">
+<meta property="article:tag" content="Web">
+<meta property="article:tag" content="Node.js">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Node.js Basics (2) - Zhiyang Liang (梁智扬)</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"zhiyangliang.github.io","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>昼赏微云夜观星</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About me</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>Friends</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default_new.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Node.js Basics (2)"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Zhiyang Liang (梁智扬)
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-12-03 00:00" pubdate>
+          December 3, 2023 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.6k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          22 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Node.js Basics (2)</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <ul>
+<li>JSONP: 浏览器端通过&lt;script&gt;标签的src属性, 请求服务器上的数据;
+服务器返回一个函数的调用</li>
+</ul>
+<p>必须在配置CORS中间件之前声明JSONP的接口</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs jsx">app.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/api/jsonp&quot;</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> &#123;<br>	<span class="hljs-keyword">const</span> funcName = req.<span class="hljs-property">query</span>.<span class="hljs-property">callback</span> <span class="hljs-comment">// 得到函数名称</span><br>	<span class="hljs-keyword">const</span> data = &#123;<span class="hljs-attr">name</span>: <span class="hljs-string">&quot;zhangsan&quot;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">20</span>&#125; <span class="hljs-comment">// 定义要发送给客户端的数据对象</span><br>	<span class="hljs-keyword">const</span> scriptStr = <span class="hljs-string">&quot;$&#123;funcName&#125;($&#123;JSON.stringify(data)&#125;)&quot;</span><br>	res.<span class="hljs-title function_">send</span>(scriptStr)<br>&#125;)<br></code></pre></td></tr></table></figure>
+<ul>
+<li>mysql模块</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><code class="hljs jsx">npm init -y<br>npm install mysql<br><br><span class="hljs-keyword">const</span> mysql = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;mysql&quot;</span>)<br><span class="hljs-keyword">const</span> db = mysql.<span class="hljs-title function_">createPool</span>(&#123;<br>	<span class="hljs-attr">host</span>: <span class="hljs-string">&quot;127.0.0.1&quot;</span>,<br>	<span class="hljs-attr">user</span>: <span class="hljs-string">&quot;zyliang&quot;</span>,<br>	<span class="hljs-attr">password</span>: <span class="hljs-string">&quot;123123123&quot;</span>,<br>	<span class="hljs-attr">database</span>: <span class="hljs-string">&quot;my_db_01&quot;</span><br>&#125;)<br><br><span class="hljs-comment">// 调用db.query()函数, 指定要执行的SQL语句</span><br><span class="hljs-comment">// select</span><br>db.<span class="hljs-title function_">query</span>(<span class="hljs-string">&quot;select * from users&quot;</span>, <span class="hljs-function">(<span class="hljs-params">err, results</span>) =&gt;</span> &#123;<br>	<span class="hljs-keyword">if</span>(err) <span class="hljs-keyword">return</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(err.<span class="hljs-property">message</span>)<br>	<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(results)<br>&#125;)<br><span class="hljs-comment">// insert</span><br><span class="hljs-keyword">const</span> user = &#123;<span class="hljs-attr">username</span>: <span class="hljs-string">&quot;test1&quot;</span>, <span class="hljs-attr">password</span>: <span class="hljs-string">&quot;test2&quot;</span>&#125;<br><span class="hljs-keyword">const</span> sqlStr = <span class="hljs-string">&quot;insert into users (username, password) values (?, ?)&quot;</span><br>db.<span class="hljs-title function_">query</span>(sqlStr, [user.<span class="hljs-property">username</span>, user.<span class="hljs-property">password</span>], <span class="hljs-function">(<span class="hljs-params">err, results</span>) =&gt;</span> &#123;<br>	<span class="hljs-keyword">if</span>(err) <span class="hljs-keyword">return</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(err.<span class="hljs-property">message</span>)<br>	<span class="hljs-keyword">if</span>(results.<span class="hljs-property">affectedRows</span> === <span class="hljs-number">1</span>)&#123;<br>		<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;插入数据成功&quot;</span>)<br>	&#125;<br>&#125;)<br><span class="hljs-comment">// 简化写法</span><br><span class="hljs-keyword">const</span> sqlStr = <span class="hljs-string">&quot;insert into users set ?&quot;</span><br>db.<span class="hljs-title function_">query</span>(sqlStr, user, <span class="hljs-function">(<span class="hljs-params">err, results</span>) =&gt;</span> &#123;<br>	<span class="hljs-keyword">if</span>(err) <span class="hljs-keyword">return</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(err.<span class="hljs-property">message</span>)<br>	<span class="hljs-keyword">if</span>(results.<span class="hljs-property">affectedRows</span> === <span class="hljs-number">1</span>)&#123;<br>		<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;插入数据成功&quot;</span>)<br>	&#125;<br>&#125;)<br><span class="hljs-comment">// update</span><br><span class="hljs-keyword">const</span> user = &#123;<span class="hljs-attr">id</span>: <span class="hljs-number">7</span>, <span class="hljs-attr">username</span>: <span class="hljs-string">&quot;test1&quot;</span>, <span class="hljs-attr">password</span>: <span class="hljs-string">&quot;test2&quot;</span>&#125;<br><span class="hljs-keyword">const</span> sqlStr = <span class="hljs-string">&quot;update users set username=?, password=? where id=?&quot;</span><br>db.<span class="hljs-title function_">query</span>(sqlStr, [user.<span class="hljs-property">username</span>, user.<span class="hljs-property">password</span>, user.<span class="hljs-property">id</span>], <span class="hljs-function">(<span class="hljs-params">err, results</span>) =&gt;</span> &#123;<br>	<span class="hljs-keyword">if</span>(err) <span class="hljs-keyword">return</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(err.<span class="hljs-property">message</span>)<br>	<span class="hljs-keyword">if</span>(results.<span class="hljs-property">affectedRows</span> === <span class="hljs-number">1</span>)&#123;<br>		<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;更新数据成功&quot;</span>)<br>	&#125;<br>&#125;)<br><span class="hljs-comment">// 简化写法</span><br><span class="hljs-keyword">const</span> sqlStr = <span class="hljs-string">&quot;update users set ? where id=?&quot;</span><br>db.<span class="hljs-title function_">query</span>(sqlStr, [user, user.<span class="hljs-property">id</span>], <span class="hljs-function">(<span class="hljs-params">err, results</span>) =&gt;</span> &#123;<br>	<span class="hljs-keyword">if</span>(err) <span class="hljs-keyword">return</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(err.<span class="hljs-property">message</span>)<br>	<span class="hljs-keyword">if</span>(results.<span class="hljs-property">affectedRows</span> === <span class="hljs-number">1</span>)&#123;<br>		<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;更新数据成功&quot;</span>)<br>	&#125;<br>&#125;)<br><span class="hljs-comment">// delete</span><br><span class="hljs-keyword">const</span> sqlStr = <span class="hljs-string">&quot;delete from users where id=?&quot;</span><br>db.<span class="hljs-title function_">query</span>(sqlStr, <span class="hljs-number">7</span>, <span class="hljs-function">(<span class="hljs-params">err, results</span>) =&gt;</span> &#123;<br>	<span class="hljs-keyword">if</span>(err) <span class="hljs-keyword">return</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(err.<span class="hljs-property">message</span>)<br>	<span class="hljs-keyword">if</span>(results.<span class="hljs-property">affectedRows</span> === <span class="hljs-number">1</span>)&#123;<br>		<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;删除数据成功&quot;</span>)<br>	&#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
+<ul>
+<li>web开发模式:</li>
+</ul>
+<p>基于服务器渲染(传统): 服务器发送给客户端的HTML页面,
+是在服务器通过字符串拼接动态生成的; 用Session认证机制来进行身份认证</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs jsx">app.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;index.html&quot;</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> &#123;<br>	<span class="hljs-keyword">const</span> user = &#123;<span class="hljs-attr">name</span>: <span class="hljs-string">&quot;zhangsan&quot;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">20</span>&#125;<br>	<span class="hljs-keyword">const</span> html = <span class="hljs-string">&quot;&lt;h1&gt;姓名: $&#123;user.name&#125;, 年龄: $&#123;user.age&#125;&lt;/h1&gt;&quot;</span><br>	res.<span class="hljs-title function_">send</span>(html)<br>&#125;)<br></code></pre></td></tr></table></figure>
+<p>基于前后端分离(新型): 后端只负责提供API接口, 前端使用Ajax调用接口;
+用JWT认证机制来进行身份认证</p>
+<p>HTTP协议的无状态性: 每次HTTP请求都是独立的,
+服务器不会保留每次HTTP请求的状态</p>
+<p>Cookie: 存储在用户浏览器中的一段不超过4KB的字符串, 有1个名称, 1个值,
+几个可选属性(关于有效期, 安全性, 使用范围),
+类似于现实中会员卡身份认证方式</p>
+<p>Cookie特性: 自动发送(客户端发起请求时); 域名独立; 有过期时限;
+4KB限制</p>
+<p>客户端第一次请求服务器时, 服务器通过响应头的形式,
+向客户端发送一个身份验证相关的Cookie,
+客户端会自动将Cookie保存在浏览器中; 当客户端再次请求服务器,
+浏览器会自动将身份验证相关的Cookie通过请求头的形式发送给服务器,
+服务器即可验证客户端的身份</p>
+<ul>
+<li>express-session中间件: 使用session认证</li>
+</ul>
+<p>局限性: Cookie不支持跨域访问, 前端跨域请求后端接口时需要额外配置</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs jsx">npm install express-session<br><span class="hljs-keyword">var</span> session = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;express-session&quot;</span>)<br>app.<span class="hljs-title function_">use</span>(<span class="hljs-title function_">session</span>(&#123;<br>	<span class="hljs-attr">secret</span>: <span class="hljs-string">&quot;keyboard cat&quot;</span>, <span class="hljs-comment">// 可为任意字符串</span><br>	<span class="hljs-attr">resave</span>: <span class="hljs-literal">false</span>,<br>	<span class="hljs-attr">saveUninitialized</span>: <span class="hljs-literal">true</span><br>&#125;))<br><span class="hljs-comment">// express-session中间件配置成功后, 即可通过req.session来访问和使用session对象</span><br><span class="hljs-comment">// 从而存储用户的关键信息</span><br><br><span class="hljs-comment">// 登录的API接口</span><br>app.<span class="hljs-title function_">post</span>(<span class="hljs-string">&quot;/api/login&quot;</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> &#123;<br>	<span class="hljs-keyword">if</span>(req.<span class="hljs-property">body</span>.<span class="hljs-property">username</span> !== <span class="hljs-string">&quot;admin&quot;</span> || req.<span class="hljs-property">body</span>.<span class="hljs-property">password</span> !== <span class="hljs-string">&quot;123123123&quot;</span>)&#123;<br>		<span class="hljs-keyword">return</span> res.<span class="hljs-title function_">send</span>(&#123;<span class="hljs-attr">status</span>: <span class="hljs-number">1</span>, msg=<span class="hljs-string">&quot;登陆失败&quot;</span>&#125;)<br>	&#125;<br>	req.<span class="hljs-property">session</span>.<span class="hljs-property">user</span> = req.<span class="hljs-property">body</span><br>	req.<span class="hljs-property">session</span>.<span class="hljs-property">islogin</span> = <span class="hljs-literal">true</span><br>	res.<span class="hljs-title function_">send</span>(&#123;<span class="hljs-attr">status</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">msg</span>: <span class="hljs-string">&quot;登陆成功&quot;</span>&#125;)<br>&#125;)<br><span class="hljs-comment">// 获取用户姓名的接口</span><br>app.<span class="hljs-title function_">post</span>(<span class="hljs-string">&quot;/api/username&quot;</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> &#123;<br>	<span class="hljs-keyword">if</span>(!req.<span class="hljs-property">session</span>.<span class="hljs-property">islogin</span>)&#123;<br>		<span class="hljs-keyword">return</span> res.<span class="hljs-title function_">send</span>(&#123;<span class="hljs-attr">status</span>: <span class="hljs-number">1</span>, msg=<span class="hljs-string">&quot;fail&quot;</span>&#125;)<br>	&#125;<br>	res.<span class="hljs-title function_">send</span>(&#123;<span class="hljs-attr">status</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">msg</span>: <span class="hljs-string">&quot;success&quot;</span>, <span class="hljs-attr">username</span>: req.<span class="hljs-property">session</span>.<span class="hljs-property">user</span>.<span class="hljs-property">username</span>&#125;)<br>&#125;)<br><span class="hljs-comment">// 退出登录的接口</span><br>app.<span class="hljs-title function_">post</span>(<span class="hljs-string">&quot;/api/logout&quot;</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> &#123;<br>	req.<span class="hljs-property">session</span>.<span class="hljs-title function_">destroy</span>()<br>	res.<span class="hljs-title function_">send</span>(&#123;<span class="hljs-attr">status</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">msg</span>: <span class="hljs-string">&quot;退出登陆成功&quot;</span>&#125;)<br>&#125;)<br></code></pre></td></tr></table></figure>
+<ul>
+<li>JWT(JSON Web Token): 目前最流行的跨域认证解决方案</li>
+</ul>
+<p>JWT由三部分组成: Header(头部), Payload(有效载荷,
+即用户信息经过加密后生成的字符串), Signature(签名),
+三者之间通过”.”进行分隔</p>
+<p>使用: 客户端收到服务器返回的JWT后,
+通常会将其存储在localStorage或sessionStorage中</p>
+<p>之后客户端每次与服务器通信, 都要带上这个JWT字符串进行身份验证,
+最好是把JWT放在HTTP请求头的Authorization字段中</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-title class_">Authorization</span>: <span class="hljs-title class_">Bearer</span> &lt;token&gt;<br>npm install jsonwebtoken express-jwt<br><span class="hljs-comment">// jsonwebtoken用于生成JWT字符串</span><br><span class="hljs-comment">// express-jwt用于将JWT字符串解析还原成JSON对象</span><br><span class="hljs-keyword">const</span> jwt = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;jsonwebtoken&quot;</span>)<br><span class="hljs-keyword">const</span> expressJWT = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;express-jwt&quot;</span>)<br><span class="hljs-comment">// 为防止JWT字符串在网络传输过程中被破解, 需要专门定义一个用于加密和解密的secret密钥</span><br><span class="hljs-comment">// 生成JWT字符串时需要用secret密钥对用户信息进行加密</span><br><span class="hljs-comment">// 当把JWT字符串解析还原成JSON对象时需要使用secret密钥进行解密</span><br><br><span class="hljs-comment">// 登陆成功后, 调用jwt.sign()方法来生成JWT字符串, 并通过token属性发送给客户端</span><br><span class="hljs-keyword">const</span> secretKey = <span class="hljs-string">&quot;zyliang666&quot;</span><br><span class="hljs-comment">// 参数: 用户的信息对象, 加密的密钥, 配置对象</span><br><span class="hljs-keyword">const</span> tokenStr jwt.<span class="hljs-title function_">sign</span>(&#123;<span class="hljs-attr">username</span>: userinfo.<span class="hljs-property">username</span>&#125;, secretKey, &#123;<span class="hljs-attr">expiresIn</span>: <span class="hljs-string">&quot;1h&quot;</span>&#125;)<br><br>app.<span class="hljs-title function_">post</span>(<span class="hljs-string">&quot;/api/login&quot;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>)&#123;<br>	res.<span class="hljs-title function_">send</span>(&#123;<br>		<span class="hljs-attr">status</span>: <span class="hljs-number">200</span>,<br>		<span class="hljs-attr">message</span>: <span class="hljs-string">&quot;登陆成功&quot;</span>,<br>		<span class="hljs-attr">token</span>: jwt.<span class="hljs-title function_">sign</span>(&#123;<span class="hljs-attr">username</span>: userinfo.<span class="hljs-property">username</span>&#125;, secretKey, &#123;<span class="hljs-attr">expiresIn</span>: <span class="hljs-string">&quot;1h&quot;</span>&#125;)<br>	&#125;)<br>&#125;)<br><br><span class="hljs-comment">// 将JWT字符串还原为JSON对象</span><br>app.<span class="hljs-title function_">use</span>(<span class="hljs-title function_">expressJWT</span>(&#123;<span class="hljs-attr">secret</span>: secretKey&#125;)).<span class="hljs-title function_">unless</span>(&#123;<span class="hljs-attr">path</span>: [<span class="hljs-regexp">/^\\/</span>api\\<span class="hljs-comment">//]&#125;)</span><br><span class="hljs-comment">// 以&quot;/api&quot;开头的不需要访问权限; 以&quot;/my&quot;开头的需要访问权限</span><br><span class="hljs-comment">// 配置express-jwt中间件后, 就能把解析出来的用户信息挂载到req.user属性上</span><br><span class="hljs-comment">// 可通过如下方式获取用户信息</span><br>app.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/admin/getinfo&quot;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>)&#123;<br>	<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(req.<span class="hljs-property">user</span>)<br>	res.<span class="hljs-title function_">send</span>(&#123;<br>		<span class="hljs-attr">status</span>: <span class="hljs-number">200</span>,<br>		<span class="hljs-attr">message</span>: <span class="hljs-string">&quot;获取用户信息成功&quot;</span>,<br>		<span class="hljs-attr">data</span>: req.<span class="hljs-property">user</span>,<br>	&#125;)<br>&#125;)<br><br><span class="hljs-comment">// 全局错误处理中间件</span><br>app.<span class="hljs-title function_">use</span>(<span class="hljs-function">(<span class="hljs-params">err, req, res, next</span>) =&gt;</span> &#123;<br>	<span class="hljs-keyword">if</span>(err.<span class="hljs-property">name</span> === <span class="hljs-string">&quot;UnauthorizedError&quot;</span>)&#123;<br>		<span class="hljs-keyword">return</span> res.<span class="hljs-title function_">send</span>(&#123;<br>			<span class="hljs-attr">status</span>: <span class="hljs-number">401</span>,<br>			<span class="hljs-attr">message</span>: <span class="hljs-string">&quot;无效token&quot;</span>,<br>		&#125;)<br>	&#125;<br>	res.<span class="hljs-title function_">send</span>(&#123;<br>		<span class="hljs-attr">status</span>: <span class="hljs-number">500</span>,<br>		<span class="hljs-attr">message</span>: <span class="hljs-string">&quot;未知错误&quot;</span><br>	&#125;)<br>&#125;)<br></code></pre></td></tr></table></figure>
+<ul>
+<li>AJAX: 异步的JS和XML; 可以在浏览器中向服务器发送异步请求;
+优势为不需要刷新就能获取数据</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;express&quot;</span>);<br><span class="hljs-keyword">const</span> app = <span class="hljs-title function_">express</span>();<br><span class="hljs-comment">// req是对请求报文的封装, res是对响应报文的封装</span><br>app.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/server&quot;</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> &#123;<br>	<span class="hljs-comment">// 设置响应头, 允许跨域</span><br>	res.<span class="hljs-title function_">setHeader</span>(<span class="hljs-string">&quot;Access-Control-Allow-Origin&quot;</span>, <span class="hljs-string">&quot;*&quot;</span>);<br>	<span class="hljs-comment">// 设置响应体</span><br>	res.<span class="hljs-title function_">send</span>(<span class="hljs-string">&quot;hello ajax&quot;</span>)<br>&#125;)<br><br>app.<span class="hljs-title function_">post</span>(<span class="hljs-string">&quot;/server&quot;</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> &#123;<br>	<span class="hljs-comment">// 设置响应头, 允许跨域</span><br>	res.<span class="hljs-title function_">setHeader</span>(<span class="hljs-string">&quot;Access-Control-Allow-Origin&quot;</span>, <span class="hljs-string">&quot;*&quot;</span>);<br>	<span class="hljs-comment">// 设置响应体</span><br>	res.<span class="hljs-title function_">send</span>(<span class="hljs-string">&quot;hello ajax post&quot;</span>)<br>&#125;)<br><br>app.<span class="hljs-title function_">all</span>(<span class="hljs-string">&quot;/json-server&quot;</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> &#123;<br>  <span class="hljs-comment">// 设置响应头, 允许跨域</span><br>	res.<span class="hljs-title function_">setHeader</span>(<span class="hljs-string">&quot;Access-Control-Allow-Origin&quot;</span>, <span class="hljs-string">&quot;*&quot;</span>)<br>	<span class="hljs-comment">// 响应头</span><br>	res.<span class="hljs-title function_">setHeader</span>(<span class="hljs-string">&quot;Access-Control-Allow-Headers&quot;</span>, <span class="hljs-string">&quot;*&quot;</span>)<br>	<span class="hljs-comment">// 响应一个数据</span><br>	<span class="hljs-keyword">const</span> data = &#123;<br>		<span class="hljs-attr">name</span>: <span class="hljs-string">&quot;mytest&quot;</span><br>	&#125;;<br>	<span class="hljs-keyword">let</span> str = <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>(data);<br>	<span class="hljs-comment">// 设置响应体</span><br>	res.<span class="hljs-title function_">send</span>(str);<br>&#125;)<br><br>app.<span class="hljs-title function_">all</span>(<span class="hljs-string">&quot;/jquery-server&quot;</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> &#123;<br>	res.<span class="hljs-title function_">setHeader</span>(<span class="hljs-string">&quot;Access-Control-Allow-Origin&quot;</span>, <span class="hljs-string">&quot;*&quot;</span>);<br>	res.<span class="hljs-title function_">setHeader</span>(<span class="hljs-string">&quot;Access-Control-Allow-Headers&quot;</span>, <span class="hljs-string">&quot;*&quot;</span>)<br>	<span class="hljs-comment">// res.send(&quot;hello jquery ajax&quot;);</span><br>	<span class="hljs-keyword">const</span> data = &#123;<span class="hljs-attr">name</span>: <span class="hljs-string">&quot;test&quot;</span>&#125;;<br>	res.<span class="hljs-title function_">send</span>(<span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>(data));<br>&#125;)<br><br>app.<span class="hljs-title function_">all</span>(<span class="hljs-string">&quot;/axios-server&quot;</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> &#123;<br>	res.<span class="hljs-title function_">setHeader</span>(<span class="hljs-string">&quot;Access-Control-Allow-Origin&quot;</span>, <span class="hljs-string">&quot;*&quot;</span>);<br>	res.<span class="hljs-title function_">setHeader</span>(<span class="hljs-string">&quot;Access-Control-Allow-Headers&quot;</span>, <span class="hljs-string">&quot;*&quot;</span>)<br>	<span class="hljs-keyword">const</span> data = &#123;<span class="hljs-attr">name</span>: <span class="hljs-string">&quot;test&quot;</span>&#125;;<br>	res.<span class="hljs-title function_">send</span>(<span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>(data));<br>&#125;)<br>...<br>&lt;body&gt;<br>	<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>点击发送请求<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br>	<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;result&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br>	<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="language-javascript"><span class="language-xml">		<span class="hljs-keyword">const</span> btn = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementByTagName</span>(<span class="hljs-string">&quot;button&quot;</span>)[<span class="hljs-number">0</span>];</span></span><br><span class="language-javascript"><span class="language-xml">		<span class="hljs-keyword">const</span> result = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;result&quot;</span>);</span></span><br><span class="language-javascript"><span class="language-xml">		<span class="hljs-comment">// const result = document.querySelector(&quot;#result&quot;);</span></span></span><br><span class="language-javascript"><span class="language-xml">		btn.<span class="hljs-property">onclick</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;</span></span><br><span class="language-javascript"><span class="language-xml">			<span class="hljs-comment">// console.log(&quot;test&quot;);</span></span></span><br><span class="language-javascript"><span class="language-xml">			<span class="hljs-comment">// 创建对象</span></span></span><br><span class="language-javascript"><span class="language-xml">			<span class="hljs-keyword">const</span> xhr = <span class="hljs-keyword">new</span> <span class="hljs-title class_">XMLHttpRequest</span>();</span></span><br><span class="language-javascript"><span class="language-xml">			<span class="hljs-comment">// 初始化, 设置请求方法和url</span></span></span><br><span class="language-javascript"><span class="language-xml">			xhr.<span class="hljs-title function_">open</span>(<span class="hljs-string">&quot;GET&quot;</span>, <span class="hljs-string">&quot;&lt;http://127.0.0.1:8000/server&gt;&quot;</span>);</span></span><br><span class="language-javascript"><span class="language-xml">			<span class="hljs-comment">// 解决ajax的ie缓存问题</span></span></span><br><span class="language-javascript"><span class="language-xml">			xhr.<span class="hljs-title function_">open</span>(<span class="hljs-string">&quot;GET&quot;</span>, <span class="hljs-string">&quot;&lt;http://127.0.0.1:8000/server?t=&gt;&quot;</span> + <span class="hljs-title class_">Date</span>.<span class="hljs-title function_">now</span>());</span></span><br><span class="language-javascript"><span class="language-xml">			<span class="hljs-comment">// 设置请求参数</span></span></span><br><span class="language-javascript"><span class="language-xml">			<span class="hljs-comment">// xhr.open(&quot;GET&quot;, &quot;&lt;http://127.0.0.1:8000/server?a=100&amp;b=200&amp;c=300&gt;&quot;);</span></span></span><br><span class="language-javascript"><span class="language-xml">			<span class="hljs-comment">// 发送</span></span></span><br><span class="language-javascript"><span class="language-xml">			xhr.<span class="hljs-title function_">send</span>();</span></span><br><span class="language-javascript"><span class="language-xml">			<span class="hljs-comment">// 事件绑定, 处理服务器返回的结果</span></span></span><br><span class="language-javascript"><span class="language-xml">			<span class="hljs-comment">// readystate是xhr对象中的属性, 表示状态0 1 2 3 4</span></span></span><br><span class="language-javascript"><span class="language-xml">			xhr.<span class="hljs-property">onreadystatechange</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;</span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-keyword">if</span>(xhr.<span class="hljs-property">readyState</span> === <span class="hljs-number">4</span>)&#123; <span class="hljs-comment">// 此时服务器端已返回所有结果</span></span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-comment">// 200-299均为成功</span></span></span><br><span class="language-javascript"><span class="language-xml">					<span class="hljs-keyword">if</span>(xhr.<span class="hljs-property">status</span> &gt;= <span class="hljs-number">200</span> &amp;&amp; xhr.<span class="hljs-property">status</span> &lt; <span class="hljs-number">300</span>)&#123;</span></span><br><span class="language-javascript"><span class="language-xml">						<span class="hljs-comment">// 响应行</span></span></span><br><span class="language-javascript"><span class="language-xml">						<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(xhr.<span class="hljs-property">status</span>); <span class="hljs-comment">// 状态码</span></span></span><br><span class="language-javascript"><span class="language-xml">						<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(xhr.<span class="hljs-property">statusText</span>); <span class="hljs-comment">// 状态字符串</span></span></span><br><span class="language-javascript"><span class="language-xml">						<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(xhr.<span class="hljs-title function_">getAllResponseHeaders</span>()); <span class="hljs-comment">// 所有响应头</span></span></span><br><span class="language-javascript"><span class="language-xml">						<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(xhr.<span class="hljs-property">response</span>);</span></span><br><span class="language-javascript"><span class="language-xml">						<span class="hljs-comment">// 设置result的文本</span></span></span><br><span class="language-javascript"><span class="language-xml">						result.<span class="hljs-property">innerHTML</span> = xhr.<span class="hljs-property">response</span>; <span class="hljs-comment">// 即hello ajax</span></span></span><br><span class="language-javascript"><span class="language-xml">					&#125;</span></span><br><span class="language-javascript"><span class="language-xml">				&#125;</span></span><br><span class="language-javascript"><span class="language-xml">			&#125;</span></span><br><span class="language-javascript"><span class="language-xml">		&#125;</span></span><br><span class="language-javascript"><span class="language-xml">		</span></span><br><span class="language-javascript"><span class="language-xml">		result.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&quot;mouseover&quot;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;</span></span><br><span class="language-javascript"><span class="language-xml">			<span class="hljs-keyword">const</span> xhr = <span class="hljs-keyword">new</span> <span class="hljs-title class_">XMLHttpRequest</span>();</span></span><br><span class="language-javascript"><span class="language-xml">			xhr.<span class="hljs-title function_">open</span>(<span class="hljs-string">&quot;POST&quot;</span>, <span class="hljs-string">&quot;&lt;http://127.0.0.1:8000/server&gt;&quot;</span>);</span></span><br><span class="language-javascript"><span class="language-xml">			xhr.<span class="hljs-title function_">send</span>();</span></span><br><span class="language-javascript"><span class="language-xml">			<span class="hljs-comment">// xhr.send(&quot;a=100&amp;b=200&amp;c=300&quot;) // Request Payload</span></span></span><br><span class="language-javascript"><span class="language-xml">			xhr.<span class="hljs-property">onreadystatechange</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;</span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-keyword">if</span>(xhr.<span class="hljs-property">readyState</span> === <span class="hljs-number">4</span>)&#123;</span></span><br><span class="language-javascript"><span class="language-xml">					<span class="hljs-keyword">if</span>(xhr.<span class="hljs-property">status</span> &gt;= <span class="hljs-number">200</span> &amp;&amp; xhr.<span class="hljs-property">status</span> &lt; <span class="hljs-number">300</span>)&#123;</span></span><br><span class="language-javascript"><span class="language-xml">						result.<span class="hljs-property">innerHTML</span> = xhr.<span class="hljs-property">response</span>; <span class="hljs-comment">// 即hello ajax post</span></span></span><br><span class="language-javascript"><span class="language-xml">					&#125;</span></span><br><span class="language-javascript"><span class="language-xml">				&#125;</span></span><br><span class="language-javascript"><span class="language-xml">			&#125;</span></span><br><span class="language-javascript"><span class="language-xml">		&#125;)</span></span><br><span class="language-javascript"><span class="language-xml">		</span></span><br><span class="language-javascript"><span class="language-xml">		<span class="hljs-comment">// 绑定键盘按下事件</span></span></span><br><span class="language-javascript"><span class="language-xml">		<span class="hljs-variable language_">window</span>.<span class="hljs-property">onkeydown</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;</span></span><br><span class="language-javascript"><span class="language-xml">			<span class="hljs-keyword">const</span> xhr = <span class="hljs-keyword">new</span> <span class="hljs-title class_">XMLHttpRequest</span>();</span></span><br><span class="language-javascript"><span class="language-xml">			xhr.<span class="hljs-title function_">open</span>(<span class="hljs-string">&quot;GET&quot;</span>, <span class="hljs-string">&quot;&lt;http://127.0.0.1:8000/json-server&gt;&quot;</span>);</span></span><br><span class="language-javascript"><span class="language-xml">			xhr.<span class="hljs-title function_">send</span>();</span></span><br><span class="language-javascript"><span class="language-xml">			xhr.<span class="hljs-property">onreadystatechange</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;</span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-keyword">if</span>(xhr.<span class="hljs-property">readyState</span> === <span class="hljs-number">4</span>)&#123;</span></span><br><span class="language-javascript"><span class="language-xml">					<span class="hljs-keyword">if</span>(xhr.<span class="hljs-property">status</span> &gt;= <span class="hljs-number">200</span> &amp;&amp; xhr.<span class="hljs-property">status</span> &lt; <span class="hljs-number">300</span>)&#123;</span></span><br><span class="language-javascript"><span class="language-xml">						<span class="hljs-comment">// result.innerHTML = xhr.response;</span></span></span><br><span class="language-javascript"><span class="language-xml">						<span class="hljs-comment">// 手动对数据进行转换</span></span></span><br><span class="language-javascript"><span class="language-xml">						<span class="hljs-comment">// let data = JSON.parse(xhr.response);</span></span></span><br><span class="language-javascript"><span class="language-xml">						<span class="hljs-comment">// console.log(data);</span></span></span><br><span class="language-javascript"><span class="language-xml">						<span class="hljs-comment">// result.innerHTML = data.name;</span></span></span><br><span class="language-javascript"><span class="language-xml">						<span class="hljs-comment">// 自动转换</span></span></span><br><span class="language-javascript"><span class="language-xml">						result.<span class="hljs-property">innerHTML</span> = xhr.<span class="hljs-property">response</span>.<span class="hljs-property">name</span>;</span></span><br><span class="language-javascript"><span class="language-xml">					&#125;</span></span><br><span class="language-javascript"><span class="language-xml">				&#125;</span></span><br><span class="language-javascript"><span class="language-xml">			&#125;</span></span><br><span class="language-javascript"><span class="language-xml">		&#125;</span></span><br><span class="language-javascript"><span class="language-xml">		$(<span class="hljs-string">&quot;button&quot;</span>).<span class="hljs-title function_">eq</span>(<span class="hljs-number">0</span>).<span class="hljs-title function_">click</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;</span></span><br><span class="language-javascript"><span class="language-xml">			$.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;&lt;http://127.0.0.1:8000/jquery-server&gt;&quot;</span>, &#123;<span class="hljs-attr">a</span>:<span class="hljs-number">100</span>, <span class="hljs-attr">b</span>:<span class="hljs-number">200</span>&#125;, <span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>)&#123;</span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(data);</span></span><br><span class="language-javascript"><span class="language-xml">			&#125;)</span></span><br><span class="language-javascript"><span class="language-xml">		&#125;)</span></span><br><span class="language-javascript"><span class="language-xml">		$(<span class="hljs-string">&quot;button&quot;</span>).<span class="hljs-title function_">eq</span>(<span class="hljs-number">1</span>).<span class="hljs-title function_">click</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;</span></span><br><span class="language-javascript"><span class="language-xml">			$.<span class="hljs-title function_">post</span>(<span class="hljs-string">&quot;&lt;http://127.0.0.1:8000/jquery-server&gt;&quot;</span>, &#123;<span class="hljs-attr">a</span>:<span class="hljs-number">100</span>, <span class="hljs-attr">b</span>:<span class="hljs-number">200</span>&#125;, <span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>)&#123;</span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(data);</span></span><br><span class="language-javascript"><span class="language-xml">			&#125;, <span class="hljs-string">&quot;json&quot;</span>)</span></span><br><span class="language-javascript"><span class="language-xml">		&#125;)</span></span><br><span class="language-javascript"><span class="language-xml">		$(<span class="hljs-string">&quot;button&quot;</span>).<span class="hljs-title function_">eq</span>(<span class="hljs-number">2</span>).<span class="hljs-title function_">click</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;</span></span><br><span class="language-javascript"><span class="language-xml">			$.<span class="hljs-title function_">ajax</span>(&#123;</span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-attr">url</span>: <span class="hljs-string">&quot;&lt;http://127.0.0.1:8000/jquery-server&gt;&quot;</span>,</span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-attr">data</span>: &#123;<span class="hljs-attr">a</span>: <span class="hljs-number">100</span>, <span class="hljs-attr">b</span>: <span class="hljs-number">200</span>&#125;,</span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-attr">type</span>: <span class="hljs-string">&quot;GET&quot;</span>,</span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-comment">// 成功的回调</span></span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-attr">success</span>: <span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>)&#123;</span></span><br><span class="language-javascript"><span class="language-xml">					<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(data);</span></span><br><span class="language-javascript"><span class="language-xml">				&#125;</span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-comment">// 超时时间</span></span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-attr">timeout</span>: <span class="hljs-number">2000</span>,</span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-comment">// 失败的回调</span></span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-attr">error</span>: <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;</span></span><br><span class="language-javascript"><span class="language-xml">					<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;出错&quot;</span>);</span></span><br><span class="language-javascript"><span class="language-xml">				&#125;</span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-comment">// 头信息</span></span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-attr">headers</span>: &#123;</span></span><br><span class="language-javascript"><span class="language-xml">					<span class="hljs-attr">c</span>: <span class="hljs-number">300</span>,</span></span><br><span class="language-javascript"><span class="language-xml">					<span class="hljs-attr">d</span>: <span class="hljs-number">400</span></span></span><br><span class="language-javascript"><span class="language-xml">				&#125;</span></span><br><span class="language-javascript"><span class="language-xml">			&#125;)</span></span><br><span class="language-javascript"><span class="language-xml">		&#125;)</span></span><br><span class="language-javascript"><span class="language-xml">		</span></span><br><span class="language-javascript"><span class="language-xml">		<span class="hljs-keyword">const</span> btns = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelectorAll</span>(<span class="hljs-string">&quot;button&quot;</span>);</span></span><br><span class="language-javascript"><span class="language-xml">		btns[<span class="hljs-number">0</span>].<span class="hljs-property">onclick</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;</span></span><br><span class="language-javascript"><span class="language-xml">			axios.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/axios-server&quot;</span>, &#123;</span></span><br><span class="language-javascript"><span class="language-xml">			<span class="hljs-comment">// url</span></span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-attr">params</span>: &#123;</span></span><br><span class="language-javascript"><span class="language-xml">					<span class="hljs-attr">id</span>: <span class="hljs-number">100</span>,</span></span><br><span class="language-javascript"><span class="language-xml">					<span class="hljs-attr">vip</span>: <span class="hljs-number">7</span></span></span><br><span class="language-javascript"><span class="language-xml">				&#125;,</span></span><br><span class="language-javascript"><span class="language-xml">			<span class="hljs-comment">// 请求头参数</span></span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-attr">headers</span>: &#123;</span></span><br><span class="language-javascript"><span class="language-xml">					<span class="hljs-attr">name</span>: <span class="hljs-string">&quot;test&quot;</span>,</span></span><br><span class="language-javascript"><span class="language-xml">					<span class="hljs-attr">age</span>: <span class="hljs-number">20</span></span></span><br><span class="language-javascript"><span class="language-xml">				&#125;</span></span><br><span class="language-javascript"><span class="language-xml">			&#125;).<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">value</span> =&gt;</span> &#123;</span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(value)</span></span><br><span class="language-javascript"><span class="language-xml">			&#125;)</span></span><br><span class="language-javascript"><span class="language-xml">		&#125;</span></span><br><span class="language-javascript"><span class="language-xml">		btns[<span class="hljs-number">0</span>].<span class="hljs-property">onclick</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;</span></span><br><span class="language-javascript"><span class="language-xml">			axios.<span class="hljs-title function_">post</span>(<span class="hljs-string">&quot;/axios-server&quot;</span>, &#123;</span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-attr">username</span>: <span class="hljs-string">&quot;zyliang&quot;</span>,</span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-attr">password</span>: <span class="hljs-string">&quot;zyliang666&quot;</span></span></span><br><span class="language-javascript"><span class="language-xml">			&#125;, &#123;</span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-attr">params</span>: &#123;</span></span><br><span class="language-javascript"><span class="language-xml">					<span class="hljs-attr">id</span>: <span class="hljs-number">100</span>,</span></span><br><span class="language-javascript"><span class="language-xml">					<span class="hljs-attr">vip</span>: <span class="hljs-number">7</span></span></span><br><span class="language-javascript"><span class="language-xml">				&#125;,</span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-attr">headers</span>: &#123;</span></span><br><span class="language-javascript"><span class="language-xml">					<span class="hljs-attr">name</span>: <span class="hljs-string">&quot;test&quot;</span>,</span></span><br><span class="language-javascript"><span class="language-xml">					<span class="hljs-attr">age</span>: <span class="hljs-number">20</span></span></span><br><span class="language-javascript"><span class="language-xml">				&#125;</span></span><br><span class="language-javascript"><span class="language-xml">			&#125;).<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">value</span> =&gt;</span> &#123;</span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(value)</span></span><br><span class="language-javascript"><span class="language-xml">			&#125;)</span></span><br><span class="language-javascript"><span class="language-xml">		&#125;</span></span><br><span class="language-javascript"><span class="language-xml">		btns[<span class="hljs-number">0</span>].<span class="hljs-property">onclick</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;</span></span><br><span class="language-javascript"><span class="language-xml">			<span class="hljs-title function_">axios</span>(&#123;</span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-attr">url</span>: <span class="hljs-string">&quot;/axios-server&quot;</span>,</span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-attr">params</span>: &#123;</span></span><br><span class="language-javascript"><span class="language-xml">					<span class="hljs-attr">id</span>: <span class="hljs-number">100</span>,</span></span><br><span class="language-javascript"><span class="language-xml">					<span class="hljs-attr">vip</span>: <span class="hljs-number">7</span></span></span><br><span class="language-javascript"><span class="language-xml">				&#125;,</span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-attr">headers</span>: &#123;</span></span><br><span class="language-javascript"><span class="language-xml">					<span class="hljs-attr">name</span>: <span class="hljs-string">&quot;test&quot;</span>,</span></span><br><span class="language-javascript"><span class="language-xml">					<span class="hljs-attr">age</span>: <span class="hljs-number">20</span></span></span><br><span class="language-javascript"><span class="language-xml">				&#125;,</span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-attr">data</span>: &#123;</span></span><br><span class="language-javascript"><span class="language-xml">					<span class="hljs-attr">username</span>: <span class="hljs-string">&quot;zyliang&quot;</span>,</span></span><br><span class="language-javascript"><span class="language-xml">					<span class="hljs-attr">password</span>: <span class="hljs-string">&quot;zyliang666&quot;</span></span></span><br><span class="language-javascript"><span class="language-xml">				&#125;</span></span><br><span class="language-javascript"><span class="language-xml">			&#125;).<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;</span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(res);</span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(res.<span class="hljs-property">status</span>); <span class="hljs-comment">// 响应状态码</span></span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(res.<span class="hljs-property">statusText</span>); <span class="hljs-comment">// 响应状态字符串</span></span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(res.<span class="hljs-property">headers</span>); <span class="hljs-comment">// 响应状态头</span></span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(res.<span class="hljs-property">data</span>); <span class="hljs-comment">// 响应状态体</span></span></span><br><span class="language-javascript"><span class="language-xml">			&#125;)</span></span><br><span class="language-javascript"><span class="language-xml">		&#125;</span></span><br><span class="language-javascript"><span class="language-xml">	</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></span><br><span class="language-xml">...</span><br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Web/" class="print-no-link">#Web</a>
+      
+        <a href="/tags/Node-js/" class="print-no-link">#Node.js</a>
+      
+    </div>
+  
+</div>
+
+
+              
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/12/16/Zookeeper-Redis-MongoDB/" title="Zookeeper-Redis-MongoDB">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Zookeeper-Redis-MongoDB</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/11/24/JavaWeb%20Basics/" title="JavaWeb Basics">
+                        <span class="hidden-mobile">JavaWeb Basics</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'https://zhiyangliang.github.io/2023/12/03/Node.js%20Basics%20(2)/';
+          this.page.identifier = '/2023/12/03/Node.js%20Basics%20(2)/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'fluid' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="/about/" target="_blank" rel="nofollow noopener"><span>Zhiyang Liang (梁智扬)</span></a>
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

@@ -1,0 +1,733 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/zyliang_icon.png">
+  <link rel="icon" href="/img/zyliang_icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Zhiyang Liang (梁智扬)">
+  <meta name="keywords" content="[object Object],[object Object],[object Object]">
+  
+    <meta name="description" content="nn.DataParallel  12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576import torchimport torch.nn as nnfro">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Pytorch Distributed">
+<meta property="og:url" content="https://zhiyangliang.github.io/2024/01/21/Pytorch%20Distributed/index.html">
+<meta property="og:site_name" content="Zhiyang Liang (梁智扬)">
+<meta property="og:description" content="nn.DataParallel  12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576import torchimport torch.nn as nnfro">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-01-20T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-04-16T15:44:17.022Z">
+<meta property="article:author" content="Zhiyang Liang (梁智扬)">
+<meta property="article:tag" content="DDP">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Pytorch Distributed - Zhiyang Liang (梁智扬)</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"zhiyangliang.github.io","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>昼赏微云夜观星</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About me</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>Friends</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default_new.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Pytorch Distributed"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Zhiyang Liang (梁智扬)
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-01-21 00:00" pubdate>
+          January 21, 2024 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.4k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          13 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Pytorch Distributed</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <ul>
+<li>nn.DataParallel</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> torch<br><span class="hljs-keyword">import</span> torch.nn <span class="hljs-keyword">as</span> nn<br><span class="hljs-keyword">from</span> torch.utils.data <span class="hljs-keyword">import</span> Dataset, DataLoader<br><br>input_size = <span class="hljs-number">5</span><br>output_size = <span class="hljs-number">2</span><br>batch_size = <span class="hljs-number">30</span><br>data_size = <span class="hljs-number">100</span><br>device = torch.device(<span class="hljs-string">&#x27;cuda:0&#x27;</span> <span class="hljs-keyword">if</span> torch.cuda.is_available() <span class="hljs-keyword">else</span> <span class="hljs-string">&#x27;cpu&#x27;</span>) <br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">RandomDataset</span>(<span class="hljs-title class_ inherited__">Dataset</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, size, length</span>):<br>        self.<span class="hljs-built_in">len</span> = length<br>        <span class="hljs-comment"># 100*5</span><br>        self.data = torch.randn(length, size)<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__getitem__</span>(<span class="hljs-params">self, index</span>):<br>        <span class="hljs-comment"># (5, )</span><br>        <span class="hljs-keyword">return</span> self.data[index]<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__len__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-comment"># 100</span><br>        <span class="hljs-keyword">return</span> self.<span class="hljs-built_in">len</span><br><br>rand_loader = DataLoader(dataset=RandomDataset(input_size, data_size),<br>                         batch_size=batch_size, <br>                         shuffle=<span class="hljs-literal">True</span>)<br><span class="hljs-built_in">next</span>(<span class="hljs-built_in">iter</span>(rand_loader)).shape  <span class="hljs-comment"># torch.Size([30, 5])</span><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Model</span>(nn.Module):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, input_size, output_size</span>):<br>        <span class="hljs-comment"># 5 =&gt; 2</span><br>        <span class="hljs-built_in">super</span>(Model, self).__init__()<br>        self.fc = nn.Linear(input_size, output_size)<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">forward</span>(<span class="hljs-params">self, <span class="hljs-built_in">input</span></span>):<br>        output = self.fc(<span class="hljs-built_in">input</span>)<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;\\tIn Model: input size&quot;</span>, <span class="hljs-built_in">input</span>.size(),  <span class="hljs-comment"># 每个进程都会print</span><br>              <span class="hljs-string">&quot;output size&quot;</span>, output.size())<br>        <span class="hljs-keyword">return</span> output<br>        <br>model = Model(input_size, output_size)<br><span class="hljs-keyword">if</span> torch.cuda.device_count() &gt; <span class="hljs-number">1</span>:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Let&#x27;s use&quot;</span>, torch.cuda.device_count(), <span class="hljs-string">&quot;GPUs!&quot;</span>)<br>    <span class="hljs-comment"># dim = 0 [30, xxx] -&gt; [10, ...], [10, ...], [10, ...] on 3 GPUs</span><br>    model = nn.DataParallel(model)<br><span class="hljs-built_in">print</span>(model)<br><span class="hljs-comment"># DataParallel(</span><br><span class="hljs-comment">#   (module): Model(</span><br><span class="hljs-comment">#     (fc): Linear(in_features=5, out_features=2, bias=True)</span><br><span class="hljs-comment">#   )</span><br><span class="hljs-comment"># )</span><br><br><span class="hljs-comment"># tensor: to(device)</span><br>a = torch.randn(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;a.is_cuda&#x27;</span>, a.is_cuda)  <span class="hljs-comment"># False</span><br>b = a.to(<span class="hljs-string">&#x27;cuda:0&#x27;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;a.is_cuda&#x27;</span>, a.is_cuda)  <span class="hljs-comment"># False</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;b.is_cuda&#x27;</span>, b.is_cuda)  <span class="hljs-comment"># True</span><br><br><span class="hljs-comment"># model: to(device)</span><br>a = Model(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">next</span>(a.parameters()).is_cuda)  <span class="hljs-comment"># False</span><br>b = a.to(<span class="hljs-string">&#x27;cuda:0&#x27;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">next</span>(a.parameters()).is_cuda)  <span class="hljs-comment"># True</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">next</span>(b.parameters()).is_cuda)  <span class="hljs-comment"># True</span><br><br><span class="hljs-keyword">for</span> data <span class="hljs-keyword">in</span> rand_loader:<br>    <span class="hljs-built_in">input</span> = data.to(device)<br>    output = model(<span class="hljs-built_in">input</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Outside: input size&quot;</span>, <span class="hljs-built_in">input</span>.size(),<br>          <span class="hljs-string">&quot;output_size&quot;</span>, output.size())<br>          <br><span class="hljs-comment"># 	In Model: input size torch.Size([15, 5]) output size torch.Size([15, 2])</span><br><span class="hljs-comment"># 	In Model: input size torch.Size([15, 5]) output size torch.Size([15, 2])</span><br><span class="hljs-comment"># Outside: input size torch.Size([30, 5]) output_size torch.Size([30, 2])</span><br><span class="hljs-comment"># 	In Model: input size torch.Size([15, 5]) output size torch.Size([15, 2])</span><br><span class="hljs-comment"># 	In Model: input size torch.Size([15, 5]) output size torch.Size([15, 2])</span><br><span class="hljs-comment"># Outside: input size torch.Size([30, 5]) output_size torch.Size([30, 2])</span><br></code></pre></td></tr></table></figure>
+<ul>
+<li>分布式数据并行时，模型（model parameters）/优化器（optimizer
+states）每张卡都会拷贝一份（replicas）
+<ul>
+<li>DDP
+始终在卡间维持着模型参数和优化器状态的同步一致性在整个训练过程中</li>
+</ul></li>
+<li>Data Parallel，batch input，通过 <strong>DistributedSampler</strong>
+split &amp; 分发到不同的 gpus 上
+<ul>
+<li>此时虽然模型/optimizer 相同，但因为数据输入不同，导致 loss
+不同，反向传播时计算到的梯度也会不同</li>
+<li>此时 ddp 如何保证卡间，model/optimizer 的同步一致性呢
+<ul>
+<li>ring all-reduce algorithm
+其同步过程不需要等待所有的卡都计算完成一轮梯度</li>
+</ul></li>
+</ul></li>
+<li>world，world_size：
+<ul>
+<li>world：as a group containing all the processes for your distributed
+training.
+<ul>
+<li>通常，每一个 gpu 代表一个进程（process）</li>
+<li>world 内的 process 可以彼此通信，所以有 ddp 分布式训练的；</li>
+</ul></li>
+</ul></li>
+<li>rank
+<ul>
+<li>rank: is the unique ID given to a process, 进程级别的概念，rank
+是为了标识、识别进程，因为进程间（process）需要通信；</li>
+<li>local rank：is the a unique local ID for processes running in a
+single node</li>
+</ul></li>
+<li>node 理解为一个
+server，2个servers（多机，机器之间需要通信）就是2个nodes
+<ul>
+<li>比如每个 node/server/machine 各有4张卡（4 gpus），一个 2
+个node/server；</li>
+<li>world_size: 2*4 == 8</li>
+<li>ranks: [0, 1, 2, 3, 4, 5, 6, 7]</li>
+<li>local_rank: [0, 1, 2, 3], [0, 1, 2, 3]</li>
+</ul></li>
+<li>An example for setup</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">ddp_setup</span>(<span class="hljs-params">rank, world_size</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">    Args:</span><br><span class="hljs-string">        rank: Unique identifier of each process</span><br><span class="hljs-string">        world_size: Total number of processes</span><br><span class="hljs-string">    &quot;&quot;&quot;</span><br>    os.environ[<span class="hljs-string">&quot;MASTER_ADDR&quot;</span>] = <span class="hljs-string">&quot;localhost&quot;</span><br>    os.environ[<span class="hljs-string">&quot;MASTER_PORT&quot;</span>] = <span class="hljs-string">&quot;12355&quot;</span><br>    init_process_group(backend=<span class="hljs-string">&quot;nccl&quot;</span>, rank=rank, world_size=world_size)<br>    torch.cuda.set_device(rank)<br>    <br><span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> torch.distributed.is_initialized():<br>    torch.distributed.init_process_group(<span class="hljs-string">&quot;nccl&quot;</span>)<br><span class="hljs-comment"># torchrun --nproc_per_node 的参数</span><br>model_parallel_size = <span class="hljs-built_in">int</span>(os.environ.get(<span class="hljs-string">&quot;WORLD_SIZE&quot;</span>, <span class="hljs-number">1</span>))<br>local_rank = <span class="hljs-built_in">int</span>(os.environ.get(<span class="hljs-string">&quot;LOCAL_RANK&quot;</span>, <span class="hljs-number">0</span>))<br>torch.cuda.set_device(local_rank)<br></code></pre></td></tr></table></figure>
+<ul>
+<li>nn.parallel.DistributedDataParallel</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> os<br><span class="hljs-keyword">import</span> torch<br><span class="hljs-keyword">import</span> torch.nn.functional <span class="hljs-keyword">as</span> F<br><span class="hljs-keyword">from</span> torch.utils.data <span class="hljs-keyword">import</span> Dataset, DataLoader<br><span class="hljs-comment"># custom trainer</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Trainer</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, </span><br><span class="hljs-params">                 model: torch.nn.Module, </span><br><span class="hljs-params">                 train_dataloader: DataLoader, </span><br><span class="hljs-params">                 optimizer: torch.optim.Optimizer, </span><br><span class="hljs-params">                 gpu_id: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-literal">None</span>:<br>        <span class="hljs-comment"># rank</span><br>        self.gpu_id = gpu_id<br>        self.model = model.to(gpu_id)<br>        self.train_dataloader = train_dataloader<br>        self.optimizer = optimizer<br>        self.model = DDP(model, device_ids=[gpu_id])<br>    <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">_run_batch</span>(<span class="hljs-params">self, xs, ys</span>):<br>        self.optimizer.zero_grad()<br>        output = self.model(xs)<br>        loss = F.cross_entropy(output, ys)<br>        loss.backward()<br>        self.optimizer.step()<br>    <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">_run_epoch</span>(<span class="hljs-params">self, epoch</span>):<br>        batch_size = <span class="hljs-built_in">len</span>(<span class="hljs-built_in">next</span>(<span class="hljs-built_in">iter</span>(self.train_dataloader))[<span class="hljs-number">0</span>])<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;[GPU: <span class="hljs-subst">&#123;self.gpu_id&#125;</span>] Epoch: <span class="hljs-subst">&#123;epoch&#125;</span> | Batchsize: <span class="hljs-subst">&#123;batch_size&#125;</span> | Steps: <span class="hljs-subst">&#123;<span class="hljs-built_in">len</span>(self.train_dataloader)&#125;</span>&#x27;</span>)<br>        self.train_dataloader.sampler.set_epoch(epoch)<br>        <span class="hljs-keyword">for</span> xs, ys <span class="hljs-keyword">in</span> self.train_dataloader:<br>            xs = xs.to(self.gpu_id)<br>            ys = ys.to(self.gpu_id)<br>            self._run_batch(xs, ys)<br>    <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">train</span>(<span class="hljs-params">self, max_epoch: <span class="hljs-built_in">int</span></span>):<br>        <span class="hljs-keyword">for</span> epoch <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(max_epoch):<br>            self._run_epoch(epoch)<br>    <br><span class="hljs-comment"># custom dataset</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyTrainDataset</span>(<span class="hljs-title class_ inherited__">Dataset</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, size</span>):<br>        self.size = size<br>        self.data = [(torch.rand(<span class="hljs-number">20</span>), torch.rand(<span class="hljs-number">1</span>)) <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(size)]<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__len__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">return</span> self.size<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__getitem__</span>(<span class="hljs-params">self, index</span>):<br>        <span class="hljs-keyword">return</span> self.data[index]<br>train_dataset = MyTrainDataset(<span class="hljs-number">2048</span>)<br>train_dataset[<span class="hljs-number">0</span>]<br><span class="hljs-comment"># (tensor([0.4790, 0.5080, 0.1934, 0.5247, 0.6372, 0.9930, 0.2379, 0.9182, 0.3659,</span><br><span class="hljs-comment">#          0.8408, 0.2347, 0.1770, 0.8691, 0.2810, 0.2156, 0.8289, 0.9372, 0.6358,</span><br><span class="hljs-comment">#          0.4338, 0.2754]),</span><br><span class="hljs-comment">#  tensor([0.6307]))</span><br><br><span class="hljs-keyword">import</span> torch.multiprocessing <span class="hljs-keyword">as</span> mp<br><span class="hljs-keyword">from</span> torch.utils.data.distributed <span class="hljs-keyword">import</span> DistributedSampler<br><span class="hljs-keyword">from</span> torch.nn.parallel <span class="hljs-keyword">import</span> DistributedDataParallel <span class="hljs-keyword">as</span> DDP<br><span class="hljs-keyword">from</span> torch.distributed <span class="hljs-keyword">import</span> init_process_group, destroy_process_group<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">main</span>(<span class="hljs-params">rank: <span class="hljs-built_in">int</span>, world_size: <span class="hljs-built_in">int</span>, max_epochs: <span class="hljs-built_in">int</span>, batch_size: <span class="hljs-built_in">int</span></span>):<br>    ddp_setup(rank, world_size)<br>    train_dataset = MyTrainDataset(<span class="hljs-number">2048</span>)<br>    train_dataloader = DataLoader(train_dataset, <br>                              batch_size=batch_size, <br>                              pin_memory=<span class="hljs-literal">True</span>, <br>                              shuffle=<span class="hljs-literal">False</span>, <br>                              <span class="hljs-comment"># batch input: split to each gpus (各个 gpu 之间没有 overlaping samples)</span><br>                              sampler=DistributedSampler(train_dataset))<br>    model = torch.nn.Linear(<span class="hljs-number">20</span>, <span class="hljs-number">1</span>)<br>    optimzer = torch.optim.SGD(model.parameters(), lr=<span class="hljs-number">1e-3</span>)<br>    trainer = Trainer(model=model, gpu_id=rank, optimizer=optimzer, train_dataloader=train_dataloader)<br>    trainer.train(max_epochs)<br>    destroy_process_group()<br>world_size = torch.cuda.device_count()<br><span class="hljs-comment"># 直接运行</span><br>!python ddp_gpus.py --max_epochs <span class="hljs-number">5</span> --batch_size <span class="hljs-number">32</span>  <span class="hljs-comment"># 多卡</span><br><span class="hljs-comment"># 区别:</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">ddp_setup</span>(<span class="hljs-params">rank, world_size</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">    Args:</span><br><span class="hljs-string">        rank: Unique identifier of each process</span><br><span class="hljs-string">        world_size: Total number of processes</span><br><span class="hljs-string">    &quot;&quot;&quot;</span><br>    <span class="hljs-comment"># rank 0 process</span><br>    os.environ[<span class="hljs-string">&quot;MASTER_ADDR&quot;</span>] = <span class="hljs-string">&quot;localhost&quot;</span><br>    os.environ[<span class="hljs-string">&quot;MASTER_PORT&quot;</span>] = <span class="hljs-string">&quot;12355&quot;</span><br>    <span class="hljs-comment"># nccl：NVIDIA Collective Communication Library </span><br>    <span class="hljs-comment"># 分布式情况下的，gpus 间通信</span><br>    init_process_group(backend=<span class="hljs-string">&quot;nccl&quot;</span>, rank=rank, world_size=world_size)<br>    torch.cuda.set_device(rank)<br> <br>world_size = torch.cuda.device_count()<br>mp.spawn(main, args=(world_size, args.max_epochs, args.batch_size), nprocs=world_size)<br><br><span class="hljs-comment"># &lt;https://github.com/chunhuizhang/pytorch_distribute_tutorials/blob/main/tutorials/ddp_gpus.py&gt;</span><br><br><span class="hljs-comment"># torchrun运行</span><br>!torchrun ddp_gpus_torchrun.py --max_epochs <span class="hljs-number">5</span> --batch_size <span class="hljs-number">32</span>  <span class="hljs-comment"># 单卡</span><br>!torchrun --nproc-per-node=<span class="hljs-number">2</span> ddp_gpus_torchrun.py --max_epochs <span class="hljs-number">5</span> --batch_size <span class="hljs-number">32</span>  <span class="hljs-comment"># 多卡</span><br>!python -m torch.distributed.launch --use-env --nproc-per-node=<span class="hljs-number">2</span> ddp_gpus_torchrun.py --max_epochs <span class="hljs-number">5</span> --batch_size <span class="hljs-number">32</span>  <span class="hljs-comment"># 多卡, 与上行等价</span><br><span class="hljs-comment"># 区别</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">ddp_setup</span>():<br>    <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">    Args:</span><br><span class="hljs-string">        rank: Unique identifier of each process</span><br><span class="hljs-string">        world_size: Total number of processes</span><br><span class="hljs-string">    &quot;&quot;&quot;</span><br>    <span class="hljs-comment"># rank 0 process</span><br>    <span class="hljs-comment"># os.environ[&quot;MASTER_ADDR&quot;] = &quot;localhost&quot;</span><br>    <span class="hljs-comment"># os.environ[&quot;MASTER_PORT&quot;] = &quot;12355&quot;</span><br>    <span class="hljs-comment"># nccl：NVIDIA Collective Communication Library </span><br>    <span class="hljs-comment"># 分布式情况下的，gpus 间通信</span><br>    init_process_group(backend=<span class="hljs-string">&quot;nccl&quot;</span>)<br>    torch.cuda.set_device(<span class="hljs-built_in">int</span>(os.environ[<span class="hljs-string">&#x27;LOCAL_RANK&#x27;</span>]))<br>    <br><span class="hljs-comment"># world_size = torch.cuda.device_count()</span><br>main(args.max_epochs, args.batch_size)<br><br><span class="hljs-comment"># &lt;https://github.com/chunhuizhang/pytorch_distribute_tutorials/blob/main/tutorials/ddp_gpus_torchrun.py&gt;</span><br></code></pre></td></tr></table></figure>
+<ul>
+<li>model parallel</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> transformers <span class="hljs-keyword">import</span> LlamaTokenizer, LlamaForCausalLM, GenerationConfig<br>model = LlamaForCausalLM.from_pretrained(<span class="hljs-string">&quot;decapoda-research/llama-7b-hf&quot;</span>,<br>    load_in_8bit=<span class="hljs-literal">True</span>,<br>    device_map=<span class="hljs-string">&quot;auto&quot;</span>,  <span class="hljs-comment"># &quot;auto&quot;, &quot;balanced&quot;, &quot;balanced_low_0&quot;, &quot;sequential&quot;</span><br>)                       <span class="hljs-comment"># GPU(s) &gt; CPU (RAM) &gt; Disk</span><br><span class="hljs-keyword">for</span> i, para <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(model.named_parameters()):<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;i&#125;</span>, \\t <span class="hljs-subst">&#123;para[<span class="hljs-number">1</span>].device&#125;</span> \\t<span class="hljs-subst">&#123;para[<span class="hljs-number">1</span>].dtype&#125;</span>&#x27;</span>)<br>    <br><span class="hljs-comment"># An example on ToyModel</span><br><span class="hljs-keyword">import</span> torch<br><span class="hljs-keyword">import</span> torch.nn <span class="hljs-keyword">as</span> nn<br><span class="hljs-keyword">import</span> torch.optim <span class="hljs-keyword">as</span> optim<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">ToyModel</span>(nn.Module):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-built_in">super</span>(ToyModel, self).__init__()<br>        self.net1 = torch.nn.Linear(<span class="hljs-number">10000</span>, <span class="hljs-number">10</span>).to(<span class="hljs-string">&#x27;cuda:0&#x27;</span>)<br>        self.relu = torch.nn.ReLU()<br>        self.net2 = torch.nn.Linear(<span class="hljs-number">10</span>, <span class="hljs-number">5</span>).to(<span class="hljs-string">&#x27;cuda:1&#x27;</span>)<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">forward</span>(<span class="hljs-params">self, x</span>):<br>        x = self.relu(self.net1(x.to(<span class="hljs-string">&#x27;cuda:0&#x27;</span>)))<br>        <span class="hljs-keyword">return</span> self.net2(x.to(<span class="hljs-string">&#x27;cuda:1&#x27;</span>))<br><br>model = ToyModel()<br>loss_fn = nn.MSELoss()<br>optimizer = optim.SGD(model.parameters(), lr=<span class="hljs-number">0.001</span>)<br>optimizer.zero_grad()<br>outputs = model(torch.randn(<span class="hljs-number">20</span>, <span class="hljs-number">10000</span>))<br>labels = torch.randn(<span class="hljs-number">20</span>, <span class="hljs-number">5</span>).to(<span class="hljs-string">&#x27;cuda:1&#x27;</span>)<br>loss_fn(outputs, labels).backward()<br>optimizer.step()<br><br><span class="hljs-comment"># An example on ResNet</span><br><span class="hljs-keyword">import</span> torch<br><span class="hljs-keyword">from</span> torch <span class="hljs-keyword">import</span> nn<br><span class="hljs-keyword">from</span> torchvision.models.resnet <span class="hljs-keyword">import</span> ResNet, Bottleneck<br><span class="hljs-comment"># from torchvision.models.resnet import resnet18, resnet34, resnet50, resnet101, resnet152</span><br>model = ResNet(Bottleneck, [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">6</span>, <span class="hljs-number">3</span>])  <span class="hljs-comment"># resnet50</span><br><span class="hljs-keyword">from</span> torchsummary <span class="hljs-keyword">import</span> summary<br>summary(model, input_size=(<span class="hljs-number">3</span>, <span class="hljs-number">128</span>, <span class="hljs-number">128</span>), device=<span class="hljs-string">&#x27;cpu&#x27;</span>)<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">ModelParallelResNet50</span>(<span class="hljs-title class_ inherited__">ResNet</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, num_classes=<span class="hljs-number">1000</span></span>):<br>        <span class="hljs-built_in">super</span>().__init__(Bottleneck, [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">6</span>, <span class="hljs-number">3</span>], num_classes=num_classes)<br>        <span class="hljs-comment"># conv1 =&gt; bn1 =&gt; relu =&gt; maxpool =&gt; layer1-layer4 =&gt; avgpool =&gt; fc</span><br>        self.seq1 = nn.Sequential(<br>            self.conv1,<br>            self.bn1,<br>            self.relu,<br>            self.maxpool,<br>            self.layer1, <br>            self.layer2<br>        ).to(<span class="hljs-string">&#x27;cuda:0&#x27;</span>)<br>        <br>        self.seq2 = nn.Sequential(<br>            self.layer3, <br>            self.layer4,<br>            self.avgpool,<br>        ).to(<span class="hljs-string">&#x27;cuda:1&#x27;</span>)<br>        <br>        self.fc.to(<span class="hljs-string">&#x27;cuda:1&#x27;</span>)<br>    <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">forward</span>(<span class="hljs-params">self, x</span>):<br>        x = self.seq2(self.seq1(x).to(<span class="hljs-string">&#x27;cuda:1&#x27;</span>))<br>        <span class="hljs-keyword">return</span> self.fc(x.view(x.size(<span class="hljs-number">0</span>), -<span class="hljs-number">1</span>))<br>        <br><span class="hljs-keyword">def</span> <span class="hljs-title function_">model_size</span>(<span class="hljs-params">model</span>):<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">sum</span>([para.numel() <span class="hljs-keyword">for</span> para <span class="hljs-keyword">in</span> model.parameters()])<br><br>one_hot_indices = torch.LongTensor(<span class="hljs-number">5</span>) \\<br>                           .random_(<span class="hljs-number">0</span>, num_classes) \\<br>                           .view(<span class="hljs-number">5</span>, <span class="hljs-number">1</span>)<br>labels = torch.zeros(<span class="hljs-number">5</span>, num_classes) \\<br>                      .scatter_(<span class="hljs-number">1</span>, one_hot_indices, <span class="hljs-number">1</span>)<br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/DDP/" class="print-no-link">#DDP</a>
+      
+    </div>
+  
+</div>
+
+
+              
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/02/12/Prompt%20Engineering/" title="Prompt Engineering">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Prompt Engineering</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/01/10/LLM%20Basics/" title="LLM Basics">
+                        <span class="hidden-mobile">LLM Basics</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'https://zhiyangliang.github.io/2024/01/21/Pytorch%20Distributed/';
+          this.page.identifier = '/2024/01/21/Pytorch%20Distributed/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'fluid' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="/about/" target="_blank" rel="nofollow noopener"><span>Zhiyang Liang (梁智扬)</span></a>
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

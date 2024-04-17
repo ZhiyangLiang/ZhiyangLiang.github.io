@@ -1,0 +1,699 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/zyliang_icon.png">
+  <link rel="icon" href="/img/zyliang_icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Zhiyang Liang (梁智扬)">
+  <meta name="keywords" content="[object Object],[object Object],[object Object]">
+  
+    <meta name="description" content="Causal Attention  12seq_ids &#x3D; torch.arange(seq_length, device&#x3D;device)                causal_mask &#x3D; seq_ids[None, None, :].repeat(batch_size, seq_length, 1) &lt;&#x3D; seq_ids[None, :, None]  DDPM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Diffusers">
+<meta property="og:url" content="https://zhiyangliang.github.io/2023/12/28/Diffusers/index.html">
+<meta property="og:site_name" content="Zhiyang Liang (梁智扬)">
+<meta property="og:description" content="Causal Attention  12seq_ids &#x3D; torch.arange(seq_length, device&#x3D;device)                causal_mask &#x3D; seq_ids[None, None, :].repeat(batch_size, seq_length, 1) &lt;&#x3D; seq_ids[None, :, None]  DDPM">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-12-27T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-04-16T15:43:29.335Z">
+<meta property="article:author" content="Zhiyang Liang (梁智扬)">
+<meta property="article:tag" content="Diffusion">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Diffusers - Zhiyang Liang (梁智扬)</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"zhiyangliang.github.io","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>昼赏微云夜观星</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About me</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>Friends</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default_new.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Diffusers"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Zhiyang Liang (梁智扬)
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-12-28 00:00" pubdate>
+          December 28, 2023 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.5k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          13 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Diffusers</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <ul>
+<li>Causal Attention</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">seq_ids = torch.arange(seq_length, device=device)<br>                causal_mask = seq_ids[<span class="hljs-literal">None</span>, <span class="hljs-literal">None</span>, :].repeat(batch_size, seq_length, <span class="hljs-number">1</span>) &lt;= seq_ids[<span class="hljs-literal">None</span>, :, <span class="hljs-literal">None</span>]<br></code></pre></td></tr></table></figure>
+<ul>
+<li>DDPM</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> diffusers <span class="hljs-keyword">import</span> DDPMPipeline<br>ddpm = DDPMPipeline.from_pretrained(<span class="hljs-string">&quot;google/ddpm-cat-256&quot;</span>, use_safetensors=<span class="hljs-literal">True</span>).to(<span class="hljs-string">&quot;cuda&quot;</span>)<br>image = ddpm(num_inference_steps=<span class="hljs-number">25</span>).images[<span class="hljs-number">0</span>]<br><br><span class="hljs-keyword">from</span> diffusers <span class="hljs-keyword">import</span> DDPMScheduler, UNet2DModel<br>scheduler = DDPMScheduler.from_pretrained(<span class="hljs-string">&quot;google/ddpm-cat-256&quot;</span>)<br>model = UNet2DModel.from_pretrained(<span class="hljs-string">&quot;google/ddpm-cat-256&quot;</span>, use_safetensors=<span class="hljs-literal">True</span>).to(<span class="hljs-string">&quot;cuda&quot;</span>)<br>scheduler.set_timesteps(<span class="hljs-number">50</span>): <br><br><span class="hljs-comment"># scheduler.timesteps</span><br><span class="hljs-comment"># tensor([980, 960, 940, 920, 900, 880, 860, 840, 820, 800, 780, 760, 740, 720,</span><br><span class="hljs-comment">#    700, 680, 660, 640, 620, 600, 580, 560, 540, 520, 500, 480, 460, 440,</span><br><span class="hljs-comment">#    420, 400, 380, 360, 340, 320, 300, 280, 260, 240, 220, 200, 180, 160,</span><br><span class="hljs-comment">#    140, 120, 100,  80,  60,  40,  20,   0])</span><br><br><span class="hljs-keyword">import</span> torch<br>sample_size = model.config.sample_size<br>noise = torch.randn((<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, sample_size, sample_size), device=<span class="hljs-string">&quot;cuda&quot;</span>)<br><span class="hljs-built_in">input</span> = noise<br><span class="hljs-keyword">for</span> t <span class="hljs-keyword">in</span> scheduler.timesteps:<br>    <span class="hljs-keyword">with</span> torch.no_grad():<br>        noisy_residual = model(<span class="hljs-built_in">input</span>, t).sample<br>    previous_noisy_sample = scheduler.step(noisy_residual, t, <span class="hljs-built_in">input</span>).prev_sample<br>    <span class="hljs-built_in">input</span> = previous_noisy_sample<br><br><span class="hljs-comment"># show</span><br><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br>image = (<span class="hljs-built_in">input</span> / <span class="hljs-number">2</span> + <span class="hljs-number">0.5</span>).clamp(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>).squeeze()<br>image = (image.permute(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">0</span>) * <span class="hljs-number">255</span>).<span class="hljs-built_in">round</span>().to(torch.uint8).cpu().numpy()<br>image = Image.fromarray(image)<br></code></pre></td></tr></table></figure>
+<ul>
+<li>Stable Diffusion</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> torch<br><span class="hljs-keyword">from</span> diffusers <span class="hljs-keyword">import</span> StableDiffusionPipeline<br>pipe = StableDiffusionPipeline.from_pretrained(<span class="hljs-string">&quot;CompVis/stable-diffusion-v1-4&quot;</span>, revision=<span class="hljs-string">&quot;fp16&quot;</span>, torch_dtype=torch.float16)<br>prompt = <span class="hljs-string">&quot;a photograph of an astronaut riding a horse&quot;</span> <span class="hljs-comment"># revision=&quot;fp16&quot;表示半精度</span><br>image = pipe(prompt).images[<span class="hljs-number">0</span>]<br><br>result = pipe(prompt)<br><span class="hljs-built_in">print</span>(result)<br><span class="hljs-comment"># &#123;</span><br><span class="hljs-comment">#     &#x27;images&#x27;: [&lt;PIL.Image.Image image mode=RGB size=512x512&gt;],</span><br><span class="hljs-comment">#     &#x27;nsfw_content_detected&#x27;: [False]</span><br><span class="hljs-comment"># &#125;</span><br><br><span class="hljs-comment"># Advanced</span><br>generator = torch.Generator(<span class="hljs-string">&quot;cuda&quot;</span>).manual_seed(<span class="hljs-number">1024</span>)<br>image = pipe(prompt, guidance_scale=<span class="hljs-number">7.5</span>, num_inference_steps=<span class="hljs-number">15</span>, generator=generator).images[<span class="hljs-number">0</span>]<br><span class="hljs-comment"># 通过generator和seed可以使每次生成的图片一致</span><br><span class="hljs-comment"># guidance_scale表示生成图片和文本的贴合程度, 但可能会导致质量与多样性下降</span><br><span class="hljs-comment"># num_inference_steps表示去噪步数</span><br><br><span class="hljs-comment"># 对多张图片用网格的方式来展示</span><br><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">image_grid</span>(<span class="hljs-params">imgs, rows, cols</span>):<br>    <span class="hljs-keyword">assert</span> <span class="hljs-built_in">len</span>(imgs) == rows*cols<br>    w, h = imgs[<span class="hljs-number">0</span>].size<br>    grid = Image.new(<span class="hljs-string">&#x27;RGB&#x27;</span>, size=(cols*w, rows*h))<br>    grid_w, grid_h = grid.size<br>    <span class="hljs-keyword">for</span> i, img <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(imgs):<br>        grid.paste(img, box=(i%cols*w, i//cols*h))<br>    <span class="hljs-keyword">return</span> grid<br><br>num_images = <span class="hljs-number">3</span><br>prompt = [<span class="hljs-string">&quot;a photograph of an astronaut riding a horse&quot;</span>] * num_images<br>images = pipe(prompt).images<br>grid = image_grid(images, rows=<span class="hljs-number">1</span>, cols=<span class="hljs-number">3</span>)<br><br><span class="hljs-comment"># 修改图片的尺寸</span><br>prompt = <span class="hljs-string">&quot;a photograph of an astronaut riding a horse&quot;</span><br>image = pipe(prompt, height=<span class="hljs-number">512</span>, width=<span class="hljs-number">768</span>).images[<span class="hljs-number">0</span>]<br></code></pre></td></tr></table></figure>
+<ul>
+<li>Details of Stable Diffusion</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> torch<br><span class="hljs-keyword">from</span> transformers <span class="hljs-keyword">import</span> CLIPTextModel, CLIPTokenizer<br><span class="hljs-keyword">from</span> diffusers <span class="hljs-keyword">import</span> AutoencoderKL, UNet2DConditionModel, PNDMScheduler<br>vae = AutoencoderKL.from_pretrained(<span class="hljs-string">&quot;CompVis/stable-diffusion-v1-4&quot;</span>, subfolder=<span class="hljs-string">&quot;vae&quot;</span>, use_safetensors=<span class="hljs-literal">True</span>)<br>tokenizer = CLIPTokenizer.from_pretrained(<span class="hljs-string">&quot;CompVis/stable-diffusion-v1-4&quot;</span>, subfolder=<span class="hljs-string">&quot;tokenizer&quot;</span>)<br>text_encoder = CLIPTextModel.from_pretrained(<br>    <span class="hljs-string">&quot;CompVis/stable-diffusion-v1-4&quot;</span>, subfolder=<span class="hljs-string">&quot;text_encoder&quot;</span>, use_safetensors=<span class="hljs-literal">True</span><br>)<br>unet = UNet2DConditionModel.from_pretrained(<br>    <span class="hljs-string">&quot;CompVis/stable-diffusion-v1-4&quot;</span>, subfolder=<span class="hljs-string">&quot;unet&quot;</span>, use_safetensors=<span class="hljs-literal">True</span><br>)<br><br><span class="hljs-keyword">from</span> diffusers <span class="hljs-keyword">import</span> LMSDiscreteScheduler<br>scheduler = LMSDiscreteScheduler(beta_start=<span class="hljs-number">0.00085</span>, beta_end=<span class="hljs-number">0.012</span>, beta_schedule=<span class="hljs-string">&quot;scaled_linear&quot;</span>, num_train_timesteps=<span class="hljs-number">1000</span>)<br><br>prompt = [<span class="hljs-string">&quot;a photograph of an astronaut riding a horse&quot;</span>]<br>height = <span class="hljs-number">512</span>  <span class="hljs-comment"># default height of Stable Diffusion</span><br>width = <span class="hljs-number">512</span>  <span class="hljs-comment"># default width of Stable Diffusion</span><br>num_inference_steps = <span class="hljs-number">25</span>  <span class="hljs-comment"># Number of denoising steps</span><br>guidance_scale = <span class="hljs-number">7.5</span>  <span class="hljs-comment"># Scale for classifier-free guidance</span><br>generator = torch.manual_seed(<span class="hljs-number">0</span>)  <span class="hljs-comment"># Seed generator to create the initial latent noise</span><br>batch_size = <span class="hljs-built_in">len</span>(prompt)<br><br>text_input = tokenizer(<br>    prompt, padding=<span class="hljs-string">&quot;max_length&quot;</span>, max_length=tokenizer.model_max_length, truncation=<span class="hljs-literal">True</span>, return_tensors=<span class="hljs-string">&quot;pt&quot;</span><br>)<br><span class="hljs-keyword">with</span> torch.no_grad():<br>    text_embeddings = text_encoder(text_input.input_ids.to(torch_device))[<span class="hljs-number">0</span>]<br>max_length = text_input.input_ids.shape[-<span class="hljs-number">1</span>]<br>uncond_input = tokenizer([<span class="hljs-string">&quot;&quot;</span>] * batch_size, padding=<span class="hljs-string">&quot;max_length&quot;</span>, max_length=max_length, return_tensors=<span class="hljs-string">&quot;pt&quot;</span>)<br>uncond_embeddings = text_encoder(uncond_input.input_ids.to(torch_device))[<span class="hljs-number">0</span>] <span class="hljs-comment"># for classifier-free guidance</span><br>text_embeddings = orch.cat([uncond_embeddings, text_embeddings])<br>latents = torch.randn(<br>    (batch_size, unet.config.in_channels, height // <span class="hljs-number">8</span>, width // <span class="hljs-number">8</span>),<br>    generator=generator,<br>    device=torch_device,<br>)<br><br>scheduler.set_timesteps(num_inference_steps)<br>latents = latents * scheduler.init_noise_sigma <span class="hljs-comment"># The K-LMS scheduler needs to multiply the latents by its sigma values</span><br><br><span class="hljs-keyword">from</span> tqdm.auto <span class="hljs-keyword">import</span> tqdm<br><span class="hljs-keyword">for</span> t <span class="hljs-keyword">in</span> tqdm(scheduler.timesteps):<br>    <span class="hljs-comment"># expand the latents if we are doing classifier-free guidance to avoid doing two forward passes.</span><br>    latent_model_input = torch.cat([latents] * <span class="hljs-number">2</span>)<br>    latent_model_input = scheduler.scale_model_input(latent_model_input, timestep=t)<br>    <span class="hljs-comment"># predict the noise residual</span><br>    <span class="hljs-keyword">with</span> torch.no_grad():<br>        noise_pred = unet(latent_model_input, t, encoder_hidden_states=text_embeddings).sample<br>    <span class="hljs-comment"># perform guidance</span><br>    noise_pred_uncond, noise_pred_text = noise_pred.chunk(<span class="hljs-number">2</span>)<br>    noise_pred = noise_pred_uncond + guidance_scale * (noise_pred_text - noise_pred_uncond)<br>    <span class="hljs-comment"># compute the previous noisy sample x_t -&gt; x_t-1</span><br>    latents = scheduler.step(noise_pred, t, latents).prev_sample<br><br><span class="hljs-comment"># scale and decode the image latents with vae</span><br>latents = <span class="hljs-number">1</span> / <span class="hljs-number">0.18215</span> * latents<br><span class="hljs-keyword">with</span> torch.no_grad():<br>    image = vae.decode(latents).sample<br><br><span class="hljs-comment"># convert the image to PIL</span><br><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image<br>image = (image / <span class="hljs-number">2</span> + <span class="hljs-number">0.5</span>).clamp(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>).squeeze()<br>image = (image.permute(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">0</span>) * <span class="hljs-number">255</span>).to(torch.uint8).cpu().numpy()<br>images = (image * <span class="hljs-number">255</span>).<span class="hljs-built_in">round</span>().astype(<span class="hljs-string">&quot;uint8&quot;</span>)<br>image = Image.fromarray(image)<br></code></pre></td></tr></table></figure>
+<ul>
+<li><strong>AutoPipeline</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> torch<br><span class="hljs-keyword">from</span> diffusers <span class="hljs-keyword">import</span> AutoPipelineForText2Image<br>pipeline = AutoPipelineForText2Image.from_pretrained(<br>    <span class="hljs-string">&quot;runwayml/stable-diffusion-v1-5&quot;</span>, torch_dtype=torch.float16, use_safetensors=<span class="hljs-literal">True</span><br>).to(<span class="hljs-string">&quot;cuda&quot;</span>)<br>prompt = <span class="hljs-string">&quot;peasant and dragon combat, wood cutting style, viking era, bevel with rune&quot;</span><br>image = pipeline(prompt, num_inference_steps=<span class="hljs-number">25</span>).images[<span class="hljs-number">0</span>]<br><span class="hljs-keyword">from</span> diffusers <span class="hljs-keyword">import</span> AutoPipelineForImage2Image<br><span class="hljs-keyword">import</span> torch<br><span class="hljs-keyword">import</span> requests<br><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image<br><span class="hljs-keyword">from</span> io <span class="hljs-keyword">import</span> BytesIO<br><br>pipeline = AutoPipelineForImage2Image.from_pretrained(<br>    <span class="hljs-string">&quot;runwayml/stable-diffusion-v1-5&quot;</span>, torch_dtype=torch.float16, use_safetensors=<span class="hljs-literal">True</span><br>).to(<span class="hljs-string">&quot;cuda&quot;</span>)<br>prompt = <span class="hljs-string">&quot;a portrait of a dog wearing a pearl earring&quot;</span><br>url = <span class="hljs-string">&quot;&lt;https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/1665_Girl_with_a_Pearl_Earring.jpg/800px-1665_Girl_with_a_Pearl_Earring.jpg&gt;&quot;</span><br>response = requests.get(url)<br>image = Image.<span class="hljs-built_in">open</span>(BytesIO(response.content)).convert(<span class="hljs-string">&quot;RGB&quot;</span>)<br>image.thumbnail((<span class="hljs-number">768</span>, <span class="hljs-number">768</span>)) <span class="hljs-comment"># 生成图像的缩略图, (768, 768) 定义缩略图的最大尺寸</span><br><span class="hljs-comment"># 如果原始图像的宽度或高度超过 768 像素, 则会按比例缩小图像, 使得宽度或高度等于 768 像素, 另一维度相应地按比例减小, 以保持原始的宽高比</span><br>image = pipeline(prompt, image, num_inference_steps=<span class="hljs-number">200</span>, strength=<span class="hljs-number">0.75</span>, guidance_scale=<span class="hljs-number">10.5</span>).images[<span class="hljs-number">0</span>]<br><span class="hljs-keyword">import</span> torch<br><span class="hljs-keyword">from</span> diffusers.utils <span class="hljs-keyword">import</span> load_image<br><span class="hljs-keyword">from</span> diffusers <span class="hljs-keyword">import</span> AutoPipelineForInpainting<br><br>pipeline = AutoPipelineForInpainting.from_pretrained(<br>    <span class="hljs-string">&quot;stabilityai/stable-diffusion-xl-base-1.0&quot;</span>, torch_dtype=torch.float16, use_safetensors=<span class="hljs-literal">True</span><br>).to(<span class="hljs-string">&quot;cuda&quot;</span>)<br>img_url = <span class="hljs-string">&quot;&lt;https://raw.githubusercontent.com/CompVis/latent-diffusion/main/data/inpainting_examples/overture-creations-5sI6fQgYIuo.png&gt;&quot;</span><br>mask_url = <span class="hljs-string">&quot;&lt;https://raw.githubusercontent.com/CompVis/latent-diffusion/main/data/inpainting_examples/overture-creations-5sI6fQgYIuo_mask.png&gt;&quot;</span><br>init_image = load_image(img_url).convert(<span class="hljs-string">&quot;RGB&quot;</span>)<br>mask_image = load_image(mask_url).convert(<span class="hljs-string">&quot;RGB&quot;</span>)<br>prompt = <span class="hljs-string">&quot;A majestic tiger sitting on a bench&quot;</span><br>image = pipeline(prompt, image=init_image, mask_image=mask_image, num_inference_steps=<span class="hljs-number">50</span>, strength=<span class="hljs-number">0.80</span>).images[<span class="hljs-number">0</span>]<br></code></pre></td></tr></table></figure>
+<ul>
+<li>Training</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> torch<br><span class="hljs-keyword">from</span> dataclasses <span class="hljs-keyword">import</span> dataclass<br><span class="hljs-meta">@dataclass</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">TrainingConfig</span>:<br>    image_size = <span class="hljs-number">128</span>  <span class="hljs-comment"># the generated image resolution</span><br>    train_batch_size = <span class="hljs-number">16</span><br>    eval_batch_size = <span class="hljs-number">16</span>  <span class="hljs-comment"># how many images to sample during evaluation</span><br>    num_epochs = <span class="hljs-number">50</span><br>    gradient_accumulation_steps = <span class="hljs-number">1</span><br>    learning_rate = <span class="hljs-number">1e-4</span><br>    lr_warmup_steps = <span class="hljs-number">500</span><br>    save_image_epochs = <span class="hljs-number">10</span><br>    save_model_epochs = <span class="hljs-number">30</span><br>    mixed_precision = <span class="hljs-string">&quot;fp16&quot;</span>  <span class="hljs-comment"># `no` for float32, `fp16` for automatic mixed precision</span><br>    output_dir = <span class="hljs-string">&quot;ddpm-butterflies-128&quot;</span>  <span class="hljs-comment"># the model name locally and on the HF Hub</span><br><br>    push_to_hub = <span class="hljs-literal">True</span>  <span class="hljs-comment"># whether to upload the saved model to the HF Hub</span><br>    hub_model_id = <span class="hljs-string">&quot;&lt;your-username&gt;/&lt;my-awesome-model&gt;&quot;</span>  <span class="hljs-comment"># the name of the repository to create on the HF Hub</span><br>    hub_private_repo = <span class="hljs-literal">False</span><br>    overwrite_output_dir = <span class="hljs-literal">True</span>  <span class="hljs-comment"># overwrite the old model when re-running the notebook</span><br>    seed = <span class="hljs-number">0</span><br>config = TrainingConfig()<br><br><span class="hljs-keyword">from</span> datasets <span class="hljs-keyword">import</span> load_dataset<br>config.dataset_name = <span class="hljs-string">&quot;huggan/smithsonian_butterflies_subset&quot;</span><br>dataset = load_dataset(config.dataset_name, split=<span class="hljs-string">&quot;train&quot;</span>)<br><br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br>fig, axs = plt.subplots(<span class="hljs-number">1</span>, <span class="hljs-number">4</span>, figsize=(<span class="hljs-number">16</span>, <span class="hljs-number">4</span>))<br><span class="hljs-keyword">for</span> i, image <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(dataset[:<span class="hljs-number">4</span>][<span class="hljs-string">&quot;image&quot;</span>]):<br>    axs[i].imshow(image)<br>    axs[i].set_axis_off()<br>fig.show()<br><span class="hljs-keyword">from</span> torchvision <span class="hljs-keyword">import</span> transforms<br>preprocess = transforms.Compose(<br>    [<br>        transforms.Resize((config.image_size, config.image_size)),<br>        transforms.RandomHorizontalFlip(),<br>        transforms.ToTensor(),<br>        transforms.Normalize([<span class="hljs-number">0.5</span>], [<span class="hljs-number">0.5</span>]),<br>    ]<br>)<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">transform</span>(<span class="hljs-params">examples</span>):<br>    images = [preprocess(image.convert(<span class="hljs-string">&quot;RGB&quot;</span>)) <span class="hljs-keyword">for</span> image <span class="hljs-keyword">in</span> examples[<span class="hljs-string">&quot;image&quot;</span>]]<br>    <span class="hljs-keyword">return</span> &#123;<span class="hljs-string">&quot;images&quot;</span>: images&#125;<br>dataset.set_transform(transform)<br><br>train_dataloader = torch.utils.data.DataLoader(dataset, batch_size=config.train_batch_size, shuffle=<span class="hljs-literal">True</span>)<br><span class="hljs-keyword">from</span> diffusers <span class="hljs-keyword">import</span> UNet2DModel<br>model = UNet2DModel(<br>    sample_size=config.image_size,  <span class="hljs-comment"># the target image resolution</span><br>    in_channels=<span class="hljs-number">3</span>,  <span class="hljs-comment"># the number of input channels, 3 for RGB images</span><br>    out_channels=<span class="hljs-number">3</span>,  <span class="hljs-comment"># the number of output channels</span><br>    layers_per_block=<span class="hljs-number">2</span>,  <span class="hljs-comment"># how many ResNet layers to use per UNet block</span><br>    block_out_channels=(<span class="hljs-number">128</span>, <span class="hljs-number">128</span>, <span class="hljs-number">256</span>, <span class="hljs-number">256</span>, <span class="hljs-number">512</span>, <span class="hljs-number">512</span>),  <span class="hljs-comment"># the number of output channels for each UNet block</span><br>    down_block_types=(<br>        <span class="hljs-string">&quot;DownBlock2D&quot;</span>,  <span class="hljs-comment"># a regular ResNet downsampling block</span><br>        <span class="hljs-string">&quot;DownBlock2D&quot;</span>,<br>        <span class="hljs-string">&quot;DownBlock2D&quot;</span>,<br>        <span class="hljs-string">&quot;DownBlock2D&quot;</span>,<br>        <span class="hljs-string">&quot;AttnDownBlock2D&quot;</span>,  <span class="hljs-comment"># a ResNet downsampling block with spatial self-attention</span><br>        <span class="hljs-string">&quot;DownBlock2D&quot;</span>,<br>    ),<br>    up_block_types=(<br>        <span class="hljs-string">&quot;UpBlock2D&quot;</span>,  <span class="hljs-comment"># a regular ResNet upsampling block</span><br>        <span class="hljs-string">&quot;AttnUpBlock2D&quot;</span>,  <span class="hljs-comment"># a ResNet upsampling block with spatial self-attention</span><br>        <span class="hljs-string">&quot;UpBlock2D&quot;</span>,<br>        <span class="hljs-string">&quot;UpBlock2D&quot;</span>,<br>        <span class="hljs-string">&quot;UpBlock2D&quot;</span>,<br>        <span class="hljs-string">&quot;UpBlock2D&quot;</span>,<br>    ),<br>)<br><br><span class="hljs-keyword">from</span> diffusers.optimization <span class="hljs-keyword">import</span> get_cosine_schedule_with_warmup<br>optimizer = torch.optim.AdamW(model.parameters(), lr=config.learning_rate)<br>lr_scheduler = get_cosine_schedule_with_warmup(<br>    optimizer=optimizer,<br>    num_warmup_steps=config.lr_warmup_steps,<br>    num_training_steps=(<span class="hljs-built_in">len</span>(train_dataloader) * config.num_epochs),<br>)<br><br><span class="hljs-comment"># An example</span><br><span class="hljs-keyword">from</span> diffusers <span class="hljs-keyword">import</span> DDPMScheduler<br>noise_scheduler = DDPMScheduler(num_train_timesteps=<span class="hljs-number">1000</span>)<br>noise = torch.randn(sample_image.shape)<br>timesteps = torch.LongTensor([<span class="hljs-number">50</span>])<br>noisy_image = noise_scheduler.add_noise(sample_image, noise, timesteps)<br>Image.fromarray(((noisy_image.permute(<span class="hljs-number">0</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>) + <span class="hljs-number">1.0</span>) * <span class="hljs-number">127.5</span>).<span class="hljs-built_in">type</span>(torch.uint8).numpy()[<span class="hljs-number">0</span>])<br>noise_pred = model(noisy_image, timesteps).sample<br>loss = F.mse_loss(noise_pred, noise)<br><span class="hljs-keyword">import</span> os<br><span class="hljs-keyword">from</span> diffusers <span class="hljs-keyword">import</span> DDPMPipeline<br><span class="hljs-keyword">from</span> diffusers.utils <span class="hljs-keyword">import</span> make_image_grid<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">evaluate</span>(<span class="hljs-params">config, epoch, pipeline</span>):<br>    <span class="hljs-comment"># Sample some images from random noise (this is the backward diffusion process).</span><br>    <span class="hljs-comment"># The default pipeline output type is `List[PIL.Image]`</span><br>    images = pipeline(<br>        batch_size=config.eval_batch_size,<br>        generator=torch.manual_seed(config.seed),<br>    ).images<br><br>    <span class="hljs-comment"># Make a grid out of the images</span><br>    image_grid = make_image_grid(images, rows=<span class="hljs-number">4</span>, cols=<span class="hljs-number">4</span>)<br><br>    <span class="hljs-comment"># Save the images</span><br>    test_dir = os.path.join(config.output_dir, <span class="hljs-string">&quot;samples&quot;</span>)<br>    os.makedirs(test_dir, exist_ok=<span class="hljs-literal">True</span>)<br>    image_grid.save(<span class="hljs-string">f&quot;<span class="hljs-subst">&#123;test_dir&#125;</span>/<span class="hljs-subst">&#123;epoch:04d&#125;</span>.png&quot;</span>)<br><span class="hljs-keyword">import</span> os<br><span class="hljs-keyword">from</span> pathlib <span class="hljs-keyword">import</span> Path<br><span class="hljs-keyword">from</span> tqdm.auto <span class="hljs-keyword">import</span> tqdm<br><span class="hljs-keyword">from</span> accelerate <span class="hljs-keyword">import</span> Accelerator<br><span class="hljs-keyword">from</span> huggingface_hub <span class="hljs-keyword">import</span> create_repo, upload_folder<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">train_loop</span>(<span class="hljs-params">config, model, noise_scheduler, optimizer, train_dataloader, lr_scheduler</span>):<br>    <span class="hljs-comment"># Initialize accelerator and tensorboard logging</span><br>    accelerator = Accelerator(<br>        mixed_precision=config.mixed_precision,<br>        gradient_accumulation_steps=config.gradient_accumulation_steps,<br>        log_with=<span class="hljs-string">&quot;tensorboard&quot;</span>,<br>        project_dir=os.path.join(config.output_dir, <span class="hljs-string">&quot;logs&quot;</span>),<br>    )<br>    <span class="hljs-keyword">if</span> accelerator.is_main_process:<br>        <span class="hljs-keyword">if</span> config.output_dir <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">None</span>:<br>            os.makedirs(config.output_dir, exist_ok=<span class="hljs-literal">True</span>)<br>        <span class="hljs-keyword">if</span> config.push_to_hub:<br>            repo_id = create_repo(<br>                repo_id=config.hub_model_id <span class="hljs-keyword">or</span> Path(config.output_dir).name, exist_ok=<span class="hljs-literal">True</span><br>            ).repo_id<br>        accelerator.init_trackers(<span class="hljs-string">&quot;train_example&quot;</span>)<br><br>    <span class="hljs-comment"># Prepare everything</span><br>    <span class="hljs-comment"># There is no specific order to remember, you just need to unpack the</span><br>    <span class="hljs-comment"># objects in the same order you gave them to the prepare method.</span><br>    model, optimizer, train_dataloader, lr_scheduler = accelerator.prepare(<br>        model, optimizer, train_dataloader, lr_scheduler<br>    )<br><br>    global_step = <span class="hljs-number">0</span><br><br>    <span class="hljs-comment"># Now you train the model</span><br>    <span class="hljs-keyword">for</span> epoch <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(config.num_epochs):<br>        <span class="hljs-keyword">for</span> step, batch <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(train_dataloader):<br>            clean_images = batch[<span class="hljs-string">&quot;images&quot;</span>]<br>            <span class="hljs-comment"># Sample noise to add to the images</span><br>            noise = torch.randn(clean_images.shape, device=clean_images.device)<br>            bs = clean_images.shape[<span class="hljs-number">0</span>]<br><br>            <span class="hljs-comment"># Sample a random timestep for each image</span><br>            timesteps = torch.randint(<br>                <span class="hljs-number">0</span>, noise_scheduler.config.num_train_timesteps, (bs,), device=clean_images.device,<br>                dtype=torch.int64<br>            )<br><br>            <span class="hljs-comment"># Add noise to the clean images according to the noise magnitude at each timestep</span><br>            <span class="hljs-comment"># (this is the forward diffusion process)</span><br>            noisy_images = noise_scheduler.add_noise(clean_images, noise, timesteps)<br><br>            <span class="hljs-keyword">with</span> accelerator.accumulate(model):<br>                <span class="hljs-comment"># Predict the noise residual</span><br>                noise_pred = model(noisy_images, timesteps, return_dict=<span class="hljs-literal">False</span>)[<span class="hljs-number">0</span>]<br>                loss = F.mse_loss(noise_pred, noise)<br>                accelerator.backward(loss)<br><br>                accelerator.clip_grad_norm_(model.parameters(), <span class="hljs-number">1.0</span>)<br>                optimizer.step()<br>                lr_scheduler.step()<br>                optimizer.zero_grad()<br><br>        <span class="hljs-comment"># After each epoch you optionally sample some demo images with evaluate() and save the model</span><br>        <span class="hljs-keyword">if</span> accelerator.is_main_process:<br>            pipeline = DDPMPipeline(unet=accelerator.unwrap_model(model), scheduler=noise_scheduler)<br><br>            <span class="hljs-keyword">if</span> (epoch + <span class="hljs-number">1</span>) % config.save_image_epochs == <span class="hljs-number">0</span> <span class="hljs-keyword">or</span> epoch == config.num_epochs - <span class="hljs-number">1</span>:<br>                evaluate(config, epoch, pipeline)<br>                <span class="hljs-keyword">if</span> config.push_to_hub:<br>                    upload_folder(<br>                        repo_id=repo_id,<br>                        folder_path=config.output_dir,<br>                        commit_message=<span class="hljs-string">f&quot;Epoch <span class="hljs-subst">&#123;epoch&#125;</span>&quot;</span>,<br>                        ignore_patterns=[<span class="hljs-string">&quot;step_*&quot;</span>, <span class="hljs-string">&quot;epoch_*&quot;</span>],<br>                    )<br>                <span class="hljs-keyword">else</span>:<br>                    pipeline.save_pretrained(config.output_dir)<br><span class="hljs-keyword">from</span> accelerate <span class="hljs-keyword">import</span> notebook_launcher<br>args = (config, model, noise_scheduler, optimizer, train_dataloader, lr_scheduler)<br>notebook_launcher(train_loop, args, num_processes=<span class="hljs-number">1</span>)<br><br><span class="hljs-keyword">import</span> glob<br>sample_images = <span class="hljs-built_in">sorted</span>(glob.glob(<span class="hljs-string">f&quot;<span class="hljs-subst">&#123;config.output_dir&#125;</span>/samples/*.png&quot;</span>)) <span class="hljs-comment"># 接收一个路径模式, 并返回与该模式匹配的所有文件路径的列表</span><br>Image.<span class="hljs-built_in">open</span>(sample_images[-<span class="hljs-number">1</span>])<br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Diffusion/" class="print-no-link">#Diffusion</a>
+      
+    </div>
+  
+</div>
+
+
+              
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/01/10/LLM%20Basics/" title="LLM Basics">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">LLM Basics</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/12/16/Zookeeper-Redis-MongoDB/" title="Zookeeper-Redis-MongoDB">
+                        <span class="hidden-mobile">Zookeeper-Redis-MongoDB</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'https://zhiyangliang.github.io/2023/12/28/Diffusers/';
+          this.page.identifier = '/2023/12/28/Diffusers/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'fluid' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="/about/" target="_blank" rel="nofollow noopener"><span>Zhiyang Liang (梁智扬)</span></a>
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

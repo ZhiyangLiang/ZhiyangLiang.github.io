@@ -1,0 +1,764 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/zyliang_icon.png">
+  <link rel="icon" href="/img/zyliang_icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Zhiyang Liang (梁智扬)">
+  <meta name="keywords" content="[object Object],[object Object],[object Object]">
+  
+    <meta name="description" content="初始设置  123456789101112131415161718192021222324252627import openaiimport osfrom dotenv import load_dotenv, find_dotenv_ &#x3D; load_dotenv(find_dotenv())openai.api_key  &#x3D; os.getenv(&#x27;OPENAI_API_KEY&amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Prompt Engineering">
+<meta property="og:url" content="https://zhiyangliang.github.io/2024/02/12/Prompt%20Engineering/index.html">
+<meta property="og:site_name" content="Zhiyang Liang (梁智扬)">
+<meta property="og:description" content="初始设置  123456789101112131415161718192021222324252627import openaiimport osfrom dotenv import load_dotenv, find_dotenv_ &#x3D; load_dotenv(find_dotenv())openai.api_key  &#x3D; os.getenv(&#x27;OPENAI_API_KEY&amp;#">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-02-11T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-04-16T15:44:10.521Z">
+<meta property="article:author" content="Zhiyang Liang (梁智扬)">
+<meta property="article:tag" content="LLM">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Prompt Engineering - Zhiyang Liang (梁智扬)</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"zhiyangliang.github.io","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>昼赏微云夜观星</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About me</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>Friends</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default_new.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Prompt Engineering"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Zhiyang Liang (梁智扬)
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-02-12 00:00" pubdate>
+          February 12, 2024 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.5k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          13 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Prompt Engineering</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <ul>
+<li>初始设置</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> openai<br><span class="hljs-keyword">import</span> os<br><span class="hljs-keyword">from</span> dotenv <span class="hljs-keyword">import</span> load_dotenv, find_dotenv<br>_ = load_dotenv(find_dotenv())<br><br>openai.api_key  = os.getenv(<span class="hljs-string">&#x27;OPENAI_API_KEY&#x27;</span>)<br><br><span class="hljs-comment"># OpenAI library version 0.27.0</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_completion</span>(<span class="hljs-params">prompt, model=<span class="hljs-string">&quot;gpt-3.5-turbo&quot;</span></span>):<br>    messages = [&#123;<span class="hljs-string">&quot;role&quot;</span>: <span class="hljs-string">&quot;user&quot;</span>, <span class="hljs-string">&quot;content&quot;</span>: prompt&#125;]<br>    response = openai.ChatCompletion.create(<br>        model=model,<br>        messages=messages,<br>        temperature=<span class="hljs-number">0</span>, <span class="hljs-comment"># this is the degree of randomness of the model&#x27;s output</span><br>    )<br>    <span class="hljs-keyword">return</span> response.choices[<span class="hljs-number">0</span>].message[<span class="hljs-string">&quot;content&quot;</span>]<br>    <br><span class="hljs-comment"># OpenAI library version 1.0.0</span><br>client = openai.OpenAI()<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_completion</span>(<span class="hljs-params">prompt, model=<span class="hljs-string">&quot;gpt-3.5-turbo&quot;</span></span>):<br>    messages = [&#123;<span class="hljs-string">&quot;role&quot;</span>: <span class="hljs-string">&quot;user&quot;</span>, <span class="hljs-string">&quot;content&quot;</span>: prompt&#125;]<br>    response = client.chat.completions.create(<br>        model=model,<br>        messages=messages,<br>        temperature=<span class="hljs-number">0</span><br>    )<br>    <span class="hljs-keyword">return</span> response.choices[<span class="hljs-number">0</span>].message.content<br></code></pre></td></tr></table></figure>
+<ul>
+<li><strong>Use delimiters to clearly indicate distinct parts of the
+input</strong> • Delimiters can be anything like:
+``<code>, """, &lt; &gt;,</code><tag> </tag><code>,</code>:`</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python">text = <span class="hljs-string">f&quot;&quot;&quot;</span><br><span class="hljs-string">You should express what you want a model to do by \\ </span><br><span class="hljs-string">providing instructions that are as clear and \\ </span><br><span class="hljs-string">specific as you can possibly make them. \\ </span><br><span class="hljs-string">This will guide the model towards the desired output, \\ </span><br><span class="hljs-string">and reduce the chances of receiving irrelevant \\ </span><br><span class="hljs-string">or incorrect responses. Don&#x27;t confuse writing a \\ </span><br><span class="hljs-string">clear prompt with writing a short prompt. \\ </span><br><span class="hljs-string">In many cases, longer prompts provide more clarity \\ </span><br><span class="hljs-string">and context for the model, which can lead to \\ </span><br><span class="hljs-string">more detailed and relevant outputs.</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br>prompt = <span class="hljs-string">f&quot;&quot;&quot;</span><br><span class="hljs-string">Summarize the text delimited by triple backticks \\ </span><br><span class="hljs-string">into a single sentence.</span><br><span class="hljs-string">```<span class="hljs-subst">&#123;text&#125;</span>```</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br>response = get_completion(prompt)<br><span class="hljs-built_in">print</span>(response)<br></code></pre></td></tr></table></figure>
+<ul>
+<li><strong>Ask for a structured output</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python">prompt = <span class="hljs-string">f&quot;&quot;&quot;</span><br><span class="hljs-string">Generate a list of three made-up book titles along \\ </span><br><span class="hljs-string">with their authors and genres. </span><br><span class="hljs-string">Provide them in JSON format with the following keys: </span><br><span class="hljs-string">book_id, title, author, genre.</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br>response = get_completion(prompt)<br><span class="hljs-built_in">print</span>(response)<br></code></pre></td></tr></table></figure>
+<ul>
+<li><strong>Ask the model to check whether conditions are
+satisfied</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><code class="hljs python">text_1 = <span class="hljs-string">f&quot;&quot;&quot;</span><br><span class="hljs-string">Making a cup of tea is easy! First, you need to get some \\ </span><br><span class="hljs-string">water boiling. While that&#x27;s happening, \\ </span><br><span class="hljs-string">grab a cup and put a tea bag in it. Once the water is \\ </span><br><span class="hljs-string">hot enough, just pour it over the tea bag. \\ </span><br><span class="hljs-string">Let it sit for a bit so the tea can steep. After a \\ </span><br><span class="hljs-string">few minutes, take out the tea bag. If you \\ </span><br><span class="hljs-string">like, you can add some sugar or milk to taste. \\ </span><br><span class="hljs-string">And that&#x27;s it! You&#x27;ve got yourself a delicious \\ </span><br><span class="hljs-string">cup of tea to enjoy.</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br>prompt = <span class="hljs-string">f&quot;&quot;&quot;</span><br><span class="hljs-string">You will be provided with text delimited by triple quotes. </span><br><span class="hljs-string">If it contains a sequence of instructions, \\ </span><br><span class="hljs-string">re-write those instructions in the following format:</span><br><span class="hljs-string"></span><br><span class="hljs-string">Step 1 - ...</span><br><span class="hljs-string">Step 2 - …</span><br><span class="hljs-string">…</span><br><span class="hljs-string">Step N - …</span><br><span class="hljs-string"></span><br><span class="hljs-string">If the text does not contain a sequence of instructions, \\ </span><br><span class="hljs-string">then simply write \\&quot;No steps provided.\\&quot;</span><br><span class="hljs-string"></span><br><span class="hljs-string">\\&quot;\\&quot;\\&quot;<span class="hljs-subst">&#123;text_1&#125;</span>\\&quot;\\&quot;\\&quot;</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br>response = get_completion(prompt)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Completion for Text 1:&quot;</span>)<br><span class="hljs-built_in">print</span>(response)<br><br>text_2 = <span class="hljs-string">f&quot;&quot;&quot;</span><br><span class="hljs-string">The sun is shining brightly today, and the birds are \\</span><br><span class="hljs-string">singing. It&#x27;s a beautiful day to go for a \\ </span><br><span class="hljs-string">walk in the park. The flowers are blooming, and the \\ </span><br><span class="hljs-string">trees are swaying gently in the breeze. People \\ </span><br><span class="hljs-string">are out and about, enjoying the lovely weather. \\ </span><br><span class="hljs-string">Some are having picnics, while others are playing \\ </span><br><span class="hljs-string">games or simply relaxing on the grass. It&#x27;s a \\ </span><br><span class="hljs-string">perfect day to spend time outdoors and appreciate the \\ </span><br><span class="hljs-string">beauty of nature.</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br>prompt = <span class="hljs-string">f&quot;&quot;&quot;</span><br><span class="hljs-string">You will be provided with text delimited by triple quotes. </span><br><span class="hljs-string">If it contains a sequence of instructions, \\ </span><br><span class="hljs-string">re-write those instructions in the following format:</span><br><span class="hljs-string"></span><br><span class="hljs-string">Step 1 - ...</span><br><span class="hljs-string">Step 2 - …</span><br><span class="hljs-string">…</span><br><span class="hljs-string">Step N - …</span><br><span class="hljs-string"></span><br><span class="hljs-string">If the text does not contain a sequence of instructions, \\ </span><br><span class="hljs-string">then simply write \\&quot;No steps provided.\\&quot;</span><br><span class="hljs-string"></span><br><span class="hljs-string">\\&quot;\\&quot;\\&quot;<span class="hljs-subst">&#123;text_2&#125;</span>\\&quot;\\&quot;\\&quot;</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br>response = get_completion(prompt)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Completion for Text 2:&quot;</span>)<br><span class="hljs-built_in">print</span>(response)<br></code></pre></td></tr></table></figure>
+<ul>
+<li><strong>"Few-shot" prompting</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python">prompt = <span class="hljs-string">f&quot;&quot;&quot;</span><br><span class="hljs-string">Your task is to answer in a consistent style.</span><br><span class="hljs-string"></span><br><span class="hljs-string">&lt;child&gt;: Teach me about patience.</span><br><span class="hljs-string"></span><br><span class="hljs-string">&lt;grandparent&gt;: The river that carves the deepest \\ </span><br><span class="hljs-string">valley flows from a modest spring; the \\ </span><br><span class="hljs-string">grandest symphony originates from a single note; \\ </span><br><span class="hljs-string">the most intricate tapestry begins with a solitary thread.</span><br><span class="hljs-string"></span><br><span class="hljs-string">&lt;child&gt;: Teach me about resilience.</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br>response = get_completion(prompt)<br><span class="hljs-built_in">print</span>(response)<br></code></pre></td></tr></table></figure>
+<ul>
+<li><strong>Specify the steps required to complete a task</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs python">text = <span class="hljs-string">f&quot;&quot;&quot;</span><br><span class="hljs-string">In a charming village, siblings Jack and Jill set out on \\ </span><br><span class="hljs-string">a quest to fetch water from a hilltop \\ </span><br><span class="hljs-string">well. As they climbed, singing joyfully, misfortune \\ </span><br><span class="hljs-string">struck—Jack tripped on a stone and tumbled \\ </span><br><span class="hljs-string">down the hill, with Jill following suit. \\ </span><br><span class="hljs-string">Though slightly battered, the pair returned home to \\ </span><br><span class="hljs-string">comforting embraces. Despite the mishap, \\ </span><br><span class="hljs-string">their adventurous spirits remained undimmed, and they \\ </span><br><span class="hljs-string">continued exploring with delight.</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-comment"># example 1</span><br>prompt_1 = <span class="hljs-string">f&quot;&quot;&quot;</span><br><span class="hljs-string">Perform the following actions: </span><br><span class="hljs-string">1 - Summarize the following text delimited by triple \\</span><br><span class="hljs-string">backticks with 1 sentence.</span><br><span class="hljs-string">2 - Translate the summary into French.</span><br><span class="hljs-string">3 - List each name in the French summary.</span><br><span class="hljs-string">4 - Output a json object that contains the following \\</span><br><span class="hljs-string">keys: french_summary, num_names.</span><br><span class="hljs-string"></span><br><span class="hljs-string">Separate your answers with line breaks.</span><br><span class="hljs-string"></span><br><span class="hljs-string">Text:</span><br><span class="hljs-string">```<span class="hljs-subst">&#123;text&#125;</span>```</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br>response = get_completion(prompt_1)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Completion for prompt 1:&quot;</span>)<br><span class="hljs-built_in">print</span>(response)<br></code></pre></td></tr></table></figure>
+<ul>
+<li><strong>Ask for output in a specified format</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs python">prompt_2 = <span class="hljs-string">f&quot;&quot;&quot;</span><br><span class="hljs-string">Your task is to perform the following actions: </span><br><span class="hljs-string">1 - Summarize the following text delimited by </span><br><span class="hljs-string">  &lt;&gt; with 1 sentence.</span><br><span class="hljs-string">2 - Translate the summary into French.</span><br><span class="hljs-string">3 - List each name in the French summary.</span><br><span class="hljs-string">4 - Output a json object that contains the </span><br><span class="hljs-string">  following keys: french_summary, num_names.</span><br><span class="hljs-string"></span><br><span class="hljs-string">Use the following format:</span><br><span class="hljs-string">Text: &lt;text to summarize&gt;</span><br><span class="hljs-string">Summary: &lt;summary&gt;</span><br><span class="hljs-string">Translation: &lt;summary translation&gt;</span><br><span class="hljs-string">Names: &lt;list of names in summary&gt;</span><br><span class="hljs-string">Output JSON: &lt;json with summary and num_names&gt;</span><br><span class="hljs-string"></span><br><span class="hljs-string">Text: &lt;<span class="hljs-subst">&#123;text&#125;</span>&gt;</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br>response = get_completion(prompt_2)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;\\nCompletion for prompt 2:&quot;</span>)<br><span class="hljs-built_in">print</span>(response)<br></code></pre></td></tr></table></figure>
+<ul>
+<li><strong>Instructing the model to work out its own solution
+first</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python">prompt = <span class="hljs-string">f&quot;&quot;&quot;</span><br><span class="hljs-string">Your task is to determine if the student&#x27;s solution \\</span><br><span class="hljs-string">is correct or not.</span><br><span class="hljs-string">To solve the problem do the following:</span><br><span class="hljs-string">- First, work out your own solution to the problem including the final total. </span><br><span class="hljs-string">- Then compare your solution to the student&#x27;s solution \\ </span><br><span class="hljs-string">and evaluate if the student&#x27;s solution is correct or not. </span><br><span class="hljs-string">Don&#x27;t decide if the student&#x27;s solution is correct until </span><br><span class="hljs-string">you have done the problem yourself.</span><br><span class="hljs-string"></span><br><span class="hljs-string">Use the following format:</span><br><span class="hljs-string">Question:</span><br></code></pre></td></tr></table></figure>
+<p>question here</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">Student<span class="hljs-symbol">&#x27;s</span> solution:<br></code></pre></td></tr></table></figure>
+<p>student's solution here</p>
+<figure class="highlight nestedtext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nestedtext"><span class="hljs-attribute">Actual solution</span><span class="hljs-punctuation">:</span><br></code></pre></td></tr></table></figure>
+<p>steps to work out the solution and your solution here</p>
+<figure class="highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs vbnet"><span class="hljs-built_in">Is</span> the student<span class="hljs-comment">&#x27;s solution the same as actual solution \\</span><br>just calculated:<br></code></pre></td></tr></table></figure>
+<p>yes or no</p>
+<figure class="highlight nestedtext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nestedtext"><span class="hljs-attribute">Student grade</span><span class="hljs-punctuation">:</span><br></code></pre></td></tr></table></figure>
+<p>correct or incorrect</p>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs avrasm"><span class="hljs-symbol">Question:</span><br></code></pre></td></tr></table></figure>
+<p>I'm building a solar power installation and I need help  working out
+the financials.</p>
+<ul>
+<li>Land costs $100 / square foot</li>
+<li>I can buy solar panels for $250 / square foot</li>
+<li>I negotiated a contract for maintenance that will cost  me a flat
+$100k per year, and an additional $10 / square  foot What is the total
+cost for the first year of operations  as a function of the number of
+square feet.</li>
+</ul>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">Student<span class="hljs-symbol">&#x27;s</span> solution:<br></code></pre></td></tr></table></figure>
+<p>Let x be the size of the installation in square feet. Costs:</p>
+<ol type="1">
+<li>Land cost: 100x</li>
+<li>Solar panel cost: 250x</li>
+<li>Maintenance cost: 100,000 + 100x Total cost: 100x + 250x + 100,000 +
+100x = 450x + 100,000</li>
+</ol>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs vim">Actual solution:<br><span class="hljs-string">&quot;&quot;</span><span class="hljs-comment">&quot;</span><br>response = get_completion(prompt)<br><span class="hljs-keyword">print</span>(response)<br></code></pre></td></tr></table></figure>
+<ul>
+<li>Iterative</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># original</span><br>prompt = <span class="hljs-string">f&quot;&quot;&quot;</span><br><span class="hljs-string">Your task is to help a marketing team create a </span><br><span class="hljs-string">description for a retail website of a product based </span><br><span class="hljs-string">on a technical fact sheet.</span><br><span class="hljs-string"></span><br><span class="hljs-string">Write a product description based on the information </span><br><span class="hljs-string">provided in the technical specifications delimited by </span><br><span class="hljs-string">triple backticks.</span><br><span class="hljs-string"></span><br><span class="hljs-string">Technical specifications: ```<span class="hljs-subst">&#123;fact_sheet_chair&#125;</span>```</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br>response = get_completion(prompt)<br><span class="hljs-built_in">print</span>(response)<br><br><span class="hljs-comment"># The text is too long</span><br>prompt = <span class="hljs-string">f&quot;&quot;&quot;</span><br><span class="hljs-string">Your task is to help a marketing team create a </span><br><span class="hljs-string">description for a retail website of a product based </span><br><span class="hljs-string">on a technical fact sheet.</span><br><span class="hljs-string"></span><br><span class="hljs-string">Write a product description based on the information </span><br><span class="hljs-string">provided in the technical specifications delimited by </span><br><span class="hljs-string">triple backticks.</span><br><span class="hljs-string"></span><br><span class="hljs-string">Use at most 50 words.</span><br><span class="hljs-string"></span><br><span class="hljs-string">Technical specifications: ```<span class="hljs-subst">&#123;fact_sheet_chair&#125;</span>```</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br>response = get_completion(prompt)<br><span class="hljs-built_in">print</span>(response)<br><br><span class="hljs-comment"># Text focuses on the wrong details</span><br>prompt = <span class="hljs-string">f&quot;&quot;&quot;</span><br><span class="hljs-string">Your task is to help a marketing team create a </span><br><span class="hljs-string">description for a retail website of a product based </span><br><span class="hljs-string">on a technical fact sheet.</span><br><span class="hljs-string"></span><br><span class="hljs-string">Write a product description based on the information </span><br><span class="hljs-string">provided in the technical specifications delimited by </span><br><span class="hljs-string">triple backticks.</span><br><span class="hljs-string"></span><br><span class="hljs-string">The description is intended for furniture retailers, </span><br><span class="hljs-string">so should be technical in nature and focus on the </span><br><span class="hljs-string">materials the product is constructed from.</span><br><span class="hljs-string"></span><br><span class="hljs-string">At the end of the description, include every 7-character </span><br><span class="hljs-string">Product ID in the technical specification.</span><br><span class="hljs-string"></span><br><span class="hljs-string">Use at most 50 words.</span><br><span class="hljs-string"></span><br><span class="hljs-string">Technical specifications: ```<span class="hljs-subst">&#123;fact_sheet_chair&#125;</span>```</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br>response = get_completion(prompt)<br><span class="hljs-built_in">print</span>(response)<br><br><span class="hljs-comment"># Description needs a table of dimensions</span><br>prompt = <span class="hljs-string">f&quot;&quot;&quot;</span><br><span class="hljs-string">Your task is to help a marketing team create a </span><br><span class="hljs-string">description for a retail website of a product based </span><br><span class="hljs-string">on a technical fact sheet.</span><br><span class="hljs-string"></span><br><span class="hljs-string">Write a product description based on the information </span><br><span class="hljs-string">provided in the technical specifications delimited by </span><br><span class="hljs-string">triple backticks.</span><br><span class="hljs-string"></span><br><span class="hljs-string">The description is intended for furniture retailers, </span><br><span class="hljs-string">so should be technical in nature and focus on the </span><br><span class="hljs-string">materials the product is constructed from.</span><br><span class="hljs-string"></span><br><span class="hljs-string">At the end of the description, include every 7-character </span><br><span class="hljs-string">Product ID in the technical specification.</span><br><span class="hljs-string"></span><br><span class="hljs-string">After the description, include a table that gives the </span><br><span class="hljs-string">product&#x27;s dimensions. The table should have two columns.</span><br><span class="hljs-string">In the first column include the name of the dimension. </span><br><span class="hljs-string">In the second column include the measurements in inches only.</span><br><span class="hljs-string"></span><br><span class="hljs-string">Give the table the title &#x27;Product Dimensions&#x27;.</span><br><span class="hljs-string"></span><br><span class="hljs-string">Format everything as HTML that can be used in a website. </span><br><span class="hljs-string">Place the description in a &lt;div&gt; element.</span><br><span class="hljs-string"></span><br><span class="hljs-string">Technical specifications: ```<span class="hljs-subst">&#123;fact_sheet_chair&#125;</span>```</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br><br>response = get_completion(prompt)<br><span class="hljs-built_in">print</span>(response)<br><br><span class="hljs-comment"># To view HTML</span><br><span class="hljs-keyword">from</span> IPython.display <span class="hljs-keyword">import</span> display, HTML<br>display(HTML(response))<br></code></pre></td></tr></table></figure>
+<ul>
+<li>Summarizing</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Summarize with a focus on price and value</span><br>prompt = <span class="hljs-string">f&quot;&quot;&quot;</span><br><span class="hljs-string">Your task is to generate a short summary of a product \\</span><br><span class="hljs-string">review from an ecommerce site to give feedback to the \\</span><br><span class="hljs-string">pricing deparmtment, responsible for determining the \\</span><br><span class="hljs-string">price of the product.  </span><br><span class="hljs-string"></span><br><span class="hljs-string">Summarize the review below, delimited by triple </span><br><span class="hljs-string">backticks, in at most 30 words, and focusing on any aspects \\</span><br><span class="hljs-string">that are relevant to the price and perceived value. </span><br><span class="hljs-string"></span><br><span class="hljs-string">Review: ```<span class="hljs-subst">&#123;prod_review&#125;</span>```</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br><br>response = get_completion(prompt)<br><span class="hljs-built_in">print</span>(response)<br><br><span class="hljs-comment"># Summarize multiple product reviews</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(reviews)):<br>    prompt = <span class="hljs-string">f&quot;&quot;&quot;</span><br><span class="hljs-string">    Your task is to generate a short summary of a product \\ </span><br><span class="hljs-string">    review from an ecommerce site. </span><br><span class="hljs-string"></span><br><span class="hljs-string">    Summarize the review below, delimited by triple \\</span><br><span class="hljs-string">    backticks in at most 20 words. </span><br><span class="hljs-string"></span><br><span class="hljs-string">    Review: ```<span class="hljs-subst">&#123;reviews[i]&#125;</span>```</span><br><span class="hljs-string">    &quot;&quot;&quot;</span><br><br>    response = get_completion(prompt)<br>    <span class="hljs-built_in">print</span>(i, response, <span class="hljs-string">&quot;\\n&quot;</span>)<br></code></pre></td></tr></table></figure>
+<ul>
+<li>Inferring</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Sentiment (positive/negative)</span><br>prompt = <span class="hljs-string">f&quot;&quot;&quot;</span><br><span class="hljs-string">What is the sentiment of the following product review, </span><br><span class="hljs-string">which is delimited with triple backticks?</span><br><span class="hljs-string"></span><br><span class="hljs-string">Give your answer as a single word, either &quot;positive&quot; \\</span><br><span class="hljs-string">or &quot;negative&quot;.</span><br><span class="hljs-string"></span><br><span class="hljs-string">Review text: &#x27;&#x27;&#x27;<span class="hljs-subst">&#123;lamp_review&#125;</span>&#x27;&#x27;&#x27;</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br>response = get_completion(prompt)<br><span class="hljs-built_in">print</span>(response)<br><br><span class="hljs-comment"># Identify types of emotions</span><br>prompt = <span class="hljs-string">f&quot;&quot;&quot;</span><br><span class="hljs-string">Identify a list of emotions that the writer of the \\</span><br><span class="hljs-string">following review is expressing. Include no more than \\</span><br><span class="hljs-string">five items in the list. Format your answer as a list of \\</span><br><span class="hljs-string">lower-case words separated by commas.</span><br><span class="hljs-string"></span><br><span class="hljs-string">Review text: &#x27;&#x27;&#x27;<span class="hljs-subst">&#123;lamp_review&#125;</span>&#x27;&#x27;&#x27;</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br>response = get_completion(prompt)<br><span class="hljs-built_in">print</span>(response)<br><br><span class="hljs-comment"># Identify anger</span><br>prompt = <span class="hljs-string">f&quot;&quot;&quot;</span><br><span class="hljs-string">Is the writer of the following review expressing anger?\\</span><br><span class="hljs-string">The review is delimited with triple backticks. \\</span><br><span class="hljs-string">Give your answer as either yes or no.</span><br><span class="hljs-string"></span><br><span class="hljs-string">Review text: &#x27;&#x27;&#x27;<span class="hljs-subst">&#123;lamp_review&#125;</span>&#x27;&#x27;&#x27;</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br>response = get_completion(prompt)<br><span class="hljs-built_in">print</span>(response)<br><br><span class="hljs-comment"># Doing multiple tasks at once</span><br>prompt = <span class="hljs-string">f&quot;&quot;&quot;</span><br><span class="hljs-string">Identify the following items from the review text: </span><br><span class="hljs-string">- Sentiment (positive or negative)</span><br><span class="hljs-string">- Is the reviewer expressing anger? (true or false)</span><br><span class="hljs-string">- Item purchased by reviewer</span><br><span class="hljs-string">- Company that made the item</span><br><span class="hljs-string"></span><br><span class="hljs-string">The review is delimited with triple backticks. \\</span><br><span class="hljs-string">Format your response as a JSON object with \\</span><br><span class="hljs-string">&quot;Sentiment&quot;, &quot;Anger&quot;, &quot;Item&quot; and &quot;Brand&quot; as the keys.</span><br><span class="hljs-string">If the information isn&#x27;t present, use &quot;unknown&quot; \\</span><br><span class="hljs-string">as the value.</span><br><span class="hljs-string">Make your response as short as possible.</span><br><span class="hljs-string">Format the Anger value as a boolean.</span><br><span class="hljs-string"></span><br><span class="hljs-string">Review text: &#x27;&#x27;&#x27;<span class="hljs-subst">&#123;lamp_review&#125;</span>&#x27;&#x27;&#x27;</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br>response = get_completion(prompt)<br><span class="hljs-built_in">print</span>(response)<br><br><span class="hljs-comment"># Infer 5 topics</span><br>prompt = <span class="hljs-string">f&quot;&quot;&quot;</span><br><span class="hljs-string">Determine five topics that are being discussed in the \\</span><br><span class="hljs-string">following text, which is delimited by triple backticks.</span><br><span class="hljs-string"></span><br><span class="hljs-string">Make each item one or two words long. </span><br><span class="hljs-string"></span><br><span class="hljs-string">Format your response as a list of items separated by commas.</span><br><span class="hljs-string"></span><br><span class="hljs-string">Text sample: &#x27;&#x27;&#x27;<span class="hljs-subst">&#123;story&#125;</span>&#x27;&#x27;&#x27;</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br>response = get_completion(prompt)<br><span class="hljs-built_in">print</span>(response)<br></code></pre></td></tr></table></figure>
+<ul>
+<li>Transforming</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Tone Transformation</span><br>prompt = <span class="hljs-string">f&quot;&quot;&quot;</span><br><span class="hljs-string">Translate the following from slang to a business letter: </span><br><span class="hljs-string">&#x27;Dude, This is Joe, check out this spec on this standing lamp.&#x27;</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br>response = get_completion(prompt)<br><span class="hljs-built_in">print</span>(response)<br><br><span class="hljs-comment"># Format Conversion</span><br>data_json = &#123; <span class="hljs-string">&quot;resturant employees&quot;</span> :[ <br>    &#123;<span class="hljs-string">&quot;name&quot;</span>:<span class="hljs-string">&quot;Shyam&quot;</span>, <span class="hljs-string">&quot;email&quot;</span>:<span class="hljs-string">&quot;shyamjaiswal@gmail.com&quot;</span>&#125;,<br>    &#123;<span class="hljs-string">&quot;name&quot;</span>:<span class="hljs-string">&quot;Bob&quot;</span>, <span class="hljs-string">&quot;email&quot;</span>:<span class="hljs-string">&quot;bob32@gmail.com&quot;</span>&#125;,<br>    &#123;<span class="hljs-string">&quot;name&quot;</span>:<span class="hljs-string">&quot;Jai&quot;</span>, <span class="hljs-string">&quot;email&quot;</span>:<span class="hljs-string">&quot;jai87@gmail.com&quot;</span>&#125;<br>]&#125;<br><br>prompt = <span class="hljs-string">f&quot;&quot;&quot;</span><br><span class="hljs-string">Translate the following python dictionary from JSON to an HTML \\</span><br><span class="hljs-string">table with column headers and title: <span class="hljs-subst">&#123;data_json&#125;</span></span><br><span class="hljs-string">&quot;&quot;&quot;</span><br>response = get_completion(prompt)<br><span class="hljs-built_in">print</span>(response)<br><br><span class="hljs-keyword">from</span> IPython.display <span class="hljs-keyword">import</span> display, Markdown, Latex, HTML, JSON<br>display(HTML(response))<br><br><span class="hljs-comment"># Spellcheck/Grammar check</span><br>text = [ <br>  <span class="hljs-string">&quot;The girl with the black and white puppies have a ball.&quot;</span>,  <span class="hljs-comment"># The girl has a ball.</span><br>  <span class="hljs-string">&quot;Yolanda has her notebook.&quot;</span>, <span class="hljs-comment"># ok</span><br>  <span class="hljs-string">&quot;Its going to be a long day. Does the car need it’s oil changed?&quot;</span>,  <span class="hljs-comment"># Homonyms</span><br>  <span class="hljs-string">&quot;Their goes my freedom. There going to bring they’re suitcases.&quot;</span>,  <span class="hljs-comment"># Homonyms</span><br>  <span class="hljs-string">&quot;Your going to need you’re notebook.&quot;</span>,  <span class="hljs-comment"># Homonyms</span><br>  <span class="hljs-string">&quot;That medicine effects my ability to sleep. Have you heard of the butterfly affect?&quot;</span>, <span class="hljs-comment"># Homonyms</span><br>  <span class="hljs-string">&quot;This phrase is to cherck chatGPT for speling abilitty&quot;</span>  <span class="hljs-comment"># spelling</span><br>]<br><span class="hljs-keyword">for</span> t <span class="hljs-keyword">in</span> text:<br>    prompt = <span class="hljs-string">f&quot;&quot;&quot;Proofread and correct the following text</span><br><span class="hljs-string">    and rewrite the corrected version. If you don&#x27;t find</span><br><span class="hljs-string">    and errors, just say &quot;No errors found&quot;. Don&#x27;t use </span><br><span class="hljs-string">    any punctuation around the text:</span><br><span class="hljs-string">    ```<span class="hljs-subst">&#123;t&#125;</span>```&quot;&quot;&quot;</span><br>    response = get_completion(prompt)<br>    <span class="hljs-built_in">print</span>(response)<br>    <br><span class="hljs-keyword">from</span> redlines <span class="hljs-keyword">import</span> Redlines<br>diff = Redlines(text,response)<br>display(Markdown(diff.output_markdown))<br><br>prompt = <span class="hljs-string">f&quot;&quot;&quot;</span><br><span class="hljs-string">proofread and correct this review. Make it more compelling. </span><br><span class="hljs-string">Ensure it follows APA style guide and targets an advanced reader. </span><br><span class="hljs-string">Output in markdown format.</span><br><span class="hljs-string">Text: ```<span class="hljs-subst">&#123;text&#125;</span>```</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br>response = get_completion(prompt)<br>display(Markdown(response))<br></code></pre></td></tr></table></figure>
+<ul>
+<li>Expanding</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python">prompt = <span class="hljs-string">f&quot;&quot;&quot;</span><br><span class="hljs-string">You are a customer service AI assistant.</span><br><span class="hljs-string">Your task is to send an email reply to a valued customer.</span><br><span class="hljs-string">Given the customer email delimited by ```, \\</span><br><span class="hljs-string">Generate a reply to thank the customer for their review.</span><br><span class="hljs-string">If the sentiment is positive or neutral, thank them for \\</span><br><span class="hljs-string">their review.</span><br><span class="hljs-string">If the sentiment is negative, apologize and suggest that \\</span><br><span class="hljs-string">they can reach out to customer service. </span><br><span class="hljs-string">Make sure to use specific details from the review.</span><br><span class="hljs-string">Write in a concise and professional tone.</span><br><span class="hljs-string">Sign the email as `AI customer agent`.</span><br><span class="hljs-string">Customer review: ```<span class="hljs-subst">&#123;review&#125;</span>```</span><br><span class="hljs-string">Review sentiment: <span class="hljs-subst">&#123;sentiment&#125;</span></span><br><span class="hljs-string">&quot;&quot;&quot;</span><br>response = get_completion(prompt, temperature=<span class="hljs-number">0.7</span>)<br><span class="hljs-built_in">print</span>(response)<br></code></pre></td></tr></table></figure>
+<ul>
+<li>Chatbot</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_completion</span>(<span class="hljs-params">prompt, model=<span class="hljs-string">&quot;gpt-3.5-turbo&quot;</span></span>):<br>    messages = [&#123;<span class="hljs-string">&quot;role&quot;</span>: <span class="hljs-string">&quot;user&quot;</span>, <span class="hljs-string">&quot;content&quot;</span>: prompt&#125;]<br>    response = openai.ChatCompletion.create(<br>        model=model,<br>        messages=messages,<br>        temperature=<span class="hljs-number">0</span>, <span class="hljs-comment"># this is the degree of randomness of the model&#x27;s output</span><br>    )<br>    <span class="hljs-keyword">return</span> response.choices[<span class="hljs-number">0</span>].message[<span class="hljs-string">&quot;content&quot;</span>]<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_completion_from_messages</span>(<span class="hljs-params">messages, model=<span class="hljs-string">&quot;gpt-3.5-turbo&quot;</span>, temperature=<span class="hljs-number">0</span></span>):<br>    response = openai.ChatCompletion.create(<br>        model=model,<br>        messages=messages,<br>        temperature=temperature, <span class="hljs-comment"># this is the degree of randomness of the model&#x27;s output</span><br>    )<br>    <span class="hljs-comment"># print(str(response.choices[0].message))</span><br>    <span class="hljs-keyword">return</span> response.choices[<span class="hljs-number">0</span>].message[<span class="hljs-string">&quot;content&quot;</span>]<br>    <br>messages =  [  <br>&#123;<span class="hljs-string">&#x27;role&#x27;</span>:<span class="hljs-string">&#x27;system&#x27;</span>, <span class="hljs-string">&#x27;content&#x27;</span>:<span class="hljs-string">&#x27;You are friendly chatbot.&#x27;</span>&#125;,<br>&#123;<span class="hljs-string">&#x27;role&#x27;</span>:<span class="hljs-string">&#x27;user&#x27;</span>, <span class="hljs-string">&#x27;content&#x27;</span>:<span class="hljs-string">&#x27;Hi, my name is Isa&#x27;</span>&#125;,<br>&#123;<span class="hljs-string">&#x27;role&#x27;</span>:<span class="hljs-string">&#x27;assistant&#x27;</span>, <span class="hljs-string">&#x27;content&#x27;</span>: <span class="hljs-string">&quot;Hi Isa! It&#x27;s nice to meet you. \\</span><br><span class="hljs-string">Is there anything I can help you with today?&quot;</span>&#125;,<br>&#123;<span class="hljs-string">&#x27;role&#x27;</span>:<span class="hljs-string">&#x27;user&#x27;</span>, <span class="hljs-string">&#x27;content&#x27;</span>:<span class="hljs-string">&#x27;Yes, you can remind me, What is my name?&#x27;</span>&#125;  ]<br>response = get_completion_from_messages(messages, temperature=<span class="hljs-number">1</span>)<br><span class="hljs-built_in">print</span>(response)<br><br><span class="hljs-comment"># OrderBot</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">collect_messages</span>(<span class="hljs-params">_</span>):<br>    prompt = inp.value_input<br>    inp.value = <span class="hljs-string">&#x27;&#x27;</span><br>    context.append(&#123;<span class="hljs-string">&#x27;role&#x27;</span>:<span class="hljs-string">&#x27;user&#x27;</span>, <span class="hljs-string">&#x27;content&#x27;</span>:<span class="hljs-string">f&quot;<span class="hljs-subst">&#123;prompt&#125;</span>&quot;</span>&#125;)<br>    response = get_completion_from_messages(context) <br>    context.append(&#123;<span class="hljs-string">&#x27;role&#x27;</span>:<span class="hljs-string">&#x27;assistant&#x27;</span>, <span class="hljs-string">&#x27;content&#x27;</span>:<span class="hljs-string">f&quot;<span class="hljs-subst">&#123;response&#125;</span>&quot;</span>&#125;)<br>    panels.append(<br>        pn.Row(<span class="hljs-string">&#x27;User:&#x27;</span>, pn.pane.Markdown(prompt, width=<span class="hljs-number">600</span>)))<br>    panels.append(<br>        pn.Row(<span class="hljs-string">&#x27;Assistant:&#x27;</span>, pn.pane.Markdown(response, width=<span class="hljs-number">600</span>, style=&#123;<span class="hljs-string">&#x27;background-color&#x27;</span>: <span class="hljs-string">&#x27;#F6F6F6&#x27;</span>&#125;)))<br> <br>    <span class="hljs-keyword">return</span> pn.Column(*panels)<br>    <br><span class="hljs-keyword">import</span> panel <span class="hljs-keyword">as</span> pn  <span class="hljs-comment"># GUI</span><br>pn.extension()<br><br>panels = [] <span class="hljs-comment"># collect display </span><br><br>context = [ &#123;<span class="hljs-string">&#x27;role&#x27;</span>:<span class="hljs-string">&#x27;system&#x27;</span>, <span class="hljs-string">&#x27;content&#x27;</span>:<span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">You are OrderBot, an automated service to collect orders for a pizza restaurant. \\</span><br><span class="hljs-string">You first greet the customer, then collects the order, \\</span><br><span class="hljs-string">and then asks if it&#x27;s a pickup or delivery. \\</span><br><span class="hljs-string">You wait to collect the entire order, then summarize it and check for a final \\</span><br><span class="hljs-string">time if the customer wants to add anything else. \\</span><br><span class="hljs-string">If it&#x27;s a delivery, you ask for an address. \\</span><br><span class="hljs-string">Finally you collect the payment.\\</span><br><span class="hljs-string">Make sure to clarify all options, extras and sizes to uniquely \\</span><br><span class="hljs-string">identify the item from the menu.\\</span><br><span class="hljs-string">You respond in a short, very conversational friendly style. \\</span><br><span class="hljs-string">The menu includes \\</span><br><span class="hljs-string">pepperoni pizza  12.95, 10.00, 7.00 \\</span><br><span class="hljs-string">cheese pizza   10.95, 9.25, 6.50 \\</span><br><span class="hljs-string">eggplant pizza   11.95, 9.75, 6.75 \\</span><br><span class="hljs-string">fries 4.50, 3.50 \\</span><br><span class="hljs-string">greek salad 7.25 \\</span><br><span class="hljs-string">Toppings: \\</span><br><span class="hljs-string">extra cheese 2.00, \\</span><br><span class="hljs-string">mushrooms 1.50 \\</span><br><span class="hljs-string">sausage 3.00 \\</span><br><span class="hljs-string">canadian bacon 3.50 \\</span><br><span class="hljs-string">AI sauce 1.50 \\</span><br><span class="hljs-string">peppers 1.00 \\</span><br><span class="hljs-string">Drinks: \\</span><br><span class="hljs-string">coke 3.00, 2.00, 1.00 \\</span><br><span class="hljs-string">sprite 3.00, 2.00, 1.00 \\</span><br><span class="hljs-string">bottled water 5.00 \\</span><br><span class="hljs-string">&quot;&quot;&quot;</span>&#125; ]  <span class="hljs-comment"># accumulate messages</span><br><br>inp = pn.widgets.TextInput(value=<span class="hljs-string">&quot;Hi&quot;</span>, placeholder=<span class="hljs-string">&#x27;Enter text here…&#x27;</span>)<br>button_conversation = pn.widgets.Button(name=<span class="hljs-string">&quot;Chat!&quot;</span>)<br><br>interactive_conversation = pn.bind(collect_messages, button_conversation)<br><br>dashboard = pn.Column(<br>    inp,<br>    pn.Row(button_conversation),<br>    pn.panel(interactive_conversation, loading_indicator=<span class="hljs-literal">True</span>, height=<span class="hljs-number">300</span>),<br>)<br><br>dashboard<br>messages =  context.copy()<br>messages.append(<br>&#123;<span class="hljs-string">&#x27;role&#x27;</span>:<span class="hljs-string">&#x27;system&#x27;</span>, <span class="hljs-string">&#x27;content&#x27;</span>:<span class="hljs-string">&#x27;create a json summary of the previous food order. Itemize the price for each item\\</span><br><span class="hljs-string"> The fields should be 1) pizza, include size 2) list of toppings 3) list of drinks, include size   4) list of sides include size  5)total price &#x27;</span>&#125;,    <br>)<br> <span class="hljs-comment">#The fields should be 1) pizza, price 2) list of toppings 3) list of drinks, include size include price  4) list of sides include size include price, 5)total price &#x27;&#125;,    </span><br><br>response = get_completion_from_messages(messages, temperature=<span class="hljs-number">0</span>)<br><span class="hljs-built_in">print</span>(response)<br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/LLM/" class="print-no-link">#LLM</a>
+      
+    </div>
+  
+</div>
+
+
+              
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/02/27/DeepSpeed/" title="DeepSpeed">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">DeepSpeed</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/01/21/Pytorch%20Distributed/" title="Pytorch Distributed">
+                        <span class="hidden-mobile">Pytorch Distributed</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'https://zhiyangliang.github.io/2024/02/12/Prompt%20Engineering/';
+          this.page.identifier = '/2024/02/12/Prompt%20Engineering/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'fluid' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="/about/" target="_blank" rel="nofollow noopener"><span>Zhiyang Liang (梁智扬)</span></a>
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

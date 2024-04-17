@@ -1,0 +1,790 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/zyliang_icon.png">
+  <link rel="icon" href="/img/zyliang_icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Zhiyang Liang (梁智扬)">
+  <meta name="keywords" content="[object Object],[object Object],[object Object]">
+  
+    <meta name="description" content="基本配置  1234567891011121314151617181920212223242526272829303132!pip install -q bitsandbytes datasets accelerate loralib!pip install -q git+https:&#x2F;&#x2F;github.com&#x2F;huggingface&#x2F;transformers.git@main  # 源码安">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LLM Basics">
+<meta property="og:url" content="https://zhiyangliang.github.io/2024/01/10/LLM%20Basics/index.html">
+<meta property="og:site_name" content="Zhiyang Liang (梁智扬)">
+<meta property="og:description" content="基本配置  1234567891011121314151617181920212223242526272829303132!pip install -q bitsandbytes datasets accelerate loralib!pip install -q git+https:&#x2F;&#x2F;github.com&#x2F;huggingface&#x2F;transformers.git@main  # 源码安">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-01-09T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-04-17T01:25:04.989Z">
+<meta property="article:author" content="Zhiyang Liang (梁智扬)">
+<meta property="article:tag" content="LLM">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>LLM Basics - Zhiyang Liang (梁智扬)</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"zhiyangliang.github.io","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>昼赏微云夜观星</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About me</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>Friends</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default_new.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="LLM Basics"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Zhiyang Liang (梁智扬)
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-01-10 00:00" pubdate>
+          January 10, 2024 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.5k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          21 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">LLM Basics</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <ul>
+<li>基本配置</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs python">!pip install -q bitsandbytes datasets accelerate loralib<br>!pip install -q git+https://github.com/huggingface/transformers.git@main  <span class="hljs-comment"># 源码安装</span><br>!pip install -q git+https://github.com/huggingface/peft.git<br><br>AutoConfig.from_pretrained(<span class="hljs-string">&quot;bigscience/bloom-7b1&quot;</span>)<br>AutoConfig  <span class="hljs-comment"># 查看模型配置</span><br><br><span class="hljs-built_in">list</span>(model.parameters())[<span class="hljs-number">0</span>].dtype  <span class="hljs-comment"># 查看模型参数类型</span><br><br><span class="hljs-keyword">for</span> i, param <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(model.parameters()):<br>    param.requires_grad = <span class="hljs-literal">False</span>  <span class="hljs-comment"># freeze the model - train adapters later</span><br>    <span class="hljs-keyword">if</span> param.ndim == <span class="hljs-number">1</span>:<br>        <span class="hljs-comment"># cast the small parameters (e.g. layernorm) to fp32 for stability</span><br>        param.data = param.data.to(torch.float32)  <span class="hljs-comment"># 增加精度, 训练更稳定</span><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">CastOutputToFloat</span>(nn.Sequential):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">forward</span>(<span class="hljs-params">self, x</span>): <br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">super</span>().forward(x).to(torch.float32)<br>model.lm_head = CastOutputToFloat(model.lm_head)  <span class="hljs-comment"># 增加精度, 训练更稳定</span><br><br>model.gradient_checkpointing_enable()  <span class="hljs-comment"># 减少内存使用</span><br>model.enable_input_require_grads()  <span class="hljs-comment"># 会计算模型输入的梯度</span><br><br><span class="hljs-keyword">from</span> peft <span class="hljs-keyword">import</span> LoraConfig, get_peft_model <br>config = LoraConfig(<br>    r=<span class="hljs-number">16</span>, <span class="hljs-comment">#low rank</span><br>    lora_alpha=<span class="hljs-number">32</span>,<br>    <span class="hljs-comment"># target_modules=[&quot;q_proj&quot;, &quot;v_proj&quot;],  # if you know</span><br>    lora_dropout=<span class="hljs-number">0.05</span>,<br>    bias=<span class="hljs-string">&quot;none&quot;</span>,<br>    task_type=<span class="hljs-string">&quot;CAUSAL_LM&quot;</span>  <span class="hljs-comment"># set this for CLM or Seq2Seq</span><br>)<br></code></pre></td></tr></table></figure>
+<ul>
+<li>数据处理</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> datasets <span class="hljs-keyword">import</span> load_dataset<br>dataset = load_dataset(<span class="hljs-string">&quot;Abirate/english_quotes&quot;</span>)<br><br>dataset[<span class="hljs-string">&#x27;train&#x27;</span>].to_pandas()  <span class="hljs-comment"># 转成panda格式</span><br>dataset[<span class="hljs-string">&#x27;train&#x27;</span>][<span class="hljs-string">&#x27;author&#x27;</span>][:<span class="hljs-number">4</span>]<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">merge</span>(<span class="hljs-params">row</span>):<br>    row[<span class="hljs-string">&#x27;prediction&#x27;</span>] = row[<span class="hljs-string">&#x27;quote&#x27;</span>] + <span class="hljs-string">&#x27; -&gt;: &#x27;</span> + <span class="hljs-built_in">str</span>(row[<span class="hljs-string">&#x27;tags&#x27;</span>])<br>    <span class="hljs-keyword">return</span> row<br>dataset[<span class="hljs-string">&#x27;train&#x27;</span>] = dataset[<span class="hljs-string">&#x27;train&#x27;</span>].<span class="hljs-built_in">map</span>(merge)  <span class="hljs-comment"># 构建新行</span><br><br>tokenizer(dataset[<span class="hljs-string">&#x27;train&#x27;</span>][<span class="hljs-string">&#x27;prediction&#x27;</span>][:<span class="hljs-number">4</span>])  <span class="hljs-comment"># 返回值为input_ids和attention_mask</span><br><br>dataset = dataset.<span class="hljs-built_in">map</span>(<span class="hljs-keyword">lambda</span> samples: tokenizer(samples[<span class="hljs-string">&#x27;prediction&#x27;</span>]), batched=<span class="hljs-literal">True</span>)  <span class="hljs-comment"># 由&#x27;prediction&#x27;得到新行&#x27;input_ids&#x27;和&#x27;attention_mask&#x27;</span><br><br><span class="hljs-comment"># nvitop</span><br><br>batch = tokenizer(<span class="hljs-string">&quot;“Training models with PEFT and LoRa is cool” -&gt;: &quot;</span>, return_tensors=<span class="hljs-string">&#x27;pt&#x27;</span>)<br><span class="hljs-keyword">with</span> torch.cuda.amp.autocast():<br>    output_tokens = model.generate(**batch, max_new_tokens=<span class="hljs-number">50</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;\\n\\n&#x27;</span>, tokenizer.decode(output_tokens[<span class="hljs-number">0</span>], skip_special_tokens=<span class="hljs-literal">True</span>))<br></code></pre></td></tr></table></figure>
+<ul>
+<li>混合精度; 不同的layer可以放在不同的device</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># import os</span><br><span class="hljs-comment"># os.environ[&#x27;HTTP_PROXY&#x27;] = &#x27;&lt;http://127.0.0.1:7890&gt;&#x27;</span><br><span class="hljs-comment"># os.environ[&#x27;HTTPS_PROXY&#x27;] = &#x27;&lt;http://127.0.0.1:7890&gt;&#x27;</span><br><br><span class="hljs-comment"># https 协议</span><br>!pip install -q git+https://github.com/huggingface/transformers.git<br><span class="hljs-comment"># ssh 协议</span><br>!pip install -q git+ssh://git@github.com/huggingface/transformers.git<br><br><span class="hljs-keyword">from</span> transformers <span class="hljs-keyword">import</span> LlamaTokenizer, LlamaForCausalLM, GenerationConfig<br>model = LlamaForCausalLM.from_pretrained(<span class="hljs-string">&quot;decapoda-research/llama-7b-hf&quot;</span>,<br>    load_in_8bit=<span class="hljs-literal">True</span>,  <span class="hljs-comment"># 混合精度</span><br>    device_map=<span class="hljs-string">&quot;auto&quot;</span>,  <span class="hljs-comment"># 不同的layer可以放在不同的device</span><br>)<br>tokenizer = LlamaTokenizer.from_pretrained(<span class="hljs-string">&quot;decapoda-research/llama-7b-hf&quot;</span>)<br><br><span class="hljs-keyword">for</span> i, para <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(model.named_parameters()):<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;i&#125;</span>, \\t <span class="hljs-subst">&#123;para[<span class="hljs-number">1</span>].device&#125;</span> \\t<span class="hljs-subst">&#123;para[<span class="hljs-number">1</span>].dtype&#125;</span>&#x27;</span>)  <span class="hljs-comment"># 查看parameters的精度及其所在的device</span><br><br><span class="hljs-keyword">from</span> peft <span class="hljs-keyword">import</span> PeftModel<br>model = PeftModel.from_pretrained(model, <span class="hljs-string">&quot;tloen/alpaca-lora-7b&quot;</span>)<br><br><span class="hljs-keyword">from</span> peft <span class="hljs-keyword">import</span> mapping<br><span class="hljs-keyword">from</span> peft.utils <span class="hljs-keyword">import</span> other<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;model_type&#x27;</span>, model.config.model_type)<br><span class="hljs-built_in">print</span>(model.peft_config[<span class="hljs-string">&#x27;default&#x27;</span>].target_modules)<br>other.TRANSFORMERS_MODELS_TO_LORA_TARGET_MODULES_MAPPING  <span class="hljs-comment"># 查看默认的target module</span><br></code></pre></td></tr></table></figure>
+<ul>
+<li>一个alpaca inference的example</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">generate_prompt</span>(<span class="hljs-params">instruction, <span class="hljs-built_in">input</span>=<span class="hljs-literal">None</span></span>):<br>    <span class="hljs-keyword">if</span> <span class="hljs-built_in">input</span>:<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">f&quot;&quot;&quot;Below is an instruction that describes a task, paired with an input that provides further context. Write a response that appropriately completes the request.</span><br><span class="hljs-string"></span><br><span class="hljs-string">### Instruction:</span><br><span class="hljs-string"><span class="hljs-subst">&#123;instruction&#125;</span></span><br><span class="hljs-string"></span><br><span class="hljs-string">### Input:</span><br><span class="hljs-string"><span class="hljs-subst">&#123;<span class="hljs-built_in">input</span>&#125;</span></span><br><span class="hljs-string"></span><br><span class="hljs-string">### Response:&quot;&quot;&quot;</span><br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">f&quot;&quot;&quot;Below is an instruction that describes a task. Write a response that appropriately completes the request.</span><br><span class="hljs-string"></span><br><span class="hljs-string">### Instruction:</span><br><span class="hljs-string"><span class="hljs-subst">&#123;instruction&#125;</span></span><br><span class="hljs-string"></span><br><span class="hljs-string">### Response:&quot;&quot;&quot;</span><br><br>generation_config = GenerationConfig(<br>    temperature=<span class="hljs-number">1.5</span>,<br>    <span class="hljs-comment"># nucleus sampling</span><br>    top_p=<span class="hljs-number">0.8</span>,<br>    num_beams=<span class="hljs-number">4</span>,<br>)<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">inference</span>(<span class="hljs-params">instruction, <span class="hljs-built_in">input</span>=<span class="hljs-literal">None</span></span>):<br>    prompt = generate_prompt(instruction, <span class="hljs-built_in">input</span>)<br>    inputs = tokenizer(prompt, return_tensors=<span class="hljs-string">&quot;pt&quot;</span>)<br>    input_ids = inputs[<span class="hljs-string">&quot;input_ids&quot;</span>].cuda()<br>    generation_output = model.generate(  <span class="hljs-comment"># model.generate输出的仍是编码</span><br>        input_ids=input_ids,             <span class="hljs-comment"># 需要通过tokenizer.decode解码</span><br>        generation_config=generation_config,<br>        return_dict_in_generate=<span class="hljs-literal">True</span>,<br>        output_scores=<span class="hljs-literal">True</span>,<br>        max_new_tokens=<span class="hljs-number">256</span><br>    )<br>    <span class="hljs-keyword">for</span> s <span class="hljs-keyword">in</span> generation_output.sequences:<br>        output = tokenizer.decode(s)<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Response:&quot;</span>, output.split(<span class="hljs-string">&quot;### Response:&quot;</span>)[<span class="hljs-number">1</span>].strip())<br><br>inference(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Instruction: &quot;</span>))<br></code></pre></td></tr></table></figure>
+<ul>
+<li>torch.cuda.amp的使用: 通过loss scale来提升最大的batch size</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Simple CNN</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">CNN</span>(nn.Module):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, in_channels=<span class="hljs-number">1</span>, num_classes=<span class="hljs-number">10</span></span>):<br>        <span class="hljs-built_in">super</span>(CNN, self).__init__()<br>        self.conv1 = nn.Conv2d(<br>            in_channels=in_channels,<br>            out_channels=<span class="hljs-number">5120</span>,<br>            kernel_size=<span class="hljs-number">3</span>,<br>            stride=<span class="hljs-number">1</span>,<br>            padding=<span class="hljs-number">1</span>,<br>        )<br>        <span class="hljs-comment"># /2, downsampling</span><br>        self.pool = nn.MaxPool2d(kernel_size=<span class="hljs-number">2</span>, stride=<span class="hljs-number">2</span>)<br>        self.conv2 = nn.Conv2d(<br>            in_channels=<span class="hljs-number">5120</span>,<br>            out_channels=<span class="hljs-number">10240</span>,<br>            kernel_size=<span class="hljs-number">3</span>,<br>            stride=<span class="hljs-number">1</span>,<br>            padding=<span class="hljs-number">1</span>,<br>        )<br>        <span class="hljs-comment"># (channels*w*h)</span><br>            <span class="hljs-comment"># w, h: 取决于初始的 width, height</span><br>        self.fc1 = nn.Linear(<span class="hljs-number">10240</span> * <span class="hljs-number">7</span> * <span class="hljs-number">7</span>, num_classes)<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">forward</span>(<span class="hljs-params">self, x</span>):<br>        x = F.relu(self.conv1(x))<br>        <span class="hljs-comment"># /2</span><br>        x = self.pool(x)<br>        x = F.relu(self.conv2(x))<br>        <span class="hljs-comment"># /2</span><br>        x = self.pool(x)<br>        <span class="hljs-comment"># 4d =&gt; 2d, (bs, features)</span><br>        x = x.reshape(x.shape[<span class="hljs-number">0</span>], -<span class="hljs-number">1</span>)<br>        x = self.fc1(x)<br>        <span class="hljs-keyword">return</span> x<br><br><span class="hljs-keyword">from</span> torchsummary <span class="hljs-keyword">import</span> summary<br>model = CNN(in_channels=<span class="hljs-number">3</span>)<br>summary(model, input_size=(<span class="hljs-number">3</span>, <span class="hljs-number">224</span>, <span class="hljs-number">224</span>), batch_size=<span class="hljs-number">32</span>, device=<span class="hljs-string">&#x27;cpu&#x27;</span>)  <span class="hljs-comment"># 显示经过不同layer后shape的变化</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">train</span>():<br>    <span class="hljs-keyword">for</span> epoch <span class="hljs-keyword">in</span> tqdm(<span class="hljs-built_in">range</span>(num_epochs)):<br>        <span class="hljs-keyword">for</span> batch_idx, (batch_x, batch_y) <span class="hljs-keyword">in</span> tqdm(<span class="hljs-built_in">enumerate</span>(train_loader)):<br>            batch_x = batch_x.to(device)<br>            batch_y = batch_y.to(device)<br>            <br>            <span class="hljs-comment"># forward</span><br>            <span class="hljs-comment"># logits = model(batch_x)</span><br>            <span class="hljs-comment"># loss = criterion(logits, batch_y)</span><br>            <span class="hljs-keyword">with</span> torch.cuda.amp.autocast():<br>                logits = model(batch_x)<br>                loss = criterion(logits, batch_y)            <br><br>            <span class="hljs-comment"># backward</span><br>            optimizer.zero_grad()<br>            <span class="hljs-comment"># loss.backward()</span><br>            scaler.scale(loss).backward()<br>            <br>            <span class="hljs-comment"># gradient descent</span><br>            <span class="hljs-comment"># optimizer.step()</span><br>            scaler.step(optimizer)<br>            scaler.update()<br></code></pre></td></tr></table></figure>
+<ul>
+<li>一个model.generate的example</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># pip install bitsandbytes</span><br><span class="hljs-comment"># pip install transformers</span><br><span class="hljs-comment"># pip install accelerate</span><br><br>MAX_NEW_TOKENS = <span class="hljs-number">128</span><br>ckpt = <span class="hljs-string">&#x27;facebook/opt-6.7b&#x27;</span><br>sample = <span class="hljs-string">&#x27;hello, who are you?&#x27;</span><br>tokenizer = AutoTokenizer.from_pretrained(ckpt)<br>input_ids = tokenizer(sample, return_tensors=<span class="hljs-string">&#x27;pt&#x27;</span>).input_ids<br><br>model = AutoModelForCausalLM.from_pretrained(ckpt, device_map=<span class="hljs-string">&#x27;auto&#x27;</span>, load_in_8bit=<span class="hljs-literal">True</span>)<br>generated_ids = model.generate(input_ids, max_length=MAX_NEW_TOKENS)<br>tokenizer.decode(generated_ids[<span class="hljs-number">0</span>], skip_special_tokens=<span class="hljs-literal">True</span>)<br></code></pre></td></tr></table></figure>
+<ul>
+<li>tokenizer的基本接口; 如何训练tokenizer</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> transformers <span class="hljs-keyword">import</span> AutoTokenizer<br>tokenizer_t5 = AutoTokenizer.from_pretrained(<span class="hljs-string">&#x27;t5-base&#x27;</span>)<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">tokenize_str</span>(<span class="hljs-params">tokenizer, text</span>):  <span class="hljs-comment"># 返回编码再解码后的list, 可以查看常见词是否被再切分</span><br>    input_ids = tokenizer(text, add_special_tokens=<span class="hljs-literal">False</span>)[<span class="hljs-string">&#x27;input_ids&#x27;</span>]<br>    <span class="hljs-keyword">return</span> [tokenizer.decode(token_id) <span class="hljs-keyword">for</span> token_id <span class="hljs-keyword">in</span> input_ids]<br><br>python_code = <span class="hljs-string">r&#x27;&#x27;&#x27;def say_hello():</span><br><span class="hljs-string">    print(&#x27;Hello, World!&#x27;)</span><br><span class="hljs-string">    </span><br><span class="hljs-string"># print hello</span><br><span class="hljs-string">say_hello()</span><br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br>tokenizer = AutoTokenizer.from_pretrained(<span class="hljs-string">&#x27;gpt2&#x27;</span>)<br><span class="hljs-built_in">print</span>(tokenizer(python_code)[<span class="hljs-string">&#x27;input_ids&#x27;</span>])<br><span class="hljs-built_in">print</span>(tokenizer(python_code).tokens())  <span class="hljs-comment"># 查看切分得到的tokens</span><br><br>tokenizer.backend_tokenizer.normalizer<br>tokenizer.backend_tokenizer.pre_tokenizer.pre_tokenize_str(python_code)<br><br><span class="hljs-comment"># Unicode character composed of 1-4 bytes</span><br>a, e = <span class="hljs-string">u&#x27;a&#x27;</span>, <span class="hljs-string">u&#x27;€&#x27;</span><br><span class="hljs-comment"># 1 bytes</span><br>byte = <span class="hljs-built_in">ord</span>(a.encode(<span class="hljs-string">&#x27;utf-8&#x27;</span>))<br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;<span class="hljs-subst">&#123;a&#125;</span>, <span class="hljs-subst">&#123;a.encode(<span class="hljs-string">&#x27;utf-8&#x27;</span>)&#125;</span>, <span class="hljs-subst">&#123;byte&#125;</span>&quot;</span>)<br><span class="hljs-comment"># 3 bytes</span><br><span class="hljs-comment"># byte = ord(e.encode(&#x27;utf-8&#x27;))</span><br><span class="hljs-comment"># ord 接受的是一个char</span><br><span class="hljs-comment"># ord: 字符转整数; 整数转字符</span><br>byte = [<span class="hljs-built_in">ord</span>(<span class="hljs-built_in">chr</span>(i)) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> e.encode(<span class="hljs-string">&#x27;utf-8&#x27;</span>)]<br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;<span class="hljs-subst">&#123;e&#125;</span>, <span class="hljs-subst">&#123;e.encode(<span class="hljs-string">&#x27;utf-8&#x27;</span>)&#125;</span>, <span class="hljs-subst">&#123;byte&#125;</span>&quot;</span>)<br><br><span class="hljs-comment"># training a tokenizer</span><br><span class="hljs-comment"># 不涉及权重或者反向传播</span><br><span class="hljs-comment"># tokenizer 的 processing pipeline</span><br><span class="hljs-comment"># normalization</span><br><span class="hljs-comment"># pretokenization</span><br><span class="hljs-comment"># tokenizer model</span><br><span class="hljs-comment"># postprocesssing</span><br><span class="hljs-comment"># subword tokenization algorithms (subword: tokens are part of words)</span><br><span class="hljs-comment"># BPE: byte pair encoding</span><br><span class="hljs-comment"># 迭代式地添加策略，直到一个 target vocabulary size</span><br><span class="hljs-comment"># word piece</span><br><span class="hljs-comment"># unigram</span><br><span class="hljs-comment"># 迭代式地删除策略，直到一个 target vocabulary size</span><br></code></pre></td></tr></table></figure>
+<figure>
+<img
+src="https://prod-files-secure.s3.us-west-2.amazonaws.com/f8430f06-3f4a-4ba4-994a-af512bbc3929/6e742602-a09b-41c5-8ccb-867da64b0dad/Untitled.png" srcset="/img/loading.gif" lazyload
+alt="Untitled" />
+<figcaption aria-hidden="true">Untitled</figcaption>
+</figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> transformers.models.gpt2.tokenization_gpt2 <span class="hljs-keyword">import</span> bytes_to_unicode<br>bytes_to_unicode_map = bytes_to_unicode()<br>bytes_to_unicode_map<br><br>unicode_to_bytes_map = <span class="hljs-built_in">dict</span>((v, k) <span class="hljs-keyword">for</span> k, v <span class="hljs-keyword">in</span> bytes_to_unicode_map.items())<br>unicode_to_bytes_map<br><br>base_vocab = <span class="hljs-built_in">list</span>(unicode_to_bytes_map.keys())<br><span class="hljs-built_in">print</span>(base_vocab[<span class="hljs-number">0</span>], base_vocab[-<span class="hljs-number">1</span>])<br><br>tokenizer = AutoTokenizer.from_pretrained(<span class="hljs-string">&#x27;gpt2&#x27;</span>)<br>tokenizer.backend_tokenizer.pre_tokenizer.pre_tokenize_str(python_code)<br>tokens = <span class="hljs-built_in">sorted</span>(tokenizer.vocab.items(), key=<span class="hljs-keyword">lambda</span> x: <span class="hljs-built_in">len</span>(x[<span class="hljs-number">0</span>]), reverse=<span class="hljs-literal">True</span>)<br>[tokenizer.convert_tokens_to_string([token]) <span class="hljs-keyword">for</span> token, _ <span class="hljs-keyword">in</span> tokens[:<span class="hljs-number">10</span>]]<br>tokens = <span class="hljs-built_in">sorted</span>(tokenizer.vocab.items(), key=<span class="hljs-keyword">lambda</span> x: x[<span class="hljs-number">1</span>], reverse=<span class="hljs-literal">True</span>)<br>[tokenizer.convert_tokens_to_string([token]) <span class="hljs-keyword">for</span> token, _ <span class="hljs-keyword">in</span> tokens[:<span class="hljs-number">12</span>]]<br></code></pre></td></tr></table></figure>
+<table>
+
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>Character</th>
+<th>Bytes</th>
+<th>Mapped bytes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Regular characters</td>
+<td>a and ?</td>
+<td>97 and 63</td>
+<td>a and ?</td>
+</tr>
+<tr class="even">
+<td>A nonprintable control character (carriage return)</td>
+<td>U+000D</td>
+<td>13</td>
+<td>č</td>
+</tr>
+<tr class="odd">
+<td>A space</td>
+<td></td>
+<td>32</td>
+<td>Ġ</td>
+</tr>
+<tr class="even">
+<td>A nonbreakable space</td>
+<td></td>
+<td>160</td>
+<td>ł</td>
+</tr>
+<tr class="odd">
+<td>A newline character</td>
+<td></td>
+<td>10</td>
+<td>Ċ</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># training a tokenizer</span><br><span class="hljs-keyword">from</span> tqdm <span class="hljs-keyword">import</span> tqdm<br><span class="hljs-keyword">from</span> datasets <span class="hljs-keyword">import</span> load_dataset<br><span class="hljs-keyword">from</span> transformers <span class="hljs-keyword">import</span> AutoTokenizer<br><br>dataset = load_dataset(<span class="hljs-string">&#x27;./codeparrot/&#x27;</span>, split=<span class="hljs-string">&#x27;train&#x27;</span>, streaming=<span class="hljs-literal">True</span>)<br>iter_dataset = <span class="hljs-built_in">iter</span>(dataset)<br>tokenizer = AutoTokenizer.from_pretrained(<span class="hljs-string">&#x27;gpt2&#x27;</span>)<br><br><span class="hljs-keyword">from</span> transformers.models.gpt2.tokenization_gpt2 <span class="hljs-keyword">import</span> bytes_to_unicode<br>bytes_to_unicode_map = bytes_to_unicode()<br>unicode_to_bytes_map = <span class="hljs-built_in">dict</span>((v, k) <span class="hljs-keyword">for</span> k, v <span class="hljs-keyword">in</span> bytes_to_unicode_map.items())<br>base_vocab = <span class="hljs-built_in">list</span>(unicode_to_bytes_map.keys())<br><br>length = <span class="hljs-number">100000</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">batch_iterator</span>(<span class="hljs-params">batch_size=<span class="hljs-number">1000</span></span>):<br>    <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> tqdm(<span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>, length, batch_size)):<br>        <span class="hljs-keyword">yield</span> [<span class="hljs-built_in">next</span>(iter_dataset)[<span class="hljs-string">&#x27;content&#x27;</span>] <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(batch_size)]<br><br>new_tokenizer = tokenizer.train_new_from_iterator(batch_iterator(), <br>                                                  vocab_size=<span class="hljs-number">12500</span>, <br>                                                  initial_alphabet=base_vocab)<br><br>tokens = <span class="hljs-built_in">sorted</span>(new_tokenizer.vocab.items(), key=<span class="hljs-keyword">lambda</span> x: x[<span class="hljs-number">1</span>], reverse=<span class="hljs-literal">False</span>)<br>[(t, new_tokenizer.convert_tokens_to_string([t])) <span class="hljs-keyword">for</span> t, _ <span class="hljs-keyword">in</span> tokens[<span class="hljs-number">257</span>:<span class="hljs-number">280</span>]]  <span class="hljs-comment"># 查看tokens</span><br><br><span class="hljs-keyword">import</span> keyword<br><span class="hljs-built_in">len</span>(keyword.kwlist)<br><span class="hljs-keyword">for</span> kw <span class="hljs-keyword">in</span> keyword.kwlist:  <span class="hljs-comment"># 查看哪些词还不在vocab中</span><br>    <span class="hljs-keyword">if</span> kw <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> new_tokenizer.vocab:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;`<span class="hljs-subst">&#123;kw&#125;</span>` not in the new tokenizer&#x27;</span>)<br><br><span class="hljs-comment"># 上传到huggingface</span><br><span class="hljs-keyword">import</span> os<br>os.environ[<span class="hljs-string">&#x27;HTTP_PROXY&#x27;</span>] = <span class="hljs-string">&#x27;&lt;http://127.0.0.1:7890&gt;&#x27;</span><br>os.environ[<span class="hljs-string">&#x27;HTTPS_PROXY&#x27;</span>] = <span class="hljs-string">&#x27;&lt;http://127.0.0.1:7890&gt;&#x27;</span><br>ckpt = <span class="hljs-string">&#x27;asdfgh&#x27;</span><br>org = <span class="hljs-string">&#x27;asdfghjkl&#x27;</span><br>new_tokenizer.push_to_hub(ckpt, organization=org)<br></code></pre></td></tr></table></figure>
+<ul>
+<li>Dataset and IterableDataset</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> torch.utils.data <span class="hljs-keyword">import</span> DataLoader, Dataset, IterableDataset<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyDataset</span>(<span class="hljs-title class_ inherited__">Dataset</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, m, n</span>):<br>        self.x = np.random.randn(m, n)<br>        self.y = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">range</span>(m))<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__getitem__</span>(<span class="hljs-params">self, i</span>):<br>        <span class="hljs-keyword">return</span> self.x[i], self.y[i]<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__len__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">len</span>(self.y)<br><br>ds = MyDataset(<span class="hljs-number">100</span>, <span class="hljs-number">5</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">len</span>(ds))  <span class="hljs-comment"># 100</span><br>ds[<span class="hljs-number">0</span>]  <span class="hljs-comment"># (array([ 0.06201527, -0.77968078, -0.68125061, -1.77969614, -0.66575581]), 0)</span><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyIterableDataset</span>(<span class="hljs-title class_ inherited__">IterableDataset</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, x, y</span>):<br>        <span class="hljs-built_in">super</span>().__init__()<br>        self.start = x<br>        self.end = y<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__iter__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">iter</span>(<span class="hljs-built_in">range</span>(self.start, self.end))<br><br>ds1 = MyIterableDataset(<span class="hljs-number">3</span>, <span class="hljs-number">8</span>)<br>ds2 = MyIterableDataset(<span class="hljs-number">9</span>, <span class="hljs-number">15</span>)<br>ds3 = ds1 + ds2<br>[i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> ds1]  <span class="hljs-comment"># [3, 4, 5, 6, 7]</span><br>[i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> ds3]  <span class="hljs-comment"># [3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14]</span><br>loader = DataLoader(ds3)<br><span class="hljs-built_in">list</span>(loader)<br><span class="hljs-comment"># [tensor([3]),</span><br><span class="hljs-comment">#  tensor([4]),</span><br><span class="hljs-comment">#  tensor([5]),</span><br><span class="hljs-comment">#  tensor([6]),</span><br><span class="hljs-comment">#  tensor([7]),</span><br><span class="hljs-comment">#  tensor([9]),</span><br><span class="hljs-comment">#  tensor([10]),</span><br><span class="hljs-comment">#  tensor([11]),</span><br><span class="hljs-comment">#  tensor([12]),</span><br><span class="hljs-comment">#  tensor([13]),</span><br><span class="hljs-comment">#  tensor([14])]</span><br><br><span class="hljs-comment"># infinite dataset</span><br>rng = np.random.default_rng()<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">InfIterableDataset</span>(<span class="hljs-title class_ inherited__">IterableDataset</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, n</span>):<br>        <span class="hljs-built_in">super</span>().__init__()<br>        self._n = n<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__iter__</span>(<span class="hljs-params">self</span>):<br>        start = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>            x = np.arange(start, start + self._n)<br>            y = rng.choice([<span class="hljs-number">0</span>, <span class="hljs-number">1</span>], size=<span class="hljs-number">1</span>, p=[<span class="hljs-number">0.4</span>, <span class="hljs-number">0.6</span>])<br>            <span class="hljs-keyword">yield</span> x, y<br>            start += self._n<br><br>window = <span class="hljs-number">5</span><br>cnt = <span class="hljs-number">0</span><br><span class="hljs-keyword">for</span> (x, y) <span class="hljs-keyword">in</span> InfIterableDataset(window):<br>    <span class="hljs-built_in">print</span>(x, y)<br>    <span class="hljs-keyword">if</span> cnt &gt;= <span class="hljs-number">5</span>:<br>        <span class="hljs-keyword">break</span><br>    cnt += <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+<ul>
+<li>mapping and streaming</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> datasets <span class="hljs-keyword">import</span> load_dataset<br>data_files = <span class="hljs-string">&quot;/media/whaow/datasets/PUBMED_title_abstracts_2019_baseline.jsonl&quot;</span><br><span class="hljs-comment"># memory mapped</span><br><span class="hljs-comment"># large_dataset = load_dataset(&quot;json&quot;, data_files=data_files, split=&quot;train&quot;)</span><br><span class="hljs-comment"># tokenizer_dataset2 = large_dataset.map(lambda x: tokenizer(x[&#x27;text&#x27;]), batched=True, batch_size=20000)</span><br><span class="hljs-comment"># streaming</span><br>large_dataset_streamed = load_dataset(<span class="hljs-string">&quot;json&quot;</span>, data_files=data_files, split=<span class="hljs-string">&quot;train&quot;</span>, streaming=<span class="hljs-literal">True</span>)<br>tokenizer_dataset = large_dataset_streamed.<span class="hljs-built_in">map</span>(<span class="hljs-keyword">lambda</span> x: tokenizer(x[<span class="hljs-string">&#x27;text&#x27;</span>]))<br><br><span class="hljs-keyword">import</span> psutil<br><span class="hljs-comment"># 当前进程的memory info</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;psutil.Process().memory_info().rss/(<span class="hljs-number">1024</span>**<span class="hljs-number">2</span>):<span class="hljs-number">.2</span>f&#125;</span> MB&#x27;</span>)<br><br><span class="hljs-keyword">import</span> timeit<br>code_snippet = <span class="hljs-string">&#x27;&#x27;&#x27;batch_size = 20000</span><br><span class="hljs-string">for idx in tqdm(range(0, len(large_dataset), batch_size)):</span><br><span class="hljs-string">    _ = large_dataset[idx: idx+batch_size]</span><br><span class="hljs-string">&#x27;&#x27;&#x27;</span>  <span class="hljs-comment"># 对这对代码执行两次, 并统计运行的平均时间</span><br>duration = timeit.timeit(stmt=code_snippet, number=<span class="hljs-number">2</span>, <span class="hljs-built_in">globals</span>=<span class="hljs-built_in">globals</span>())<br><br><span class="hljs-built_in">next</span>(<span class="hljs-built_in">iter</span>(tokenizer_dataset)).keys()<br><span class="hljs-built_in">list</span>(large_dataset_streamed.take(<span class="hljs-number">5</span>))[-<span class="hljs-number">1</span>]<br>large_dataset[<span class="hljs-number">4</span>]  <span class="hljs-comment"># 结果与上行一致</span><br><span class="hljs-built_in">next</span>(<span class="hljs-built_in">iter</span>(large_dataset_streamed.skip(<span class="hljs-number">1000</span>)))<br>large_dataset[<span class="hljs-number">1000</span>]  <span class="hljs-comment"># 结果与上行一致</span><br></code></pre></td></tr></table></figure>
+<ul>
+<li>retain graph and GPU memory occupied</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python">x = torch.tensor(<span class="hljs-number">1.</span>, requires_grad=<span class="hljs-literal">True</span>)<br>y = x**<span class="hljs-number">2</span><br>y.backward(retain_graph=<span class="hljs-literal">True</span>)<br><span class="hljs-built_in">print</span>(x.grad)  <span class="hljs-comment"># tensor(2.)</span><br>y.backward()<br><span class="hljs-built_in">print</span>(x.grad)  <span class="hljs-comment"># tensor(4.)</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">print_gpu_utilization</span>():  <span class="hljs-comment"># GPU memory occupied: 21296 MB.</span><br>    nvmlInit()<br>    total_used = <span class="hljs-number">0</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(torch.cuda.device_count()):<br>        handle = nvmlDeviceGetHandleByIndex(i)<br>        info = nvmlDeviceGetMemoryInfo(handle)<br>        total_used += info.used<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;GPU memory occupied: <span class="hljs-subst">&#123;total_used//<span class="hljs-number">1024</span>**<span class="hljs-number">2</span>&#125;</span> MB.&quot;</span>)<br></code></pre></td></tr></table></figure>
+<ul>
+<li>sft</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> datasets <span class="hljs-keyword">import</span> load_dataset<br>train_dataset = load_dataset(<span class="hljs-string">&quot;tatsu-lab/alpaca&quot;</span>, split=<span class="hljs-string">&quot;train&quot;</span>)<br>train_dataset<br><span class="hljs-comment"># Dataset(&#123;</span><br><span class="hljs-comment">#     features: [&#x27;instruction&#x27;, &#x27;input&#x27;, &#x27;output&#x27;, &#x27;text&#x27;],</span><br><span class="hljs-comment">#     num_rows: 52002</span><br><span class="hljs-comment"># &#125;)</span><br><span class="hljs-built_in">print</span>(train_dataset[<span class="hljs-number">0</span>])<br><span class="hljs-built_in">print</span>(train_dataset[<span class="hljs-number">0</span>][<span class="hljs-string">&#x27;text&#x27;</span>])<br><br><span class="hljs-comment"># check tokenizer 的 vocab_size 与 model embedding layer 是否一致</span><br><span class="hljs-built_in">print</span>(tokenizer)<br><span class="hljs-built_in">print</span>(model.model.embed_tokens)<br>model.resize_token_embeddings(<span class="hljs-built_in">len</span>(tokenizer))<br><br><span class="hljs-keyword">from</span> peft <span class="hljs-keyword">import</span> LoraConfig, get_peft_model, prepare_model_for_int8_training<br>model = prepare_model_for_int8_training(model)<br>peft_config = LoraConfig(r=<span class="hljs-number">16</span>, lora_alpha=<span class="hljs-number">32</span>, lora_dropout=<span class="hljs-number">0.05</span>, bias=<span class="hljs-string">&quot;none&quot;</span>, task_type=<span class="hljs-string">&quot;CAUSAL_LM&quot;</span>)<br>model = get_peft_model(model, peft_config)<br>training_args = TrainingArguments(<br>        output_dir=<span class="hljs-string">&quot;xgen-7b-tuned-alpaca-l1&quot;</span>,<br>        per_device_train_batch_size=<span class="hljs-number">4</span>,<br>        optim=<span class="hljs-string">&quot;adamw_torch&quot;</span>,<br>        logging_steps=<span class="hljs-number">10</span>,<br>        learning_rate=<span class="hljs-number">2e-4</span>,<br>        fp16=<span class="hljs-literal">True</span>,<br>        warmup_ratio=<span class="hljs-number">0.1</span>,<br>        lr_scheduler_type=<span class="hljs-string">&quot;linear&quot;</span>,<br>        num_train_epochs=<span class="hljs-number">1</span>,<br>        save_strategy=<span class="hljs-string">&quot;epoch&quot;</span>,<br>        push_to_hub=<span class="hljs-literal">False</span>,<br>    )<br>trainer = SFTTrainer(<br>    model=model,<br>    train_dataset=train_dataset,<br>    dataset_text_field=<span class="hljs-string">&quot;text&quot;</span>,<br>    max_seq_length=<span class="hljs-number">1024</span>,<br>    tokenizer=tokenizer,<br>    args=training_args,<br>    packing=<span class="hljs-literal">True</span>,<br>    peft_config=peft_config,<br>)<br>trainer.train()<br></code></pre></td></tr></table></figure>
+<ul>
+<li>gradient checkpoints</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> os<br>os.environ[<span class="hljs-string">&#x27;CUDA_VISIBLE_DEVICES&#x27;</span>] = <span class="hljs-string">&#x27;0&#x27;</span>  <span class="hljs-comment"># 单机多卡 -&gt; 单机单卡</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">print_summary</span>(<span class="hljs-params">result</span>):<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;Time: <span class="hljs-subst">&#123;result.metrics[<span class="hljs-string">&#x27;train_runtime&#x27;</span>]:<span class="hljs-number">.2</span>f&#125;</span>&quot;</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;Samples/second: <span class="hljs-subst">&#123;result.metrics[<span class="hljs-string">&#x27;train_samples_per_second&#x27;</span>]:<span class="hljs-number">.2</span>f&#125;</span>&quot;</span>)<br>    print_gpu_utilization()<br><br><span class="hljs-keyword">from</span> transformers <span class="hljs-keyword">import</span> TrainingArguments, Trainer<br>default_args = &#123;<br>    <span class="hljs-string">&quot;output_dir&quot;</span>: <span class="hljs-string">&quot;tmp&quot;</span>,<br>    <span class="hljs-string">&quot;evaluation_strategy&quot;</span>: <span class="hljs-string">&quot;steps&quot;</span>,<br>    <span class="hljs-string">&quot;num_train_epochs&quot;</span>: <span class="hljs-number">1</span>,<br>    <span class="hljs-string">&quot;log_level&quot;</span>: <span class="hljs-string">&quot;error&quot;</span>,<br>    <span class="hljs-string">&quot;report_to&quot;</span>: <span class="hljs-string">&quot;none&quot;</span>,<br>&#125;<br><span class="hljs-comment"># training_args = TrainingArguments(per_device_train_batch_size=4, **default_args)</span><br>training_args = TrainingArguments(<br>    per_device_train_batch_size=<span class="hljs-number">1</span>, gradient_accumulation_steps=<span class="hljs-number">4</span>, gradient_checkpointing=<span class="hljs-literal">True</span>, **default_args<br>)<br>trainer = Trainer(model=model, args=training_args, train_dataset=ds)<br>result = trainer.train()<br>print_summary(result)<br></code></pre></td></tr></table></figure>
+<ul>
+<li>pipeline</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> transformers <span class="hljs-keyword">import</span> AutoTokenizer, AutoModelForCausalLM<br>model_name = <span class="hljs-string">&quot;meta-llama/Llama-2-7b-chat-hf&quot;</span><br>tokenizer = AutoTokenizer.from_pretrained(model_name)<br>pipeline = transformers.pipeline(<br>    <span class="hljs-string">&quot;text-generation&quot;</span>,<br>    model=model_name,<br>    torch_dtype=torch.float16,<br>    device_map=<span class="hljs-string">&quot;auto&quot;</span><br>)<br><span class="hljs-built_in">print</span>(tokenizer)<br><span class="hljs-built_in">print</span>(pipeline.model)<br><br>sequences = pipeline(<br>    <span class="hljs-string">&#x27;I liked &quot;Breaking Bad&quot; and &quot;Band of Brothers&quot;. Do you have any recommendations of other shows I might like?\\n&#x27;</span>,<br>    do_sample=<span class="hljs-literal">True</span>,<br>    top_k=<span class="hljs-number">10</span>,<br>    num_return_sequences=<span class="hljs-number">3</span>,<br>    eos_token_id=tokenizer.eos_token_id,<br>    max_length=<span class="hljs-number">200</span>,<br>)<br><span class="hljs-keyword">for</span> seq <span class="hljs-keyword">in</span> sequences:<br>    <span class="hljs-built_in">print</span>(seq[<span class="hljs-string">&#x27;generated_text&#x27;</span>] + <span class="hljs-string">&#x27;\\n\\n&#x27;</span>)<br></code></pre></td></tr></table></figure>
+<ul>
+<li>trl</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> torch<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">import</span> random<br><span class="hljs-keyword">from</span> transformers <span class="hljs-keyword">import</span> GPT2Tokenizer<br><span class="hljs-keyword">from</span> transformers <span class="hljs-keyword">import</span> AutoModelForCausalLM<br><span class="hljs-keyword">from</span> trl <span class="hljs-keyword">import</span> AutoModelForCausalLMWithValueHead, PPOConfig, PPOTrainer<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">setup_seed</span>(<span class="hljs-params">seed</span>):  <span class="hljs-comment"># 确保结果可复现</span><br>    torch.manual_seed(seed)<br>    torch.cuda.manual_seed_all(seed)<br>    np.random.seed(seed)<br>    random.seed(seed)<br>    torch.backends.cudnn.deterministic = <span class="hljs-literal">True</span><br>setup_seed(<span class="hljs-number">1</span>)<br><br>model = AutoModelForCausalLMWithValueHead.from_pretrained(<span class="hljs-string">&quot;gpt2&quot;</span>)<br>model_ref = AutoModelForCausalLMWithValueHead.from_pretrained(<span class="hljs-string">&quot;gpt2&quot;</span>)<br>tokenizer = GPT2Tokenizer.from_pretrained(<span class="hljs-string">&quot;gpt2&quot;</span>)<br>tokenizer.pad_token = tokenizer.eos_token<br><span class="hljs-built_in">print</span>(tokenizer)<br><span class="hljs-built_in">print</span>(model.pretrained_model)<br><span class="hljs-built_in">print</span>(model.v_head)<br><span class="hljs-comment"># ValueHead(</span><br><span class="hljs-comment">#   (dropout): Dropout(p=0.1, inplace=False)</span><br><span class="hljs-comment">#   (summary): Linear(in_features=768, out_features=1, bias=True)</span><br><span class="hljs-comment">#   (flatten): Flatten(start_dim=1, end_dim=-1)</span><br><span class="hljs-comment"># )</span><br><br>ppo_config = &#123;<span class="hljs-string">&quot;batch_size&quot;</span>: <span class="hljs-number">1</span>&#125;<br>config = PPOConfig(**ppo_config)<br>ppo_trainer = PPOTrainer(config, model, model_ref, tokenizer)<br><br>query_txt = <span class="hljs-string">&quot;This morning I went to the &quot;</span><br>query_tensor = tokenizer.encode(query_txt, return_tensors=<span class="hljs-string">&quot;pt&quot;</span>).to(model.pretrained_model.device)<br>query_tensor  <span class="hljs-comment"># tensor([[1212, 3329,  314, 1816,  284,  262,  220]], device=&#x27;cuda:0&#x27;)</span><br><br>generation_kwargs = &#123;<br>    <span class="hljs-string">&quot;min_length&quot;</span>: -<span class="hljs-number">1</span>,<br>    <span class="hljs-string">&quot;top_k&quot;</span>: <span class="hljs-number">0.0</span>,<br>    <span class="hljs-string">&quot;top_p&quot;</span>: <span class="hljs-number">1.0</span>,<br>    <span class="hljs-string">&quot;do_sample&quot;</span>: <span class="hljs-literal">True</span>,<br>    <span class="hljs-string">&quot;pad_token_id&quot;</span>: tokenizer.eos_token_id,<br>    <span class="hljs-string">&quot;max_new_tokens&quot;</span>: <span class="hljs-number">20</span>,<br>&#125;<br>response_tensor = ppo_trainer.generate([item <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> query_tensor], return_prompt=<span class="hljs-literal">True</span>, **generation_kwargs)<br>response_txt = tokenizer.decode(response_tensor[<span class="hljs-number">0</span>])<br>response_txt  <span class="hljs-comment"># &#x27;This morning I went to the vernacular and found myself at a bar, cook, with a wife. Buggas together in&#x27;</span><br>reward = [torch.tensor(<span class="hljs-number">1.0</span>, device=model.pretrained_model.device)]  <span class="hljs-comment"># 此处为简化的表示</span><br>train_stats = ppo_trainer.step([query_tensor[<span class="hljs-number">0</span>]], [response_tensor[<span class="hljs-number">0</span>]], reward)<br><br>input_ids = torch.cat([query_tensor[<span class="hljs-number">0</span>], response_tensor[<span class="hljs-number">0</span>]])<br>base_model_output = model.pretrained_model(input_ids, output_hidden_states=<span class="hljs-literal">True</span>)<br>last_hidden_state = base_model_output.hidden_states[-<span class="hljs-number">1</span>]<br><span class="hljs-built_in">print</span>(last_hidden_state.shape)  <span class="hljs-comment"># torch.Size([34, 768])</span><br>lm_logits = base_model_output.logits<br><span class="hljs-built_in">print</span>(lm_logits.shape)  <span class="hljs-comment"># torch.Size([34, 50257])</span><br><span class="hljs-keyword">with</span> torch.no_grad():<br>    <span class="hljs-comment"># (34, 768) * (768, 1) =&gt; (34, 1)</span><br>    value = model.v_head(last_hidden_state).squeeze(-<span class="hljs-number">1</span>)<br>    <span class="hljs-built_in">print</span>(value.shape)  <span class="hljs-comment"># torch.Size([34])</span><br></code></pre></td></tr></table></figure>
+<ul>
+<li>RMSNorm; Swish/SwiLU/SiLU</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">RMSNorm</span>(torch.nn.Module):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, dim: <span class="hljs-built_in">int</span>, eps: <span class="hljs-built_in">float</span> = <span class="hljs-number">1e-6</span></span>):<br>        <span class="hljs-built_in">super</span>().__init__()<br>        self.eps = eps<br>        self.weight = nn.Parameter(torch.ones(dim))<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">_norm</span>(<span class="hljs-params">self, x</span>):<br>        <span class="hljs-keyword">return</span> x * torch.rsqrt(x.<span class="hljs-built_in">pow</span>(<span class="hljs-number">2</span>).mean(-<span class="hljs-number">1</span>, keepdim=<span class="hljs-literal">True</span>) + self.eps)<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">forward</span>(<span class="hljs-params">self, x</span>):<br>        output = self._norm(x.<span class="hljs-built_in">float</span>()).type_as(x)<br>        <span class="hljs-keyword">return</span> output * self.weight<br><br>x = torch.randn(bs, seq_len, embedding_dim)<br>rms_norm = RMSNorm(embedding_dim)<br>x_rms = rms_norm(x)<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">sigmoid</span>(<span class="hljs-params">x</span>):<br>    <span class="hljs-keyword">return</span>  <span class="hljs-number">1</span>/(<span class="hljs-number">1</span> + np.exp(-x))<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">swish</span>(<span class="hljs-params">x</span>):<br>    <span class="hljs-keyword">return</span> x*sigmoid(x)<br><br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br>plt.rcParams[<span class="hljs-string">&#x27;figure.dpi&#x27;</span>] = <span class="hljs-number">120</span><br>x = np.arange(-<span class="hljs-number">5</span>, <span class="hljs-number">5</span>, <span class="hljs-number">.01</span>)<br>plt.plot(x, swish(x))<br><br>x = torch.randn(<span class="hljs-number">5</span>)<br>x/(<span class="hljs-number">1</span>+torch.exp(-x))<br><span class="hljs-keyword">import</span> torch.nn.functional <span class="hljs-keyword">as</span> F<br>F.silu(x)<br></code></pre></td></tr></table></figure>
+<ul>
+<li><strong>cache KV</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> transformers <span class="hljs-keyword">import</span> AutoModelForCausalLM, AutoTokenizer<br>device = <span class="hljs-string">&quot;cuda&quot;</span> <span class="hljs-keyword">if</span> torch.cuda.is_available() <span class="hljs-keyword">else</span> <span class="hljs-string">&quot;cpu&quot;</span><br>tokenizer = AutoTokenizer.from_pretrained(<span class="hljs-string">&quot;gpt2&quot;</span>)<br>model = AutoModelForCausalLM.from_pretrained(<span class="hljs-string">&quot;gpt2&quot;</span>).to(device)<br><br><span class="hljs-keyword">for</span> use_cache <span class="hljs-keyword">in</span> (<span class="hljs-literal">True</span>, <span class="hljs-literal">False</span>):<br>    times = []<br>    <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>):  <span class="hljs-comment"># measuring 10 generations</span><br>        start = time.time()<br>        model.generate(**tokenizer(<span class="hljs-string">&quot;What is KV caching?&quot;</span>, return_tensors=<span class="hljs-string">&quot;pt&quot;</span>).to(device), <br>                       use_cache=use_cache, <br>                       max_new_tokens=<span class="hljs-number">1000</span>)<br>        times.append(time.time() - start)<br>    mu = <span class="hljs-built_in">round</span>(np.mean(times), <span class="hljs-number">3</span>)<br>    std = <span class="hljs-built_in">round</span>(np.std(times), <span class="hljs-number">3</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;<span class="hljs-subst">&#123;<span class="hljs-string">&#x27;with&#x27;</span> <span class="hljs-keyword">if</span> use_cache <span class="hljs-keyword">else</span> <span class="hljs-string">&#x27;without&#x27;</span>&#125;</span> KV caching: <span class="hljs-subst">&#123;mu&#125;</span> +- <span class="hljs-subst">&#123;std&#125;</span> seconds&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/LLM/" class="print-no-link">#LLM</a>
+      
+    </div>
+  
+</div>
+
+
+              
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/01/21/Pytorch%20Distributed/" title="Pytorch Distributed">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Pytorch Distributed</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/12/28/Diffusers/" title="Diffusers">
+                        <span class="hidden-mobile">Diffusers</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'https://zhiyangliang.github.io/2024/01/10/LLM%20Basics/';
+          this.page.identifier = '/2024/01/10/LLM%20Basics/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'fluid' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="/about/" target="_blank" rel="nofollow noopener"><span>Zhiyang Liang (梁智扬)</span></a>
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>
