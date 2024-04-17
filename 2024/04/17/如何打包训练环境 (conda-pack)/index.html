@@ -16,22 +16,22 @@
   <meta name="author" content="Zhiyang Liang (梁智扬)">
   <meta name="keywords" content="[object Object],[object Object],[object Object]">
   
-    <meta name="description" content="安装DeepSpeed  123git clone &lt;https:&#x2F;&#x2F;github.com&#x2F;microsoft&#x2F;DeepSpeed.git&gt;cd DeepSpeedgit checkout v0.9.5 更多配置信息可见于OvJat&#x2F;DeepSpeedTutorial: DeepSpeed Tutorial (github.com)  训练的模型不止一个 (此处以sta">
+    <meta name="description" content="123456789101112131415161718root@autodl-container-f4d5458449-4ea6d9e7:~# conda create -n llm_env --clone baseSource:      &#x2F;root&#x2F;miniconda3Destination: &#x2F;root&#x2F;miniconda3&#x2F;envs&#x2F;llm_envThe following package">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DeepSpeed">
-<meta property="og:url" content="https://zhiyangliang.github.io/2024/02/27/DeepSpeed/index.html">
+<meta property="og:title" content="如何打包训练环境 (conda pack)">
+<meta property="og:url" content="https://zhiyangliang.github.io/2024/04/17/%E5%A6%82%E4%BD%95%E6%89%93%E5%8C%85%E8%AE%AD%E7%BB%83%E7%8E%AF%E5%A2%83%20(conda-pack)/index.html">
 <meta property="og:site_name" content="Zhiyang Liang (梁智扬)">
-<meta property="og:description" content="安装DeepSpeed  123git clone &lt;https:&#x2F;&#x2F;github.com&#x2F;microsoft&#x2F;DeepSpeed.git&gt;cd DeepSpeedgit checkout v0.9.5 更多配置信息可见于OvJat&#x2F;DeepSpeedTutorial: DeepSpeed Tutorial (github.com)  训练的模型不止一个 (此处以sta">
+<meta property="og:description" content="123456789101112131415161718root@autodl-container-f4d5458449-4ea6d9e7:~# conda create -n llm_env --clone baseSource:      &#x2F;root&#x2F;miniconda3Destination: &#x2F;root&#x2F;miniconda3&#x2F;envs&#x2F;llm_envThe following package">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-02-26T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-04-17T01:37:30.800Z">
+<meta property="article:published_time" content="2024-04-16T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-04-17T12:18:42.084Z">
 <meta property="article:author" content="Zhiyang Liang (梁智扬)">
-<meta property="article:tag" content="DDP">
+<meta property="article:tag" content="Basic Skills">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>DeepSpeed - Zhiyang Liang (梁智扬)</title>
+  <title>如何打包训练环境 (conda pack) - Zhiyang Liang (梁智扬)</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -209,7 +209,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="DeepSpeed"></span>
+            <span id="subtitle" data-typed-text="如何打包训练环境 (conda pack)"></span>
           
         </div>
 
@@ -225,8 +225,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-02-27 00:00" pubdate>
-          February 27, 2024 am
+        <time datetime="2024-04-17 00:00" pubdate>
+          April 17, 2024 am
         </time>
       </span>
     
@@ -237,7 +237,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          120 words
+          368 words
         
       </span>
     
@@ -248,7 +248,7 @@
         
         
         
-          2 mins
+          4 mins
         
       </span>
     
@@ -285,49 +285,15 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">DeepSpeed</h1>
+            <h1 id="seo-header">如何打包训练环境 (conda pack)</h1>
             
             
               <div class="markdown-body">
                 
-                <ul>
-<li>安装DeepSpeed</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java">git clone &lt;https:<span class="hljs-comment">//github.com/microsoft/DeepSpeed.git&gt;</span><br>cd DeepSpeed<br>git checkout v0<span class="hljs-number">.9</span><span class="hljs-number">.5</span><br></code></pre></td></tr></table></figure>
-<p>更多配置信息可见于<a
-target="_blank" rel="noopener" href="https://github.com/OvJat/DeepSpeedTutorial">OvJat/DeepSpeedTutorial:
-DeepSpeed Tutorial (github.com)</a></p>
-<ul>
-<li><p>训练的模型不止一个 (此处以stable diffusion为例)</p></li>
-<li><p>An Example</p></li>
-</ul>
-<p><a
-target="_blank" rel="noopener" href="https://github.com/Azure/azureml-examples/tree/main/cli/jobs/deepspeed/deepspeed-training/src">cli/jobs/deepspeed/deepspeed-training/src</a></p>
-<ul>
-<li>安装mpi4py</li>
-</ul>
-<p>sudo apt update sudo apt-get install libopenmpi-dev</p>
-<p>pip install mpi4py</p>
-<ul>
-<li>hf与deepspeed的配置冲突, 将deepspeed的相应配置修改为”auto”</li>
-</ul>
-<p>"bf16": { "enabled": "auto" }</p>
-<ul>
-<li>使用deepspeed需要安装bitsandbytes</li>
-</ul>
-<p>pip install bitsandbytes</p>
-<ul>
-<li>多卡运行</li>
-</ul>
-<p>CUDA_VISIBLE_DEVICES=0,1 torchrun --nproc_per_node=2
---master_port=29500 finetune.py</p>
-<p>运行时间: 03:33&lt;12:41:38</p>
-<ul>
-<li>单卡运行</li>
-</ul>
-<p>CUDA_VISIBLE_DEVICES=0 torchrun --nproc_per_node=1
---master_port=29500 finetune.py</p>
-<p>运行时间: 03:38&lt;46:53:33</p>
+                <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python">root@autodl-container-f4d5458449-4ea6d9e7:~<span class="hljs-comment"># conda create -n llm_env --clone base</span><br>Source:      /root/miniconda3<br>Destination: /root/miniconda3/envs/llm_env<br>The following packages cannot be cloned out of the root environment:<br> - defaults/linux-<span class="hljs-number">64</span>::conda-<span class="hljs-number">4.10</span><span class="hljs-number">.3</span>-py38h06a4308_0<br>Packages: <span class="hljs-number">34</span><br>Files: <span class="hljs-number">35817</span><br>Preparing transaction: done<br>Verifying transaction: done<br>Executing transaction: done<br><span class="hljs-comment">#</span><br><span class="hljs-comment"># To activate this environment, use</span><br><span class="hljs-comment">#</span><br><span class="hljs-comment">#     $ conda activate llm_env</span><br><span class="hljs-comment">#</span><br><span class="hljs-comment"># To deactivate an active environment, use</span><br><span class="hljs-comment">#</span><br><span class="hljs-comment">#     $ conda deactivate</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">root@autodl-container-f4d5458449-4ea6d9e7:~<span class="hljs-comment"># conda env list</span><br><span class="hljs-comment"># conda environments:</span><br><span class="hljs-comment">#</span><br>base                  *  /root/miniconda3<br>llm_env                    /root/miniconda3/envs/llm_env<br></code></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 安装conda pack</span><br>conda install conda-pack<br><br>RemoveError: ‘requests’ <span class="hljs-keyword">is</span> a dependency of conda <span class="hljs-keyword">and</span> cannot be removed <span class="hljs-keyword">from</span> conda’s operating environment.<br>conda update --force conda<br><br>CondaHTTPError: HTTP <span class="hljs-number">429</span> TOO MANY REQUESTS <span class="hljs-keyword">for</span> url &lt;https://mirrors.ustc.edu.cn/anaconda/pkgs/main/linux-<span class="hljs-number">64</span>/current_repodata.json&gt; Elapsed: <span class="hljs-number">00</span>:<span class="hljs-number">46.163959</span><br><br>step <span class="hljs-number">1</span>:<br>root@autodl-container-f4d5458449-4ea6d9e7:~<span class="hljs-comment"># vim ~/.condarc</span><br>root@autodl-container-f4d5458449-4ea6d9e7:~<span class="hljs-comment"># cat ~/.condarc</span><br>auto_activate_base: false<br>show_channel_urls: true<br>ssl_verify: false<br>channels:<br>  - conda-forge<br>  - &lt;http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/&gt;<br>  - &lt;http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/&gt;<br>  - &lt;http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/&gt;<br>  - &lt;https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/&gt;<br>  - &lt;https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge&gt;<br>  - &lt;https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/&gt;<br>  - defaults<br><br>step <span class="hljs-number">2</span>:<br>conda create --name superset python=<span class="hljs-number">3.8</span><br><br><span class="hljs-comment"># 打包环境</span><br>conda pack -n llm_env<br><br>root@autodl-container-30da119afa-edacec3e:~<span class="hljs-comment"># conda pack -n llm_env</span><br>Collecting packages...<br>CondaPackError: Cannot pack an environment <span class="hljs-keyword">with</span> editable packages<br>installed (e.g. <span class="hljs-keyword">from</span> `python setup.py develop` <span class="hljs-keyword">or</span><br> `pip install -e`). Editable packages found:<br><br>- /root/autodl-tmp/peft/src<br><br>conda pack -n llm_env --ignore-editable-packages<br></code></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 在跳板机进行上传</span><br>scp llm_env.tar.gz lanlong@<span class="hljs-number">172.20</span><span class="hljs-number">.208</span><span class="hljs-number">.8</span>:~/zyliang<br><br><span class="hljs-comment"># 与向上传相应的, 补充一个向下取的例子; 但是跳板机比较特殊, 将文件传到跳板机需要用FileZilla</span><br>scp -rP <span class="hljs-number">35381</span> root@region-<span class="hljs-number">9.</span>autodl.pro:~/llm_env.tar.gz ~/zyliang<br><br><span class="hljs-comment"># 在目标服务器进行安装</span><br>mkdir -p llm_env<br><br>(base) lanlong@a101:~/zyliang$ tar -xzf llm_env.tar.gz -C llm_env<br>(base) lanlong@a101:~/zyliang$ cd llm_env<br>(base) lanlong@a101:~/zyliang/llm_env$ ls<br><span class="hljs-built_in">bin</span>              conda-meta  include  lib    ssl                          x86_64-conda-linux-gnu<br>compiler_compat  etc         info     share  x86_64-conda_cos6-linux-gnu<br><br>./llm_env/<span class="hljs-built_in">bin</span>/python <span class="hljs-comment"># 测试</span><br>ctrl + z 退出<br>source llm_env/<span class="hljs-built_in">bin</span>/activate <span class="hljs-comment"># 激活环境, llm_env/bin 会被添加到环境变量</span><br>python <span class="hljs-comment"># 在环境中运行python</span><br>conda-unpack <span class="hljs-comment"># 在激活环境中清楚前缀</span><br>ipython --version<br><br><span class="hljs-comment"># 若不再使用</span><br>source llm_env/<span class="hljs-built_in">bin</span>/deactivate <span class="hljs-comment"># 停用环境并将其从环境变量中删除</span><br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -340,7 +306,7 @@ target="_blank" rel="noopener" href="https://github.com/Azure/azureml-examples/t
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/DDP/" class="print-no-link">#DDP</a>
+        <a href="/tags/Basic-Skills/" class="print-no-link">#Basic Skills</a>
       
     </div>
   
@@ -354,18 +320,12 @@ target="_blank" rel="noopener" href="https://github.com/Azure/azureml-examples/t
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/04/17/%E5%A6%82%E4%BD%95%E6%89%93%E5%8C%85%E8%AE%AD%E7%BB%83%E7%8E%AF%E5%A2%83%20(conda-pack)/" title="如何打包训练环境 (conda pack)">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">如何打包训练环境 (conda pack)</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/02/12/Prompt%20Engineering/" title="Prompt Engineering">
-                        <span class="hidden-mobile">Prompt Engineering</span>
+                      <a href="/2024/02/27/DeepSpeed/" title="DeepSpeed">
+                        <span class="hidden-mobile">DeepSpeed</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -385,8 +345,8 @@ target="_blank" rel="noopener" href="https://github.com/Azure/azureml-examples/t
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'https://zhiyangliang.github.io/2024/02/27/DeepSpeed/';
-          this.page.identifier = '/2024/02/27/DeepSpeed/';
+          this.page.url = 'https://zhiyangliang.github.io/2024/04/17/%E5%A6%82%E4%BD%95%E6%89%93%E5%8C%85%E8%AE%AD%E7%BB%83%E7%8E%AF%E5%A2%83%20(conda-pack)/';
+          this.page.identifier = '/2024/04/17/%E5%A6%82%E4%BD%95%E6%89%93%E5%8C%85%E8%AE%AD%E7%BB%83%E7%8E%AF%E5%A2%83%20(conda-pack)/';
         };
         Fluid.utils.loadComments('#disqus_thread', function() {
           var d = document, s = d.createElement('script');
