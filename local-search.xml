@@ -201,5 +201,24 @@
   
   
   
+  <entry>
+    <title>在远程服务器配置Clash</title>
+    <link href="/2023/08/30/%E5%9C%A8%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AEClash/"/>
+    <url>/2023/08/30/%E5%9C%A8%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AEClash/</url>
+    
+    <content type="html"><![CDATA[<ul><li>在 https://github.com/doreamon-design/clash/releases下载与自己系统相符的安装包，一般选择clash_2.0.24_linux_amd64.tar.gz</li><li>将压缩包传至远程服务器后，执行以下命令：</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">tar -xvf clash_2<span class="hljs-number">.0</span><span class="hljs-number">.24</span>_linux_amd64.tar<br>mv clash_2<span class="hljs-number">.0</span><span class="hljs-number">.24</span>_linux_amd64 /usr/local/<span class="hljs-built_in">bin</span>/clash<br>clash -v<br></code></pre></td></tr></table></figure><p>若能显示clash的版本，则说明已成功安装</p><ul><li><p>在远程服务器的/etc目录下新建clash目录；查看本机的clash配置，将config.yaml文件传至远程服务器，并移动至/etc/clash目录下；下载相应的Country.mmdb(网上很好找) 并移动至/etc/clash目录下</p></li><li><p>新建tmux窗口，并执行如下命令：</p></li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">clash -d /etc/clash<br></code></pre></td></tr></table></figure><ul><li>在终端中执行以下命令：</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">export https_proxy=http://<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">7890</span> http_proxy=http://<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">7890</span> all_proxy=socks5://<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">7891</span><br></code></pre></td></tr></table></figure><p>完成上述步骤后，理论上便已成功配置，若出现如下的连接失败的问题：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">INFO[<span class="hljs-number">0000</span>] Can<span class="hljs-string">&#x27;t find MMDB, start download</span><br><span class="hljs-string">FATA[0000] Initial configuration directory error: can&#x27;</span>t initial MMDB: can<span class="hljs-string">&#x27;t download MMDB: Get &quot;https://cdn.jsdelivr.net/gh/Dreamacro/maxmind-geoip@release/Country.mmdb&quot;: proxyconnect tcp: dial tcp 127.0.0.1:7890: connect: connection refused</span><br></code></pre></td></tr></table></figure><p>则可能是端口占用的问题，查看如下：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">export | grep -i proxy<br></code></pre></td></tr></table></figure><p>取消端口占用，再次查看：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">unset http_proxy https_proxy <br>export | grep -i proxy<br></code></pre></td></tr></table></figure><p>重新设置，之后即可正常连接：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">declare -x http_proxy=<span class="hljs-string">&quot;http://127.0.0.1:7890&quot;</span><br>declare -x https_proxy=<span class="hljs-string">&quot;http://127.0.0.1:7890&quot;</span><br></code></pre></td></tr></table></figure><p>为避免网络连接不稳定，也可以在代码中加入如下设置：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> os<br>os.environ[<span class="hljs-string">&#x27;HTTP_PROXY&#x27;</span>] = <span class="hljs-string">&#x27;http://127.0.0.1:7890&#x27;</span><br>os.environ[<span class="hljs-string">&#x27;HTTPS_PROXY&#x27;</span>] = <span class="hljs-string">&#x27;http://127.0.0.1:7890&#x27;</span><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Linux</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
   
 </search>
