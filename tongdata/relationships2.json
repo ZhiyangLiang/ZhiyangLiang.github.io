@@ -1,0 +1,3116 @@
+{
+    "0a7cc12c0e": {
+        "scan": "0a7cc12c0e",
+        "relationships": [
+            [
+                62,
+                123,
+                "support"
+            ],
+            [
+                1,
+                5,
+                "support"
+            ],
+            [
+                6,
+                12,
+                "support"
+            ],
+            [
+                2,
+                4,
+                "support"
+            ],
+            [
+                66,
+                103,
+                "support"
+            ],
+            [
+                66,
+                107,
+                "support"
+            ],
+            [
+                13,
+                0,
+                "support"
+            ],
+            [
+                28,
+                30,
+                "support"
+            ],
+            [
+                89,
+                139,
+                "support"
+            ],
+            [
+                126,
+                26,
+                "support"
+            ],
+            [
+                126,
+                28,
+                "support"
+            ],
+            [
+                126,
+                27,
+                "support"
+            ],
+            [
+                126,
+                25,
+                "support"
+            ],
+            [
+                126,
+                33,
+                "support"
+            ],
+            [
+                33,
+                34,
+                "support"
+            ],
+            [
+                15,
+                14,
+                "support"
+            ],
+            [
+                -3,
+                70,
+                "support"
+            ],
+            [
+                -3,
+                86,
+                "support"
+            ],
+            [
+                -3,
+                95,
+                "support"
+            ],
+            [
+                -3,
+                66,
+                "support"
+            ],
+            [
+                -3,
+                67,
+                "support"
+            ],
+            [
+                -3,
+                90,
+                "support"
+            ],
+            [
+                -3,
+                10,
+                "support"
+            ],
+            [
+                -3,
+                23,
+                "support"
+            ],
+            [
+                -3,
+                11,
+                "support"
+            ],
+            [
+                -3,
+                102,
+                "support"
+            ],
+            [
+                -3,
+                47,
+                "support"
+            ],
+            [
+                -3,
+                68,
+                "support"
+            ],
+            [
+                -3,
+                89,
+                "support"
+            ],
+            [
+                -3,
+                36,
+                "support"
+            ],
+            [
+                -3,
+                38,
+                "support"
+            ],
+            [
+                -3,
+                72,
+                "support"
+            ],
+            [
+                -3,
+                37,
+                "support"
+            ],
+            [
+                -3,
+                126,
+                "support"
+            ],
+            [
+                -3,
+                101,
+                "support"
+            ],
+            [
+                -3,
+                22,
+                "support"
+            ],
+            [
+                -3,
+                9,
+                "support"
+            ],
+            [
+                5,
+                70,
+                "placed within the area of"
+            ],
+            [
+                1,
+                70,
+                "placed within the area of"
+            ],
+            [
+                4,
+                70,
+                "placed within the area of"
+            ],
+            [
+                2,
+                6,
+                "inside"
+            ],
+            [
+                1,
+                6,
+                "inside"
+            ],
+            [
+                84,
+                86,
+                "inside"
+            ],
+            [
+                21,
+                86,
+                "inside"
+            ],
+            [
+                85,
+                86,
+                "placed within the area of"
+            ],
+            [
+                20,
+                86,
+                "inside"
+            ],
+            [
+                19,
+                86,
+                "inside"
+            ],
+            [
+                104,
+                66,
+                "placed within the area of"
+            ],
+            [
+                95,
+                66,
+                "inside"
+            ],
+            [
+                105,
+                66,
+                "inside"
+            ],
+            [
+                108,
+                66,
+                "placed within the area of"
+            ],
+            [
+                102,
+                66,
+                "inside"
+            ],
+            [
+                68,
+                66,
+                "inside"
+            ],
+            [
+                94,
+                66,
+                "placed within the area of"
+            ],
+            [
+                25,
+                26,
+                "embedded into"
+            ],
+            [
+                5,
+                62,
+                "placed within the area of"
+            ],
+            [
+                119,
+                109,
+                "inside"
+            ],
+            [
+                110,
+                109,
+                "placed within the area of"
+            ],
+            [
+                113,
+                109,
+                "placed within the area of"
+            ],
+            [
+                8,
+                47,
+                "placed within the area of"
+            ],
+            [
+                104,
+                68,
+                "inside"
+            ],
+            [
+                90,
+                89,
+                "inside"
+            ],
+            [
+                29,
+                30,
+                "placed within the area of"
+            ],
+            [
+                78,
+                72,
+                "inside"
+            ],
+            [
+                77,
+                72,
+                "inside"
+            ],
+            [
+                79,
+                72,
+                "placed within the area of"
+            ],
+            [
+                29,
+                126,
+                "placed within the area of"
+            ],
+            [
+                20,
+                19,
+                "placed within the area of"
+            ],
+            [
+                58,
+                -2,
+                "hung on"
+            ],
+            [
+                58,
+                57,
+                "above"
+            ],
+            [
+                57,
+                58,
+                "below"
+            ],
+            [
+                58,
+                56,
+                "above"
+            ],
+            [
+                56,
+                58,
+                "lower than"
+            ],
+            [
+                57,
+                -2,
+                "hanging on"
+            ],
+            [
+                57,
+                56,
+                "above"
+            ],
+            [
+                56,
+                57,
+                "below"
+            ],
+            [
+                61,
+                -2,
+                "hung on"
+            ],
+            [
+                61,
+                36,
+                "higher than"
+            ],
+            [
+                36,
+                61,
+                "below"
+            ],
+            [
+                13,
+                -2,
+                "hanging on"
+            ],
+            [
+                62,
+                -2,
+                "hanging on"
+            ],
+            [
+                131,
+                -2,
+                "hung on"
+            ],
+            [
+                131,
+                126,
+                "higher than"
+            ],
+            [
+                126,
+                131,
+                "below"
+            ],
+            [
+                109,
+                -2,
+                "hanging on"
+            ],
+            [
+                17,
+                -2,
+                "hanging on"
+            ],
+            [
+                17,
+                126,
+                "above"
+            ],
+            [
+                126,
+                17,
+                "below"
+            ],
+            [
+                7,
+                -2,
+                "hung on"
+            ],
+            [
+                7,
+                70,
+                "above"
+            ],
+            [
+                70,
+                7,
+                "below"
+            ],
+            [
+                7,
+                62,
+                "higher than"
+            ],
+            [
+                62,
+                7,
+                "below"
+            ],
+            [
+                136,
+                -2,
+                "hung on"
+            ],
+            [
+                16,
+                -2,
+                "hanging on"
+            ],
+            [
+                16,
+                126,
+                "above"
+            ],
+            [
+                126,
+                16,
+                "below"
+            ],
+            [
+                63,
+                -2,
+                "hanging on"
+            ],
+            [
+                32,
+                -2,
+                "hung on"
+            ],
+            [
+                15,
+                -2,
+                "hanging on"
+            ],
+            [
+                120,
+                -2,
+                "hanging on"
+            ],
+            [
+                120,
+                113,
+                "above"
+            ],
+            [
+                113,
+                120,
+                "lower than"
+            ],
+            [
+                56,
+                -2,
+                "hung on"
+            ],
+            [
+                69,
+                -2,
+                "hanging on"
+            ],
+            [
+                69,
+                70,
+                "higher than"
+            ],
+            [
+                70,
+                69,
+                "below"
+            ],
+            [
+                69,
+                62,
+                "higher than"
+            ],
+            [
+                62,
+                69,
+                "lower than"
+            ],
+            [
+                69,
+                8,
+                "higher than"
+            ],
+            [
+                8,
+                69,
+                "lower than"
+            ],
+            [
+                69,
+                7,
+                "above"
+            ],
+            [
+                7,
+                69,
+                "below"
+            ],
+            [
+                69,
+                123,
+                "above"
+            ],
+            [
+                123,
+                69,
+                "below"
+            ],
+            [
+                107,
+                103,
+                "12 o\u2018clock direction far from"
+            ],
+            [
+                103,
+                107,
+                "behind"
+            ],
+            [
+                28,
+                26,
+                "6 o\u2018clock direction near"
+            ],
+            [
+                26,
+                28,
+                "in front of"
+            ],
+            [
+                26,
+                27,
+                "close to"
+            ],
+            [
+                27,
+                26,
+                "next to"
+            ],
+            [
+                26,
+                25,
+                "adjacent to"
+            ],
+            [
+                25,
+                26,
+                "next to"
+            ],
+            [
+                33,
+                26,
+                "6 o\u2018clock direction far from"
+            ],
+            [
+                26,
+                33,
+                "in front of"
+            ],
+            [
+                27,
+                28,
+                "1 o\u2018clock direction near"
+            ],
+            [
+                28,
+                27,
+                "behind"
+            ],
+            [
+                25,
+                28,
+                "12 o\u2018clock direction near"
+            ],
+            [
+                28,
+                25,
+                "behind"
+            ],
+            [
+                33,
+                28,
+                "6 o\u2018clock direction near"
+            ],
+            [
+                28,
+                33,
+                "in front of"
+            ],
+            [
+                27,
+                25,
+                "adjacent to"
+            ],
+            [
+                25,
+                27,
+                "next to"
+            ],
+            [
+                33,
+                27,
+                "6 o\u2018clock direction far from"
+            ],
+            [
+                27,
+                33,
+                "in front of"
+            ],
+            [
+                33,
+                25,
+                "6 o\u2018clock direction far from"
+            ],
+            [
+                25,
+                33,
+                "in front of"
+            ],
+            [
+                86,
+                70,
+                "3 o\u2018clock direction near"
+            ],
+            [
+                70,
+                86,
+                "to the left of"
+            ],
+            [
+                95,
+                70,
+                "6 o\u2018clock direction far from"
+            ],
+            [
+                70,
+                95,
+                "in front of"
+            ],
+            [
+                66,
+                70,
+                "6 o\u2018clock direction far from"
+            ],
+            [
+                70,
+                66,
+                "in front of"
+            ],
+            [
+                67,
+                70,
+                "6 o\u2018clock direction near"
+            ],
+            [
+                70,
+                67,
+                "in front of"
+            ],
+            [
+                90,
+                70,
+                "5 o\u2018clock direction far from"
+            ],
+            [
+                70,
+                90,
+                "in front of"
+            ],
+            [
+                10,
+                70,
+                "2 o\u2018clock direction far from"
+            ],
+            [
+                70,
+                10,
+                "to the left of"
+            ],
+            [
+                23,
+                70,
+                "5 o\u2018clock direction far from"
+            ],
+            [
+                70,
+                23,
+                "in front of"
+            ],
+            [
+                11,
+                70,
+                "2 o\u2018clock direction far from"
+            ],
+            [
+                70,
+                11,
+                "to the left of"
+            ],
+            [
+                102,
+                70,
+                "6 o\u2018clock direction far from"
+            ],
+            [
+                70,
+                102,
+                "in front of"
+            ],
+            [
+                70,
+                47,
+                "next to"
+            ],
+            [
+                47,
+                70,
+                "close to"
+            ],
+            [
+                68,
+                70,
+                "6 o\u2018clock direction far from"
+            ],
+            [
+                70,
+                68,
+                "in front of"
+            ],
+            [
+                89,
+                70,
+                "5 o\u2018clock direction far from"
+            ],
+            [
+                70,
+                89,
+                "in front of"
+            ],
+            [
+                36,
+                70,
+                "5 o\u2018clock direction near"
+            ],
+            [
+                70,
+                36,
+                "in front of"
+            ],
+            [
+                70,
+                38,
+                "close to"
+            ],
+            [
+                38,
+                70,
+                "beside"
+            ],
+            [
+                72,
+                70,
+                "3 o\u2018clock direction far from"
+            ],
+            [
+                70,
+                72,
+                "to the left of"
+            ],
+            [
+                37,
+                70,
+                "1 o\u2018clock direction near"
+            ],
+            [
+                70,
+                37,
+                "behind"
+            ],
+            [
+                126,
+                70,
+                "4 o\u2018clock direction near"
+            ],
+            [
+                70,
+                126,
+                "to the left of"
+            ],
+            [
+                101,
+                70,
+                "6 o\u2018clock direction far from"
+            ],
+            [
+                70,
+                101,
+                "in front of"
+            ],
+            [
+                22,
+                70,
+                "6 o\u2018clock direction far from"
+            ],
+            [
+                70,
+                22,
+                "in front of"
+            ],
+            [
+                9,
+                70,
+                "2 o\u2018clock direction far from"
+            ],
+            [
+                70,
+                9,
+                "to the left of"
+            ],
+            [
+                95,
+                86,
+                "7 o\u2018clock direction far from"
+            ],
+            [
+                86,
+                95,
+                "in front of"
+            ],
+            [
+                66,
+                86,
+                "7 o\u2018clock direction far from"
+            ],
+            [
+                86,
+                66,
+                "in front of"
+            ],
+            [
+                67,
+                86,
+                "8 o\u2018clock direction far from"
+            ],
+            [
+                86,
+                67,
+                "to the right of"
+            ],
+            [
+                90,
+                86,
+                "6 o\u2018clock direction far from"
+            ],
+            [
+                86,
+                90,
+                "in front of"
+            ],
+            [
+                10,
+                86,
+                "12 o\u2018clock direction far from"
+            ],
+            [
+                86,
+                10,
+                "behind"
+            ],
+            [
+                23,
+                86,
+                "6 o\u2018clock direction far from"
+            ],
+            [
+                86,
+                23,
+                "in front of"
+            ],
+            [
+                11,
+                86,
+                "1 o\u2018clock direction far from"
+            ],
+            [
+                86,
+                11,
+                "behind"
+            ],
+            [
+                102,
+                86,
+                "7 o\u2018clock direction far from"
+            ],
+            [
+                86,
+                102,
+                "in front of"
+            ],
+            [
+                47,
+                86,
+                "10 o\u2018clock direction far from"
+            ],
+            [
+                86,
+                47,
+                "to the right of"
+            ],
+            [
+                68,
+                86,
+                "7 o\u2018clock direction far from"
+            ],
+            [
+                86,
+                68,
+                "in front of"
+            ],
+            [
+                89,
+                86,
+                "6 o\u2018clock direction far from"
+            ],
+            [
+                86,
+                89,
+                "in front of"
+            ],
+            [
+                36,
+                86,
+                "7 o\u2018clock direction near"
+            ],
+            [
+                86,
+                36,
+                "in front of"
+            ],
+            [
+                38,
+                86,
+                "10 o\u2018clock direction far from"
+            ],
+            [
+                86,
+                38,
+                "to the right of"
+            ],
+            [
+                72,
+                86,
+                "6 o\u2018clock direction near"
+            ],
+            [
+                86,
+                72,
+                "in front of"
+            ],
+            [
+                37,
+                86,
+                "10 o\u2018clock direction far from"
+            ],
+            [
+                86,
+                37,
+                "to the right of"
+            ],
+            [
+                86,
+                126,
+                "adjacent to"
+            ],
+            [
+                126,
+                86,
+                "close to"
+            ],
+            [
+                101,
+                86,
+                "7 o\u2018clock direction far from"
+            ],
+            [
+                86,
+                101,
+                "in front of"
+            ],
+            [
+                22,
+                86,
+                "6 o\u2018clock direction far from"
+            ],
+            [
+                86,
+                22,
+                "in front of"
+            ],
+            [
+                9,
+                86,
+                "12 o\u2018clock direction far from"
+            ],
+            [
+                86,
+                9,
+                "behind"
+            ],
+            [
+                66,
+                95,
+                "6 o\u2018clock direction near"
+            ],
+            [
+                95,
+                66,
+                "in front of"
+            ],
+            [
+                67,
+                95,
+                "12 o\u2018clock direction far from"
+            ],
+            [
+                95,
+                67,
+                "behind"
+            ],
+            [
+                90,
+                95,
+                "4 o\u2018clock direction far from"
+            ],
+            [
+                95,
+                90,
+                "to the left of"
+            ],
+            [
+                10,
+                95,
+                "1 o\u2018clock direction far from"
+            ],
+            [
+                95,
+                10,
+                "behind"
+            ],
+            [
+                23,
+                95,
+                "4 o\u2018clock direction far from"
+            ],
+            [
+                95,
+                23,
+                "to the left of"
+            ],
+            [
+                11,
+                95,
+                "1 o\u2018clock direction far from"
+            ],
+            [
+                95,
+                11,
+                "behind"
+            ],
+            [
+                102,
+                95,
+                "7 o\u2018clock direction far from"
+            ],
+            [
+                95,
+                102,
+                "in front of"
+            ],
+            [
+                47,
+                95,
+                "12 o\u2018clock direction far from"
+            ],
+            [
+                95,
+                47,
+                "behind"
+            ],
+            [
+                68,
+                95,
+                "7 o\u2018clock direction far from"
+            ],
+            [
+                95,
+                68,
+                "in front of"
+            ],
+            [
+                89,
+                95,
+                "4 o\u2018clock direction far from"
+            ],
+            [
+                95,
+                89,
+                "to the left of"
+            ],
+            [
+                36,
+                95,
+                "1 o\u2018clock direction near"
+            ],
+            [
+                95,
+                36,
+                "behind"
+            ],
+            [
+                38,
+                95,
+                "12 o\u2018clock direction far from"
+            ],
+            [
+                95,
+                38,
+                "behind"
+            ],
+            [
+                72,
+                95,
+                "1 o\u2018clock direction far from"
+            ],
+            [
+                95,
+                72,
+                "behind"
+            ],
+            [
+                37,
+                95,
+                "12 o\u2018clock direction far from"
+            ],
+            [
+                95,
+                37,
+                "behind"
+            ],
+            [
+                126,
+                95,
+                "2 o\u2018clock direction near"
+            ],
+            [
+                95,
+                126,
+                "to the left of"
+            ],
+            [
+                101,
+                95,
+                "7 o\u2018clock direction far from"
+            ],
+            [
+                95,
+                101,
+                "in front of"
+            ],
+            [
+                22,
+                95,
+                "5 o\u2018clock direction far from"
+            ],
+            [
+                95,
+                22,
+                "in front of"
+            ],
+            [
+                9,
+                95,
+                "1 o\u2018clock direction far from"
+            ],
+            [
+                95,
+                9,
+                "behind"
+            ],
+            [
+                67,
+                66,
+                "12 o\u2018clock direction far from"
+            ],
+            [
+                66,
+                67,
+                "behind"
+            ],
+            [
+                90,
+                66,
+                "4 o\u2018clock direction far from"
+            ],
+            [
+                66,
+                90,
+                "to the left of"
+            ],
+            [
+                10,
+                66,
+                "1 o\u2018clock direction far from"
+            ],
+            [
+                66,
+                10,
+                "behind"
+            ],
+            [
+                23,
+                66,
+                "4 o\u2018clock direction far from"
+            ],
+            [
+                66,
+                23,
+                "to the left of"
+            ],
+            [
+                11,
+                66,
+                "1 o\u2018clock direction far from"
+            ],
+            [
+                66,
+                11,
+                "behind"
+            ],
+            [
+                66,
+                102,
+                "above"
+            ],
+            [
+                102,
+                66,
+                "above"
+            ],
+            [
+                47,
+                66,
+                "12 o\u2018clock direction far from"
+            ],
+            [
+                66,
+                47,
+                "behind"
+            ],
+            [
+                66,
+                68,
+                "above"
+            ],
+            [
+                68,
+                66,
+                "above"
+            ],
+            [
+                89,
+                66,
+                "3 o\u2018clock direction far from"
+            ],
+            [
+                66,
+                89,
+                "to the left of"
+            ],
+            [
+                66,
+                36,
+                "next to"
+            ],
+            [
+                36,
+                66,
+                "beside"
+            ],
+            [
+                38,
+                66,
+                "12 o\u2018clock direction far from"
+            ],
+            [
+                66,
+                38,
+                "behind"
+            ],
+            [
+                72,
+                66,
+                "1 o\u2018clock direction far from"
+            ],
+            [
+                66,
+                72,
+                "behind"
+            ],
+            [
+                37,
+                66,
+                "12 o\u2018clock direction far from"
+            ],
+            [
+                66,
+                37,
+                "behind"
+            ],
+            [
+                126,
+                66,
+                "2 o\u2018clock direction near"
+            ],
+            [
+                66,
+                126,
+                "to the left of"
+            ],
+            [
+                66,
+                101,
+                "next to"
+            ],
+            [
+                101,
+                66,
+                "beside"
+            ],
+            [
+                22,
+                66,
+                "5 o\u2018clock direction near"
+            ],
+            [
+                66,
+                22,
+                "in front of"
+            ],
+            [
+                9,
+                66,
+                "1 o\u2018clock direction far from"
+            ],
+            [
+                66,
+                9,
+                "behind"
+            ],
+            [
+                90,
+                67,
+                "5 o\u2018clock direction far from"
+            ],
+            [
+                67,
+                90,
+                "in front of"
+            ],
+            [
+                10,
+                67,
+                "1 o\u2018clock direction far from"
+            ],
+            [
+                67,
+                10,
+                "behind"
+            ],
+            [
+                23,
+                67,
+                "5 o\u2018clock direction far from"
+            ],
+            [
+                67,
+                23,
+                "in front of"
+            ],
+            [
+                11,
+                67,
+                "2 o\u2018clock direction far from"
+            ],
+            [
+                67,
+                11,
+                "to the left of"
+            ],
+            [
+                102,
+                67,
+                "6 o\u2018clock direction far from"
+            ],
+            [
+                67,
+                102,
+                "in front of"
+            ],
+            [
+                47,
+                67,
+                "12 o\u2018clock direction far from"
+            ],
+            [
+                67,
+                47,
+                "behind"
+            ],
+            [
+                68,
+                67,
+                "6 o\u2018clock direction far from"
+            ],
+            [
+                67,
+                68,
+                "in front of"
+            ],
+            [
+                89,
+                67,
+                "5 o\u2018clock direction far from"
+            ],
+            [
+                67,
+                89,
+                "in front of"
+            ],
+            [
+                36,
+                67,
+                "4 o\u2018clock direction near"
+            ],
+            [
+                67,
+                36,
+                "to the left of"
+            ],
+            [
+                38,
+                67,
+                "1 o\u2018clock direction far from"
+            ],
+            [
+                67,
+                38,
+                "behind"
+            ],
+            [
+                72,
+                67,
+                "2 o\u2018clock direction far from"
+            ],
+            [
+                67,
+                72,
+                "to the left of"
+            ],
+            [
+                37,
+                67,
+                "1 o\u2018clock direction far from"
+            ],
+            [
+                67,
+                37,
+                "behind"
+            ],
+            [
+                126,
+                67,
+                "3 o\u2018clock direction near"
+            ],
+            [
+                67,
+                126,
+                "to the left of"
+            ],
+            [
+                101,
+                67,
+                "6 o\u2018clock direction far from"
+            ],
+            [
+                67,
+                101,
+                "in front of"
+            ],
+            [
+                22,
+                67,
+                "5 o\u2018clock direction far from"
+            ],
+            [
+                67,
+                22,
+                "in front of"
+            ],
+            [
+                9,
+                67,
+                "1 o\u2018clock direction far from"
+            ],
+            [
+                67,
+                9,
+                "behind"
+            ],
+            [
+                10,
+                90,
+                "12 o\u2018clock direction far from"
+            ],
+            [
+                90,
+                10,
+                "behind"
+            ],
+            [
+                23,
+                90,
+                "6 o\u2018clock direction near"
+            ],
+            [
+                90,
+                23,
+                "in front of"
+            ],
+            [
+                11,
+                90,
+                "12 o\u2018clock direction far from"
+            ],
+            [
+                90,
+                11,
+                "behind"
+            ],
+            [
+                102,
+                90,
+                "9 o\u2018clock direction far from"
+            ],
+            [
+                90,
+                102,
+                "to the right of"
+            ],
+            [
+                47,
+                90,
+                "11 o\u2018clock direction far from"
+            ],
+            [
+                90,
+                47,
+                "behind"
+            ],
+            [
+                68,
+                90,
+                "9 o\u2018clock direction far from"
+            ],
+            [
+                90,
+                68,
+                "to the right of"
+            ],
+            [
+                89,
+                90,
+                "1 o\u2018clock direction near"
+            ],
+            [
+                90,
+                89,
+                "behind"
+            ],
+            [
+                36,
+                90,
+                "11 o\u2018clock direction far from"
+            ],
+            [
+                90,
+                36,
+                "behind"
+            ],
+            [
+                38,
+                90,
+                "11 o\u2018clock direction far from"
+            ],
+            [
+                90,
+                38,
+                "behind"
+            ],
+            [
+                72,
+                90,
+                "12 o\u2018clock direction far from"
+            ],
+            [
+                90,
+                72,
+                "behind"
+            ],
+            [
+                37,
+                90,
+                "11 o\u2018clock direction far from"
+            ],
+            [
+                90,
+                37,
+                "behind"
+            ],
+            [
+                126,
+                90,
+                "12 o\u2018clock direction near"
+            ],
+            [
+                90,
+                126,
+                "behind"
+            ],
+            [
+                101,
+                90,
+                "9 o\u2018clock direction far from"
+            ],
+            [
+                90,
+                101,
+                "to the right of"
+            ],
+            [
+                22,
+                90,
+                "8 o\u2018clock direction near"
+            ],
+            [
+                90,
+                22,
+                "to the right of"
+            ],
+            [
+                9,
+                90,
+                "12 o\u2018clock direction far from"
+            ],
+            [
+                90,
+                9,
+                "behind"
+            ],
+            [
+                23,
+                10,
+                "6 o\u2018clock direction far from"
+            ],
+            [
+                10,
+                23,
+                "in front of"
+            ],
+            [
+                11,
+                10,
+                "3 o\u2018clock direction far from"
+            ],
+            [
+                10,
+                11,
+                "to the left of"
+            ],
+            [
+                102,
+                10,
+                "7 o\u2018clock direction far from"
+            ],
+            [
+                10,
+                102,
+                "in front of"
+            ],
+            [
+                47,
+                10,
+                "9 o\u2018clock direction far from"
+            ],
+            [
+                10,
+                47,
+                "to the right of"
+            ],
+            [
+                68,
+                10,
+                "7 o\u2018clock direction far from"
+            ],
+            [
+                10,
+                68,
+                "in front of"
+            ],
+            [
+                89,
+                10,
+                "6 o\u2018clock direction far from"
+            ],
+            [
+                10,
+                89,
+                "in front of"
+            ],
+            [
+                36,
+                10,
+                "6 o\u2018clock direction far from"
+            ],
+            [
+                10,
+                36,
+                "in front of"
+            ],
+            [
+                38,
+                10,
+                "9 o\u2018clock direction far from"
+            ],
+            [
+                10,
+                38,
+                "to the right of"
+            ],
+            [
+                72,
+                10,
+                "6 o\u2018clock direction far from"
+            ],
+            [
+                10,
+                72,
+                "in front of"
+            ],
+            [
+                37,
+                10,
+                "9 o\u2018clock direction far from"
+            ],
+            [
+                10,
+                37,
+                "to the right of"
+            ],
+            [
+                126,
+                10,
+                "6 o\u2018clock direction near"
+            ],
+            [
+                10,
+                126,
+                "in front of"
+            ],
+            [
+                101,
+                10,
+                "7 o\u2018clock direction far from"
+            ],
+            [
+                10,
+                101,
+                "in front of"
+            ],
+            [
+                22,
+                10,
+                "6 o\u2018clock direction far from"
+            ],
+            [
+                10,
+                22,
+                "in front of"
+            ],
+            [
+                9,
+                10,
+                "12 o\u2018clock direction near"
+            ],
+            [
+                10,
+                9,
+                "behind"
+            ],
+            [
+                11,
+                23,
+                "12 o\u2018clock direction far from"
+            ],
+            [
+                23,
+                11,
+                "behind"
+            ],
+            [
+                102,
+                23,
+                "9 o\u2018clock direction far from"
+            ],
+            [
+                23,
+                102,
+                "to the right of"
+            ],
+            [
+                47,
+                23,
+                "11 o\u2018clock direction far from"
+            ],
+            [
+                23,
+                47,
+                "behind"
+            ],
+            [
+                68,
+                23,
+                "10 o\u2018clock direction far from"
+            ],
+            [
+                23,
+                68,
+                "to the right of"
+            ],
+            [
+                89,
+                23,
+                "12 o\u2018clock direction near"
+            ],
+            [
+                23,
+                89,
+                "behind"
+            ],
+            [
+                36,
+                23,
+                "11 o\u2018clock direction far from"
+            ],
+            [
+                23,
+                36,
+                "behind"
+            ],
+            [
+                38,
+                23,
+                "11 o\u2018clock direction far from"
+            ],
+            [
+                23,
+                38,
+                "behind"
+            ],
+            [
+                72,
+                23,
+                "12 o\u2018clock direction far from"
+            ],
+            [
+                23,
+                72,
+                "behind"
+            ],
+            [
+                37,
+                23,
+                "11 o\u2018clock direction far from"
+            ],
+            [
+                23,
+                37,
+                "behind"
+            ],
+            [
+                126,
+                23,
+                "12 o\u2018clock direction far from"
+            ],
+            [
+                23,
+                126,
+                "behind"
+            ],
+            [
+                101,
+                23,
+                "9 o\u2018clock direction far from"
+            ],
+            [
+                23,
+                101,
+                "to the right of"
+            ],
+            [
+                22,
+                23,
+                "9 o\u2018clock direction near"
+            ],
+            [
+                23,
+                22,
+                "to the right of"
+            ],
+            [
+                9,
+                23,
+                "12 o\u2018clock direction far from"
+            ],
+            [
+                23,
+                9,
+                "behind"
+            ],
+            [
+                102,
+                11,
+                "7 o\u2018clock direction far from"
+            ],
+            [
+                11,
+                102,
+                "in front of"
+            ],
+            [
+                47,
+                11,
+                "9 o\u2018clock direction far from"
+            ],
+            [
+                11,
+                47,
+                "to the right of"
+            ],
+            [
+                68,
+                11,
+                "7 o\u2018clock direction far from"
+            ],
+            [
+                11,
+                68,
+                "in front of"
+            ],
+            [
+                89,
+                11,
+                "6 o\u2018clock direction far from"
+            ],
+            [
+                11,
+                89,
+                "in front of"
+            ],
+            [
+                36,
+                11,
+                "7 o\u2018clock direction far from"
+            ],
+            [
+                11,
+                36,
+                "in front of"
+            ],
+            [
+                38,
+                11,
+                "9 o\u2018clock direction far from"
+            ],
+            [
+                11,
+                38,
+                "to the right of"
+            ],
+            [
+                72,
+                11,
+                "7 o\u2018clock direction far from"
+            ],
+            [
+                11,
+                72,
+                "in front of"
+            ],
+            [
+                37,
+                11,
+                "9 o\u2018clock direction far from"
+            ],
+            [
+                11,
+                37,
+                "to the right of"
+            ],
+            [
+                126,
+                11,
+                "6 o\u2018clock direction near"
+            ],
+            [
+                11,
+                126,
+                "in front of"
+            ],
+            [
+                101,
+                11,
+                "7 o\u2018clock direction far from"
+            ],
+            [
+                11,
+                101,
+                "in front of"
+            ],
+            [
+                22,
+                11,
+                "7 o\u2018clock direction far from"
+            ],
+            [
+                11,
+                22,
+                "in front of"
+            ],
+            [
+                9,
+                11,
+                "9 o\u2018clock direction far from"
+            ],
+            [
+                11,
+                9,
+                "to the right of"
+            ],
+            [
+                47,
+                102,
+                "12 o\u2018clock direction far from"
+            ],
+            [
+                102,
+                47,
+                "behind"
+            ],
+            [
+                68,
+                102,
+                "1 o\u2018clock direction near"
+            ],
+            [
+                102,
+                68,
+                "behind"
+            ],
+            [
+                89,
+                102,
+                "3 o\u2018clock direction far from"
+            ],
+            [
+                102,
+                89,
+                "to the left of"
+            ],
+            [
+                36,
+                102,
+                "1 o\u2018clock direction far from"
+            ],
+            [
+                102,
+                36,
+                "behind"
+            ],
+            [
+                38,
+                102,
+                "12 o\u2018clock direction far from"
+            ],
+            [
+                102,
+                38,
+                "behind"
+            ],
+            [
+                72,
+                102,
+                "1 o\u2018clock direction far from"
+            ],
+            [
+                102,
+                72,
+                "behind"
+            ],
+            [
+                37,
+                102,
+                "12 o\u2018clock direction far from"
+            ],
+            [
+                102,
+                37,
+                "behind"
+            ],
+            [
+                126,
+                102,
+                "2 o\u2018clock direction far from"
+            ],
+            [
+                102,
+                126,
+                "to the left of"
+            ],
+            [
+                101,
+                102,
+                "6 o\u2018clock direction near"
+            ],
+            [
+                102,
+                101,
+                "in front of"
+            ],
+            [
+                22,
+                102,
+                "4 o\u2018clock direction near"
+            ],
+            [
+                102,
+                22,
+                "to the left of"
+            ],
+            [
+                9,
+                102,
+                "1 o\u2018clock direction far from"
+            ],
+            [
+                102,
+                9,
+                "behind"
+            ],
+            [
+                68,
+                47,
+                "6 o\u2018clock direction far from"
+            ],
+            [
+                47,
+                68,
+                "in front of"
+            ],
+            [
+                89,
+                47,
+                "5 o\u2018clock direction far from"
+            ],
+            [
+                47,
+                89,
+                "in front of"
+            ],
+            [
+                36,
+                47,
+                "5 o\u2018clock direction far from"
+            ],
+            [
+                47,
+                36,
+                "in front of"
+            ],
+            [
+                47,
+                38,
+                "adjacent to"
+            ],
+            [
+                38,
+                47,
+                "adjacent to"
+            ],
+            [
+                72,
+                47,
+                "5 o\u2018clock direction far from"
+            ],
+            [
+                47,
+                72,
+                "in front of"
+            ],
+            [
+                37,
+                47,
+                "4 o\u2018clock direction near"
+            ],
+            [
+                47,
+                37,
+                "to the left of"
+            ],
+            [
+                126,
+                47,
+                "5 o\u2018clock direction far from"
+            ],
+            [
+                47,
+                126,
+                "in front of"
+            ],
+            [
+                101,
+                47,
+                "6 o\u2018clock direction far from"
+            ],
+            [
+                47,
+                101,
+                "in front of"
+            ],
+            [
+                22,
+                47,
+                "6 o\u2018clock direction far from"
+            ],
+            [
+                47,
+                22,
+                "in front of"
+            ],
+            [
+                9,
+                47,
+                "3 o\u2018clock direction far from"
+            ],
+            [
+                47,
+                9,
+                "to the left of"
+            ],
+            [
+                89,
+                68,
+                "3 o\u2018clock direction far from"
+            ],
+            [
+                68,
+                89,
+                "to the left of"
+            ],
+            [
+                36,
+                68,
+                "1 o\u2018clock direction near"
+            ],
+            [
+                68,
+                36,
+                "behind"
+            ],
+            [
+                38,
+                68,
+                "12 o\u2018clock direction far from"
+            ],
+            [
+                68,
+                38,
+                "behind"
+            ],
+            [
+                72,
+                68,
+                "1 o\u2018clock direction far from"
+            ],
+            [
+                68,
+                72,
+                "behind"
+            ],
+            [
+                37,
+                68,
+                "12 o\u2018clock direction far from"
+            ],
+            [
+                68,
+                37,
+                "behind"
+            ],
+            [
+                126,
+                68,
+                "2 o\u2018clock direction far from"
+            ],
+            [
+                68,
+                126,
+                "to the left of"
+            ],
+            [
+                101,
+                68,
+                "7 o\u2018clock direction near"
+            ],
+            [
+                68,
+                101,
+                "in front of"
+            ],
+            [
+                22,
+                68,
+                "5 o\u2018clock direction near"
+            ],
+            [
+                68,
+                22,
+                "in front of"
+            ],
+            [
+                9,
+                68,
+                "1 o\u2018clock direction far from"
+            ],
+            [
+                68,
+                9,
+                "behind"
+            ],
+            [
+                36,
+                89,
+                "11 o\u2018clock direction far from"
+            ],
+            [
+                89,
+                36,
+                "behind"
+            ],
+            [
+                38,
+                89,
+                "11 o\u2018clock direction far from"
+            ],
+            [
+                89,
+                38,
+                "behind"
+            ],
+            [
+                72,
+                89,
+                "12 o\u2018clock direction far from"
+            ],
+            [
+                89,
+                72,
+                "behind"
+            ],
+            [
+                37,
+                89,
+                "11 o\u2018clock direction far from"
+            ],
+            [
+                89,
+                37,
+                "behind"
+            ],
+            [
+                126,
+                89,
+                "12 o\u2018clock direction near"
+            ],
+            [
+                89,
+                126,
+                "behind"
+            ],
+            [
+                101,
+                89,
+                "9 o\u2018clock direction far from"
+            ],
+            [
+                89,
+                101,
+                "to the right of"
+            ],
+            [
+                22,
+                89,
+                "8 o\u2018clock direction near"
+            ],
+            [
+                89,
+                22,
+                "to the right of"
+            ],
+            [
+                9,
+                89,
+                "12 o\u2018clock direction far from"
+            ],
+            [
+                89,
+                9,
+                "behind"
+            ],
+            [
+                38,
+                36,
+                "11 o\u2018clock direction far from"
+            ],
+            [
+                36,
+                38,
+                "behind"
+            ],
+            [
+                36,
+                72,
+                "beside"
+            ],
+            [
+                72,
+                36,
+                "beside"
+            ],
+            [
+                37,
+                36,
+                "12 o\u2018clock direction far from"
+            ],
+            [
+                36,
+                37,
+                "behind"
+            ],
+            [
+                126,
+                36,
+                "3 o\u2018clock direction near"
+            ],
+            [
+                36,
+                126,
+                "to the left of"
+            ],
+            [
+                101,
+                36,
+                "7 o\u2018clock direction far from"
+            ],
+            [
+                36,
+                101,
+                "in front of"
+            ],
+            [
+                22,
+                36,
+                "6 o\u2018clock direction near"
+            ],
+            [
+                36,
+                22,
+                "in front of"
+            ],
+            [
+                9,
+                36,
+                "12 o\u2018clock direction far from"
+            ],
+            [
+                36,
+                9,
+                "behind"
+            ],
+            [
+                72,
+                38,
+                "4 o\u2018clock direction far from"
+            ],
+            [
+                38,
+                72,
+                "to the left of"
+            ],
+            [
+                38,
+                37,
+                "adjacent to"
+            ],
+            [
+                37,
+                38,
+                "beside"
+            ],
+            [
+                126,
+                38,
+                "5 o\u2018clock direction far from"
+            ],
+            [
+                38,
+                126,
+                "in front of"
+            ],
+            [
+                101,
+                38,
+                "6 o\u2018clock direction far from"
+            ],
+            [
+                38,
+                101,
+                "in front of"
+            ],
+            [
+                22,
+                38,
+                "6 o\u2018clock direction far from"
+            ],
+            [
+                38,
+                22,
+                "in front of"
+            ],
+            [
+                9,
+                38,
+                "2 o\u2018clock direction far from"
+            ],
+            [
+                38,
+                9,
+                "to the left of"
+            ],
+            [
+                37,
+                72,
+                "11 o\u2018clock direction far from"
+            ],
+            [
+                72,
+                37,
+                "behind"
+            ],
+            [
+                126,
+                72,
+                "5 o\u2018clock direction near"
+            ],
+            [
+                72,
+                126,
+                "in front of"
+            ],
+            [
+                101,
+                72,
+                "7 o\u2018clock direction far from"
+            ],
+            [
+                72,
+                101,
+                "in front of"
+            ],
+            [
+                22,
+                72,
+                "6 o\u2018clock direction far from"
+            ],
+            [
+                72,
+                22,
+                "in front of"
+            ],
+            [
+                9,
+                72,
+                "12 o\u2018clock direction far from"
+            ],
+            [
+                72,
+                9,
+                "behind"
+            ],
+            [
+                126,
+                37,
+                "5 o\u2018clock direction far from"
+            ],
+            [
+                37,
+                126,
+                "in front of"
+            ],
+            [
+                101,
+                37,
+                "6 o\u2018clock direction far from"
+            ],
+            [
+                37,
+                101,
+                "in front of"
+            ],
+            [
+                22,
+                37,
+                "6 o\u2018clock direction far from"
+            ],
+            [
+                37,
+                22,
+                "in front of"
+            ],
+            [
+                9,
+                37,
+                "3 o\u2018clock direction far from"
+            ],
+            [
+                37,
+                9,
+                "to the left of"
+            ],
+            [
+                101,
+                126,
+                "7 o\u2018clock direction far from"
+            ],
+            [
+                126,
+                101,
+                "in front of"
+            ],
+            [
+                22,
+                126,
+                "7 o\u2018clock direction near"
+            ],
+            [
+                126,
+                22,
+                "in front of"
+            ],
+            [
+                9,
+                126,
+                "12 o\u2018clock direction far from"
+            ],
+            [
+                126,
+                9,
+                "behind"
+            ],
+            [
+                22,
+                101,
+                "3 o\u2018clock direction near"
+            ],
+            [
+                101,
+                22,
+                "to the left of"
+            ],
+            [
+                9,
+                101,
+                "1 o\u2018clock direction far from"
+            ],
+            [
+                101,
+                9,
+                "behind"
+            ],
+            [
+                9,
+                22,
+                "12 o\u2018clock direction far from"
+            ],
+            [
+                22,
+                9,
+                "behind"
+            ],
+            [
+                123,
+                62,
+                "supported by"
+            ],
+            [
+                5,
+                1,
+                "on the top of"
+            ],
+            [
+                12,
+                6,
+                "resting on"
+            ],
+            [
+                4,
+                2,
+                "supported by"
+            ],
+            [
+                103,
+                66,
+                "supported by"
+            ],
+            [
+                107,
+                66,
+                "placed on"
+            ],
+            [
+                0,
+                13,
+                "on"
+            ],
+            [
+                30,
+                28,
+                "on the top of"
+            ],
+            [
+                139,
+                89,
+                "on the top of"
+            ],
+            [
+                26,
+                126,
+                "placed on"
+            ],
+            [
+                28,
+                126,
+                "placed on"
+            ],
+            [
+                27,
+                126,
+                "on the top of"
+            ],
+            [
+                25,
+                126,
+                "on the top of"
+            ],
+            [
+                33,
+                126,
+                "supported by"
+            ],
+            [
+                34,
+                33,
+                "resting on"
+            ],
+            [
+                14,
+                15,
+                "placed on"
+            ],
+            [
+                70,
+                -3,
+                "supported by"
+            ],
+            [
+                86,
+                -3,
+                "on"
+            ],
+            [
+                95,
+                -3,
+                "on"
+            ],
+            [
+                66,
+                -3,
+                "resting on"
+            ],
+            [
+                67,
+                -3,
+                "resting on"
+            ],
+            [
+                90,
+                -3,
+                "on"
+            ],
+            [
+                10,
+                -3,
+                "supported by"
+            ],
+            [
+                23,
+                -3,
+                "placed on"
+            ],
+            [
+                11,
+                -3,
+                "resting on"
+            ],
+            [
+                102,
+                -3,
+                "placed on"
+            ],
+            [
+                47,
+                -3,
+                "on"
+            ],
+            [
+                68,
+                -3,
+                "on"
+            ],
+            [
+                89,
+                -3,
+                "placed on"
+            ],
+            [
+                36,
+                -3,
+                "on"
+            ],
+            [
+                38,
+                -3,
+                "supported by"
+            ],
+            [
+                72,
+                -3,
+                "resting on"
+            ],
+            [
+                37,
+                -3,
+                "supported by"
+            ],
+            [
+                126,
+                -3,
+                "placed on"
+            ],
+            [
+                101,
+                -3,
+                "on"
+            ],
+            [
+                22,
+                -3,
+                "supported by"
+            ],
+            [
+                9,
+                -3,
+                "resting on"
+            ]
+        ],
+        "multi_objs_relationships": [
+            [
+                [
+                    67,
+                    68
+                ],
+                "Aligned"
+            ],
+            [
+                [
+                    10,
+                    9
+                ],
+                "Aligned"
+            ],
+            [
+                [
+                    78,
+                    77
+                ],
+                "Aligned"
+            ],
+            [
+                [
+                    32,
+                    20,
+                    21
+                ],
+                "Aligned"
+            ],
+            [
+                [
+                    23,
+                    25
+                ],
+                "Aligned"
+            ],
+            [
+                [
+                    1,
+                    5,
+                    104,
+                    105
+                ],
+                "Aligned"
+            ],
+            [
+                [
+                    12,
+                    4
+                ],
+                "Aligned"
+            ],
+            [
+                [
+                    121,
+                    120
+                ],
+                "Aligned"
+            ],
+            [
+                [
+                    77,
+                    78,
+                    79
+                ],
+                "Aligned"
+            ],
+            [
+                [
+                    1,
+                    4
+                ],
+                "Aligned"
+            ],
+            [
+                [
+                    119,
+                    110
+                ],
+                "Aligned"
+            ],
+            [
+                [
+                    36,
+                    86,
+                    95
+                ],
+                "in the middle of"
+            ],
+            [
+                [
+                    36,
+                    86,
+                    68
+                ],
+                "in the middle of"
+            ],
+            [
+                [
+                    126,
+                    90,
+                    10
+                ],
+                "in the middle of"
+            ],
+            [
+                [
+                    126,
+                    90,
+                    11
+                ],
+                "in the middle of"
+            ],
+            [
+                [
+                    126,
+                    10,
+                    89
+                ],
+                "in the middle of"
+            ],
+            [
+                [
+                    126,
+                    11,
+                    89
+                ],
+                "in the middle of"
+            ],
+            [
+                [
+                    22,
+                    23,
+                    101
+                ],
+                "in the middle of"
+            ]
+        ]
+    }
+}

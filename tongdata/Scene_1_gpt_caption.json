@@ -1,0 +1,429 @@
+{
+    "0a5c013435": {
+        "10": {
+            "gpt_response": {
+                "short": {
+                    "color": "Brown with blue and white labeling",
+                    "3D shape": "Rectangular prism",
+                    "material": "Cardboard",
+                    "usage": "Packaging or storage",
+                    "texture": "Likely smooth with some creases",
+                    "structure": "Single-wall corrugated",
+                    "state": "Open and partially collapsed"
+                },
+                "long": {
+                    "color": "The primary color is brown with areas of blue and white labeling indicating branding or product information.",
+                    "3D shape": "It has the three-dimensional shape of a rectangular prism, which is common for boxes.",
+                    "material": "The material appears to be cardboard, a paper-based product widely used for creating boxes.",
+                    "usage": "Its usage is typically for the packaging, storing, or transporting of items.",
+                    "texture": "The texture seems to be smooth with visible creases or folds due to its structure, which is common in used cardboard boxes.",
+                    "structure": "The structure suggests that it is a single-wall corrugated box, designed to provide adequate protection for its contents during handling.",
+                    "state": "The state of the box is open, with the flaps outstretched, and partly collapsed, indicating it may have been emptied or discarded."
+                }
+            },
+            "obj_name": "box",
+            "cost": 0.01088,
+            "is_blur": false
+        },
+        "11": {
+            "gpt_response": {
+                "short": {
+                    "color": "white light, grey body",
+                    "3D shape": "rectangular prism",
+                    "material": "metal and plastic",
+                    "usage": "illumination",
+                    "texture": "smooth",
+                    "structure": "linear with a housing unit",
+                    "state": "on"
+                },
+                "long": {
+                    "color": "The light emitted is white while the body of the lamp is grey.",
+                    "3D shape": "The lamp has a rectangular prism shape, elongated and linear.",
+                    "material": "The lamp is constructed from metal, likely aluminum, for the housing and plastic for the diffuser.",
+                    "usage": "This is used to provide illumination in indoor spaces, such as offices or industrial settings.",
+                    "texture": "The surface of the lamp appears to be smooth, with a matte finish on the metal parts and a clear or frosted finish on the plastic diffuser.",
+                    "structure": "The structure is linear, featuring an elongated housing unit that contains one or more fluorescent tubes and electrical components for its operation.",
+                    "state": "The lamp is in the 'on' state, emitting light, indicating it is functional and currently in use."
+                }
+            },
+            "obj_name": "ceiling lamp",
+            "cost": 0.01017,
+            "is_blur": false
+        },
+        "12": {
+            "gpt_response": {
+                "short": {
+                    "color": "Unclear due to image quality",
+                    "3D shape": "Irregular",
+                    "material": "Various",
+                    "usage": "Unknown",
+                    "texture": "Varied",
+                    "structure": "Unstructured",
+                    "state": "Inanimate"
+                },
+                "long": {
+                    "color": "The colors are indistinct due to the image's blur; potential colors include white, blue, and orange",
+                    "3D shape": "The shape is irregular and appears to be a collection of various items possibly crumpled or bunched together",
+                    "material": "The materials could be a mixture, potentially including plastic and fabric",
+                    "usage": "The usage cannot be determined accurately due to the image quality and lack of context",
+                    "texture": "Textures seem varied, with some sections appearing smooth like plastic and others potentially more textured like fabric",
+                    "structure": "The structure is unorganized and appears to be a random assortment of items without an identifiable system or pattern",
+                    "state": "The state is static and inanimate, suggesting objects at rest without any signs of movement"
+                }
+            },
+            "obj_name": "object",
+            "cost": 0.01004,
+            "is_blur": false
+        },
+        "14": {
+            "gpt_response": {
+                "short": {
+                    "color": "blue and pink",
+                    "3D shape": "amorphous",
+                    "material": "plastic",
+                    "usage": "disposable gloves",
+                    "texture": "smooth",
+                    "structure": "crumpled",
+                    "state": "used"
+                },
+                "long": {
+                    "color": "One pair of blue and one pair of pink, indicating two different sets of gloves. Half of the cardboard packaging is visible with orange and white colors and text.",
+                    "3D shape": "Amorphous and irregular shapes due to being crumpled, devoid of any rigid or defined geometric form.",
+                    "material": "Thin, disposable plastic, likely polyethylene or similar material designed for single use.",
+                    "usage": "These are disposable gloves, commonly used in medical, cleaning, food service, or other sanitary applications to maintain hygiene and prevent contamination.",
+                    "texture": "The gloves appear to have a smooth texture typical for plastic gloves, with a slightly wrinkled surface due to being crumpled.",
+                    "structure": "The gloves are crumpled and discarded, implying they have been used and are meant to be thrown away after one use. They are intertwined and resting on what appears to be a piece of cardboard.",
+                    "state": "The gloves are in a used state and have been discarded after their intended use. They are not in a condition for reuse."
+                }
+            },
+            "obj_name": "object",
+            "cost": 0.011119999999999998,
+            "is_blur": false
+        },
+        "16": {
+            "gpt_response": {
+                "short": {
+                    "color": "Blue and pink",
+                    "3D shape": "Crumbled",
+                    "material": "Plastic",
+                    "usage": "Carrying items/Refuse",
+                    "texture": "Smooth",
+                    "structure": "Flexible",
+                    "state": "Discarded"
+                },
+                "long": {
+                    "color": "A combination of predominantly blue and pink with some other color details from surrounding items",
+                    "3D shape": "Irregular, crumbled, and non-uniform shapes illustrating discarded or used condition",
+                    "material": "Synthetic polymer, likely polyethylene or similar plastic",
+                    "usage": "Originally designed for carrying items, now appears to be used for holding refuse or discarded as waste",
+                    "texture": "The plastic surfaces appear smooth with a characteristic sheen reflecting light",
+                    "structure": "The objects have a flexible structure, easily deformed and lacking rigidity",
+                    "state": "The current state looks discarded and possibly amidst other waste, indicating the end of their functional lifecycle"
+                }
+            },
+            "obj_name": "object",
+            "cost": 0.00911,
+            "is_blur": false
+        },
+        "17": {
+            "gpt_response": {
+                "short": {
+                    "color": "Varied (blue, pink, white)",
+                    "3D shape": "Cylindrical and irregular shapes",
+                    "material": "Plastic and metal",
+                    "usage": "Cleaning tool",
+                    "texture": "Smooth and textured",
+                    "structure": "Consisting of a handle and cleaning heads",
+                    "state": "Assembled and partially visible"
+                },
+                "long": {
+                    "color": "The objects have multiple colors, including blue, pink, and white, with metallic tones on the handle.",
+                    "3D shape": "The main visible shapes include cylindrical forms representing the handle and some irregular, possibly sponge-like shapes for the cleaning heads.",
+                    "material": "Different materials are visible; the handle appears to be metallic, likely aluminum or stainless steel, and the cleaning heads made of some sort of synthetic fiber or plastic.",
+                    "usage": "The object seems to be a floor cleaner comprised of a long handle and detachable heads, likely used for mopping or scrubbing floors.",
+                    "texture": "The handle has a smooth metallic texture, while the cleaning heads have a more fibrous, textured surface to ensure effective cleaning.",
+                    "structure": "There is a long handle that is used to maneuver the mop, attached to which are cleaning heads designed to come into direct contact with the floor. The structure includes parts for attaching the cleaning heads to the handle.",
+                    "state": "The tool is in an assembled state, but it's not fully visible. Some parts are obscured, and the full dimensions and components can't be completely discerned."
+                }
+            },
+            "obj_name": "floor cleaner",
+            "cost": 0.012510000000000002,
+            "is_blur": false
+        },
+        "19": {
+            "gpt_response": {
+                "short": {
+                    "color": "Brown with a blue and white label",
+                    "3D shape": "Cuboid",
+                    "material": "Cardboard",
+                    "usage": "Packaging",
+                    "texture": "Smooth with some edges and creases",
+                    "structure": "Container with flaps",
+                    "state": "Partially open"
+                },
+                "long": {
+                    "color": "The object is predominantly brown, characteristic of cardboard, with a label that has blue and white graphics and black text.",
+                    "3D shape": "The object has a cuboidal structure, with visible edges and planes that suggest its three-dimensional form.",
+                    "material": "The object appears to be made of cardboard, a common material used for manufacturing boxes meant for storage and shipping.",
+                    "usage": "The box is typically used for packaging goods for storage or transportation, indicating its functionality as a container.",
+                    "texture": "The surface of the box seems smooth with visible edges and creases, typical of folded cardboard.",
+                    "structure": "The box has a structured design with flaps, some of which are tucked in, indicating it can be sealed or have content secured within.",
+                    "state": "The object is in a partially open state, with the flaps not fully sealed, possibly to insert or remove items."
+                }
+            },
+            "obj_name": "box",
+            "cost": 0.01082,
+            "is_blur": false
+        },
+        "20": {
+            "gpt_response": {
+                "short": {
+                    "color": "Various",
+                    "3D shape": "Rectangular prisms mainly",
+                    "material": "Plastic and metal",
+                    "usage": "Cleaning",
+                    "texture": "Smooth and ridged",
+                    "structure": "Multi-compartment with casters",
+                    "state": "Operational"
+                },
+                "long": {
+                    "color": "Mainly blue with red and white accents",
+                    "3D shape": "Composed of multiple rectangular prisms, cylindrical containers, and linear handles",
+                    "material": "Primarily plastic bins and containers, metal frame and handle",
+                    "usage": "Designed for transporting cleaning equipment and supplies",
+                    "texture": "Smooth surfaces on plastic parts, ridged metal handle, cloth with a soft nap",
+                    "structure": "A wheeled structure with multiple compartments for organizing supplies, a vertical handle for maneuvering, and a holder for mop",
+                    "state": "In use, with visible cleaning supplies and a cloth"
+                }
+            },
+            "obj_name": "cleaning trolley",
+            "cost": 0.00889,
+            "is_blur": false
+        },
+        "21": {
+            "gpt_response": {
+                "short": {
+                    "color": "white",
+                    "3D shape": "rectangular prism",
+                    "material": "wood or metal",
+                    "usage": "entrance or room partition",
+                    "texture": "smooth",
+                    "structure": "solid",
+                    "state": "closed"
+                },
+                "long": {
+                    "color": "a plain white with a matte finish",
+                    "3D shape": "a vertical rectangular prism typical for doors",
+                    "material": "appears to be made of wood or possibly metal, the composition is not clearly visible",
+                    "usage": "used as an entrance to a room or building or as a partition between spaces",
+                    "texture": "the surface looks smooth with no visible grain or roughness",
+                    "structure": "a solid construction with no visible panels or windows",
+                    "state": "in a closed position, obstructing passage"
+                }
+            },
+            "obj_name": "door",
+            "cost": 0.00818,
+            "is_blur": false
+        },
+        "22": {
+            "gpt_response": {
+                "short": {
+                    "color": "White, red, blue",
+                    "3D shape": "Rectangular prism",
+                    "material": "Metal, plastic",
+                    "usage": "Reaching high places, storage",
+                    "texture": "Smooth",
+                    "structure": "Stepped, foldable",
+                    "state": "Partially in use, stable"
+                },
+                "long": {
+                    "color": "Predominantly white with red and blue accents",
+                    "3D shape": "Rectangular prismatic shape with horizontal steps",
+                    "material": "Seems to be constructed from metal, possibly aluminum, with plastic components",
+                    "usage": "Used for ascending to or descending from high places, or can serve as a temporary storage for items",
+                    "texture": "The surface appears to be smooth with potential for some ridges or grooves on steps for grip",
+                    "structure": "Comprises a series of horizontally aligned steps, with a foldable design for easy storage when not in use",
+                    "state": "The object appears to be in a stable, upright position, partially employed for holding items"
+                }
+            },
+            "obj_name": "ladder",
+            "cost": 0.00959,
+            "is_blur": false
+        },
+        "2": {
+            "gpt_response": {
+                "short": {
+                    "color": "silver",
+                    "3D shape": "cylindrical",
+                    "material": "metal",
+                    "usage": "conduit for fluids or air",
+                    "texture": "smooth",
+                    "structure": "tubular",
+                    "state": "fixed in place"
+                },
+                "long": {
+                    "color": "Metallic silver with some reflective properties, possibly indicating an aluminum surface or insulation material",
+                    "3D shape": "Series of cylindrical shapes that are interconnected, forming a network of pipes",
+                    "material": "Likely to be metal, potentially steel or aluminum, possibly with some insulating material wrapped around",
+                    "usage": "These pipes are used as conduits for transporting fluids, gases, or air within a building's infrastructure, potentially part of an HVAC system",
+                    "texture": "Surface appears smooth, with a potential insulation cover that could have a foil-like or fibrous texture",
+                    "structure": "Network of tubular components with various valves and fittings, mounted and arranged to fit the building's layout",
+                    "state": "The object is in a stationary state, secured to the ceiling structure, showing no signs of mobility"
+                }
+            },
+            "obj_name": "pipe",
+            "cost": 0.010430000000000002,
+            "is_blur": false
+        },
+        "3": {
+            "gpt_response": {
+                "short": {
+                    "color": "white",
+                    "3D shape": "rectangular basin",
+                    "material": "ceramic",
+                    "usage": "washing",
+                    "texture": "smooth",
+                    "structure": "wall-mounted with a visible drain",
+                    "state": "used with visible stains"
+                },
+                "long": {
+                    "color": "primarily white with some discoloration",
+                    "3D shape": "rectangular basin with rounded corners and edges",
+                    "material": "likely ceramic or a similar type of porcelain",
+                    "usage": "designed for washing hands, dishes, or other small objects",
+                    "texture": "smooth outer surface with a glossy finish",
+                    "structure": "wall-mounted sink featuring a faucet hole and an open drain without a plug",
+                    "state": "the sink appears to be in a used condition with visible stains and marks"
+                }
+            },
+            "obj_name": "sink",
+            "cost": 0.00818,
+            "is_blur": false
+        },
+        "5": {
+            "gpt_response": {
+                "short": {
+                    "color": "Gray",
+                    "3D shape": "Cylindrical",
+                    "material": "Metal",
+                    "usage": "Conduits for electrical wiring",
+                    "texture": "Smooth with ridges",
+                    "structure": "Straight sections connected with couplings",
+                    "state": "Mounted"
+                },
+                "long": {
+                    "color": "The object appears to be gray in color, which is typical for metal pipes.",
+                    "3D shape": "The object has a cylindrical shape, common for pipes or tubes.",
+                    "material": "The material looks like metal, possibly steel or aluminum, considering its use and appearance.",
+                    "usage": "This object is likely used as a conduit for electrical wiring, judging by its installation and context.",
+                    "texture": "The texture of the pipe seems to be generally smooth, but it has regular ridges indicating a corrugated design.",
+                    "structure": "The structure comprises straight sections of pipe which are connected by couplings or joints, adhering to standard construction practices.",
+                    "state": "The state of the object is mounted and fixed to a ceiling or overhead surface, as seen by the supports attached to it and the adjacent structures."
+                }
+            },
+            "obj_name": "pipe",
+            "cost": 0.010190000000000001,
+            "is_blur": false
+        },
+        "6": {
+            "gpt_response": {
+                "short": {
+                    "color": "White and blue",
+                    "3D shape": "Cylindrical and box-like",
+                    "material": "Plastic and metal",
+                    "usage": "Plumbing or wiring conduit",
+                    "texture": "Smooth",
+                    "structure": "Mounted with brackets",
+                    "state": "Intact"
+                },
+                "long": {
+                    "color": "Predominantly white, with blue accents on the attached box",
+                    "3D shape": "The main object is cylindrical, likely a pipe, attached to a rectangular box-like shape.",
+                    "material": "Appears to be made of plastic for the pipe and potentially metallic components for the attached box and mounting elements",
+                    "usage": "Likely part of a plumbing system or as a conduit for wires within a building structure",
+                    "texture": "The surface appears to be smooth, indicating a seamless and polished finish",
+                    "structure": "Mounted onto a vertical surface with metal brackets securing the cylindrical part in place, with well aligned ports or openings",
+                    "state": "The object appears to be in a good condition, fixed properly without any visible damage"
+                }
+            },
+            "obj_name": "pipe",
+            "cost": 0.01013,
+            "is_blur": false
+        },
+        "7": {
+            "gpt_response": {
+                "short": {
+                    "color": "silver",
+                    "3D shape": "cylindrical",
+                    "material": "metal",
+                    "usage": "unknown without context",
+                    "texture": "smooth",
+                    "structure": "tubular",
+                    "state": "solid"
+                },
+                "long": {
+                    "color": "shiny silver with some reflective qualities",
+                    "3D shape": "elongated cylindrical tubes with bends",
+                    "material": "likely stainless steel or chrome-plated metal",
+                    "usage": "part of a structure, possibly a handrail or support bar, precise function indeterminable without more context",
+                    "texture": "polished and smooth outer surface",
+                    "structure": "composed of multiple tubular sections connected at angles with additional fixtures",
+                    "state": "rigid and fixed in shape"
+                }
+            },
+            "obj_name": "pipe",
+            "cost": 0.00788,
+            "is_blur": false
+        },
+        "8": {
+            "gpt_response": {
+                "short": {
+                    "color": "white",
+                    "3D shape": "rectangular prism",
+                    "material": "plastic/metal",
+                    "usage": "unknown electrical device",
+                    "texture": "smooth",
+                    "structure": "box-like with display and buttons",
+                    "state": "mounted"
+                },
+                "long": {
+                    "color": "predominantly white with some grey accents",
+                    "3D shape": "rectangular prism with slightly rounded edges",
+                    "material": "appears to be a combination of plastic for the casing and possibly metal for the structural components",
+                    "usage": "appears to be an electrical device, possibly for climate control or security system",
+                    "texture": "outer surface looks smooth with a matte finish",
+                    "structure": "box-like structure with a frontal interface including a display screen and an array of buttons",
+                    "state": "firmly mounted on a vertical wall surface"
+                }
+            },
+            "obj_name": "box",
+            "cost": 0.00887,
+            "is_blur": false
+        },
+        "9": {
+            "gpt_response": {
+                "short": {
+                    "color": "silver and gray",
+                    "3D shape": "cylindrical and linear",
+                    "material": "metal",
+                    "usage": "conduit or plumbing",
+                    "texture": "smooth and insulated",
+                    "structure": "tubular and elongated",
+                    "state": "installed"
+                },
+                "long": {
+                    "color": "Predominantly silver with parts covered in gray insulation",
+                    "3D shape": "Combination of cylindrical pipes and linear conduits",
+                    "material": "Appears to be metal, possibly steel or aluminum",
+                    "usage": "Likely used for electrical wiring or plumbing, as part of building infrastructure",
+                    "texture": "Metallic pipes appear smooth, insulation appears fibrous or textured",
+                    "structure": "An assembly of tubular pipes and protective conduits, some with insulation wrapped around them",
+                    "state": "Fixed in place, part of a larger system, seemingly in operational condition"
+                }
+            },
+            "obj_name": "pipe",
+            "cost": 0.00878,
+            "is_blur": false
+        }
+    }
+}

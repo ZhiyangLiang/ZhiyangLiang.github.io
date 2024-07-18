@@ -1,0 +1,2204 @@
+{
+    "0a7cc12c0e": {
+        "0": {
+            "gpt_response": {
+                "short": {
+                    "color": "Silver",
+                    "3D shape": "Cylindrical",
+                    "material": "Metal",
+                    "usage": "Toilet paper holder",
+                    "texture": "Smooth",
+                    "structure": "Curved arm with a circular base",
+                    "state": "Mounted"
+                },
+                "long": {
+                    "color": "A reflective silver, indicative of a chrome finish",
+                    "3D shape": "Primarily cylindrical with a curve, suggesting a rod-like form for functionality",
+                    "material": "Appears to be a metallic substance, possibly stainless steel or chrome-plated metal, due to its reflective quality",
+                    "usage": "Designed to hold a roll of toilet paper, typically installed in a bathroom",
+                    "texture": "The visible surface looks smooth with a reflective sheen, characteristic of metal bathroom fixtures",
+                    "structure": "Consisting of a curved arm that is designed to support a toilet paper roll, attached to a circular mounting base that affixes to a wall or flat surface",
+                    "state": "The object is fixed in place, suggesting it is mounted onto a surface, ready for use"
+                }
+            },
+            "obj_name": "toilet paper holder",
+            "cost": 0.009819999999999999,
+            "is_blur": false
+        },
+        "100": {
+            "gpt_response": {
+                "short": {
+                    "color": "brown",
+                    "3D shape": "rectangular prism",
+                    "material": "wood",
+                    "usage": "furniture",
+                    "texture": "smooth",
+                    "structure": "solid",
+                    "state": "stationary"
+                },
+                "long": {
+                    "color": "a light shade of brown with some areas appearing darker due to shadows",
+                    "3D shape": "a four-sided rectangular prism with a flat top surface and parallel sides, indicative of a typical table",
+                    "material": "appears to be made of wood with a laminated finish",
+                    "usage": "often used as a piece of furniture, possibly a coffee table or a side table in a domestic or office setting",
+                    "texture": "the surface looks smooth with a possible varnished or laminated finish",
+                    "structure": "the object has a solid build with support structures beneath the top surface, likely for stability",
+                    "state": "the object is stationary and situated on the floor, likely placed for regular use"
+                }
+            },
+            "obj_name": "object",
+            "cost": 0.0092,
+            "is_blur": false
+        },
+        "101": {
+            "gpt_response": {
+                "short": {
+                    "color": "blue and teal shades",
+                    "3D shape": "rectangular prism",
+                    "material": "plastic or polycarbonate",
+                    "usage": "luggage",
+                    "texture": "smooth with ridges",
+                    "structure": "hard-shell with wheels and extendable handle",
+                    "state": "upright and used"
+                },
+                "long": {
+                    "color": "various shades of blue and teal in a striped pattern",
+                    "3D shape": "rectangular prismatic shape",
+                    "material": "likely a hard plastic or polycarbonate shell",
+                    "usage": "used for carrying personal belongings during travel",
+                    "texture": "overall smooth surface with horizontal ridges for added strength and aesthetic design",
+                    "structure": "a hard-shelled suitcase with multiple compartments, an extendable handle, and four wheels for easy maneuverability",
+                    "state": "positioned upright suggesting recent use or storage, displays slight wear"
+                }
+            },
+            "obj_name": "suitcase",
+            "cost": 0.00878,
+            "is_blur": false
+        },
+        "102": {
+            "gpt_response": {
+                "short": {
+                    "color": "silver",
+                    "3D shape": "cuboid",
+                    "material": "metal",
+                    "usage": "waste disposal",
+                    "texture": "smooth",
+                    "structure": "mesh with solid top",
+                    "state": "contains trash"
+                },
+                "long": {
+                    "color": "a silver or grey color, reflective",
+                    "3D shape": "rectangular cuboid shape with a flat base and vertical sides",
+                    "material": "appears to be made of metal, possibly stainless steel or aluminum",
+                    "usage": "commonly used for disposing of waste materials in a home or office setting",
+                    "texture": "outer surface is smooth, with a finer mesh texture on the sides",
+                    "structure": "open mesh structure on the sides that allows for visibility of the contents, topped with a rim or edge that appears solid",
+                    "state": "currently in use, containing various waste items"
+                }
+            },
+            "obj_name": "trash can",
+            "cost": 0.00906,
+            "is_blur": false
+        },
+        "103": {
+            "gpt_response": {
+                "short": {
+                    "color": "white",
+                    "3D shape": "elongated rectangle",
+                    "material": "plastic",
+                    "usage": "lighting",
+                    "texture": "smooth",
+                    "structure": "articulated arm",
+                    "state": "off"
+                },
+                "long": {
+                    "color": "predominantly white with possible color variations due to lighting",
+                    "3D shape": "elongated rectangular base with an adjustable arm and a flat lighting panel",
+                    "material": "appears to be made of a plastic or similar synthetic material",
+                    "usage": "provides illumination for tasks such as reading or working at a desk",
+                    "texture": "the surface looks smooth with no visible textures",
+                    "structure": "has a base, an adjustable arm, and a horizontal lighting panel, allowing for flexible positioning",
+                    "state": "the lamp appears to be turned off at the moment"
+                }
+            },
+            "obj_name": "desk lamp",
+            "cost": 0.00846,
+            "is_blur": false
+        },
+        "104": {
+            "gpt_response": {
+                "short": {
+                    "color": "blue",
+                    "3D shape": "rectangular prism",
+                    "material": "paper/cardboard",
+                    "usage": "writing/drawing",
+                    "texture": "smooth cover with possible ridges along the spine",
+                    "structure": "bound pages with a cover",
+                    "state": "new or lightly used"
+                },
+                "long": {
+                    "color": "primarily blue with some white and other accent colors on the cover",
+                    "3D shape": "a rectangular prism with slightly rounded corners and a visible thickness",
+                    "material": "likely a combination of paper for the pages and cardboard or thick paper stock for the cover",
+                    "usage": "commonly used for taking notes, writing, drawing, or recording information",
+                    "texture": "the cover appears smooth with glossy finish, and the spine may have ridges indicating a spiral or bound structure",
+                    "structure": "the notebook consists of multiple pages bound together, with a cover that protects the pages and may have a spiral or glued binding",
+                    "state": "the notebook appears to be in a good condition, possibly new or only lightly used with no visible wear or damage"
+                }
+            },
+            "obj_name": "notebook",
+            "cost": 0.010010000000000002,
+            "is_blur": false
+        },
+        "105": {
+            "gpt_response": {
+                "short": {
+                    "color": "black",
+                    "3D shape": "oval",
+                    "material": "plastic",
+                    "usage": "input device",
+                    "texture": "smooth",
+                    "structure": "compact",
+                    "state": "intact"
+                },
+                "long": {
+                    "color": "a glossy black with some light reflections indicating a smooth surface.",
+                    "3D shape": "an ergonomic oval shape designed for hand support.",
+                    "material": "appears to be made mostly of plastic, typical for computer peripherals.",
+                    "usage": "serves as a computer input device, specifically a pointing device for controlling a cursor on a screen.",
+                    "texture": "The surface looks highly smooth, which is often the case for the ease of hand movement.",
+                    "structure": "The mouse has a compact structure with a visible logo, suggesting a design optimized for functionality and durability.",
+                    "state": "The mouse seems to be in an intact state, with no visible signs of damage or wear."
+                }
+            },
+            "obj_name": "mouse",
+            "cost": 0.009319999999999998,
+            "is_blur": false
+        },
+        "107": {
+            "gpt_response": {
+                "short": {
+                    "color": "white",
+                    "3D shape": "cylindrical base with a circular head",
+                    "material": "plastic/metal",
+                    "usage": "cooling",
+                    "texture": "smooth with perforated grill",
+                    "structure": "base, adjustable neck, protective grill, blades",
+                    "state": "off"
+                },
+                "long": {
+                    "color": "predominantly white with some grey or black",
+                    "3D shape": "round cylindrical base widening towards the top with an overall circular head comprising the fan blades and protective grill",
+                    "material": "appears to be mostly plastic with possible metal components for the grill and inner mechanisms",
+                    "usage": "used to provide a cooling breeze or air circulation within a room",
+                    "texture": "smooth plastic for the base and rear structure, with a rigid perforated metal or plastic grill protecting the blades",
+                    "structure": "comprised of a sturdy base to keep it upright, an adjustable neck to direct airflow, a circular protective grill for safety, and axial blades designed to move air efficiently",
+                    "state": "currently in an unused state with no movement, suggesting that it is off or unplugged"
+                }
+            },
+            "obj_name": "desk fan",
+            "cost": 0.010650000000000001,
+            "is_blur": false
+        },
+        "108": {
+            "gpt_response": {
+                "short": {
+                    "color": "Multicolored",
+                    "3D shape": "Rectangular prism",
+                    "material": "Paper",
+                    "usage": "Reading/Information",
+                    "texture": "Smooth",
+                    "structure": "Bound pages",
+                    "state": "Partially covered"
+                },
+                "long": {
+                    "color": "Various colors with images and text",
+                    "3D shape": "Rectangular prism, potentially flat with slight curvature due to open pages",
+                    "material": "Possibly glossy or matte paper",
+                    "usage": "Designed for reading, providing information, entertainment, or advertisements",
+                    "texture": "Likely smooth to the touch with the possibility of texture differences between the cover and pages",
+                    "structure": "Multiple pages bound together along one edge with a spine",
+                    "state": "Laying flat on a surface, partially obscured by other objects"
+                }
+            },
+            "obj_name": "magazine",
+            "cost": 0.00827,
+            "is_blur": false
+        },
+        "109": {
+            "gpt_response": {
+                "short": {
+                    "color": "Transparent",
+                    "3D shape": "Rectangular prism",
+                    "material": "Glass",
+                    "usage": "Holding bathroom items",
+                    "texture": "Smooth",
+                    "structure": "Two-tier",
+                    "state": "Installed"
+                },
+                "long": {
+                    "color": "The object is transparent with visible items behind it, suggesting it is made of a clear material.",
+                    "3D shape": "The object is in the shape of a rectangular prism with defined edges and flat surfaces.",
+                    "material": "The object appears to be made of glass, given its transparency and sheen.",
+                    "usage": "The object is used for holding and organizing bathroom items such as soap, shampoo, or other toiletries.",
+                    "texture": "The surface looks smooth, without any noticeable texture, typical of glass shelves.",
+                    "structure": "The object has a two-tier structure, providing two levels of storage space.",
+                    "state": "The object is in a state of use, securely installed within a niche in a bathroom wall."
+                }
+            },
+            "obj_name": "bathroom shelf",
+            "cost": 0.009389999999999999,
+            "is_blur": false
+        },
+        "10": {
+            "gpt_response": {
+                "short": {
+                    "color": "Black/White",
+                    "3D shape": "Flat sole with straps",
+                    "material": "Rubber/Plastic",
+                    "usage": "Footwear",
+                    "texture": "Smooth/Textured",
+                    "structure": "Thong strap design",
+                    "state": "Intact"
+                },
+                "long": {
+                    "color": "The flip flop has a color scheme that includes black for the sole and straps, and white for the logo.",
+                    "3D shape": "The flip flop is designed with a flat, slightly contoured rubber sole and is complemented by raised straps that form a Y shape, typical of thong sandals.",
+                    "material": "The primary materials appear to be rubber for the sole and a plastic or rubber-like material for the straps.",
+                    "usage": "The flip flops are intended for casual wear, often used for walking on the beach, around pools, or for comfortable everyday use in warm weather.",
+                    "texture": "The sole likely has a smooth but non-slip texture, while the straps may have a more flexible and rubbery texture.",
+                    "structure": "This footwear features a simple structure with a flat sole that provides a minimal barrier between the foot and the ground, and straps that are designed to fit between the toes and around the foot for a secure but easy-to-slip-on style.",
+                    "state": "The flip flops appear to be in a new or very good condition, with no visible signs of wear or damage."
+                }
+            },
+            "obj_name": "flip flops",
+            "cost": 0.01141,
+            "is_blur": false
+        },
+        "110": {
+            "gpt_response": {
+                "short": {
+                    "color": "Clear and yellow",
+                    "3D shape": "Cylindrical",
+                    "material": "Plastic",
+                    "usage": "Dispensing liquid",
+                    "texture": "Smooth",
+                    "structure": "Bottle with trigger spray",
+                    "state": "Solid"
+                },
+                "long": {
+                    "color": "The main body of the bottle is clear, with a yellow trigger and labeling.",
+                    "3D shape": "The bottle is cylindrical with a slight taper towards the top, ending in a nozzle connected to a spray trigger.",
+                    "material": "The bottle is made primarily of transparent plastic, possibly polyethylene terephthalate (PET) or similar.",
+                    "usage": "This is a spray bottle, typically used for dispensing liquids in a fine mist for cleaning or other purposes.",
+                    "texture": "The surface of the spray bottle appears to be smooth, typical for molded plastic items.",
+                    "structure": "The structural design includes a main reservoir for liquid, a neck, a screw-on trigger spray mechanism with a squeezable trigger, and a nozzle.",
+                    "state": "The object is in a solid state, with the exception of the liquid content it may contain."
+                }
+            },
+            "obj_name": "spray bottle",
+            "cost": 0.01029,
+            "is_blur": false
+        },
+        "111": {
+            "gpt_response": {
+                "short": {
+                    "color": "blue and white",
+                    "3D shape": "cylindrical",
+                    "material": "plastic",
+                    "usage": "holding liquids",
+                    "texture": "smooth",
+                    "structure": "open-top with handle",
+                    "state": "solid"
+                },
+                "long": {
+                    "color": "The object has a blue color with white circular patterns.",
+                    "3D shape": "The object has a cylindrical shape with a circular opening at the top.",
+                    "material": "The object appears to be made from a type of plastic.",
+                    "usage": "The object is used for holding liquids, likely in a kitchen setting.",
+                    "texture": "The surface of the object looks smooth to the touch.",
+                    "structure": "The object has a solid structure featuring an open top and a handle for easy gripping.",
+                    "state": "The object is in a solid state with no visible signs of damage or wear."
+                }
+            },
+            "obj_name": "object",
+            "cost": 0.00884,
+            "is_blur": false
+        },
+        "112": {
+            "gpt_response": {
+                "short": {
+                    "color": "Blue and yellow",
+                    "3D shape": "Rectangular prism",
+                    "material": "Textile and foam",
+                    "usage": "Bedding",
+                    "texture": "Soft",
+                    "structure": "Layered",
+                    "state": "Stationary"
+                },
+                "long": {
+                    "color": "The object presents a combination of blue and yellow colors, with the blue possibly being some form of cover or sheet and the yellow suggesting underlying material.",
+                    "3D shape": "The object is shaped like a rectangular prism, indicative of a common bed or mattress structure.",
+                    "material": "It seems to be made of textile materials for the sheets and likely foam or a similar soft material for the mattress.",
+                    "usage": "The object is used for sleeping or resting, typically placed in a bedroom environment.",
+                    "texture": "The visible texture suggests softness, especially on the blue sheet part, which looks to be fabric that is meant to be comfortable to the touch.",
+                    "structure": "The object's structure appears to be layered, with a cover on top and a mattress beneath, consistent with typical bedding composition.",
+                    "state": "The object is in a stationary state, positioned for use but currently unoccupied."
+                }
+            },
+            "obj_name": "object",
+            "cost": 0.01037,
+            "is_blur": false
+        },
+        "113": {
+            "gpt_response": {
+                "short": {
+                    "color": "Grey, white, yellow, blue",
+                    "3D shape": "Rectangular prism",
+                    "material": "Plastic, synthetic bristles",
+                    "usage": "Cleaning",
+                    "texture": "Smooth handle, stiff bristles",
+                    "structure": "Handle with bristles attached",
+                    "state": "Solid"
+                },
+                "long": {
+                    "color": "The object has a grey handle, white bristles, a yellow backing, and a blue detail",
+                    "3D shape": "The brush is a rectangular prism with a slightly curved top for ergonomic handling",
+                    "material": "The handle appears to be made of plastic with synthetic bristles for cleaning",
+                    "usage": "This object is likely used for scrubbing surfaces clean",
+                    "texture": "The handle of the brush is smooth for comfortable use, while the bristles are stiff for effective scrubbing",
+                    "structure": "The brush consists of a solid handle attached to a backing which holds the bristles in place",
+                    "state": "The entire object is in a solid state with no visible damage or wear, suggesting it is relatively new or well-maintained"
+                }
+            },
+            "obj_name": "brush",
+            "cost": 0.010010000000000002,
+            "is_blur": false
+        },
+        "114": {
+            "gpt_response": {
+                "short": {
+                    "color": "",
+                    "3D shape": "",
+                    "material": "",
+                    "usage": "",
+                    "texture": "",
+                    "structure": "",
+                    "state": ""
+                },
+                "long": {
+                    "color": "The object is primarily white with blue and black accents, and multicolored elements such as logos and text.",
+                    "3D shape": "The object has a cylindrical shape with a flat base and a possibly rounded top, common for containers.",
+                    "material": "The material appears to be a type of plastic commonly used for personal care product packaging.",
+                    "usage": "This is a container likely used to hold a personal care product for men, as indicated by the brand and design.",
+                    "texture": "The surface texture is smooth, typical for containers designed to be easily cleaned and handled.",
+                    "structure": "It has a solid structure designed to protect and contain its contents, with labeling and branding on the exterior.",
+                    "state": "The object is in a solid state, with an intact and functional appearance."
+                }
+            },
+            "obj_name": "object",
+            "cost": 0.009049999999999999,
+            "is_blur": false
+        },
+        "115": {
+            "gpt_response": {
+                "short": {
+                    "color": "Gold",
+                    "3D shape": "Cylindrical",
+                    "material": "Plastic",
+                    "usage": "Hair care",
+                    "texture": "Smooth",
+                    "structure": "Bottle with cap",
+                    "state": "Solid"
+                },
+                "long": {
+                    "color": "A shiny gold with gradients of yellow and brown, and labeled with text and a logo in contrasting hues",
+                    "3D shape": "An elongated cylinder that tapers slightly towards the top with a contoured body for better grip",
+                    "material": "A glossy plastic material that is likely PET or HDPE, common for personal care products",
+                    "usage": "A commercial container designed to hold shampoo or conditioner as part of a hair care routine",
+                    "texture": "The exterior surface seems smooth and glossy with a potential raised pattern or design for branding or grip",
+                    "structure": "The object is a bottle complete with a dispensing cap which is possibly flip-top or screw-on, indicating its functionality for dispensing a liquid or viscous substance",
+                    "state": "The bottle is in a solid state, robust and intended for multiple uses until the product inside is depleted"
+                }
+            },
+            "obj_name": "object",
+            "cost": 0.010190000000000001,
+            "is_blur": false
+        },
+        "116": {
+            "gpt_response": {
+                "short": {
+                    "color": "Gold and white",
+                    "3D shape": "Cylindrical",
+                    "material": "Plastic",
+                    "usage": "Hair care product",
+                    "texture": "Smooth",
+                    "structure": "Tubular, with a cap",
+                    "state": "Solid container with likely liquid content"
+                },
+                "long": {
+                    "color": "The primary color is gold with white text and graphics, including a red accent.",
+                    "3D shape": "The object is cylindrical in shape, designed to stand upright.",
+                    "material": "It appears to be made of plastic, typical for consumer goods packaging.",
+                    "usage": "The object is likely a hair care product like shampoo or conditioner.",
+                    "texture": "The surface looks smooth, a characteristic of molded plastic bottles.",
+                    "structure": "The structure is tubular, featuring a rounded body with a narrower neck and a cap on top.",
+                    "state": "The container is solid but it is meant to hold a liquid product for hair treatment."
+                }
+            },
+            "obj_name": "object",
+            "cost": 0.009170000000000001,
+            "is_blur": false
+        },
+        "118": {
+            "gpt_response": {
+                "short": {
+                    "color": "White, Red",
+                    "3D shape": "Cylindrical, Rectangular",
+                    "material": "Ceramic, Plastic, Cardboard",
+                    "usage": "Holding toothbrushes and toothpaste",
+                    "texture": "Smooth",
+                    "structure": "Open top, round container",
+                    "state": "In use"
+                },
+                "long": {
+                    "color": "The holder is primarily white, with objects inside that are red and various other colors.",
+                    "3D shape": "The holder is cylindrical, while the items inside have cylindrical and rectangular shapes.",
+                    "material": "The toothbrush holder appears to be made of ceramic, toothbrushes of plastic, and toothpaste box likely cardboard.",
+                    "usage": "The holder is used to keep toothbrushes and toothpaste organized and within easy reach in a bathroom.",
+                    "texture": "The exterior of the holder seems to have a glazed, polished texture typical of ceramic items.",
+                    "structure": "The holder is a hollow cylinder with an open top to accommodate bathroom items like toothbrushes.",
+                    "state": "The object is in a state of use, functioning as a storage container for toothbrushes and toothpaste."
+                }
+            },
+            "obj_name": "object",
+            "cost": 0.01037,
+            "is_blur": false
+        },
+        "11": {
+            "gpt_response": {
+                "short": {
+                    "color": "White",
+                    "3D shape": "Oval and cylindrical",
+                    "material": "Ceramic",
+                    "usage": "Sanitation",
+                    "texture": "Smooth",
+                    "structure": "Bowl with hinged seat and lid",
+                    "state": "Open"
+                },
+                "long": {
+                    "color": "Primarily white with a glossy finish",
+                    "3D shape": "The main shape includes an oval bowl with a cylindrical base, complemented by a round seat and a hinged lid.",
+                    "material": "Typically made of high-gloss ceramic, suggesting easy cleaning.",
+                    "usage": "Designed for human excretion, it allows for the disposal of bodily wastes (urine and feces).",
+                    "texture": "The ceramic has a smooth, polished texture, while the toilet seat might have a slight texture for comfort.",
+                    "structure": "This object comprises a porcelain bowl with a connected tank (not fully visible), a hinged plastic or wooden seat, and a coordinating lid.",
+                    "state": "The toilet seat and lid are in the up position, indicating the toilet is ready for use or in a state of cleaning or maintenance."
+                }
+            },
+            "obj_name": "toilet",
+            "cost": 0.010190000000000001,
+            "is_blur": false
+        },
+        "120": {
+            "gpt_response": {
+                "short": {
+                    "color": "white",
+                    "3D shape": "bottle",
+                    "material": "plastic",
+                    "usage": "laundry detergent",
+                    "texture": "smooth",
+                    "structure": "rigid",
+                    "state": "liquid"
+                },
+                "long": {
+                    "color": "Predominantly white with green and red label design elements",
+                    "3D shape": "Ergonomically designed bottle with a handle and spout",
+                    "material": "Durable plastic, likely High-Density Polyethylene (HDPE)",
+                    "usage": "Used for washing clothes, specifically for removing stains and cleaning laundry",
+                    "texture": "The exterior is smooth with a slightly curved shape for easy gripping",
+                    "structure": "Features a sturdy structure with a twist cap on top for dispensing liquid",
+                    "state": "Contains liquid laundry detergent inside, but the bottle itself is solid"
+                }
+            },
+            "obj_name": "laundry detergent",
+            "cost": 0.00846,
+            "is_blur": false
+        },
+        "121": {
+            "gpt_response": {
+                "short": {
+                    "color": "white and green",
+                    "3D shape": "cylindrical",
+                    "material": "plastic",
+                    "usage": "container",
+                    "texture": "smooth",
+                    "structure": "screw-cap",
+                    "state": "solid"
+                },
+                "long": {
+                    "color": "The bottle is predominantly white with a green label.",
+                    "3D shape": "The bottle has a cylindrical shape, with a narrower neck and a wider base.",
+                    "material": "The bottle appears to be made out of plastic, which is common for this type of container.",
+                    "usage": "The bottle is likely used to contain liquid, possibly a household chemical or personal care product.",
+                    "texture": "The surface of the bottle looks smooth, with no visible texture.",
+                    "structure": "It features a structure that includes a screw-cap mechanism for opening and closing.",
+                    "state": "The bottle, as a whole, is in a solid state, designed to hold contents securely."
+                }
+            },
+            "obj_name": "bottle",
+            "cost": 0.00902,
+            "is_blur": false
+        },
+        "123": {
+            "gpt_response": {
+                "short": {
+                    "color": "Silver",
+                    "3D shape": "Cylindrical and curved",
+                    "material": "Metal",
+                    "usage": "Water dispensing",
+                    "texture": "Smooth",
+                    "structure": "Single lever with swivel spout",
+                    "state": "Off"
+                },
+                "long": {
+                    "color": "The tap has a reflective silver color, consistent with chrome finishing.",
+                    "3D shape": "The tap exhibits a three-dimensional structure with a cylindrical base, leading into an elegantly curved spout.",
+                    "material": "It appears to be made out of a polished metal, possibly stainless steel or chrome-plated brass.",
+                    "usage": "This tap is used for dispensing water, likely situated in a kitchen or bathroom sink.",
+                    "texture": "The tap's texture looks smooth and polished, indicative of a metallic surface.",
+                    "structure": "The overall structure features a single lever for controlling water flow and temperature, mounted on a cylindrical body, with a spout that swivels to direct the water output.",
+                    "state": "Currently, the tap appears to be in the off position, as no water is seen flowing from the spout."
+                }
+            },
+            "obj_name": "tap",
+            "cost": 0.010190000000000001,
+            "is_blur": false
+        },
+        "125": {
+            "gpt_response": {
+                "short": {
+                    "color": "Grey",
+                    "3D shape": "Conical",
+                    "material": "Plastic",
+                    "usage": "Unknown",
+                    "texture": "Smooth",
+                    "structure": "Single piece",
+                    "state": "Solid"
+                },
+                "long": {
+                    "color": "A shade of grey, possibly reflecting ambient light",
+                    "3D shape": "A conical or funnel-like shape, tapered and hollow",
+                    "material": "Appears to be made of a type of plastic, characterized by its reflective surface",
+                    "usage": "The exact function is unclear from the image, possibly part of a larger object or device",
+                    "texture": "A smooth finish, with no visible grain or roughness, akin to typical plastic items",
+                    "structure": "Seems to be a single piece with no visible seams or joints",
+                    "state": "In a solid state, maintaining a fixed shape"
+                }
+            },
+            "obj_name": "object",
+            "cost": 0.00845,
+            "is_blur": false
+        },
+        "126": {
+            "gpt_response": {
+                "short": {
+                    "color": "Various",
+                    "3D shape": "Rectangular prism",
+                    "material": "Mixed",
+                    "usage": "Furniture",
+                    "texture": "Smooth/Soft",
+                    "structure": "Stable",
+                    "state": "In use"
+                },
+                "long": {
+                    "color": "The bed has multiple colors, including blue for the bedsheets, pink and gray for the blanket, and gray for the bed frame.",
+                    "3D shape": "The object is a rectangular prism shape characteristic of modern beds.",
+                    "material": "The materials include textiles for the bedding, likely wood or composite for the bed frame, and metal for the legs.",
+                    "usage": "The primary usage is as a piece of bedroom furniture intended for sleeping or resting.",
+                    "texture": "The bedsheet's texture appears smooth, while the blanket looks soft and possibly plush.",
+                    "structure": "The bed structure appears stable and well-built, with a solid frame.",
+                    "state": "The bed is currently in use with a laptop on it, suggesting recent or current activity."
+                }
+            },
+            "obj_name": "bed",
+            "cost": 0.00953,
+            "is_blur": false
+        },
+        "128": {
+            "gpt_response": {
+                "short": {
+                    "color": "silver",
+                    "3D shape": "cylindrical",
+                    "material": "metal",
+                    "usage": "cooking",
+                    "texture": "smooth",
+                    "structure": "handled with lid",
+                    "state": "solid"
+                },
+                "long": {
+                    "color": "This is a predominantly silver-colored object.",
+                    "3D shape": "The object has a cylindrical body with a semi-spherical lid.",
+                    "material": "The object appears to be made of stainless steel or a similar shiny metal.",
+                    "usage": "This object is typically used for cooking or boiling food.",
+                    "texture": "The texture of the object looks smooth and reflective, indicating a polished finish.",
+                    "structure": "The object features a robust structure with two handles on opposite sides and a lid with a handle on top.",
+                    "state": "The object is in a solid state, and it is sitting stationary on a stove."
+                }
+            },
+            "obj_name": "object",
+            "cost": 0.008660000000000001,
+            "is_blur": false
+        },
+        "12": {
+            "gpt_response": {
+                "short": {
+                    "color": "Brown",
+                    "3D shape": "Cylindrical",
+                    "material": "Plastic",
+                    "usage": "Container",
+                    "texture": "Smooth",
+                    "structure": "Single-piece",
+                    "state": "Solid"
+                },
+                "long": {
+                    "color": "A gradient of brown, possibly with label and branding",
+                    "3D shape": "Cylindrical with a narrower neck and rounded shoulder leading to a flat base",
+                    "material": "Likely plastic, judging from its gloss and typical use",
+                    "usage": "Typically used to store and dispense liquids such as sauces or beverages",
+                    "texture": "Surface appears smooth, possibly with a label that has a different texture",
+                    "structure": "Appears to be a single-piece structure with a twist-off cap for access",
+                    "state": "The object is solid with its contents assumed to be in liquid form"
+                }
+            },
+            "obj_name": "bottle",
+            "cost": 0.00857,
+            "is_blur": false
+        },
+        "131": {
+            "gpt_response": {
+                "short": {
+                    "color": "silver",
+                    "3D shape": "cylindrical and spherical",
+                    "material": "metal",
+                    "usage": "water dispensing",
+                    "texture": "smooth",
+                    "structure": "single spout with two handles",
+                    "state": "off"
+                },
+                "long": {
+                    "color": "The tap has a silver color, likely due to a chrome finish.",
+                    "3D shape": "The tap features cylindrical and spherical shapes, with a spout and rounded handles.",
+                    "material": "The tap appears to be made from a metallic material, possibly stainless steel or chrome-plated brass.",
+                    "usage": "The tap is used for dispensing water, most likely in a bathroom or kitchen sink.",
+                    "texture": "The tap has a smooth texture, which is typical for metal fixtures with a polished surface.",
+                    "structure": "The structure of the tap consists of a single spout with two handles on either side for hot and cold water control.",
+                    "state": "The tap is in the off position, with no water flowing from the spout."
+                }
+            },
+            "obj_name": "tap",
+            "cost": 0.009649999999999999,
+            "is_blur": false
+        },
+        "133": {
+            "gpt_response": {
+                "short": {
+                    "color": "varied",
+                    "3D shape": "cylindrical",
+                    "material": "plastic",
+                    "usage": "dispensing liquid",
+                    "texture": "smooth",
+                    "structure": "bottle with pump dispenser",
+                    "state": "solid"
+                },
+                "long": {
+                    "color": "primary color is green with red and white label",
+                    "3D shape": "cylindrical container with a narrower neck and dispensing pump on top",
+                    "material": "likely made of plastic with a label wrapped around",
+                    "usage": "used for dispensing liquid soap or lotion",
+                    "texture": "the surface appears smooth, typical for plastic containers",
+                    "structure": "the object is a bottle designed with a pump mechanism on top for easy dispensing of its contents",
+                    "state": "the object is in a stable solid state with no visible signs of damage or wear"
+                }
+            },
+            "obj_name": "object",
+            "cost": 0.00893,
+            "is_blur": false
+        },
+        "134": {
+            "gpt_response": {
+                "short": {
+                    "color": "Various",
+                    "3D shape": "Cylindrical",
+                    "material": "Plastic",
+                    "usage": "Container",
+                    "texture": "Smooth",
+                    "structure": "Tube-like",
+                    "state": "Solid"
+                },
+                "long": {
+                    "color": "The object features multiple colors, including the natural transparent color of the plastic and the various colors of the items inside.",
+                    "3D shape": "The object is cylindrical in shape, with a circular cross-section.",
+                    "material": "The object seems to be made of a clear, flexible plastic material.",
+                    "usage": "The object is used as a container, possibly for storing and organizing personal or household items.",
+                    "texture": "The surface of the object appears smooth, indicative of typical plastic materials.",
+                    "structure": "The structure of the object is tube-like with a hollow center designed to hold various items.",
+                    "state": "The object is in a solid state, rigid enough to maintain its shape while holding its contents."
+                }
+            },
+            "obj_name": "object",
+            "cost": 0.0092,
+            "is_blur": false
+        },
+        "139": {
+            "gpt_response": {
+                "short": {
+                    "color": "black",
+                    "3D shape": "rectangular box",
+                    "material": "metal and plastic",
+                    "usage": "heating food",
+                    "texture": "smooth",
+                    "structure": "enclosed with a door and control panel",
+                    "state": "idle"
+                },
+                "long": {
+                    "color": "predominantly black with some silver accents",
+                    "3D shape": "rectangular prism with rounded corners",
+                    "material": "likely a combination of metal for the structure, with plastic components for the door handle and control panel",
+                    "usage": "used for cooking or reheating food by emitting microwaves",
+                    "texture": "smooth exterior surfaces, with vented or patterned areas for heat dissipation",
+                    "structure": "comprises an enclosed cavity with a transparent door, a user interface with buttons or dials, and a numerical display",
+                    "state": "currently not in use, with a clear display panel indicating standby or off mode"
+                }
+            },
+            "obj_name": "microwave",
+            "cost": 0.00911,
+            "is_blur": false
+        },
+        "13": {
+            "gpt_response": {
+                "short": {
+                    "color": "white",
+                    "3D shape": "cylindrical",
+                    "material": "paper",
+                    "usage": "hygiene",
+                    "texture": "soft",
+                    "structure": "rolled",
+                    "state": "partially unrolled"
+                },
+                "long": {
+                    "color": "primarily white with some light shading due to lighting",
+                    "3D shape": "cylindrical core with layers of paper wrapped around",
+                    "material": "soft, biodegradable paper",
+                    "usage": "personal hygiene, commonly found in bathrooms",
+                    "texture": "soft, slightly textured for comfort and absorbency",
+                    "structure": "a hollow cylindrical cardboard core with multiple layers of paper rolled around it",
+                    "state": "in use with some paper unrolled and the rest still in a roll"
+                }
+            },
+            "obj_name": "toilet paper",
+            "cost": 0.007980000000000001,
+            "is_blur": false
+        },
+        "14": {
+            "gpt_response": {
+                "short": {
+                    "color": "Translucent",
+                    "3D shape": "Oval",
+                    "material": "Plastic",
+                    "usage": "Dispensing soap",
+                    "texture": "Smooth",
+                    "structure": "Bottle with a pump",
+                    "state": "Solid"
+                },
+                "long": {
+                    "color": "A translucent color with a possibly slight yellowish tint, suggesting a liquid inside that may influence the coloration",
+                    "3D shape": "An oval-shaped, three-dimensional object designed ergonomically to fit in a hand",
+                    "material": "Made of a plastic material, possibly polyethylene or similar",
+                    "usage": "Used for dispensing liquid soap, commonly found in bathrooms or kitchens",
+                    "texture": "The surface appears smooth, likely facilitating easy cleaning and handling",
+                    "structure": "The structure is a plastic bottle with a dispensing pump, which is a mechanism that allows the liquid soap to be pumped out",
+                    "state": "The bottle is in a solid state, while the contents are likely liquid"
+                }
+            },
+            "obj_name": "soap",
+            "cost": 0.009319999999999998,
+            "is_blur": false
+        },
+        "15": {
+            "gpt_response": {
+                "short": {
+                    "color": "white",
+                    "3D shape": "basin-like",
+                    "material": "ceramic",
+                    "usage": "washing",
+                    "texture": "smooth",
+                    "structure": "single basin with faucet",
+                    "state": "clean"
+                },
+                "long": {
+                    "color": "Primarily white, with some metallic parts.",
+                    "3D shape": "Curved basin-like structure with an elongated form.",
+                    "material": "Mostly ceramic, with metallic components for the faucet.",
+                    "usage": "Used for washing hands, dishes, and other small objects.",
+                    "texture": "Glossy and smooth surface finish on the ceramic, more textured on the metallic faucet.",
+                    "structure": "A single basin with an edge-mounted faucet, integrated drain, and possibly overflow protection.",
+                    "state": "Appears to be in a clean and well-maintained condition."
+                }
+            },
+            "obj_name": "sink",
+            "cost": 0.00845,
+            "is_blur": false
+        },
+        "16": {
+            "gpt_response": {
+                "short": {
+                    "color": "silver",
+                    "3D shape": "cylindrical",
+                    "material": "metal",
+                    "usage": "showering",
+                    "texture": "corrugated",
+                    "structure": "flexible",
+                    "state": "coiled"
+                },
+                "long": {
+                    "color": "metallic silver with light reflecting properties",
+                    "3D shape": "long, helical, cylindrical shape",
+                    "material": "likely stainless steel or chrome-plated metal",
+                    "usage": "used to transport water from plumbing to shower head",
+                    "texture": "ridged, spiral, corrugated texture allowing flexibility",
+                    "structure": "hollow, flexible, with screw fittings at ends",
+                    "state": "coiled or curved indicating flexibility and resting state"
+                }
+            },
+            "obj_name": "shower hose",
+            "cost": 0.0081,
+            "is_blur": false
+        },
+        "17": {
+            "gpt_response": {
+                "short": {
+                    "color": "gray",
+                    "3D shape": "cylindrical and flat circular",
+                    "material": "metal/plastic",
+                    "usage": "bathing",
+                    "texture": "smooth with perforations",
+                    "structure": "handle and nozzle",
+                    "state": "off"
+                },
+                "long": {
+                    "color": "predominantly gray, possibly with a matte finish",
+                    "3D shape": "combination of cylindrical and flat circular shapes forming the main body and the head",
+                    "material": "likely to be metal with a possibility of plastic components",
+                    "usage": "designed to distribute water for bathing purposes",
+                    "texture": "appears smooth with multiple small perforations on the head for water flow",
+                    "structure": "consists of a handle attached to a head with a flat circular shape that has a perforated surface",
+                    "state": "appears to be in the 'off' state with no water flow"
+                }
+            },
+            "obj_name": "shower head",
+            "cost": 0.009210000000000001,
+            "is_blur": false
+        },
+        "22": {
+            "gpt_response": {
+                "short": {
+                    "color": "white",
+                    "3D shape": "rectangular prism",
+                    "material": "metal",
+                    "usage": "heating",
+                    "texture": "smooth",
+                    "structure": "horizontal with vents",
+                    "state": "mounted and stationary"
+                },
+                "long": {
+                    "color": "The object is predominantly white in color.",
+                    "3D shape": "The object has the three-dimensional shape of a long rectangular prism.",
+                    "material": "The object appears to be constructed from metal, possibly steel or aluminum.",
+                    "usage": "The object is a heater, used for warming the interior space of a room.",
+                    "texture": "The object has a smooth texture with a solid finish.",
+                    "structure": "The structure of the object is horizontal, elongated, with vents and controls that suggest functionality related to heating.",
+                    "state": "The heater is in a stationary state, securely mounted to the wall beneath a window with curtains."
+                }
+            },
+            "obj_name": "heater",
+            "cost": 0.00884,
+            "is_blur": false
+        },
+        "23": {
+            "gpt_response": {
+                "short": {
+                    "color": "gray",
+                    "3D shape": "rectangular prism",
+                    "material": "metal",
+                    "usage": "drying clothes",
+                    "texture": "smooth",
+                    "structure": "lattice",
+                    "state": "mounted"
+                },
+                "long": {
+                    "color": "The drying rack is predominantly gray in color, with some variation that may be due to lighting or shadows.",
+                    "3D shape": "The drying rack has the three-dimensional shape of a rectangular prism, which allows for efficient hanging of multiple items.",
+                    "material": "The rack appears to be made of metal, which provides durability and strength to support wet clothes.",
+                    "usage": "This object is used for drying clothes by hanging them on its bars, allowing air to circulate and water to evaporate.",
+                    "texture": "The visible surface of the drying rack seems to be smooth, which is typical for metal objects and helps in avoiding damage to the clothes.",
+                    "structure": "The rack has a lattice structure composed of multiple bars intersecting at right angles, creating a grid pattern that supports the items being dried.",
+                    "state": "The drying rack is in a mounted state, affixed to a wall or a solid vertical surface, ready for use."
+                }
+            },
+            "obj_name": "drying rack",
+            "cost": 0.010650000000000001,
+            "is_blur": false
+        },
+        "25": {
+            "gpt_response": {
+                "short": {
+                    "color": "Blue and white",
+                    "3D shape": "Rectangular prism",
+                    "material": "Fabric",
+                    "usage": "Sleeping or cushioning",
+                    "texture": "Soft",
+                    "structure": "Fluffy",
+                    "state": "In use"
+                },
+                "long": {
+                    "color": "The object has a pattern with gradient shades of blue with a white base color",
+                    "3D shape": "The object has the three-dimensional shape of a rectangular prism, common for pillows",
+                    "material": "The object appears to be made of a soft fabric, likely cotton or a cotton blend",
+                    "usage": "The object is typically used for sleeping or providing cushioning comfort on beds or couches",
+                    "texture": "The surface of the object looks soft and potentially plush, suggesting a comfortable texture",
+                    "structure": "The object has a fluffy structure that indicates it is filled with a soft material, likely down or a synthetic fiber",
+                    "state": "The object appears to be in use, resting against a vertical surface, possibly a wall or the back of a chair"
+                }
+            },
+            "obj_name": "pillow",
+            "cost": 0.010010000000000002,
+            "is_blur": false
+        },
+        "26": {
+            "gpt_response": {
+                "short": {
+                    "color": "blue and white",
+                    "3D shape": "cuboid",
+                    "material": "fabric",
+                    "usage": "sleeping",
+                    "texture": "soft",
+                    "structure": "sewn cover with filling",
+                    "state": "in use"
+                },
+                "long": {
+                    "color": "The pillow has a blue and white swirled pattern reminiscent of marble or water.",
+                    "3D shape": "The object appears to be a rectangular cuboid, typically used for head support.",
+                    "material": "The material seems to be a soft fabric, possibly cotton or a cotton blend.",
+                    "usage": "This is a pillow commonly used for supporting the head during sleep or rest.",
+                    "texture": "The texture of the pillow cover looks soft and possibly has a satiny sheen, indicating a smooth feel.",
+                    "structure": "The structure consists of a sewn fabric cover that is likely filled with a soft material such as down, feathers, or a synthetic alternative.",
+                    "state": "The pillow is placed on a bed and seems to be in use or ready for use."
+                }
+            },
+            "obj_name": "pillow",
+            "cost": 0.010159999999999999,
+            "is_blur": false
+        },
+        "27": {
+            "gpt_response": {
+                "short": {
+                    "color": "white",
+                    "3D shape": "rectangular prism",
+                    "material": "fabric",
+                    "usage": "sleeping or cushioning",
+                    "texture": "soft",
+                    "structure": "filled",
+                    "state": "fluffed"
+                },
+                "long": {
+                    "color": "A predominantly white color with possible shades due to lighting",
+                    "3D shape": "A rectangular prism shape typical for standard pillows",
+                    "material": "Likely a soft fabric such as cotton or a cotton blend",
+                    "usage": "Commonly used for sleeping or as a cushion for support",
+                    "texture": "The texture appears to be soft and smooth, indicative of a plush surface",
+                    "structure": "The pillow seems to have a filled inner structure, maintaining its form",
+                    "state": "It appears to be in a fluffed state, suggesting recent use or adjustment"
+                }
+            },
+            "obj_name": "pillow",
+            "cost": 0.00842,
+            "is_blur": false
+        },
+        "28": {
+            "gpt_response": {
+                "short": {
+                    "color": "pink with gray spots",
+                    "3D shape": "irregular rectangle",
+                    "material": "fabric",
+                    "usage": "bedding",
+                    "texture": "soft",
+                    "structure": "flexible",
+                    "state": "draped"
+                },
+                "long": {
+                    "color": "The primary color is pink with large gray spots scattered across the surface.",
+                    "3D shape": "The blanket has an irregular rectangular shape, conforming to the contour of the bed.",
+                    "material": "It appears to be made from a soft fabric, typical of bedding materials.",
+                    "usage": "This blanket is used for warmth and comfort while sleeping or resting on a bed.",
+                    "texture": "The surface looks soft and cozy, indicative of a plush texture.",
+                    "structure": "The structure is flexible and non-rigid, allowing the blanket to drape and fold easily.",
+                    "state": "The blanket is in a draped state, resting loosely on top of a bed with ripples and folds."
+                }
+            },
+            "obj_name": "blanket",
+            "cost": 0.00938,
+            "is_blur": false
+        },
+        "29": {
+            "gpt_response": {
+                "short": {
+                    "color": "white",
+                    "3D shape": "oval",
+                    "material": "plastic",
+                    "usage": "audio accessory",
+                    "texture": "smooth",
+                    "structure": "compact",
+                    "state": "intact"
+                },
+                "long": {
+                    "color": "a glossy white",
+                    "3D shape": "a slim oval with rounded edges",
+                    "material": "possibly hard plastic with a reflective surface",
+                    "usage": "a device for wireless audio playback and communication",
+                    "texture": "appears to be smooth with a slight curvature for ergonomic handling",
+                    "structure": "a compact, portable design with minimalistic features",
+                    "state": "seems to be in a good, undamaged condition"
+                }
+            },
+            "obj_name": "wireless headphones",
+            "cost": 0.0075,
+            "is_blur": false
+        },
+        "2": {
+            "gpt_response": {
+                "short": {
+                    "color": "Brown",
+                    "3D shape": "Circular disk",
+                    "material": "Wood",
+                    "usage": "Cutting/Serving board",
+                    "texture": "Smooth",
+                    "structure": "Solid",
+                    "state": "Inert"
+                },
+                "long": {
+                    "color": "Variegated brown tones, possibly with wood grain patterns",
+                    "3D shape": "Flat, thin circular disk with a slight thickness",
+                    "material": "Appears to be a hardwood, commonly used in kitchenware",
+                    "usage": "Typically used as a cutting board or serving platter for food",
+                    "texture": "Surface seems smooth, likely finished with a food-safe sealant",
+                    "structure": "Solid, with no visible flex or segmentation",
+                    "state": "Stationary, resting on a kitchen surface implying no current motion or usage"
+                }
+            },
+            "obj_name": "board",
+            "cost": 0.008660000000000001,
+            "is_blur": false
+        },
+        "30": {
+            "gpt_response": {
+                "short": {
+                    "color": "Black",
+                    "3D shape": "Rectangular prism",
+                    "material": "Plastic/Metal",
+                    "usage": "Computing",
+                    "texture": "Smooth",
+                    "structure": "Laptop with screen and keyboard",
+                    "state": "Closed"
+                },
+                "long": {
+                    "color": "The laptop is primarily black in color with some color variation possible on branding or stickers.",
+                    "3D shape": "The shape of the laptop is a rectangular prism, which is typical for laptops.",
+                    "material": "The outer casing of the laptop is likely made from a combination of plastic and metal materials, which is typical for durability and heat dissipation.",
+                    "usage": "The laptop is used for computing tasks such as browsing the internet, running software applications, and processing data.",
+                    "texture": "The surface of the laptop appears smooth, which is characteristic of the trackpad and keys on the keyboard.",
+                    "structure": "The structure of the laptop includes a main body with a keyboard and a hinged screen that can open and close.",
+                    "state": "The laptop is in a closed position, suggesting that it is either turned off or in sleep mode."
+                }
+            },
+            "obj_name": "laptop",
+            "cost": 0.01022,
+            "is_blur": false
+        },
+        "32": {
+            "gpt_response": {
+                "short": {
+                    "color": "Dark",
+                    "3D shape": "Tubular",
+                    "material": "Fabric",
+                    "usage": "Wear",
+                    "texture": "Smooth",
+                    "structure": "Layered",
+                    "state": "Hanging"
+                },
+                "long": {
+                    "color": "Dark gray or black",
+                    "3D shape": "Tubular, cylindrical with a closed end and openings",
+                    "material": "Synthetic or down fabric, likely with insulation",
+                    "usage": "Outerwear, designed to be worn for warmth",
+                    "texture": "Smooth outer shell with a quilted pattern",
+                    "structure": "Structured with horizontal padding segments",
+                    "state": "Currently hanging on a hanger"
+                }
+            },
+            "obj_name": "jacket",
+            "cost": 0.00734,
+            "is_blur": false
+        },
+        "33": {
+            "gpt_response": {
+                "short": {
+                    "color": "white",
+                    "3D shape": "rectangular prism",
+                    "material": "wood or particle board",
+                    "usage": "storage or display",
+                    "texture": "smooth",
+                    "structure": "open shelves with back panel",
+                    "state": "assembled and in use"
+                },
+                "long": {
+                    "color": "The shelf is predominantly white in color.",
+                    "3D shape": "The shelf has the 3D shape of a rectangular prism.",
+                    "material": "The material appears to be wood, probably particle board or a similar engineered wood product.",
+                    "usage": "The shelf is used for storage or displaying items. It has items placed on it and within the shelving spaces.",
+                    "texture": "The surface texture of the shelf looks smooth and is likely laminated or painted.",
+                    "structure": "The structure consists of open shelving spaces, supported by side walls, a top, and a bottom panel, with a back panel for added stability.",
+                    "state": "The object is fully assembled and is currently being used, indicated by the items placed on and within it."
+                }
+            },
+            "obj_name": "shelf",
+            "cost": 0.0098,
+            "is_blur": false
+        },
+        "34": {
+            "gpt_response": {
+                "short": {
+                    "color": "pink",
+                    "3D shape": "ovoid",
+                    "material": "glass",
+                    "usage": "lamp",
+                    "texture": "mosaic",
+                    "structure": "tabletop",
+                    "state": "intact"
+                },
+                "long": {
+                    "color": "various shades of pink with translucent and opaque areas",
+                    "3D shape": "elongated ovoid with a narrower base expanding towards the middle and tapering at the top",
+                    "material": "appears to be stained or mosaic glass",
+                    "usage": "designed to be used as a lamp, providing illumination",
+                    "texture": "irregular mosaic pattern with a mixture of smooth and textured surfaces",
+                    "structure": "supported by a black base, suggesting a tabletop design",
+                    "state": "seems to be in a good and intact condition, without visible damage"
+                }
+            },
+            "obj_name": "lamp",
+            "cost": 0.00833,
+            "is_blur": false
+        },
+        "36": {
+            "gpt_response": {
+                "short": {
+                    "color": "multicolored",
+                    "3D shape": "flat",
+                    "material": "fabric",
+                    "usage": "floor covering",
+                    "texture": "woven",
+                    "structure": "rectangular",
+                    "state": "unrolled"
+                },
+                "long": {
+                    "color": "a combination of blue, grey, beige, and red stripes",
+                    "3D shape": "flat, thin rectangular prism",
+                    "material": "likely a synthetic or wool fabric blend typical of rugs",
+                    "usage": "used as a decorative floor covering in interior spaces, potentially providing comfort and warmth",
+                    "texture": "appears to have a soft, woven texture typical of rugs",
+                    "structure": "rectangular with straight edges and a consistent thickness throughout",
+                    "state": "lying flat on the floor, appears to be in a used but good condition"
+                }
+            },
+            "obj_name": "rug",
+            "cost": 0.008660000000000001,
+            "is_blur": false
+        },
+        "38": {
+            "gpt_response": {
+                "short": {
+                    "color": "Grey/Green",
+                    "3D shape": "Curved, asymmetrical",
+                    "material": "Fabric/Plastic/Rubber",
+                    "usage": "Footwear",
+                    "texture": "Smooth/Textured",
+                    "structure": "Closed-toe, lace-up",
+                    "state": "Used"
+                },
+                "long": {
+                    "color": "The shoes have a combination of grey and green color tones.",
+                    "3D shape": "The shoes exhibit a curved and asymmetrical three-dimensional shape, typical of human footwear designed to match the contours of feet.",
+                    "material": "They appear to be made from a combination of materials including fabric, which likely forms the upper part, and plastic or rubber for the sole.",
+                    "usage": "These are shoes designed to be worn on the feet for protection and comfort while walking, running or engaging in other activities.",
+                    "texture": "The textures seem to vary, with smoother areas presumably made of plastic or rubber components, and textured fabric sections.",
+                    "structure": "The shoes have a closed-toe structure, with lace-up fastening that allows for a snug fit around the foot.",
+                    "state": "The shoes appear to be in a used condition, with signs of wear."
+                }
+            },
+            "obj_name": "shoes",
+            "cost": 0.010579999999999999,
+            "is_blur": false
+        },
+        "39": {
+            "gpt_response": {
+                "short": {
+                    "color": "Beige",
+                    "3D shape": "Cylinder",
+                    "material": "Unknown",
+                    "usage": "Container/Packaging",
+                    "texture": "Smooth",
+                    "structure": "Solid",
+                    "state": "Upright"
+                },
+                "long": {
+                    "color": "Primarily beige with visible red and white text/label",
+                    "3D shape": "Cylindrical with a circular cross-section",
+                    "material": "The exact material cannot be ascertained from the image; possibly paper, cardboard, or plastic",
+                    "usage": "Likely used as a container or packaging for a product, potentially food items given the appearance of a label",
+                    "texture": "The surface appears smooth, though the specific texture is indistinct due to the image resolution",
+                    "structure": "It has a solid structure with a closed top, and the bottom is not visible",
+                    "state": "The object is in an upright position, resting on a surface"
+                }
+            },
+            "obj_name": "object",
+            "cost": 0.00929,
+            "is_blur": false
+        },
+        "47": {
+            "gpt_response": {
+                "short": {
+                    "color": "Olive green",
+                    "3D shape": "Rectangular prism",
+                    "material": "Metal",
+                    "usage": "Storage",
+                    "texture": "Smooth",
+                    "structure": "Free-standing, single-door",
+                    "state": "Closed"
+                },
+                "long": {
+                    "color": "A muted olive green with a matte finish",
+                    "3D shape": "A vertical rectangular prism typical of storage cabinets",
+                    "material": "Appears to be made of metal, possibly steel or aluminum",
+                    "usage": "Used for storing items, likely office supplies or documents",
+                    "texture": "Surface looks smooth with no visible grain or roughness",
+                    "structure": "A free-standing structure with a single door, equipped with a handle and visible shelves inside",
+                    "state": "The cabinet is in a closed position, with the door handle suggesting it is locked or latched"
+                }
+            },
+            "obj_name": "storage cabinet",
+            "cost": 0.00837,
+            "is_blur": false
+        },
+        "4": {
+            "gpt_response": {
+                "short": {
+                    "color": "Black with a red detail",
+                    "3D shape": "Cylindrical",
+                    "material": "Likely metal",
+                    "usage": "Cooking or boiling",
+                    "texture": "Smooth",
+                    "structure": "Single-walled with a handle",
+                    "state": "Used"
+                },
+                "long": {
+                    "color": "The object appears to have a primarily black exterior with a prominent red detail on what seems to be the handle, suggesting a design feature or a functional part such as a heat-resistant grip.",
+                    "3D shape": "The object is cylindrical with an opening at the top, characteristic of pots or kettles.",
+                    "material": "The object's appearance suggests that it is made of a metallic material, commonly used in kitchenware for its heat conductivity.",
+                    "usage": "Its design indicates that it is used for cooking or boiling liquids, a common purpose for pots and kettles in a kitchen setting.",
+                    "texture": "The surface appears to be smooth, which is typical for metal cookware to allow for easy cleaning and maintenance.",
+                    "structure": "The object features a single-walled construction with a protruding handle that is likely designed for safe handling.",
+                    "state": "The object shows signs of use, as indicated by slight wear or residue visible, implying that it has been used for its intended purpose."
+                }
+            },
+            "obj_name": "pot",
+            "cost": 0.01049,
+            "is_blur": false
+        },
+        "58": {
+            "gpt_response": {
+                "short": {
+                    "color": "White",
+                    "3D shape": "Rectangular prism",
+                    "material": "Plastic",
+                    "usage": "Turning on/off lights",
+                    "texture": "Smooth",
+                    "structure": "Wall-mounted with a toggle switch",
+                    "state": "Off"
+                },
+                "long": {
+                    "color": "A white light switch that may have a slight color variation due to lighting conditions or usage over time.",
+                    "3D shape": "A flat rectangular prism with a protruding toggle",
+                    "material": "Likely a durable plastic common in household electrical fixtures.",
+                    "usage": "Used for controlling the electrical circuit to turn lights or other connected electrical devices on and off.",
+                    "texture": "The surface appears smooth, which is typical for ease of cleaning and use.",
+                    "structure": "The switch is wall-mounted in a vertical orientation with a toggle mechanism that likely moves up and down.",
+                    "state": "The switch appears to be in the 'off' position, indicated by the position of the toggle and the absence of light in the room."
+                }
+            },
+            "obj_name": "light switch",
+            "cost": 0.00987,
+            "is_blur": false
+        },
+        "59": {
+            "gpt_response": {
+                "short": {
+                    "color": "beige",
+                    "3D shape": "rectangular prism",
+                    "material": "wood or metal",
+                    "usage": "passage or room entrance",
+                    "texture": "smooth",
+                    "structure": "solid",
+                    "state": "closed"
+                },
+                "long": {
+                    "color": "a light beige or similar muted yellow tone",
+                    "3D shape": "a three-dimensional rectangle, resembling a door within a frame",
+                    "material": "appears to be made of wood or possibly metal, depending on the design",
+                    "usage": "used as an entry point for a room or space, serving as a way to provide privacy and security",
+                    "texture": "looks smooth with no visible grain or roughness",
+                    "structure": "constructed as a solid piece without visible panels or windows",
+                    "state": "in a closed position within its frame, with a handle indicating the means of opening"
+                }
+            },
+            "obj_name": "doorframe",
+            "cost": 0.00867,
+            "is_blur": false
+        },
+        "5": {
+            "gpt_response": {
+                "short": {
+                    "color": "yellow",
+                    "3D shape": "cylindrical",
+                    "material": "plastic",
+                    "usage": "container",
+                    "texture": "smooth",
+                    "structure": "sealed",
+                    "state": "solid"
+                },
+                "long": {
+                    "color": "The bottle is primarily yellow with a green cap.",
+                    "3D shape": "The bottle has a cylindrical body with a narrower neck and a wider base.",
+                    "material": "The bottle appears to be made of a lightweight, durable plastic material.",
+                    "usage": "The bottle is likely used to contain liquids, such as cleaning agents or beverages.",
+                    "texture": "The surface of the bottle seems smooth, with no visible texture or patterns.",
+                    "structure": "The structure of the bottle appears to be sealed, indicating it's either new or currently unused.",
+                    "state": "The material of the bottle is solid, while the contents inside, if any, are not visible."
+                }
+            },
+            "obj_name": "bottle",
+            "cost": 0.00887,
+            "is_blur": false
+        },
+        "60": {
+            "gpt_response": {
+                "short": {
+                    "color": "light green",
+                    "3D shape": "rectangular prism",
+                    "material": "wood or metal",
+                    "usage": "entrance or passage",
+                    "texture": "smooth",
+                    "structure": "single panel",
+                    "state": "closed"
+                },
+                "long": {
+                    "color": "a light olive green with some shadows reflecting on its surface",
+                    "3D shape": "rectangular prism consistent with standard door dimensions",
+                    "material": "possibly wooden or metal, common materials for door construction",
+                    "usage": "serves as an entrance or passage from one room to another",
+                    "texture": "appears smooth with no visible grain or embossing",
+                    "structure": "a simple single-panel design with a handle and a visible lock",
+                    "state": "currently in a closed position, potentially locked"
+                }
+            },
+            "obj_name": "door",
+            "cost": 0.008150000000000001,
+            "is_blur": false
+        },
+        "61": {
+            "gpt_response": {
+                "short": {
+                    "color": "white",
+                    "3D shape": "circular disc",
+                    "material": "plastic",
+                    "usage": "detecting smoke",
+                    "texture": "smooth",
+                    "structure": "compact",
+                    "state": "mounted"
+                },
+                "long": {
+                    "color": "The object appears to be white in color, which is common for this type of device as it blends with many ceilings.",
+                    "3D shape": "The object has the three-dimensional shape of a circular disc, which is flat with a slightly domed top.",
+                    "material": "The object seems to be made of a durable plastic material, suited for electronics housing.",
+                    "usage": "Its usage is likely for detecting smoke in the surrounding environment as part of a fire safety system.",
+                    "texture": "The texture of the object's visible surface appears to be smooth, which is typical for smoke detectors to facilitate cleanliness and minimize dust accumulation.",
+                    "structure": "The structure of the object looks compact and integrated, with no visible seams or openings, suggesting it is designed to enclose its sensitive components securely.",
+                    "state": "The device appears to be in a mounted state, typically affixed to a ceiling or wall."
+                }
+            },
+            "obj_name": "smoke detector",
+            "cost": 0.010260000000000002,
+            "is_blur": false
+        },
+        "62": {
+            "gpt_response": {
+                "short": {
+                    "color": "silver",
+                    "3D shape": "trough",
+                    "material": "metal",
+                    "usage": "washing",
+                    "texture": "smooth",
+                    "structure": "basin with faucet",
+                    "state": "solid"
+                },
+                "long": {
+                    "color": "metallic silver with darker shades and highlights",
+                    "3D shape": "rectangular trough with curved interior",
+                    "material": "stainless steel or other polished metal",
+                    "usage": "used for washing dishes, utensils, and food items",
+                    "texture": "smooth with a reflective finish",
+                    "structure": "integrated single basin with a faucet and drain, including area for drying to the side",
+                    "state": "durable solid state with evident use"
+                }
+            },
+            "obj_name": "sink",
+            "cost": 0.00767,
+            "is_blur": false
+        },
+        "63": {
+            "gpt_response": {
+                "short": {
+                    "color": "white",
+                    "3D shape": "flat with folds",
+                    "material": "fabric",
+                    "usage": "window covering",
+                    "texture": "smooth",
+                    "structure": "hanging",
+                    "state": "drawn"
+                },
+                "long": {
+                    "color": "white, possibly with soft color tones due to lighting",
+                    "3D shape": "rectangular with vertical folds, creating a slightly wavy surface",
+                    "material": "lightweight, woven fabric, potentially cotton or a cotton blend",
+                    "usage": "designed to cover windows for privacy, light control, and decorative purposes",
+                    "texture": "appears smooth with a soft texture characteristic of fabric materials",
+                    "structure": "suspended from a curtain rod, with a hemmed bottom edge and likely includes top fixtures for support",
+                    "state": "currently drawn closed, covering the window"
+                }
+            },
+            "obj_name": "curtain",
+            "cost": 0.00833,
+            "is_blur": false
+        },
+        "65": {
+            "gpt_response": {
+                "short": {
+                    "color": "off-white",
+                    "3D shape": "rectangular prism",
+                    "material": "wood or composite",
+                    "usage": "entry or passage",
+                    "texture": "smooth",
+                    "structure": "solid",
+                    "state": "partially open"
+                },
+                "long": {
+                    "color": "a light shade of off-white, potentially with a matte or semi-gloss finish",
+                    "3D shape": "a tall rectangular prism, commonly seen in interior architecture",
+                    "material": "typically made from wood, fiberboard, or some type of engineered composite material",
+                    "usage": "used for providing entry or facilitating passage between different rooms or areas",
+                    "texture": "looks smooth to the touch with a possibly painted surface",
+                    "structure": "appears to be solid with no visible panels or glass inserts",
+                    "state": "currently in a partially open position, revealing a glimpse of another room or space beyond"
+                }
+            },
+            "obj_name": "door",
+            "cost": 0.00911,
+            "is_blur": false
+        },
+        "66": {
+            "gpt_response": {
+                "short": {
+                    "color": "white",
+                    "3D shape": "rectangular prism",
+                    "material": "wood or particle board",
+                    "usage": "furniture for storage and work",
+                    "texture": "smooth",
+                    "structure": "two compartments, one open and one with a back panel",
+                    "state": "used with objects on and inside it"
+                },
+                "long": {
+                    "color": "The table is predominantly white, with no visible grain or patterns.",
+                    "3D shape": "The table\u2019s shape is a three-dimensional rectangular prism with a longer width than depth.",
+                    "material": "The material appears to be wood or particle board, common in modern furniture.",
+                    "usage": "The object serves as a multipurpose piece of furniture, likely used for both storage and work activities, such as holding books and supporting work-related items.",
+                    "texture": "The surface seems smooth and possibly laminated, typical for indoor furniture.",
+                    "structure": "The table features a simple structure with two compartments: the left is open for easy access, while the right has a back panel, creating a concealed space.",
+                    "state": "The table is in a state of use, with various objects stored on its surface and in its compartments, indicating daily utility."
+                }
+            },
+            "obj_name": "table",
+            "cost": 0.010520000000000002,
+            "is_blur": false
+        },
+        "67": {
+            "gpt_response": {
+                "short": {
+                    "color": "brown",
+                    "3D shape": "ergonomic curved shape",
+                    "material": "wood",
+                    "usage": "sitting",
+                    "texture": "smooth",
+                    "structure": "four-legged",
+                    "state": "upright"
+                },
+                "long": {
+                    "color": "warm brown with some natural wood grain variation",
+                    "3D shape": "contoured and ergonomically designed for comfort",
+                    "material": "seems to be a plywood or a veneer over a possibly engineered wooden core",
+                    "usage": "for individuals to sit on, typically used at a desk or table",
+                    "texture": "appears smooth with a potentially polished or lacquered finish",
+                    "structure": "supported by a metal frame with four legs, possibly a combination of metal and wood construction",
+                    "state": "in an upright position, showing no signs of wear or damage; ready for use"
+                }
+            },
+            "obj_name": "chair",
+            "cost": 0.00902,
+            "is_blur": false
+        },
+        "68": {
+            "gpt_response": {
+                "short": {
+                    "color": "Black",
+                    "3D shape": "Rectangular prism",
+                    "material": "Plastic and metal",
+                    "usage": "Seating",
+                    "texture": "Smooth",
+                    "structure": "Four-legged with backrest",
+                    "state": "Upright"
+                },
+                "long": {
+                    "color": "The chair is primarily black with some metallic parts.",
+                    "3D shape": "The chair has a 3D shape resembling a rectangular prism with additional elements like legs and a backrest.",
+                    "material": "The chair seems to be made of a combination of plastic for the seating surface and metal for the frame and legs.",
+                    "usage": "This chair is used for sitting, typically arranged around tables in settings such as offices or dining rooms.",
+                    "texture": "The surface of the chair appears to be smooth, indicative of the plastic material used for the seat.",
+                    "structure": "The structure of the chair consists of a flat seating surface, a supportive backrest, and four legs that provide stability.",
+                    "state": "The chair is positioned upright, suggesting it's ready for use or has been recently used."
+                }
+            },
+            "obj_name": "chair",
+            "cost": 0.010010000000000002,
+            "is_blur": false
+        },
+        "69": {
+            "gpt_response": {
+                "short": {
+                    "color": "white",
+                    "3D shape": "rectangular prism",
+                    "material": "wood or engineered wood product",
+                    "usage": "storage",
+                    "texture": "smooth",
+                    "structure": "cabinet with doors",
+                    "state": "closed"
+                },
+                "long": {
+                    "color": "a shade of white with subtle shadow variations",
+                    "3D shape": "large rectangular box shape with potential internal shelving",
+                    "material": "appears to be wood, MDF, or another engineered wood product, possibly with a laminate or melamine finish",
+                    "usage": "used for storing kitchenware or other items, typically mounted on a wall",
+                    "texture": "surface looks smooth with a slight sheen, indicating a possible laminated or painted finish",
+                    "structure": "kitchen cabinetry with a flat-panel door design, likely featuring handles or recesses on the edge for opening",
+                    "state": "currently closed, no visible wear or damage"
+                }
+            },
+            "obj_name": "kitchen cabinet",
+            "cost": 0.00903,
+            "is_blur": false
+        },
+        "6": {
+            "gpt_response": {
+                "short": {
+                    "color": "cream",
+                    "3D shape": "rectangular prism",
+                    "material": "wood",
+                    "usage": "furniture",
+                    "texture": "smooth",
+                    "structure": "horizontal surface with visible support leg",
+                    "state": "assembled"
+                },
+                "long": {
+                    "color": "a light cream or off-white, potentially with a matte finish",
+                    "3D shape": "rectangular prism, with a flat top surface and visible edges indicating depth",
+                    "material": "appears to be made from a wooden material or wood laminate",
+                    "usage": "serves as a piece of furniture, most likely a table for holding various items",
+                    "texture": "the surface looks smooth and possibly laminated, reflecting minimal light",
+                    "structure": "a flat, horizontal surface designed to support objects, with at least one visible leg or support structure showing it is elevated from the floor",
+                    "state": "fully assembled and in a state of use, with items placed on top"
+                }
+            },
+            "obj_name": "table",
+            "cost": 0.009170000000000001,
+            "is_blur": false
+        },
+        "70": {
+            "gpt_response": {
+                "short": {
+                    "color": "beige",
+                    "3D shape": "rectangular prism",
+                    "material": "wood or wood-like",
+                    "usage": "storage",
+                    "texture": "smooth",
+                    "structure": "cabinet with doors and shelves",
+                    "state": "partially open"
+                },
+                "long": {
+                    "color": "light beige with a possibly matte finish",
+                    "3D shape": "rectangular prism with a flat top surface integrating into a kitchen countertop",
+                    "material": "possibly particle board, MDF, or another engineered wood with a laminated or veneered finish",
+                    "usage": "storing kitchen utensils, cookware, and other culinary items",
+                    "texture": "a smooth surface with no visible wood grain, potentially laminated",
+                    "structure": "a built-in kitchen cabinet with flat-panel doors and interior shelving, part of a modular kitchen setup",
+                    "state": "the cabinet is partially open, revealing the contents or shelves inside"
+                }
+            },
+            "obj_name": "kitchen cabinet",
+            "cost": 0.00903,
+            "is_blur": false
+        },
+        "72": {
+            "gpt_response": {
+                "short": {
+                    "color": "beige",
+                    "3D shape": "rectangular prism",
+                    "material": "wooden",
+                    "usage": "storing items",
+                    "texture": "smooth",
+                    "structure": "vertical, multi-tiered",
+                    "state": "in use"
+                },
+                "long": {
+                    "color": "a light beige, with a matte finish",
+                    "3D shape": "a vertical rectangular prism with horizontal shelves",
+                    "material": "appears to be made of engineered wood or particle board",
+                    "usage": "for storing and organizing items such as books, containers, and electronics",
+                    "texture": "surface looks smooth and even",
+                    "structure": "a freestanding, vertical structure with multiple tiers and shelves",
+                    "state": "currently in use, with various items placed on the shelves"
+                }
+            },
+            "obj_name": "shelf",
+            "cost": 0.008060000000000001,
+            "is_blur": false
+        },
+        "74": {
+            "gpt_response": {
+                "short": {
+                    "color": "Black and grey",
+                    "3D shape": "Irregular semi-circular",
+                    "material": "Fabric and plastic",
+                    "usage": "Virtual reality headset",
+                    "texture": "Smooth and soft",
+                    "structure": "Head-mounted display with straps",
+                    "state": "Solid"
+                },
+                "long": {
+                    "color": "Primarily black with grey accents",
+                    "3D shape": "Complex, irregular semi-circular and cylindrical components",
+                    "material": "Combination of fabric on the headband, plastic for the body, and likely glass for lenses",
+                    "usage": "Wearable device for experiencing virtual reality content",
+                    "texture": "Exterior is smooth plastic, interior has soft padding for comfort",
+                    "structure": "Ergonomically designed head-mounted display with adjustable straps and integrated electronic components",
+                    "state": "Solid, with no visible moving parts"
+                }
+            },
+            "obj_name": "object",
+            "cost": 0.00887,
+            "is_blur": false
+        },
+        "77": {
+            "gpt_response": {
+                "short": {
+                    "color": "white",
+                    "3D shape": "cylindrical",
+                    "material": "plastic",
+                    "usage": "container",
+                    "texture": "smooth",
+                    "structure": "tubular",
+                    "state": "solid"
+                },
+                "long": {
+                    "color": "primarily white with some label colors",
+                    "3D shape": "cylindrical tube with a tapered neck",
+                    "material": "flexible plastic",
+                    "usage": "likely for holding a lotion or cream",
+                    "texture": "smooth surface with a soft touch",
+                    "structure": "tubular body with a narrow dispensing opening",
+                    "state": "rigid with some flexibility"
+                }
+            },
+            "obj_name": "bottle",
+            "cost": 0.00764,
+            "is_blur": false
+        },
+        "78": {
+            "gpt_response": {
+                "short": {
+                    "color": "white",
+                    "3D shape": "cylindrical",
+                    "material": "plastic",
+                    "usage": "container",
+                    "texture": "smooth",
+                    "structure": "tapered with dispensing cap",
+                    "state": "solid"
+                },
+                "long": {
+                    "color": "a predominantly white bottle with some label details possibly including other colors",
+                    "3D shape": "an upright cylindrical shape that appears to taper toward a dispensing cap on top",
+                    "material": "appears to be made of a glossy plastic material",
+                    "usage": "likely used as a container for liquids such as shampoo, conditioner, or lotion",
+                    "texture": "the surface looks smooth with no visible texture",
+                    "structure": "the bottle has a tapered structure with a narrower top, fitted with a dispensing cap, presumably for easy pouring or squirting of the contents",
+                    "state": "the bottle itself is in a solid state with the assumed contents likely being liquid"
+                }
+            },
+            "obj_name": "bottle",
+            "cost": 0.00944,
+            "is_blur": false
+        },
+        "7": {
+            "gpt_response": {
+                "short": {
+                    "color": "White and gray",
+                    "3D shape": "Rectangular with circular insets",
+                    "material": "Plastic and metal",
+                    "usage": "Electrical power supply",
+                    "texture": "Smooth",
+                    "structure": "Wall-mounted with multiple outlets",
+                    "state": "Installed and operational"
+                },
+                "long": {
+                    "color": "The predominant color of the object is white, with gray accents indicated by the circular insets where the plug is inserted.",
+                    "3D shape": "The overall shape of the object is a three-dimensional rectangle protruding slightly from the wall, comprising two smaller circular cavities designed to receive the prongs of power plugs.",
+                    "material": "The construction appears to be mainly of plastic for electrical insulation, with metal components inside the cavities for conducting electricity.",
+                    "usage": "Its purpose is to provide electrical power to devices and appliances when a compatible plug is inserted into the cavities.",
+                    "texture": "The surface of the object seems to be smooth, which is typical for electrical fixtures of this sort to prevent dust accumulation and facilitate easy cleaning.",
+                    "structure": "The object is structured as a wall-mounted panel with multiple socket outlets neatly arranged in a row, enabling the connection of more than one device simultaneously.",
+                    "state": "The state of the object looks to be well-maintained, indicating it is currently installed, fixed in place, and presumably in a functional and operational condition."
+                }
+            },
+            "obj_name": "socket",
+            "cost": 0.01217,
+            "is_blur": false
+        },
+        "82": {
+            "gpt_response": {
+                "short": {
+                    "color": "dark gray",
+                    "3D shape": "cylindrical",
+                    "material": "metal",
+                    "usage": "for movement",
+                    "texture": "smooth",
+                    "structure": "circular sections",
+                    "state": "solid"
+                },
+                "long": {
+                    "color": "A dark gray or black, typical of metal objects or steel",
+                    "3D shape": "Consists of a cylindrical rod with circular sections attached perpendicular to the rod",
+                    "material": "Likely made from a type of metal, possibly steel or iron, due to its appearance and typical usage",
+                    "usage": "The object is used to connect parts of a door frame to allow the door to swing open and closed smoothly",
+                    "texture": "The surface appears smooth, which is common for metal objects where moving parts interact",
+                    "structure": "A series of circular sections or knuckles that are spaced along the rod, typical of a door hinge design",
+                    "state": "The object is in a solid state, rigid and durable as required for its function"
+                }
+            },
+            "obj_name": "door hinge",
+            "cost": 0.00885,
+            "is_blur": false
+        },
+        "83": {
+            "gpt_response": {
+                "short": {
+                    "color": "dark bronze",
+                    "3D shape": "cylindrical and flat plates",
+                    "material": "metal",
+                    "usage": "door hinge",
+                    "texture": "smooth with possible wear",
+                    "structure": "interlocking plates with a central pin",
+                    "state": "mounted and used"
+                },
+                "long": {
+                    "color": "a dark bronze hue, likely due to oxidation or chosen finish",
+                    "3D shape": "a combination of cylindrical shapes and flat, rectangular plates",
+                    "material": "appears to be a type of metal, possibly steel or brass",
+                    "usage": "serves as a door hinge to allow a door to swing open and closed",
+                    "texture": "overall smooth with signs of wear or aging, such as scratches and slight discoloration",
+                    "structure": "composed of several interlocking plates that pivot around a central cylindrical pin",
+                    "state": "currently installed and in use, showing signs of wear typical for door hardware"
+                }
+            },
+            "obj_name": "door hinge",
+            "cost": 0.00909,
+            "is_blur": false
+        },
+        "84": {
+            "gpt_response": {
+                "short": {
+                    "color": "blue",
+                    "3D shape": "rectangular prism",
+                    "material": "plastic",
+                    "usage": "storage",
+                    "texture": "smooth",
+                    "structure": "solid",
+                    "state": "intact"
+                },
+                "long": {
+                    "color": "A predominantly blue colored object",
+                    "3D shape": "A three-dimensional rectangular prism",
+                    "material": "Seems to be made of a plastic material",
+                    "usage": "Likely used for the storage of various items, possibly kitchenware",
+                    "texture": "The surface texture appears to be smooth",
+                    "structure": "The object has a solid construction with a hollow inside for storage",
+                    "state": "The object is in an intact state, visibly operational for its purpose"
+                }
+            },
+            "obj_name": "box",
+            "cost": 0.00776,
+            "is_blur": false
+        },
+        "85": {
+            "gpt_response": {
+                "short": {
+                    "color": "white",
+                    "3D shape": "circular flat",
+                    "material": "plastic",
+                    "usage": "covering container",
+                    "texture": "smooth",
+                    "structure": "solid",
+                    "state": "unused"
+                },
+                "long": {
+                    "color": "The object appears to be primarily white.",
+                    "3D shape": "It has a circular flat shape, typical of a lid designed to cover a round container.",
+                    "material": "The object looks like it is made of plastic, which is common for lids.",
+                    "usage": "Typically, such an object would be used to cover a container, to protect its contents from dust, spillage or to keep it contained.",
+                    "texture": "The texture of the object seems smooth, which is typical for plastic lids.",
+                    "structure": "The lid is structurally solid, with no visible flexibility or openings.",
+                    "state": "The lid appears to be in an unused state, possibly new or just stored away."
+                }
+            },
+            "obj_name": "lid",
+            "cost": 0.00953,
+            "is_blur": false
+        },
+        "86": {
+            "gpt_response": {
+                "short": {
+                    "color": "beige",
+                    "3D shape": "rectangular prism",
+                    "material": "wood",
+                    "usage": "storing clothes",
+                    "texture": "smooth",
+                    "structure": "single compartment with a hanging rod",
+                    "state": "in use"
+                },
+                "long": {
+                    "color": "The object has a beige color, potentially indicative of untreated or lightly treated wood or laminate.",
+                    "3D shape": "The object possesses the three-dimensional shape of a rectangular prism, typical for furniture of this nature.",
+                    "material": "The material appears to be a type of wood or wood-like composite, a common choice for furniture due to its durability and aesthetic qualities.",
+                    "usage": "The primary usage of this object is for storing clothes, as evidenced by the presence of clothes hangers and apparel hung on them.",
+                    "texture": "The surface texture appears smooth, which is characteristic of finished wood or laminate materials often used in shelving and cabinetry.",
+                    "structure": "The structure includes a single open compartment accompanied by a hanging rod for clothes, indicative of a wardrobe or closet section.",
+                    "state": "The state of the object is currently in use, holding various items of clothing on hangers."
+                }
+            },
+            "obj_name": "shelf",
+            "cost": 0.010520000000000002,
+            "is_blur": false
+        },
+        "87": {
+            "gpt_response": {
+                "short": {
+                    "color": "black and yellow",
+                    "3D shape": "rectangular prism",
+                    "material": "paper",
+                    "usage": "packaging",
+                    "texture": "smooth",
+                    "structure": "box with flaps",
+                    "state": "closed"
+                },
+                "long": {
+                    "color": "primarily black with yellow accents and white labeling",
+                    "3D shape": "elongated rectangular prism typical of box packaging",
+                    "material": "cardboard or thick paper typically used for product packaging",
+                    "usage": "used as a container to hold, protect, and display a product, likely a vehicle-shaped toy or model based on the visible design",
+                    "texture": "appears to have a smooth, possibly laminated surface with printed graphics",
+                    "structure": "standard packaging box with closing flaps and possibly a window or transparent section to view contents inside",
+                    "state": "in a closed state, possibly new or unopened"
+                }
+            },
+            "obj_name": "object",
+            "cost": 0.0092,
+            "is_blur": false
+        },
+        "89": {
+            "gpt_response": {
+                "short": {
+                    "color": "white",
+                    "3D shape": "rectangular prism",
+                    "material": "unknown, possibly metal or laminated particle board",
+                    "usage": "storage and mobility for items like electronics or office supplies",
+                    "texture": "smooth",
+                    "structure": "multi-tiered with wheels and drawers",
+                    "state": "in use, containing items"
+                },
+                "long": {
+                    "color": "primarily white with some items of various colors inside",
+                    "3D shape": "rectangular prism with a top surface, shelves, and structured as a rolling cart",
+                    "material": "appears to be metal or laminated particle board, specific material is undetermined",
+                    "usage": "This is likely used for the storage and easy mobility of various items, possibly in an office, kitchen, or workshop setting",
+                    "texture": "the exterior is smooth with a low gloss finish",
+                    "structure": "the object is a rolling cabinet with multiple tiers and shelves equipped with castor wheels for easy movement",
+                    "state": "the cabinet is currently in use with items placed inside, such as a microwave on top and other materials on the shelves"
+                }
+            },
+            "obj_name": "rolling cabinet",
+            "cost": 0.0105,
+            "is_blur": false
+        },
+        "8": {
+            "gpt_response": {
+                "short": {
+                    "color": "Light brown",
+                    "3D shape": "Rectangular prism",
+                    "material": "Wood",
+                    "usage": "Cutting board",
+                    "texture": "Smooth",
+                    "structure": "Solid",
+                    "state": "Stationary"
+                },
+                "long": {
+                    "color": "A light brown with potential variations due to the natural wood grain",
+                    "3D shape": "A flat rectangular prism with slightly rounded edges and a hole near one corner",
+                    "material": "Appears to be made of a solid piece of wood, possibly bamboo or maple",
+                    "usage": "Typically used in food preparation for cutting or slicing ingredients",
+                    "texture": "The surface looks smooth, which is typical for a cutting board to prevent food from sticking and to make cleaning easier",
+                    "structure": "A solid piece with a consistent thickness, sturdy enough to withstand knife cuts",
+                    "state": "The board is resting against a vertical surface, likely not in use at the moment"
+                }
+            },
+            "obj_name": "cutting board",
+            "cost": 0.00906,
+            "is_blur": false
+        },
+        "90": {
+            "gpt_response": {
+                "short": {
+                    "color": "brown",
+                    "3D shape": "rectangular prism",
+                    "material": "cardboard",
+                    "usage": "storage",
+                    "texture": "smooth",
+                    "structure": "box with lid",
+                    "state": "closed"
+                },
+                "long": {
+                    "color": "light brown with visible labeling",
+                    "3D shape": "rectangular prism with slightly rounded edges",
+                    "material": "seems to be made of cardboard or a similar paper-based material",
+                    "usage": "likely used for storing items, conceivably within a drawer or shelf",
+                    "texture": "surface appears smooth with possible corrugation typical of cardboard",
+                    "structure": "a box with a lid that fits into or onto the main compartment, possibly featuring a tab for opening",
+                    "state": "in a closed position, inside a larger storage system like a drawer"
+                }
+            },
+            "obj_name": "box",
+            "cost": 0.00875,
+            "is_blur": false
+        },
+        "91": {
+            "gpt_response": {
+                "short": {
+                    "color": "blue",
+                    "3D shape": "cylindrical",
+                    "material": "plastic",
+                    "usage": "unknown",
+                    "texture": "smooth",
+                    "structure": "open container",
+                    "state": "solid"
+                },
+                "long": {
+                    "color": "deep blue with a lighter shade at the edge",
+                    "3D shape": "partial view of a cylindrical shape",
+                    "material": "appears to be a type of polymer, likely plastic",
+                    "usage": "cannot be determined from the image",
+                    "texture": "surface looks smooth with a shiny finish",
+                    "structure": "cylindrically shaped object resembling an open container or part of a machine",
+                    "state": "the object is in a solid state with a sturdy appearance"
+                }
+            },
+            "obj_name": "object",
+            "cost": 0.00821,
+            "is_blur": false
+        },
+        "94": {
+            "gpt_response": {
+                "short": {
+                    "color": "blue",
+                    "3D shape": "oval",
+                    "material": "fabric",
+                    "usage": "carrying items",
+                    "texture": "soft",
+                    "structure": "zippered compartments",
+                    "state": "used"
+                },
+                "long": {
+                    "color": "light blue with a darker blue patch",
+                    "3D shape": "rounded, oval-like shape with straps",
+                    "material": "syntethic fiber, likely nylon or polyester",
+                    "usage": "used for storing and transporting personal items such as books, clothing, or electronics",
+                    "texture": "soft and flexible with a fabric-like feel",
+                    "structure": "several compartments with zippers, adjustable straps, and a top handle",
+                    "state": "in a state of use, slightly unzipped, content partially visible and appears to be worn"
+                }
+            },
+            "obj_name": "backpack",
+            "cost": 0.00824,
+            "is_blur": false
+        },
+        "95": {
+            "gpt_response": {
+                "short": {
+                    "color": "black/white patterned",
+                    "3D shape": "folded semi-circular",
+                    "material": "fabric/plastic/metal",
+                    "usage": "protects from rain/sun",
+                    "texture": "smooth",
+                    "structure": "compact, collapsible",
+                    "state": "closed"
+                },
+                "long": {
+                    "color": "The umbrella has a black and white geometric pattern.",
+                    "3D shape": "The shape of the umbrella is a folded semi-circular or dome-like when open.",
+                    "material": "The material likely includes waterproof fabric for the canopy, plastic for the handle, and metal for the frame and shaft.",
+                    "usage": "Its primary usage is to provide protection from rain or shade from the sun.",
+                    "texture": "The texture of the umbrella's fabric appears to be smooth, with the possibility of a slight sheen.",
+                    "structure": "The structure of the umbrella is compact and collapsible, meant for easy storage and portability.",
+                    "state": "The umbrella is in a closed and folded state, not currently in use."
+                }
+            },
+            "obj_name": "umbrella",
+            "cost": 0.00971,
+            "is_blur": false
+        },
+        "96": {
+            "gpt_response": {
+                "short": {
+                    "color": "Blue",
+                    "3D shape": "Cylindrical",
+                    "material": "Plastic",
+                    "usage": "Container",
+                    "texture": "Smooth",
+                    "structure": "Single object with handle",
+                    "state": "Solid"
+                },
+                "long": {
+                    "color": "A gradient of blue with lighter and darker shades",
+                    "3D shape": "Cylindrical with a tapered neck and molded handle for portability",
+                    "material": "Synthetic polymer, possibly high-density polyethylene (HDPE)",
+                    "usage": "Typically used for storing and transporting water or other liquids",
+                    "texture": "Outer surface appears to be smooth with a slightly reflective finish",
+                    "structure": "A sturdy, single-piece plastic construction featuring a handle, a cap at the top, and possibly a label or embossed design on the side",
+                    "state": "A solid state container, substantially rigid to hold shape under normal conditions"
+                }
+            },
+            "obj_name": "object",
+            "cost": 0.008629999999999999,
+            "is_blur": false
+        },
+        "97": {
+            "gpt_response": {
+                "short": {
+                    "color": "various",
+                    "3D shape": "rectangular prism",
+                    "material": "cardboard",
+                    "usage": "packaging",
+                    "texture": "smooth",
+                    "structure": "box",
+                    "state": "intact"
+                },
+                "long": {
+                    "color": "the object has various colors, including white, blue, and other colors due to text and images",
+                    "3D shape": "the object is a rectangular prism with defined edges and flat surfaces",
+                    "material": "the object appears to be made from cardboard, common for this type of item",
+                    "usage": "the object is used as packaging, likely for food products found in a freezer or refrigerator",
+                    "texture": "the surface looks smooth with printed designs typical for consumer product packaging",
+                    "structure": "the structure is a box that is likely to be filled with the product that it is meant to package",
+                    "state": "the object is in an intact state and seems unopened"
+                }
+            },
+            "obj_name": "object",
+            "cost": 0.00947,
+            "is_blur": false
+        },
+        "98": {
+            "gpt_response": {
+                "short": {
+                    "color": "Red",
+                    "3D shape": "Rectangular prism",
+                    "material": "Fabric",
+                    "usage": "Seating",
+                    "texture": "Soft",
+                    "structure": "Cushioned",
+                    "state": "Used"
+                },
+                "long": {
+                    "color": "The object has a rich red hue.",
+                    "3D shape": "The object has a three-dimensional rectangular prism shape, with evident depth, width, and height.",
+                    "material": "The material appears to be a type of soft fabric, potentially upholstery fabric.",
+                    "usage": "The object is used as a seat, likely part of furniture such as a couch or chair.",
+                    "texture": "The texture looks soft and comfortable, suitable for seating.",
+                    "structure": "The structure seems to be well-cushioned, indicating that it is meant for comfortable seating.",
+                    "state": "The object appears to be in a used state with signs of wear and potential slight deformation from usage."
+                }
+            },
+            "obj_name": "object",
+            "cost": 0.008990000000000001,
+            "is_blur": false
+        },
+        "99": {
+            "gpt_response": {
+                "short": {
+                    "color": "White",
+                    "3D shape": "Rectangular prism",
+                    "material": "Plastic/Metal",
+                    "usage": "Computing",
+                    "texture": "Smooth",
+                    "structure": "Compact",
+                    "state": "Solid"
+                },
+                "long": {
+                    "color": "The object appears to be white in color, possibly with a matte finish.",
+                    "3D shape": "The object is in the shape of a rectangular prism with rounded corners and a flat surface.",
+                    "material": "It seems to be made of a combination of plastic and metal materials, typical of electronic devices.",
+                    "usage": "The object looks like a laptop adapter or charger, used for providing power to electronic devices.",
+                    "texture": "The outer surface texture of the object looks smooth, with no visible grains or roughness.",
+                    "structure": "The structure of the object is compact, with no visible moving parts, indicating it's a solid state device.",
+                    "state": "The object is in a solid state, with no indication of deformation or damage."
+                }
+            },
+            "obj_name": "object",
+            "cost": 0.0095,
+            "is_blur": false
+        }
+    }
+}

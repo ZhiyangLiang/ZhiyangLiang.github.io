@@ -1,0 +1,1079 @@
+{
+    "1d003b07bd": {
+        "0": {
+            "gpt_response": {
+                "short": {
+                    "color": "blue",
+                    "3D shape": "chair-shaped",
+                    "material": "metal and fabric",
+                    "usage": "sitting",
+                    "texture": "smooth",
+                    "structure": "tubular frame with a fabric seat",
+                    "state": "upright"
+                },
+                "long": {
+                    "color": "a serene shade of blue with darker and lighter tones suggesting a fabric cover",
+                    "3D shape": "an ergonomic chair design featuring a contoured seat and supporting structure",
+                    "material": "appears to be a combination of metallic elements for the frame and a synthetic fabric for the seating surface",
+                    "usage": "designed to offer a place for an individual to sit, commonly used in domestic or office environments",
+                    "texture": "the seat surface looks smooth and possibly soft to the touch, while the metallic frame looks to have a matte finish",
+                    "structure": "consists of a tubular metal frame supporting a seat which is slightly curved to contour to the body; the legs are designed to provide stability",
+                    "state": "the chair is in an upright position, ready for use and does not show any signs of wear or damage, indicating a relatively new or well-maintained condition"
+                }
+            },
+            "obj_name": "chair",
+            "cost": 0.01049,
+            "is_blur": false
+        },
+        "13": {
+            "gpt_response": {
+                "short": {
+                    "color": "gray and black",
+                    "3D shape": "rectangular prism",
+                    "material": "metal and plastic",
+                    "usage": "furniture",
+                    "texture": "smooth and textured",
+                    "structure": "four legs, flat surface",
+                    "state": "in use"
+                },
+                "long": {
+                    "color": "The main color of the table is gray with speckles and the frame is black.",
+                    "3D shape": "The table is a 3D object in the shape of a rectangular prism with a flat top surface.",
+                    "material": "The table top appears to be made of a speckled material (perhaps granite or a synthetic alternative), while the legs and frame of the table are likely metal. The chair is primarily plastic.",
+                    "usage": "The table serves as furniture, potentially an office or computer desk, indicated by the presence of computer peripherals.",
+                    "texture": "The top of the table has a smooth yet textured finish, while the metal components have a smoother appearance typical of painted or coated metal.",
+                    "structure": "The table has a sturdy structure with four legs supporting the flat top surface, an under-table shelf, and possibly drawer rails.",
+                    "state": "The table is currently in use, as evidenced by items such as cables, a keyboard, and electronic devices placed on it."
+                }
+            },
+            "obj_name": "table",
+            "cost": 0.011210000000000001,
+            "is_blur": false
+        },
+        "14": {
+            "gpt_response": {
+                "short": {
+                    "color": "light brown and black",
+                    "3D shape": "rectangular prism",
+                    "material": "wood and metal",
+                    "usage": "furniture for holding items",
+                    "texture": "smooth",
+                    "structure": "flat surface with four legs",
+                    "state": "in use"
+                },
+                "long": {
+                    "color": "The top surface appears to be a light brown, reminiscent of natural wood, while the legs are black.",
+                    "3D shape": "The table is in the form of a rectangular prism, characterized by a flat top and rectangular sides.",
+                    "material": "The surface of the table looks to be made of a wood or wood-like laminate, and the legs are likely made of metal.",
+                    "usage": "This table serves as a piece of furniture designed to hold various objects, commonly used in office or residential settings.",
+                    "texture": "The visible texture of the table's surface seems smooth, which is typical for a tabletop used for writing or placing objects.",
+                    "structure": "The structure comprises a flat horizontal top supported by four vertical legs, providing stability.",
+                    "state": "The table is currently in use, as evidenced by the objects placed on top of it, including a telephone and miscellaneous items."
+                }
+            },
+            "obj_name": "table",
+            "cost": 0.010610000000000001,
+            "is_blur": false
+        },
+        "15": {
+            "gpt_response": {
+                "short": {
+                    "color": "black and silver",
+                    "3D shape": "cylindrical and rectangular",
+                    "material": "metal and other materials",
+                    "usage": "conduit for electrical or HVAC systems",
+                    "texture": "smooth and reflective",
+                    "structure": "rigid and mounted",
+                    "state": "intact"
+                },
+                "long": {
+                    "color": "primarily black with portions appearing as silver or metallic",
+                    "3D shape": "combination of cylindrical pipes and rectangular ducts",
+                    "material": "appears to be composed of metal, likely steel or aluminum, combined with other materials for insulation or containment",
+                    "usage": "serves as a conduit for electrical wiring or heating, ventilation, and air conditioning (HVAC) systems in a building infrastructure",
+                    "texture": "smooth surface with portions having a reflective quality suggesting a metallic composition",
+                    "structure": "rigid in construction, professionally mounted to the ceiling with supporting brackets",
+                    "state": "appears to be in good condition and well-maintained"
+                }
+            },
+            "obj_name": "pipe",
+            "cost": 0.00971,
+            "is_blur": false
+        },
+        "16": {
+            "gpt_response": {
+                "short": {
+                    "color": "blue",
+                    "3D shape": "curved",
+                    "material": "plastic",
+                    "usage": "sitting",
+                    "texture": "smooth",
+                    "structure": "legged",
+                    "state": "intact"
+                },
+                "long": {
+                    "color": "a deep shade of blue, possibly navy",
+                    "3D shape": "ergonomically curved with a contoured seat and backrest",
+                    "material": "looks like high-quality molded plastic or polymer",
+                    "usage": "designed to provide seating, likely in a domestic or office setting",
+                    "texture": "appears to have a smooth and perhaps slightly glossy surface",
+                    "structure": "supported by four metal legs, indicative of a stable and sturdy design",
+                    "state": "appears to be in good condition, without any visible damage or wear"
+                }
+            },
+            "obj_name": "chair",
+            "cost": 0.00875,
+            "is_blur": false
+        },
+        "18": {
+            "gpt_response": {
+                "short": {
+                    "color": "white",
+                    "3D shape": "rectangular box",
+                    "material": "plastic",
+                    "usage": "communication",
+                    "texture": "smooth",
+                    "structure": "handset with keypad",
+                    "state": "stationary"
+                },
+                "long": {
+                    "color": "primarily white with some grey buttons",
+                    "3D shape": "rectangular prism with a slightly curved handset",
+                    "material": "likely hard plastic for the exterior",
+                    "usage": "used for making and receiving telephone calls, typically in an office or home setting",
+                    "texture": "appears to be smooth with raised buttons for tactile feedback",
+                    "structure": "comprises a base unit with a numeric keypad, function buttons, and a cradle for the handset which is connected by a coiled cord",
+                    "state": "resting on a flat surface, appears to be in a state of rest with no movement"
+                }
+            },
+            "obj_name": "telephone",
+            "cost": 0.00911,
+            "is_blur": false
+        },
+        "19": {
+            "gpt_response": {
+                "short": {
+                    "color": "black",
+                    "3D shape": "cylindrical",
+                    "material": "metal",
+                    "usage": "heating",
+                    "texture": "smooth",
+                    "structure": "ribbed",
+                    "state": "solid"
+                },
+                "long": {
+                    "color": "Predominantly black with some light reflections",
+                    "3D shape": "Series of vertical cylindrical shapes connected horizontally",
+                    "material": "Appears to be made of metal, likely steel or aluminum",
+                    "usage": "Used as a heating appliance, typically found indoors",
+                    "texture": "The surface looks smooth with a semi-matte finish",
+                    "structure": "Ribbed with vertical fins, interconnected to form a larger heating unit",
+                    "state": "The heater is in a solid state, sturdy and inanimate"
+                }
+            },
+            "obj_name": "heater",
+            "cost": 0.008,
+            "is_blur": false
+        },
+        "1": {
+            "gpt_response": {
+                "short": {
+                    "color": "Yellow",
+                    "3D shape": "Cylindrical",
+                    "material": "Metal",
+                    "usage": "Conduit for fluids or gases",
+                    "texture": "Smooth",
+                    "structure": "Hollow",
+                    "state": "Stationary"
+                },
+                "long": {
+                    "color": "A bright yellow color, characteristic of safety or caution.",
+                    "3D shape": "A cylindrical shape that is elongated and has a circular cross-section.",
+                    "material": "Appears to be made of metal, likely steel or another durable alloy.",
+                    "usage": "Typically used as a conduit for transporting fluids or gases, possibly part of a building's mechanical systems.",
+                    "texture": "Surface texture looks smooth, which is typical for metal pipes that are painted or coated.",
+                    "structure": "The structure is hollow, allowing for the transportation of materials through the interior.",
+                    "state": "The object is in a stationary state, likely affixed to the ceiling for stability and function within the infrastructure."
+                }
+            },
+            "obj_name": "pipe",
+            "cost": 0.00923,
+            "is_blur": false
+        },
+        "20": {
+            "gpt_response": {
+                "short": {
+                    "color": "Various",
+                    "3D shape": "Cylindrical",
+                    "material": "Metal",
+                    "usage": "Conduits",
+                    "texture": "Smooth",
+                    "structure": "Tubular",
+                    "state": "Fixed"
+                },
+                "long": {
+                    "color": "Black, Yellow, Grey",
+                    "3D shape": "Long cylindrical shapes with bends and joints",
+                    "material": "Likely steel or other metals",
+                    "usage": "Transporting fluids, gases, or cables in a building infrastructure",
+                    "texture": "Appears smooth, with some reflective surfaces",
+                    "structure": "Complex network of interconnected pipes and conduits",
+                    "state": "Secured to the ceiling, immobile"
+                }
+            },
+            "obj_name": "pipe",
+            "cost": 0.0074,
+            "is_blur": false
+        },
+        "21": {
+            "gpt_response": {
+                "short": {
+                    "color": "black",
+                    "3D shape": "cylindrical",
+                    "material": "metal",
+                    "usage": "conveying fluids or gases",
+                    "texture": "smooth",
+                    "structure": "tubular with fittings",
+                    "state": "solid"
+                },
+                "long": {
+                    "color": "a matte black color, possibly indicating paint or a coating",
+                    "3D shape": "a long cylindrical shape consistent with that of pipes",
+                    "material": "appears to be made of metal, likely steel or iron for industrial purposes",
+                    "usage": "typically used for conveying fluids or gases within a building's infrastructure",
+                    "texture": "surface seems relatively smooth, with some joints and fixtures that might have varied textures",
+                    "structure": "a tubular structure with various fittings, such as elbows and flanges",
+                    "state": "the pipe is in a solid state, fixed to a structure above"
+                }
+            },
+            "obj_name": "pipe",
+            "cost": 0.00872,
+            "is_blur": false
+        },
+        "22": {
+            "gpt_response": {
+                "short": {
+                    "color": "white and black",
+                    "3D shape": "cylindrical and rectangular",
+                    "material": "metal and plastic",
+                    "usage": "illumination",
+                    "texture": "smooth",
+                    "structure": "linear",
+                    "state": "on"
+                },
+                "long": {
+                    "color": "The lamp emits a white light, has a black body and silver-toned brackets",
+                    "3D shape": "The lamp consists of cylindrical lights within a long rectangular housing",
+                    "material": "The lamp is likely made from metals for the structure and plastics for the diffusing lens",
+                    "usage": "This lamp is used for providing light in indoor spaces, such as a room or hallway",
+                    "texture": "The surfaces visible look to have a smooth texture with a sleek appearance",
+                    "structure": "The structure is linear, with parallel lines reinforcing the design aesthetic",
+                    "state": "The light is in the 'on' condition, illuminating the surroundings"
+                }
+            },
+            "obj_name": "ceiling lamp",
+            "cost": 0.009000000000000001,
+            "is_blur": false
+        },
+        "24": {
+            "gpt_response": {
+                "short": {
+                    "color": "gray",
+                    "3D shape": "cylindrical",
+                    "material": "PVC or metal",
+                    "usage": "conveying liquids or gases",
+                    "texture": "smooth",
+                    "structure": "straight lengths with junctions",
+                    "state": "fixed"
+                },
+                "long": {
+                    "color": "The pipes are a neutral gray color, suggesting they are unpainted or follow standard color coding for building materials.",
+                    "3D shape": "They are cylindrical in shape, typical for pipe construction for efficient flow.",
+                    "material": "Pipes appear to be made from a plastic material such as PVC or could be a coated metal depending on the specific use and code requirements.",
+                    "usage": "These are typically used for the conveyance of liquids or gases within a building infrastructure, as part of plumbing, heating, or ventilation systems.",
+                    "texture": "The surface texture appears smooth, which is common for pipes to ensure easy installation and maintenance.",
+                    "structure": "The structure consists of straight lengths interconnected with junctions and elbows, indicating they're part of a larger network.",
+                    "state": "The pipes are in a fixed state, securely installed to the underside of a ceiling or a similar structure within a building."
+                }
+            },
+            "obj_name": "pipe",
+            "cost": 0.01064,
+            "is_blur": false
+        },
+        "25": {
+            "gpt_response": {
+                "short": {
+                    "color": "Black",
+                    "3D shape": "Cylindrical",
+                    "material": "Metal",
+                    "usage": "Undetermined from image",
+                    "texture": "Smooth",
+                    "structure": "Single piece",
+                    "state": "Solid"
+                },
+                "long": {
+                    "color": "A dark black or grayish color, consistent throughout",
+                    "3D shape": "A long cylindrical shape, possibly part of a tube or pipe",
+                    "material": "Appears to be made of a metal such as steel or iron",
+                    "usage": "The function is not clear from the image, but it could be part of a plumbing, construction, or industrial system",
+                    "texture": "The surface appears smooth with no visible grain or texture",
+                    "structure": "Seems to be a single piece construction with no visible seams except for the one in the middle",
+                    "state": "The object is in a solid state with a rigid and sturdy appearance"
+                }
+            },
+            "obj_name": "pipe",
+            "cost": 0.0089,
+            "is_blur": false
+        },
+        "26": {
+            "gpt_response": {
+                "short": {
+                    "color": "white",
+                    "3D shape": "rectangular cuboid",
+                    "material": "plastic",
+                    "usage": "liquid storage",
+                    "texture": "smooth",
+                    "structure": "container with handle",
+                    "state": "solid"
+                },
+                "long": {
+                    "color": "predominantly white with some color accents",
+                    "3D shape": "rectangular cuboid with a slightly curved front surface",
+                    "material": "high-density polyethylene or similar plastic",
+                    "usage": "storing and transporting liquids such as water, fuel, or chemicals",
+                    "texture": "smooth with ridged sections for reinforcement",
+                    "structure": "rigid container with a screw cap, handle for carrying, and possibly a spout for pouring",
+                    "state": "solid, but may contain liquid if in use"
+                }
+            },
+            "obj_name": "jerrycan",
+            "cost": 0.008539999999999999,
+            "is_blur": false
+        },
+        "27": {
+            "gpt_response": {
+                "short": {
+                    "color": "white",
+                    "3D shape": "cuboid",
+                    "material": "plastic",
+                    "usage": "container",
+                    "texture": "smooth",
+                    "structure": "handle and spout",
+                    "state": "solid"
+                },
+                "long": {
+                    "color": "Predominantly white with some color accents",
+                    "3D shape": "Rectangular cuboid with a slightly concave side and protruding elements",
+                    "material": "Appears to be a high-density polyethylene or similar plastic",
+                    "usage": "Used for storing and transporting liquids, possibly fuel or water",
+                    "texture": "Surface is mostly smooth with some ridged areas for grip",
+                    "structure": "Equipped with a top handle for carrying, a spout for pouring, and indented sides possibly for additional grip or stacking",
+                    "state": "Solid and sturdy in appearance"
+                }
+            },
+            "obj_name": "jerrycan",
+            "cost": 0.00779,
+            "is_blur": false
+        },
+        "28": {
+            "gpt_response": {
+                "short": {
+                    "color": "brown",
+                    "3D shape": "rectangular prism",
+                    "material": "cardboard",
+                    "usage": "storage",
+                    "texture": "smooth",
+                    "structure": "open-top",
+                    "state": "empty"
+                },
+                "long": {
+                    "color": "light brown with some shades due to lighting",
+                    "3D shape": "rectangular cuboid with visible flaps",
+                    "material": "corrugated cardboard",
+                    "usage": "storing or transporting items",
+                    "texture": "slightly rough with ridges typical of cardboard",
+                    "structure": "open-top box with flaps that can be folded to close",
+                    "state": "partially filled with objects inside"
+                }
+            },
+            "obj_name": "box",
+            "cost": 0.00656,
+            "is_blur": false
+        },
+        "29": {
+            "gpt_response": {
+                "short": {
+                    "color": "black",
+                    "3D shape": "cylindrical",
+                    "material": "plastic",
+                    "usage": "waste disposal",
+                    "texture": "smooth",
+                    "structure": "open-top",
+                    "state": "empty"
+                },
+                "long": {
+                    "color": "The object appears to be black in color.",
+                    "3D shape": "The object has a cylindrical shape with a circular opening at the top.",
+                    "material": "It is made from a type of plastic material.",
+                    "usage": "This object is commonly used for the disposal of waste materials.",
+                    "texture": "The surface texture of the object looks smooth.",
+                    "structure": "The structure of the object is an open-top container, likely to facilitate easy disposal of trash.",
+                    "state": "Currently, the object appears to be empty or contains only a trash bag."
+                }
+            },
+            "obj_name": "trash can",
+            "cost": 0.00834,
+            "is_blur": false
+        },
+        "31": {
+            "gpt_response": {
+                "short": {
+                    "color": "gray",
+                    "3D shape": "cylindrical",
+                    "material": "plastic",
+                    "usage": "conduit for liquids or gases",
+                    "texture": "smooth",
+                    "structure": "straight and curved sections",
+                    "state": "intact"
+                },
+                "long": {
+                    "color": "a shade of gray, possibly indicating a material suited for industrial or construction use",
+                    "3D shape": "an array of cylindrical pipes with both straight and elbow sections to redirect flow",
+                    "material": "appears to be a type of durable plastic, potentially PVC or a related polymer",
+                    "usage": "most likely used as a conduit for transporting liquids or gases within a building infrastructure",
+                    "texture": "the surfaces seem smooth, which is typical for industrial pipes to ensure efficient flow",
+                    "structure": "the system includes multiple pipes with straight lengths connected by elbow joints, arranged in a manner that suggests a designed flow path",
+                    "state": "the pipes appear to be in an intact condition, with no visible signs of damage or wear"
+                }
+            },
+            "obj_name": "pipe",
+            "cost": 0.009559999999999999,
+            "is_blur": false
+        },
+        "32": {
+            "gpt_response": {
+                "short": {
+                    "color": "cream",
+                    "3D shape": "cylindrical",
+                    "material": "PVC",
+                    "usage": "conveying fluids",
+                    "texture": "smooth",
+                    "structure": "singular with brackets",
+                    "state": "solid"
+                },
+                "long": {
+                    "color": "a cream or light beige color, typical of PVC",
+                    "3D shape": "an elongated cylindrical shape, indicative of pipes",
+                    "material": "looks like PVC, a common plastic for pipes",
+                    "usage": "likely used for conveying fluids or gases, as part of a plumbing or ventilation system",
+                    "texture": "appears smooth, which is characteristic of PVC pipes",
+                    "structure": "singular pipe supported by metal brackets attached to a wall or ceiling",
+                    "state": "solid state, with no visible signs of damage or wear"
+                }
+            },
+            "obj_name": "pipe",
+            "cost": 0.00827,
+            "is_blur": false
+        },
+        "33": {
+            "gpt_response": {
+                "short": {
+                    "color": "gray",
+                    "3D shape": "cuboid",
+                    "material": "plastic or metal",
+                    "usage": "ventilation",
+                    "texture": "smooth with ridges",
+                    "structure": "rectangular with slats",
+                    "state": "intact"
+                },
+                "long": {
+                    "color": "light gray with some areas of shadow indicating a contoured surface",
+                    "3D shape": "rectangular cuboid with a protruding section",
+                    "material": "appears to be made of a sturdy plastic or possibly metal, difficult to determine with certainty from the image",
+                    "usage": "likely utilized for air ventilation or temperature control in a building",
+                    "texture": "overall smooth surface with parallel ridges along the slats which may enhance airflow",
+                    "structure": "features a main body with a rectangular shape, a set of internal slats that are evenly spaced, and a flange for mounting",
+                    "state": "appears to be in a good condition, no visible signs of wear or damage"
+                }
+            },
+            "obj_name": "air vent",
+            "cost": 0.00933,
+            "is_blur": false
+        },
+        "34": {
+            "gpt_response": {
+                "short": {
+                    "color": "gray",
+                    "3D shape": "rectangular prism",
+                    "material": "metal or plastic",
+                    "usage": "air ventilation",
+                    "texture": "smooth",
+                    "structure": "solid, with slits or openings",
+                    "state": "stationary"
+                },
+                "long": {
+                    "color": "A light silverish-gray, typical of unpainted metal or plastic",
+                    "3D shape": "A three-dimensional rectangular prism with a longer vertical orientation",
+                    "material": "Appears to be made of a durable material such as metal or heavy-duty plastic, common for ventilation systems",
+                    "usage": "Likely used for air ventilation within a building or vehicle, can be an HVAC component",
+                    "texture": "The surface appears smooth with a matte finish, minimal reflections suggest no glossy treatment",
+                    "structure": "The object is solid and robust, designed to encase ventilation components, featuring slits or openings to permit air flow",
+                    "state": "The object is stationary, affixed into position as part of a larger system or structure"
+                }
+            },
+            "obj_name": "air vent",
+            "cost": 0.00873,
+            "is_blur": false
+        },
+        "35": {
+            "gpt_response": {
+                "short": {
+                    "color": "white, black, and gray",
+                    "3D shape": "rectangular prism",
+                    "material": "metal and plastic",
+                    "usage": "illumination",
+                    "texture": "smooth",
+                    "structure": "linear with a housing and a diffuser",
+                    "state": "mounted and operational"
+                },
+                "long": {
+                    "color": "The lamp has a white housing, with a surface mainly in white color, and features black and gray details.",
+                    "3D shape": "The shape of the lamp is a long rectangular prism, extending across the ceiling.",
+                    "material": "Constructed primarily from metal, likely aluminum, for the housing, with plastic components making up the diffuser.",
+                    "usage": "This is a ceiling lamp used for providing illumination in indoor spaces.",
+                    "texture": "The visible surfaces of the lamp appear to be smooth, with no visible texture.",
+                    "structure": "The lamp has a linear structure, consisting of a housing that encases the lighting elements and a diffuser to evenly distribute light.",
+                    "state": "The lamp is currently mounted on the ceiling and appears to be in an operational state, emitting light."
+                }
+            },
+            "obj_name": "ceiling lamp",
+            "cost": 0.010110000000000001,
+            "is_blur": false
+        },
+        "36": {
+            "gpt_response": {
+                "short": {
+                    "color": "Beige",
+                    "3D shape": "Rectangular prism",
+                    "material": "Unknown",
+                    "usage": "Unknown",
+                    "texture": "Smooth",
+                    "structure": "Solid",
+                    "state": "Fixed"
+                },
+                "long": {
+                    "color": "A light beige with shadows creating gradients",
+                    "3D shape": "A rectangular prism with cut-outs or indentations",
+                    "material": "It is unclear, could be metal or plastic",
+                    "usage": "The specific function is undetermined, could be part of furniture or an architectural element",
+                    "texture": "The surface appears smooth with a matte finish",
+                    "structure": "It looks like a solid piece with a sturdy build",
+                    "state": "Mounted or affixed to a wall, seemingly in a stable condition"
+                }
+            },
+            "obj_name": "structure",
+            "cost": 0.007970000000000001,
+            "is_blur": false
+        },
+        "37": {
+            "gpt_response": {
+                "short": {
+                    "color": "Blue",
+                    "3D shape": "Cylindrical",
+                    "material": "Plastic",
+                    "usage": "Container",
+                    "texture": "Smooth",
+                    "structure": "Rigid",
+                    "state": "Solid"
+                },
+                "long": {
+                    "color": "The object is primarily blue with black and white accents.",
+                    "3D shape": "The object has a cylindrical shape with a circular base.",
+                    "material": "The object appears to be made of a durable plastic material.",
+                    "usage": "The object is used as a container, potentially for waste or recyclables.",
+                    "texture": "The surface of the object looks smooth with a glossy finish.",
+                    "structure": "It has a rigid structure with a handle on the side and a hinged lid.",
+                    "state": "The object is in a solid state, stable with no visible damage."
+                }
+            },
+            "obj_name": "drum",
+            "cost": 0.00827,
+            "is_blur": false
+        },
+        "38": {
+            "gpt_response": {
+                "short": {
+                    "color": "black",
+                    "3D shape": "articulated arm structure",
+                    "material": "mixed materials (likely metal and plastic)",
+                    "usage": "desk lamp",
+                    "texture": "smooth",
+                    "structure": "adjustable",
+                    "state": "off"
+                },
+                "long": {
+                    "color": "predominantly black with possible metallic accents",
+                    "3D shape": "complex articulated arm structure with a rectangular light head",
+                    "material": "combination of materials including metals for the structure and plastics for the coating and lamp head",
+                    "usage": "a desk lamp designed for lighting a work area",
+                    "texture": "appears smooth with some matte surfaces",
+                    "structure": "has an adjustable arm and a stable base, likely with moving joints for repositioning",
+                    "state": "currently turned off and positioned on a desk"
+                }
+            },
+            "obj_name": "desk lamp",
+            "cost": 0.008280000000000001,
+            "is_blur": false
+        },
+        "39": {
+            "gpt_response": {
+                "short": {
+                    "color": "black",
+                    "3D shape": "rectangular prism",
+                    "material": "plastic",
+                    "usage": "input device for computers",
+                    "texture": "smooth keys with slight texture",
+                    "structure": "array of keys on a flat board with a cord",
+                    "state": "intact"
+                },
+                "long": {
+                    "color": "The object appears to be predominantly black in color.",
+                    "3D shape": "It has the 3D shape of a rectangular prism, elongated in form.",
+                    "material": "The keyboard seems to be made of a plastic material.",
+                    "usage": "This is a computer keyboard, which serves as an input device for interfacing with a computer system.",
+                    "texture": "The texture has a smooth surface typical of keys, with slight texture on the keys to improve tactile response.",
+                    "structure": "The structure consists of a flat board with a systematic array of keys designed for typing, and includes a connecting cord, presumably for interfacing with a computer.",
+                    "state": "From the visible perspective, it appears to be in an intact, functional state."
+                }
+            },
+            "obj_name": "keyboard",
+            "cost": 0.010280000000000001,
+            "is_blur": false
+        },
+        "3": {
+            "gpt_response": {
+                "short": {
+                    "color": "yellow",
+                    "3D shape": "cylindrical",
+                    "material": "metal or plastic",
+                    "usage": "conduit for electrical wiring or fluids",
+                    "texture": "smooth",
+                    "structure": "straight, with mounting brackets",
+                    "state": "intact"
+                },
+                "long": {
+                    "color": "a bright yellow hue, possibly indicating caution or for identification purposes",
+                    "3D shape": "a long cylindrical shape, consistent throughout its visible length",
+                    "material": "appears to be either metal or plastic, common materials for industrial pipes or conduits",
+                    "usage": "likely used as a conduit for electrical wiring or fluids within a building's infrastructure",
+                    "texture": "the surface seems smooth, typical for pipes which are meant to be easily cleaned or to minimize resistance",
+                    "structure": "structured as a straight pipe with regular intervals of mounting brackets to secure it to a surface",
+                    "state": "the pipe appears to be in an intact state, with no visible damage or wear"
+                }
+            },
+            "obj_name": "pipe",
+            "cost": 0.00974,
+            "is_blur": false
+        },
+        "40": {
+            "gpt_response": {
+                "short": {
+                    "color": "black",
+                    "3D shape": "oval",
+                    "material": "plastic",
+                    "usage": "input device",
+                    "texture": "smooth",
+                    "structure": "compact",
+                    "state": "intact"
+                },
+                "long": {
+                    "color": "predominantly black with possible shades due to lighting",
+                    "3D shape": "ergonomic oval contoured for hand grip",
+                    "material": "likely hard plastic with some rubberized parts",
+                    "usage": "computer input device, possibly for navigating or gaming",
+                    "texture": "smooth with possible rubberized grips",
+                    "structure": "compact with integrated buttons and a scroll wheel",
+                    "state": "in use or ready to use, appears intact with no visible damage"
+                }
+            },
+            "obj_name": "mouse",
+            "cost": 0.00767,
+            "is_blur": false
+        },
+        "41": {
+            "gpt_response": {
+                "short": {
+                    "color": "Black",
+                    "3D shape": "Rectangular prism",
+                    "material": "Plastic and metals",
+                    "usage": "Display for computers",
+                    "texture": "Smooth",
+                    "structure": "Flat screen with a stand",
+                    "state": "Off"
+                },
+                "long": {
+                    "color": "Mainly black with possible color variations on the screen when on",
+                    "3D shape": "Rectangular prism with a thin profile",
+                    "material": "Composed of plastic for the casing and metal for the internal components and stand, glass or acrylic for the screen",
+                    "usage": "Used to display visual output from a computer or other video sources",
+                    "texture": "Front screen is smooth glass or acrylic, the casing and stand have a matte textured finish",
+                    "structure": "The monitor has a flat panel display, usually an LCD or LED, surrounded by a bezel, with a supporting stand that allows it to remain upright",
+                    "state": "Currently powered off and not displaying any content"
+                }
+            },
+            "obj_name": "monitor",
+            "cost": 0.009680000000000001,
+            "is_blur": false
+        },
+        "42": {
+            "gpt_response": {
+                "short": {
+                    "color": "Black",
+                    "3D shape": "Rectangular prism",
+                    "material": "Plastic",
+                    "usage": "Electronics packaging",
+                    "texture": "Smooth",
+                    "structure": "Rigid",
+                    "state": "Intact"
+                },
+                "long": {
+                    "color": "Predominantly black with some color accents due to stickers or labels",
+                    "3D shape": "A rectangular prism with slight curvature on the edges",
+                    "material": "Appears to be made of a high-gloss plastic material",
+                    "usage": "Likely used as packaging for electronic devices or components",
+                    "texture": "Surface looks smooth with a glossy finish",
+                    "structure": "Rigid structure designed to protect the contents",
+                    "state": "Object is in an intact state with no visible damage"
+                }
+            },
+            "obj_name": "box",
+            "cost": 0.008,
+            "is_blur": false
+        },
+        "43": {
+            "gpt_response": {
+                "short": {
+                    "color": "White",
+                    "3D shape": "Irregular",
+                    "material": "Plastic",
+                    "usage": "Covering",
+                    "texture": "Smooth with wrinkles",
+                    "structure": "Flexible",
+                    "state": "Loosely draped"
+                },
+                "long": {
+                    "color": "Predominantly white with some transparency and light shadows",
+                    "3D shape": "Irregular and amorphous due to draping",
+                    "material": "Possibly polyethylene or similar lightweight plastic",
+                    "usage": "Likely used to cover and protect a monitor or other electronic device from dust and debris",
+                    "texture": "Smooth overall with creases and wrinkles throughout the surface",
+                    "structure": "Flexible and non-rigid, able to conform to the shape of the object it covers",
+                    "state": "In a non-permanent state, loosely laid over an object, suggesting it can be easily removed or adjusted"
+                }
+            },
+            "obj_name": "monitor cover",
+            "cost": 0.0081,
+            "is_blur": false
+        },
+        "44": {
+            "gpt_response": {
+                "short": {
+                    "color": "gray",
+                    "3D shape": "cylindrical",
+                    "material": "unspecified",
+                    "usage": "conveyance",
+                    "texture": "smooth",
+                    "structure": "solid",
+                    "state": "intact"
+                },
+                "long": {
+                    "color": "a monochrome gray, with some shadows due to lighting",
+                    "3D shape": "elongated cylindrical tubes",
+                    "material": "appears to be a plastic or metal, specific type unknown",
+                    "usage": "likely to convey fluids or gasses, possibly used in plumbing or HVAC systems",
+                    "texture": "exterior seems smooth with no visible texture",
+                    "structure": "solid construction designed for durability and to maintain internal pressure",
+                    "state": "the objects are in an intact state with no visible damage"
+                }
+            },
+            "obj_name": "pipe",
+            "cost": 0.008060000000000001,
+            "is_blur": false
+        },
+        "45": {
+            "gpt_response": {
+                "short": {
+                    "color": "cream",
+                    "3D shape": "flat with slight curvature",
+                    "material": "likely fabric or plastic",
+                    "usage": "window covering",
+                    "texture": "smooth",
+                    "structure": "horizontal slats",
+                    "state": "partially open"
+                },
+                "long": {
+                    "color": "a soft cream or off-white shade with variations possibly due to lighting or shadow",
+                    "3D shape": "a series of flat panels with a gentle curvature forming a continuous surface when closed",
+                    "material": "appears to be a lightweight fabric or a synthetic plastic designed for ease of use and durability",
+                    "usage": "used to cover windows to control the amount of light entering a room and provide privacy",
+                    "texture": "the texture looks smooth and even, with no noticeable pattern or grain",
+                    "structure": "made up of horizontal slats which may be adjustable to vary the light and visibility through them",
+                    "state": "the blinds seem to be in a partially open or closed state, neither fully retracted nor completely extended"
+                }
+            },
+            "obj_name": "blinds",
+            "cost": 0.0095,
+            "is_blur": false
+        },
+        "46": {
+            "gpt_response": {
+                "short": {
+                    "color": "white",
+                    "3D shape": "rectangular prism",
+                    "material": "metal and glass",
+                    "usage": "lighting",
+                    "texture": "smooth",
+                    "structure": "frame with glass panels",
+                    "state": "on"
+                },
+                "long": {
+                    "color": "mainly white with some metallic parts",
+                    "3D shape": "elongated rectangular prism structure",
+                    "material": "appears to be predominantly metal with glass or translucent plastic",
+                    "usage": "serves as a fluorescent lighting fixture",
+                    "texture": "the metallic parts are smooth, with a matte finish, glass panels are also smooth and even",
+                    "structure": "it consists of a frame that houses lighting elements, likely fluorescent tubes, covered with glass panels",
+                    "state": "the light is currently illuminated, indicating it is in the 'on' state"
+                }
+            },
+            "obj_name": "window frame",
+            "cost": 0.0084,
+            "is_blur": false
+        },
+        "48": {
+            "gpt_response": {
+                "short": {
+                    "color": "black and white",
+                    "3D shape": "rectangular prism",
+                    "material": "metal and glass",
+                    "usage": "window framing",
+                    "texture": "smooth and transparent",
+                    "structure": "multi-pane with separators",
+                    "state": "intact"
+                },
+                "long": {
+                    "color": "The window frame appears to have black borders, likely made of metal, with clear white glass panels",
+                    "3D shape": "The object is a three-dimensional rectangular prism characteristic of window frames",
+                    "material": "The window frame seems to be made of a metallic material, possibly aluminum or steel, with glass panes",
+                    "usage": "The object is used as a window frame, providing structural support for the glass panes and allowing light to pass into a room",
+                    "texture": "The metal parts have a smooth finish, while the glass panes are smooth and transparent, providing a clear view",
+                    "structure": "It features a structured design with multiple glass panes separated and supported by the metal frame",
+                    "state": "The object appears to be in an intact state and properly installed, affixed to a building's exterior or interior"
+                }
+            },
+            "obj_name": "window frame",
+            "cost": 0.010260000000000002,
+            "is_blur": false
+        },
+        "50": {
+            "gpt_response": {
+                "short": {
+                    "color": "Black",
+                    "3D shape": "Rectangular prism",
+                    "material": "Plastics, metals, glass",
+                    "usage": "Displaying information, computing interface",
+                    "texture": "Smooth",
+                    "structure": "Flat screen with bezel, stand, and possibly integrated components",
+                    "state": "Off"
+                },
+                "long": {
+                    "color": "Predominantly black with possible variations near the bezel or back panel.",
+                    "3D shape": "Rectangular prism with a slight depth, predominantly flat front with a thicker back housing.",
+                    "material": "Constructed from a combination of plastics for the casing, metals for the structure and ports, and glass for the screen surface.",
+                    "usage": "Used to display visual information as part of a computing system, often as a user interface for computers.",
+                    "texture": "The front screen is smooth to the touch, with a matte or glossy finish depending on the monitor's surface type.",
+                    "structure": "Features a flat screen surrounded by a bezel, may have integrated speakers, webcam, or other components, supported by a base or stand which may tilt or swivel.",
+                    "state": "Currently turned off as indicated by the absence of an image on the screen and the dark surface."
+                }
+            },
+            "obj_name": "monitor",
+            "cost": 0.010759999999999999,
+            "is_blur": false
+        },
+        "51": {
+            "gpt_response": {
+                "short": {
+                    "color": "black",
+                    "3D shape": "rectangular prism",
+                    "material": "plastic",
+                    "usage": "input device for computers",
+                    "texture": "smooth keys with some texture for grip",
+                    "structure": "slim with raised keys",
+                    "state": "in use"
+                },
+                "long": {
+                    "color": "predominantly black with some possible backlighting on keys",
+                    "3D shape": "elongated rectangular prism with a slight ergonomic curve",
+                    "material": "likely ABS or similar type of plastic with possibly rubber-dome switches under keys",
+                    "usage": "used as an input device for interfacing with a computer, allows for text input, command entry, and control of on-screen activity",
+                    "texture": "smooth key surfaces with some tactile texture on keys to prevent slipping and provide a comfortable typing experience",
+                    "structure": "a slim profile keyboard featuring a full QWERTY layout with raised keys, function row, and a number pad; may also include multimedia keys",
+                    "state": "appears to be connected and in a state of use, resting on a desk with light reflection indicating it's likely in an active working environment"
+                }
+            },
+            "obj_name": "keyboard",
+            "cost": 0.010520000000000002,
+            "is_blur": false
+        },
+        "52": {
+            "gpt_response": {
+                "short": {
+                    "color": "black",
+                    "3D shape": "oval",
+                    "material": "plastic",
+                    "usage": "input device",
+                    "texture": "smooth",
+                    "structure": "compact",
+                    "state": "intact"
+                },
+                "long": {
+                    "color": "the object predominantly appears to be black in color, with potential slight variations due to lighting",
+                    "3D shape": "oval and ergonomic, designed to fit the contour of a hand",
+                    "material": "likely made from a hard plastic material, typical for electronic devices",
+                    "usage": "serves as an input device for computers, used to navigate the cursor on a screen",
+                    "texture": "the surface looks smooth with a matte finish, supporting comfortable use and grip",
+                    "structure": "the object has a compact structure with no visible buttons or wheels, suggesting a modern, minimalistic design",
+                    "state": "appears to be in a good, intact condition with no visible damage"
+                }
+            },
+            "obj_name": "mouse",
+            "cost": 0.008990000000000001,
+            "is_blur": false
+        },
+        "53": {
+            "gpt_response": {
+                "short": {
+                    "color": "black and silver",
+                    "3D shape": "rectangular prism",
+                    "material": "metal and wood",
+                    "usage": "storage and display",
+                    "texture": "smooth and textured",
+                    "structure": "horizontal with supports",
+                    "state": "in use"
+                },
+                "long": {
+                    "color": "Predominantly black with some parts in silver and items of various colors on it",
+                    "3D shape": "Long rectangular prism with multiple levels",
+                    "material": "Combination of metal for the frame and likely wood for the shelving surfaces",
+                    "usage": "Used for the storage and display of laboratory items and tools",
+                    "texture": "The metal parts appear to have a more textured finish, while the wood surfaces seem smooth",
+                    "structure": "Structured as a multi-tiered horizontal shelving unit with vertical supports and cross bracing",
+                    "state": "Currently in use, holding various objects"
+                }
+            },
+            "obj_name": "shelf",
+            "cost": 0.009170000000000001,
+            "is_blur": false
+        },
+        "54": {
+            "gpt_response": {
+                "short": {
+                    "color": "blue",
+                    "3D shape": "cylindrical",
+                    "material": "plastic",
+                    "usage": "container",
+                    "texture": "smooth",
+                    "structure": "open-top",
+                    "state": "solid"
+                },
+                "long": {
+                    "color": "a solid bright blue with a slight glossy finish",
+                    "3D shape": "a roughly cylindrical shape tapering slightly towards the bottom",
+                    "material": "a synthetic polymer, likely polyethylene or polypropylene",
+                    "usage": "used for holding, carrying, and storing liquids or other materials",
+                    "texture": "appears smooth with a glossy surface that may be slightly slippery to the touch",
+                    "structure": "an open-top with a reinforced rim and a metal handle for carrying",
+                    "state": "in a solid state with no visible damage, maintaining its form and structure"
+                }
+            },
+            "obj_name": "bucket",
+            "cost": 0.00836,
+            "is_blur": false
+        },
+        "55": {
+            "gpt_response": {
+                "short": {
+                    "color": "silver",
+                    "3D shape": "rectangular basin with rounded edges",
+                    "material": "metal, likely stainless steel",
+                    "usage": "washing or rinsing objects, likely in a kitchen or laboratory setup",
+                    "texture": "smooth",
+                    "structure": "single basin with a faucet and a drain",
+                    "state": "clean and empty"
+                },
+                "long": {
+                    "color": "a reflective silver hue typical of polished stainless steel",
+                    "3D shape": "a rectangular basin featuring rounded corners and edges, creating a slightly curved interior",
+                    "material": "a durable, shiny metal that appears to be stainless steel, often used for its resistance to corrosion and ease of cleaning",
+                    "usage": "commonly used for washing dishes, utensils, and food items, or for conducting various tasks that require water in a controlled setting such as a kitchen, laboratory, or utility space",
+                    "texture": "a uniformly smooth surface with a high level of polish that allows water to bead and drain away easily",
+                    "structure": "consists of a single, spacious basin, outfitted with a faucet equipped with a lever, and a centrally located drain possibly accompanied by a strainer to prevent clogging",
+                    "state": "currently appears to be in an unused state, devoid of any water or objects, indicating it is clean and ready for use"
+                }
+            },
+            "obj_name": "sink",
+            "cost": 0.01139,
+            "is_blur": false
+        },
+        "57": {
+            "gpt_response": {
+                "short": {
+                    "color": "beige",
+                    "3D shape": "rectangular prism",
+                    "material": "wood or metal",
+                    "usage": "entry or exit point",
+                    "texture": "smooth with imperfections",
+                    "structure": "solid with handle and lock",
+                    "state": "closed"
+                },
+                "long": {
+                    "color": "a light beige with some marks and signs of wear",
+                    "3D shape": "a vertical rectangular prism typical of standard doors",
+                    "material": "appears to be made of wood or a metal, common materials for doors",
+                    "usage": "functions as a means for people to enter or exit a room or building",
+                    "texture": "overall smooth with visible scratches and general wear",
+                    "structure": "solid structure featuring a door handle and a key lock mechanism, indicating security features",
+                    "state": "currently in a closed position with no visible signs of being ajar"
+                }
+            },
+            "obj_name": "door",
+            "cost": 0.00902,
+            "is_blur": false
+        },
+        "5": {
+            "gpt_response": {
+                "short": {
+                    "color": "Gray",
+                    "3D shape": "Rectangular prism",
+                    "material": "Metal",
+                    "usage": "Air ventilation",
+                    "texture": "Smooth",
+                    "structure": "Rigid",
+                    "state": "Stationary"
+                },
+                "long": {
+                    "color": "A shade of gray, likely matching the industrial or office setting aesthetic",
+                    "3D shape": "The object has a rectangular prism shape, with a main duct body and an attached smaller section leading to a vent",
+                    "material": "It appears to be constructed of metal, which is typical for air ducts",
+                    "usage": "Used for air ventilation purposes, likely part of a heating, ventilation, and air conditioning (HVAC) system",
+                    "texture": "The outer surface appears smooth, which is common for ductwork to facilitate airflow",
+                    "structure": "The structure is rigid, allowing it to be securely mounted and maintain its shape under airflow pressure",
+                    "state": "It is in a stationary state, affixed to the ceiling of a building"
+                }
+            },
+            "obj_name": "air duct",
+            "cost": 0.00987,
+            "is_blur": false
+        }
+    }
+}

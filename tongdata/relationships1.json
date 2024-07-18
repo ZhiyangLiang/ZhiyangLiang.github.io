@@ -1,0 +1,499 @@
+{
+    "0a5c013435": {
+        "scan": "0a5c013435",
+        "relationships": [
+            [
+                17,
+                7,
+                "support"
+            ],
+            [
+                20,
+                4,
+                "support"
+            ],
+            [
+                -3,
+                6,
+                "support"
+            ],
+            [
+                -3,
+                10,
+                "support"
+            ],
+            [
+                -3,
+                17,
+                "support"
+            ],
+            [
+                -3,
+                20,
+                "support"
+            ],
+            [
+                -3,
+                22,
+                "support"
+            ],
+            [
+                -3,
+                9,
+                "support"
+            ],
+            [
+                -3,
+                19,
+                "support"
+            ],
+            [
+                13,
+                18,
+                "inside"
+            ],
+            [
+                15,
+                18,
+                "inside"
+            ],
+            [
+                18,
+                17,
+                "placed within the area of"
+            ],
+            [
+                19,
+                17,
+                "placed within the area of"
+            ],
+            [
+                8,
+                7,
+                "inside"
+            ],
+            [
+                6,
+                9,
+                "placed within the area of"
+            ],
+            [
+                18,
+                9,
+                "placed within the area of"
+            ],
+            [
+                13,
+                9,
+                "placed within the area of"
+            ],
+            [
+                7,
+                9,
+                "placed within the area of"
+            ],
+            [
+                15,
+                9,
+                "inside"
+            ],
+            [
+                2,
+                -2,
+                "hanging on"
+            ],
+            [
+                2,
+                18,
+                "above"
+            ],
+            [
+                18,
+                2,
+                "below"
+            ],
+            [
+                2,
+                13,
+                "higher than"
+            ],
+            [
+                13,
+                2,
+                "below"
+            ],
+            [
+                2,
+                10,
+                "above"
+            ],
+            [
+                10,
+                2,
+                "below"
+            ],
+            [
+                2,
+                8,
+                "higher than"
+            ],
+            [
+                8,
+                2,
+                "lower than"
+            ],
+            [
+                2,
+                17,
+                "higher than"
+            ],
+            [
+                17,
+                2,
+                "below"
+            ],
+            [
+                2,
+                20,
+                "higher than"
+            ],
+            [
+                20,
+                2,
+                "lower than"
+            ],
+            [
+                2,
+                15,
+                "above"
+            ],
+            [
+                15,
+                2,
+                "below"
+            ],
+            [
+                2,
+                3,
+                "higher than"
+            ],
+            [
+                3,
+                2,
+                "below"
+            ],
+            [
+                2,
+                22,
+                "above"
+            ],
+            [
+                22,
+                2,
+                "below"
+            ],
+            [
+                2,
+                19,
+                "above"
+            ],
+            [
+                19,
+                2,
+                "lower than"
+            ],
+            [
+                5,
+                -2,
+                "hung on"
+            ],
+            [
+                5,
+                18,
+                "higher than"
+            ],
+            [
+                18,
+                5,
+                "lower than"
+            ],
+            [
+                3,
+                -2,
+                "hanging on"
+            ],
+            [
+                10,
+                6,
+                "11 o\u2018clock direction far from"
+            ],
+            [
+                6,
+                10,
+                "behind"
+            ],
+            [
+                17,
+                6,
+                "10 o\u2018clock direction far from"
+            ],
+            [
+                6,
+                17,
+                "to the right of"
+            ],
+            [
+                20,
+                6,
+                "12 o\u2018clock direction near"
+            ],
+            [
+                6,
+                20,
+                "behind"
+            ],
+            [
+                22,
+                6,
+                "9 o\u2018clock direction near"
+            ],
+            [
+                6,
+                22,
+                "to the right of"
+            ],
+            [
+                9,
+                6,
+                "12 o\u2018clock direction near"
+            ],
+            [
+                6,
+                9,
+                "behind"
+            ],
+            [
+                19,
+                6,
+                "10 o\u2018clock direction far from"
+            ],
+            [
+                6,
+                19,
+                "to the right of"
+            ],
+            [
+                17,
+                10,
+                "6 o\u2018clock direction near"
+            ],
+            [
+                10,
+                17,
+                "in front of"
+            ],
+            [
+                20,
+                10,
+                "3 o\u2018clock direction near"
+            ],
+            [
+                10,
+                20,
+                "to the left of"
+            ],
+            [
+                22,
+                10,
+                "5 o\u2018clock direction far from"
+            ],
+            [
+                10,
+                22,
+                "in front of"
+            ],
+            [
+                9,
+                10,
+                "4 o\u2018clock direction near"
+            ],
+            [
+                10,
+                9,
+                "to the left of"
+            ],
+            [
+                19,
+                10,
+                "6 o\u2018clock direction near"
+            ],
+            [
+                10,
+                19,
+                "in front of"
+            ],
+            [
+                20,
+                17,
+                "2 o\u2018clock direction near"
+            ],
+            [
+                17,
+                20,
+                "to the left of"
+            ],
+            [
+                17,
+                22,
+                "close to"
+            ],
+            [
+                22,
+                17,
+                "close to"
+            ],
+            [
+                9,
+                17,
+                "3 o\u2018clock direction near"
+            ],
+            [
+                17,
+                9,
+                "to the left of"
+            ],
+            [
+                17,
+                19,
+                "adjacent to"
+            ],
+            [
+                19,
+                17,
+                "adjacent to"
+            ],
+            [
+                22,
+                20,
+                "7 o\u2018clock direction near"
+            ],
+            [
+                20,
+                22,
+                "in front of"
+            ],
+            [
+                9,
+                20,
+                "6 o\u2018clock direction near"
+            ],
+            [
+                20,
+                9,
+                "in front of"
+            ],
+            [
+                19,
+                20,
+                "8 o\u2018clock direction near"
+            ],
+            [
+                20,
+                19,
+                "to the right of"
+            ],
+            [
+                9,
+                22,
+                "2 o\u2018clock direction near"
+            ],
+            [
+                22,
+                9,
+                "to the left of"
+            ],
+            [
+                22,
+                19,
+                "close to"
+            ],
+            [
+                19,
+                22,
+                "beside"
+            ],
+            [
+                9,
+                19,
+                "above"
+            ],
+            [
+                19,
+                9,
+                "above"
+            ],
+            [
+                7,
+                17,
+                "supported by"
+            ],
+            [
+                4,
+                20,
+                "placed on"
+            ],
+            [
+                6,
+                -3,
+                "placed on"
+            ],
+            [
+                10,
+                -3,
+                "on the top of"
+            ],
+            [
+                17,
+                -3,
+                "on"
+            ],
+            [
+                20,
+                -3,
+                "on the top of"
+            ],
+            [
+                22,
+                -3,
+                "on"
+            ],
+            [
+                9,
+                -3,
+                "on the top of"
+            ],
+            [
+                19,
+                -3,
+                "on the top of"
+            ]
+        ],
+        "multi_objs_relationships": [
+            [
+                [
+                    13,
+                    15
+                ],
+                "Aligned"
+            ],
+            [
+                [
+                    9,
+                    6,
+                    20
+                ],
+                "in the middle of"
+            ]
+        ]
+    }
+}

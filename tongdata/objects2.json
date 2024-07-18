@@ -1,0 +1,1950 @@
+{
+    "0a7cc12c0e": {
+        "objects_info": [
+            {
+                "id": "70",
+                "label": "kitchen cabinet",
+                "position": [
+                    -3.6581896552682527,
+                    0.069488671224475,
+                    0.5847500285739601
+                ],
+                "size": [
+                    0.7281549982555946,
+                    1.329851952185855,
+                    0.970607
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/70_mesh.obj",
+                "count": 2,
+                "caption": ""
+            },
+            {
+                "id": "96",
+                "label": "object",
+                "position": [
+                    -4.003626047841368,
+                    2.7878567029270274,
+                    0.17479302857396006
+                ],
+                "size": [
+                    0.07672119403649447,
+                    0.10656281581103233,
+                    0.08782299999999998
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/96_mesh.obj"
+            },
+            {
+                "id": "6",
+                "label": "table",
+                "position": [
+                    -3.6207801833978195,
+                    0.9323483133517774,
+                    0.8148430285739601
+                ],
+                "size": [
+                    0.6024581261216109,
+                    0.6576658579539498,
+                    0.16040100000000002
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/6_mesh.obj",
+                "count": 2,
+                "caption": ""
+            },
+            {
+                "id": "58",
+                "label": "light switch",
+                "position": [
+                    -5.1359105710760335,
+                    -1.0271262628821383,
+                    1.4809935285739602
+                ],
+                "size": [
+                    0.017090733052425477,
+                    0.10430840018754939,
+                    0.15671999999999997
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/58_mesh.obj",
+                "count": 3,
+                "caption": ""
+            },
+            {
+                "id": "86",
+                "label": "shelf",
+                "position": [
+                    -5.285296473523149,
+                    0.07142815752183562,
+                    1.33465652857396
+                ],
+                "size": [
+                    0.4450917617563892,
+                    0.6224802935953129,
+                    2.463634
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/86_mesh.obj",
+                "count": 3,
+                "caption": ""
+            },
+            {
+                "id": "99",
+                "label": "object",
+                "position": [
+                    -3.3093609836337974,
+                    2.787777703584052,
+                    0.14797502857396005
+                ],
+                "size": [
+                    0.1478378687319606,
+                    0.19605518443281333,
+                    0.036467
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/99_mesh.obj"
+            },
+            {
+                "id": "2",
+                "label": "board",
+                "position": [
+                    -3.5215385880022567,
+                    0.8005816568715907,
+                    0.8535575285739601
+                ],
+                "size": [
+                    0.20882387610382924,
+                    0.21478419608064225,
+                    0.025182000000000038
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/2_mesh.obj",
+                "count": 2,
+                "caption": ""
+            },
+            {
+                "id": "112",
+                "label": "object",
+                "position": [
+                    -6.485014395911342,
+                    -1.269791394416211,
+                    1.22591352857396
+                ],
+                "size": [
+                    0.06957028599384074,
+                    0.11658209671644348,
+                    0.04602000000000017
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/112_mesh.obj"
+            },
+            {
+                "id": "57",
+                "label": "light switch",
+                "position": [
+                    -5.134198406145893,
+                    -1.0276333341146684,
+                    1.1726285285739602
+                ],
+                "size": [
+                    0.021948032543924967,
+                    0.10154470862743503,
+                    0.15625
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/57_mesh.obj",
+                "count": 3,
+                "caption": ""
+            },
+            {
+                "id": "103",
+                "label": "desk lamp",
+                "position": [
+                    -3.3208940769897977,
+                    4.015057769923295,
+                    1.08597552857396
+                ],
+                "size": [
+                    0.20393627625612787,
+                    0.2023678778177005,
+                    0.48617599999999994
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/103_mesh.obj",
+                "count": 1,
+                "caption": ""
+            },
+            {
+                "id": "104",
+                "label": "notebook",
+                "position": [
+                    -3.5978755918626897,
+                    3.634929721376744,
+                    0.85954752857396
+                ],
+                "size": [
+                    0.31929713490250977,
+                    0.23460301225911628,
+                    0.02291399999999999
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/104_mesh.obj",
+                "count": 1,
+                "caption": ""
+            },
+            {
+                "id": "40",
+                "label": "object",
+                "position": [
+                    -3.3863048055292073,
+                    0.9270842083877904,
+                    0.8885900285739601
+                ],
+                "size": [
+                    0.05460147115494873,
+                    0.041550959711985413,
+                    0.07386500000000007
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/40_mesh.obj"
+            },
+            {
+                "id": "41",
+                "label": "object",
+                "position": [
+                    -3.389236532009317,
+                    0.8022952284115763,
+                    0.92095502857396
+                ],
+                "size": [
+                    0.10810125943097981,
+                    0.13481784843625455,
+                    0.16111699999999995
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/41_mesh.obj"
+            },
+            {
+                "id": "95",
+                "label": "umbrella",
+                "position": [
+                    -3.891981550475779,
+                    2.877809951404522,
+                    0.18444952857396008
+                ],
+                "size": [
+                    0.13157557585370006,
+                    0.2590466464557686,
+                    0.10908599999999999
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/95_mesh.obj",
+                "count": 1,
+                "caption": ""
+            },
+            {
+                "id": "66",
+                "label": "table",
+                "position": [
+                    -3.7965896337930065,
+                    3.462236770228615,
+                    0.49963052857396006
+                ],
+                "size": [
+                    1.3944025232203638,
+                    1.6091620456095845,
+                    0.7988900000000001
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/66_mesh.obj",
+                "count": 2,
+                "caption": ""
+            },
+            {
+                "id": "135",
+                "label": "object",
+                "position": [
+                    -6.32227211337875,
+                    -0.03444623137687575,
+                    2.36269352857396
+                ],
+                "size": [
+                    0.2512783032627546,
+                    0.19262442373736266,
+                    0.10908000000000007
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/135_mesh.obj"
+            },
+            {
+                "id": "100",
+                "label": "object",
+                "position": [
+                    -3.3857204919335175,
+                    2.802458813531955,
+                    0.5276400285739601
+                ],
+                "size": [
+                    0.20329498702972604,
+                    0.2467253369554694,
+                    0.08123100000000005
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/100_mesh.obj"
+            },
+            {
+                "id": "84",
+                "label": "box",
+                "position": [
+                    -5.217899736293927,
+                    0.24688788265566886,
+                    0.8801740285739601
+                ],
+                "size": [
+                    0.18176773034891092,
+                    0.27800774241234416,
+                    0.2504390000000001
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/84_mesh.obj",
+                "count": 2,
+                "caption": ""
+            },
+            {
+                "id": "82",
+                "label": "door hinge",
+                "position": [
+                    -4.11456370360461,
+                    -1.6626025911430702,
+                    2.09629852857396
+                ],
+                "size": [
+                    0.023685805655934367,
+                    0.02721279173687119,
+                    0.16640999999999995
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/82_mesh.obj"
+            },
+            {
+                "id": "67",
+                "label": "chair",
+                "position": [
+                    -3.591252271334539,
+                    1.0946541174173592,
+                    0.5267425285739601
+                ],
+                "size": [
+                    0.5444598937922835,
+                    0.549695884584608,
+                    0.844454
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/67_mesh.obj",
+                "count": 2,
+                "caption": ""
+            },
+            {
+                "id": "61",
+                "label": "smoke detector",
+                "position": [
+                    -4.767721564273165,
+                    1.9328087061295718,
+                    2.54185852857396
+                ],
+                "size": [
+                    0.10869184112523378,
+                    0.12283407127850499,
+                    0.04305000000000003
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/61_mesh.obj",
+                "count": 1,
+                "caption": ""
+            },
+            {
+                "id": "90",
+                "label": "box",
+                "position": [
+                    -5.919346231294657,
+                    4.120681541088078,
+                    0.2999750285739601
+                ],
+                "size": [
+                    0.1301315264666849,
+                    0.2795244966014132,
+                    0.12519499999999997
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/90_mesh.obj",
+                "count": 2,
+                "caption": ""
+            },
+            {
+                "id": "59",
+                "label": "doorframe",
+                "position": [
+                    -4.61476059305314,
+                    -1.6247485638309533,
+                    1.34030752857396
+                ],
+                "size": [
+                    1.1376042685566876,
+                    0.10539066601307812,
+                    2.4720720000000003
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/59_mesh.obj"
+            },
+            {
+                "id": "0",
+                "label": "toilet paper holder",
+                "position": [
+                    -5.884095879823413,
+                    -1.1811117295924973,
+                    0.7161660285739601
+                ],
+                "size": [
+                    0.14664669438386557,
+                    0.06187432458973641,
+                    0.12590100000000004
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/0_mesh.obj",
+                "count": 1,
+                "caption": ""
+            },
+            {
+                "id": "13",
+                "label": "toilet paper",
+                "position": [
+                    -5.882368517384453,
+                    -1.1551248648869157,
+                    0.62606002857396
+                ],
+                "size": [
+                    0.10863328838283426,
+                    0.10693031219097282,
+                    0.135861
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/13_mesh.obj",
+                "count": 1,
+                "caption": ""
+            },
+            {
+                "id": "114",
+                "label": "object",
+                "position": [
+                    -6.269163070367695,
+                    -1.2911625671015514,
+                    1.59472352857396
+                ],
+                "size": [
+                    0.08105697519721389,
+                    0.03533364778590653,
+                    0.16866000000000003
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/114_mesh.obj"
+            },
+            {
+                "id": "26",
+                "label": "pillow",
+                "position": [
+                    -5.94246867951407,
+                    0.9147504096679504,
+                    0.7138115285739601
+                ],
+                "size": [
+                    0.7009454625909308,
+                    0.293370476812977,
+                    0.33296800000000004
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/26_mesh.obj",
+                "count": 3,
+                "caption": ""
+            },
+            {
+                "id": "10",
+                "label": "flip flops",
+                "position": [
+                    -5.370021390578696,
+                    -0.8432431105067588,
+                    0.15043552857396006
+                ],
+                "size": [
+                    0.2818916033511263,
+                    0.2532159878621957,
+                    0.099542
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/10_mesh.obj",
+                "count": 1,
+                "caption": ""
+            },
+            {
+                "id": "105",
+                "label": "mouse",
+                "position": [
+                    -3.683480238691305,
+                    3.338951571009095,
+                    0.8630530285739602
+                ],
+                "size": [
+                    0.13207516338991443,
+                    0.07009252208375027,
+                    0.039991
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/105_mesh.obj",
+                "count": 1,
+                "caption": ""
+            },
+            {
+                "id": "121",
+                "label": "bottle",
+                "position": [
+                    -6.33036185205024,
+                    -1.2783584157864227,
+                    1.88685852857396
+                ],
+                "size": [
+                    0.0525715939642426,
+                    0.05445162910704626,
+                    0.11122999999999994
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/121_mesh.obj",
+                "count": 6,
+                "caption": ""
+            },
+            {
+                "id": "118",
+                "label": "object",
+                "position": [
+                    -5.959652951764844,
+                    -1.3093780157360082,
+                    1.6030435285739602
+                ],
+                "size": [
+                    0.08897332277013881,
+                    0.08915246390254539,
+                    0.18254000000000015
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/118_mesh.obj"
+            },
+            {
+                "id": "78",
+                "label": "bottle",
+                "position": [
+                    -5.412676024170425,
+                    0.42015674587788654,
+                    1.38224352857396
+                ],
+                "size": [
+                    0.08248343981021833,
+                    0.06895287578852116,
+                    0.16820000000000013
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/78_mesh.obj",
+                "count": 6,
+                "caption": ""
+            },
+            {
+                "id": "87",
+                "label": "object",
+                "position": [
+                    -6.1417758776029405,
+                    3.051688663884808,
+                    0.26800752857396004
+                ],
+                "size": [
+                    0.35103230465296864,
+                    0.22316031416031112,
+                    0.275314
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/87_mesh.obj"
+            },
+            {
+                "id": "128",
+                "label": "object",
+                "position": [
+                    -3.4327326831811593,
+                    0.33963007397266387,
+                    1.09394352857396
+                ],
+                "size": [
+                    0.4158342209086747,
+                    0.3546614646843431,
+                    0.1860599999999999
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/128_mesh.obj"
+            },
+            {
+                "id": "62",
+                "label": "sink",
+                "position": [
+                    -3.602921877349835,
+                    0.02793436935310245,
+                    0.9148030285739601
+                ],
+                "size": [
+                    0.8089489238476819,
+                    1.2792651025853,
+                    0.35558100000000004
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/62_mesh.obj",
+                "count": 2,
+                "caption": ""
+            },
+            {
+                "id": "8",
+                "label": "cutting board",
+                "position": [
+                    -3.6067521651401826,
+                    -0.5650327457786776,
+                    1.31406852857396
+                ],
+                "size": [
+                    0.30161465617967353,
+                    0.040138063385503964,
+                    0.33267
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/8_mesh.obj",
+                "count": 1,
+                "caption": ""
+            },
+            {
+                "id": "131",
+                "label": "tap",
+                "position": [
+                    -6.037555607137431,
+                    0.5610506209616191,
+                    1.17509852857396
+                ],
+                "size": [
+                    0.21013861467237138,
+                    0.16078167403533028,
+                    0.11041000000000012
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/131_mesh.obj",
+                "count": 2,
+                "caption": ""
+            },
+            {
+                "id": "21",
+                "label": "jacket",
+                "position": [
+                    -5.075285703979503,
+                    0.16715256109251841,
+                    1.5823035285739602
+                ],
+                "size": [
+                    0.11415740493924886,
+                    0.14578637449471543,
+                    0.7424199999999999
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/21_mesh.obj",
+                "count": 4,
+                "caption": ""
+            },
+            {
+                "id": "28",
+                "label": "blanket",
+                "position": [
+                    -5.890129600657587,
+                    2.1814711823090587,
+                    0.61427802857396
+                ],
+                "size": [
+                    0.8384111529391589,
+                    1.2008233078975397,
+                    0.148953
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/28_mesh.obj",
+                "count": 1,
+                "caption": ""
+            },
+            {
+                "id": "108",
+                "label": "magazine",
+                "position": [
+                    -3.3164204727459077,
+                    3.104834577193747,
+                    0.85837002857396
+                ],
+                "size": [
+                    0.3231713514834764,
+                    0.21378977239282904,
+                    0.03141100000000008
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/108_mesh.obj",
+                "count": 1,
+                "caption": ""
+            },
+            {
+                "id": "109",
+                "label": "bathroom shelf",
+                "position": [
+                    -6.211179364194732,
+                    -1.2822538052612171,
+                    1.78580352857396
+                ],
+                "size": [
+                    0.6312515063779092,
+                    0.22586177192682122,
+                    1.2658999999999998
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/109_mesh.obj",
+                "count": 1,
+                "caption": ""
+            },
+            {
+                "id": "23",
+                "label": "drying rack",
+                "position": [
+                    -5.957271542055001,
+                    4.7434134992236,
+                    0.74708852857396
+                ],
+                "size": [
+                    0.5916844175474179,
+                    0.19512722303888097,
+                    1.28717
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/23_mesh.obj",
+                "count": 1,
+                "caption": ""
+            },
+            {
+                "id": "27",
+                "label": "pillow",
+                "position": [
+                    -6.353839553854112,
+                    1.0421009797012728,
+                    0.7364860285739601
+                ],
+                "size": [
+                    0.23087009375286272,
+                    0.4727638199762567,
+                    0.3742049999999999
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/27_mesh.obj",
+                "count": 3,
+                "caption": ""
+            },
+            {
+                "id": "74",
+                "label": "object",
+                "position": [
+                    -5.259989259017303,
+                    0.6007516560822876,
+                    0.58787752857396
+                ],
+                "size": [
+                    0.0679413995345044,
+                    0.07128685717669159,
+                    0.04147400000000001
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/74_mesh.obj"
+            },
+            {
+                "id": "11",
+                "label": "toilet",
+                "position": [
+                    -6.158067652309576,
+                    -0.9459753515139911,
+                    0.5698465285739601
+                ],
+                "size": [
+                    0.38064539035023337,
+                    0.5108597374300954,
+                    0.817704
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/11_mesh.obj",
+                "count": 1,
+                "caption": ""
+            },
+            {
+                "id": "102",
+                "label": "trash can",
+                "position": [
+                    -3.4228021219056015,
+                    4.074429248368058,
+                    0.28351702857396005
+                ],
+                "size": [
+                    0.3350987080590331,
+                    0.32424921826300723,
+                    0.365113
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/102_mesh.obj",
+                "count": 1,
+                "caption": ""
+            },
+            {
+                "id": "17",
+                "label": "shower head",
+                "position": [
+                    -6.010233898554885,
+                    0.3560235917550214,
+                    2.08140352857396
+                ],
+                "size": [
+                    0.09238531704750041,
+                    0.10093265396397388,
+                    0.02324000000000037
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/17_mesh.obj",
+                "count": 1,
+                "caption": ""
+            },
+            {
+                "id": "77",
+                "label": "bottle",
+                "position": [
+                    -5.363086874565853,
+                    0.40314217861589197,
+                    1.36868352857396
+                ],
+                "size": [
+                    0.05230658895106721,
+                    0.03265896526519674,
+                    0.1447799999999999
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/77_mesh.obj",
+                "count": 6,
+                "caption": ""
+            },
+            {
+                "id": "7",
+                "label": "socket",
+                "position": [
+                    -3.3784183996615784,
+                    0.010333815513408617,
+                    1.4545585285739602
+                ],
+                "size": [
+                    0.033243723543356474,
+                    0.21973138115861723,
+                    0.08508999999999989
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/7_mesh.obj",
+                "count": 2,
+                "caption": ""
+            },
+            {
+                "id": "85",
+                "label": "lid",
+                "position": [
+                    -5.335598906847004,
+                    0.26112133893255574,
+                    1.02628202857396
+                ],
+                "size": [
+                    0.3387575202695814,
+                    0.2413495875332461,
+                    0.11300299999999996
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/85_mesh.obj",
+                "count": 1,
+                "caption": ""
+            },
+            {
+                "id": "47",
+                "label": "storage cabinet",
+                "position": [
+                    -3.743759552318222,
+                    -1.0992086562516679,
+                    1.24259752857396
+                ],
+                "size": [
+                    0.6641888199163279,
+                    1.1147390601482288,
+                    2.271992
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/47_mesh.obj",
+                "count": 1,
+                "caption": ""
+            },
+            {
+                "id": "107",
+                "label": "desk fan",
+                "position": [
+                    -3.36749496582897,
+                    2.8483831568210674,
+                    1.09458002857396
+                ],
+                "size": [
+                    0.35605571091268384,
+                    0.3422270227500013,
+                    0.502927
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/107_mesh.obj",
+                "count": 1,
+                "caption": ""
+            },
+            {
+                "id": "68",
+                "label": "chair",
+                "position": [
+                    -3.6291124333254485,
+                    3.6021331628289186,
+                    0.50255802857396
+                ],
+                "size": [
+                    0.5637729222999148,
+                    0.447938773223977,
+                    0.802181
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/68_mesh.obj",
+                "count": 2,
+                "caption": ""
+            },
+            {
+                "id": "133",
+                "label": "object",
+                "position": [
+                    -3.4742129504992816,
+                    -0.5027649341586651,
+                    1.1353235285739602
+                ],
+                "size": [
+                    0.1495179018513504,
+                    0.1983655963908566,
+                    0.18331999999999993
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/133_mesh.obj"
+            },
+            {
+                "id": "136",
+                "label": "structure",
+                "position": [
+                    -5.981463739902214,
+                    -0.06412272535571706,
+                    2.39248352857396
+                ],
+                "size": [
+                    0.4829983068204724,
+                    0.052776650343971276,
+                    0.04654000000000025
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/136_mesh.obj",
+                "count": 1,
+                "caption": ""
+            },
+            {
+                "id": "134",
+                "label": "object",
+                "position": [
+                    -3.4324347705312723,
+                    -0.334136894946062,
+                    1.13711352857396
+                ],
+                "size": [
+                    0.06560144385315425,
+                    0.08426600190135747,
+                    0.18601999999999985
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/134_mesh.obj"
+            },
+            {
+                "id": "29",
+                "label": "wireless headphones",
+                "position": [
+                    -6.2121829658581005,
+                    1.4221811801407653,
+                    0.5601980285739601
+                ],
+                "size": [
+                    0.05565304455373443,
+                    0.055501140590641374,
+                    0.020073000000000008
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/29_mesh.obj",
+                "count": 1,
+                "caption": ""
+            },
+            {
+                "id": "89",
+                "label": "rolling cabinet",
+                "position": [
+                    -6.0103626360704006,
+                    3.9838438242484555,
+                    0.3540780285739601
+                ],
+                "size": [
+                    0.46663889111599755,
+                    0.6133389667841107,
+                    0.493917
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/89_mesh.obj",
+                "count": 1,
+                "caption": ""
+            },
+            {
+                "id": "16",
+                "label": "shower hose",
+                "position": [
+                    -5.970295756023874,
+                    0.5217272626908864,
+                    1.5457285285739601
+                ],
+                "size": [
+                    0.16268053176436403,
+                    0.12212913872678977,
+                    1.05227
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/16_mesh.obj",
+                "count": 1,
+                "caption": ""
+            },
+            {
+                "id": "117",
+                "label": "object",
+                "position": [
+                    -6.483974842019475,
+                    -1.2900689740245472,
+                    1.61679852857396
+                ],
+                "size": [
+                    0.07350056915438152,
+                    0.06768793171940368,
+                    0.19030999999999998
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/117_mesh.obj"
+            },
+            {
+                "id": "129",
+                "label": "ceiling lamp",
+                "position": [
+                    -6.113713163728937,
+                    -0.4318124492353348,
+                    2.44798352857396
+                ],
+                "size": [
+                    0.0931555209249808,
+                    0.07625364645305588,
+                    0.07024000000000008
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/129_mesh.obj"
+            },
+            {
+                "id": "76",
+                "label": "object",
+                "position": [
+                    -5.4538029176886935,
+                    0.46242614471758503,
+                    0.59209902857396
+                ],
+                "size": [
+                    0.06944779856276106,
+                    0.07057264524812235,
+                    0.059907000000000044
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/76_mesh.obj"
+            },
+            {
+                "id": "60",
+                "label": "door",
+                "position": [
+                    -4.606041859528647,
+                    -1.5970902000416887,
+                    1.22902802857396
+                ],
+                "size": [
+                    0.9890763436003098,
+                    0.12398530430366139,
+                    2.2504910000000002
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/60_mesh.obj"
+            },
+            {
+                "id": "5",
+                "label": "bottle",
+                "position": [
+                    -3.6313636912705936,
+                    0.662687693061287,
+                    0.9173445285739601
+                ],
+                "size": [
+                    0.05376154255981458,
+                    0.07704902876736952,
+                    0.10497000000000001
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/5_mesh.obj",
+                "count": 6,
+                "caption": ""
+            },
+            {
+                "id": "36",
+                "label": "rug",
+                "position": [
+                    -4.795669564377506,
+                    1.7019954562910935,
+                    0.11131702857396006
+                ],
+                "size": [
+                    1.4359394840088147,
+                    2.0980912178862248,
+                    0.017450999999999994
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/36_mesh.obj",
+                "count": 1,
+                "caption": ""
+            },
+            {
+                "id": "30",
+                "label": "laptop",
+                "position": [
+                    -6.031037426674851,
+                    1.6301870040175441,
+                    0.65864452857396
+                ],
+                "size": [
+                    0.4905541634896293,
+                    0.4793963361898954,
+                    0.21845399999999993
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/30_mesh.obj",
+                "count": 1,
+                "caption": ""
+            },
+            {
+                "id": "111",
+                "label": "object",
+                "position": [
+                    -6.025709017481189,
+                    -1.2817989943322519,
+                    1.26264352857396
+                ],
+                "size": [
+                    0.14485932409538904,
+                    0.15960373717003296,
+                    0.13315999999999995
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/111_mesh.obj"
+            },
+            {
+                "id": "39",
+                "label": "object",
+                "position": [
+                    -3.5244520648957485,
+                    0.6508643058640915,
+                    0.9008895285739601
+                ],
+                "size": [
+                    0.09440350734447156,
+                    0.07587468636355643,
+                    0.11497000000000002
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/39_mesh.obj"
+            },
+            {
+                "id": "63",
+                "label": "curtain",
+                "position": [
+                    -4.5906772671640015,
+                    4.572845831580628,
+                    1.54683652857396
+                ],
+                "size": [
+                    2.314823440021183,
+                    0.20568877862990753,
+                    2.0464140000000004
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/63_mesh.obj",
+                "count": 1,
+                "caption": ""
+            },
+            {
+                "id": "116",
+                "label": "object",
+                "position": [
+                    -6.411479784857777,
+                    -1.2979725071195203,
+                    1.6099485285739599
+                ],
+                "size": [
+                    0.10595228353350805,
+                    0.0688553763849944,
+                    0.18591000000000002
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/116_mesh.obj"
+            },
+            {
+                "id": "25",
+                "label": "pillow",
+                "position": [
+                    -5.9689798495626585,
+                    0.7827544570429237,
+                    0.76329102857396
+                ],
+                "size": [
+                    0.7013725433882119,
+                    0.15010065164419295,
+                    0.31917300000000004
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/25_mesh.obj",
+                "count": 3,
+                "caption": ""
+            },
+            {
+                "id": "34",
+                "label": "lamp",
+                "position": [
+                    -6.231086628908779,
+                    3.085110548707401,
+                    1.03607602857396
+                ],
+                "size": [
+                    0.15661744061261818,
+                    0.1757496937018299,
+                    0.35267500000000007
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/34_mesh.obj",
+                "count": 1,
+                "caption": ""
+            },
+            {
+                "id": "106",
+                "label": "object",
+                "position": [
+                    -3.6301420361037877,
+                    2.8941906617970723,
+                    0.9868920285739601
+                ],
+                "size": [
+                    0.11836731576679016,
+                    0.11433844237763413,
+                    0.28760300000000005
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/106_mesh.obj"
+            },
+            {
+                "id": "81",
+                "label": "object",
+                "position": [
+                    -5.134429176631988,
+                    0.39353967766065123,
+                    1.3896535285739602
+                ],
+                "size": [
+                    0.10087940764888259,
+                    0.04333025588763473,
+                    0.17156000000000016
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/81_mesh.obj"
+            },
+            {
+                "id": "1",
+                "label": "board",
+                "position": [
+                    -3.6282167821968496,
+                    0.6744142406111395,
+                    0.8575290285739601
+                ],
+                "size": [
+                    0.10242542325985893,
+                    0.10151752017948734,
+                    0.028509000000000007
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/1_mesh.obj",
+                "count": 2,
+                "caption": ""
+            },
+            {
+                "id": "38",
+                "label": "shoes",
+                "position": [
+                    -4.11228856676461,
+                    -0.6696252629320343,
+                    0.16995352857396007
+                ],
+                "size": [
+                    0.2260881550501357,
+                    0.3695802070902944,
+                    0.116902
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/38_mesh.obj",
+                "count": 2,
+                "caption": ""
+            },
+            {
+                "id": "12",
+                "label": "bottle",
+                "position": [
+                    -3.4376637409271407,
+                    0.922277432186396,
+                    0.9347030285739601
+                ],
+                "size": [
+                    0.05556870409405734,
+                    0.09923959792093706,
+                    0.18430100000000016
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/12_mesh.obj",
+                "count": 6,
+                "caption": ""
+            },
+            {
+                "id": "79",
+                "label": "bottle",
+                "position": [
+                    -5.486812700402784,
+                    0.4341936707191223,
+                    1.37986352857396
+                ],
+                "size": [
+                    0.07253070058723843,
+                    0.062436859572297276,
+                    0.16877999999999993
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/79_mesh.obj",
+                "count": 6,
+                "caption": ""
+            },
+            {
+                "id": "139",
+                "label": "microwave",
+                "position": [
+                    -6.045466493775305,
+                    3.9661878014576235,
+                    0.73614902857396
+                ],
+                "size": [
+                    0.46477642094745164,
+                    0.5198791993811649,
+                    0.29509299999999994
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/139_mesh.obj",
+                "count": 1,
+                "caption": ""
+            },
+            {
+                "id": "125",
+                "label": "object",
+                "position": [
+                    -5.2496268251939,
+                    0.11176946610189109,
+                    0.3191425285739601
+                ],
+                "size": [
+                    0.14163262694744194,
+                    0.213695417659169,
+                    0.12354199999999999
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/125_mesh.obj"
+            },
+            {
+                "id": "20",
+                "label": "jacket",
+                "position": [
+                    -5.137721352865098,
+                    0.11701530332089782,
+                    1.60943852857396
+                ],
+                "size": [
+                    0.14252331297115983,
+                    0.08318675051551905,
+                    0.7315499999999999
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/20_mesh.obj",
+                "count": 4,
+                "caption": ""
+            },
+            {
+                "id": "91",
+                "label": "object",
+                "position": [
+                    -5.967174505171487,
+                    4.127812982820268,
+                    0.43325102857396003
+                ],
+                "size": [
+                    0.08308519795590907,
+                    0.20768542428546155,
+                    0.08791100000000002
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/91_mesh.obj"
+            },
+            {
+                "id": "72",
+                "label": "shelf",
+                "position": [
+                    -5.290228227840183,
+                    0.4852190822652933,
+                    1.2472520285739601
+                ],
+                "size": [
+                    0.4880900403815671,
+                    0.4442490453076551,
+                    2.291043
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/72_mesh.obj",
+                "count": 3,
+                "caption": ""
+            },
+            {
+                "id": "37",
+                "label": "shoes",
+                "position": [
+                    -4.190351770315149,
+                    -0.9281897242037715,
+                    0.19923652857396007
+                ],
+                "size": [
+                    0.21361123206773946,
+                    0.31195370392358557,
+                    0.17978799999999998
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/37_mesh.obj",
+                "count": 2,
+                "caption": ""
+            },
+            {
+                "id": "97",
+                "label": "object",
+                "position": [
+                    -4.237823819126147,
+                    2.8588876464393014,
+                    0.19204502857396005
+                ],
+                "size": [
+                    0.3074718443830635,
+                    0.22185823463227283,
+                    0.11876099999999998
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/97_mesh.obj"
+            },
+            {
+                "id": "119",
+                "label": "light switch",
+                "position": [
+                    -5.921152164009462,
+                    -1.3069839068234779,
+                    1.3020835285739603
+                ],
+                "size": [
+                    0.015056048669793043,
+                    0.10955968657974902,
+                    0.09094000000000002
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/119_mesh.obj",
+                "count": 3,
+                "caption": ""
+            },
+            {
+                "id": "80",
+                "label": "object",
+                "position": [
+                    -5.473066124449803,
+                    0.6071669933698127,
+                    1.3247385285739601
+                ],
+                "size": [
+                    0.06462909290166063,
+                    0.15415151065320076,
+                    0.048270000000000035
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/80_mesh.obj"
+            },
+            {
+                "id": "126",
+                "label": "bed",
+                "position": [
+                    -5.913282882471515,
+                    1.6714071985308565,
+                    0.33294347857396006
+                ],
+                "size": [
+                    1.0220256328045663,
+                    2.8835611179404044,
+                    0.4860641
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/126_mesh.obj",
+                "count": 1,
+                "caption": ""
+            },
+            {
+                "id": "65",
+                "label": "door",
+                "position": [
+                    -5.38593648976666,
+                    -0.22699584315349108,
+                    1.25820502857396
+                ],
+                "size": [
+                    0.6190485444615161,
+                    0.07639875368009053,
+                    2.312097
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/65_mesh.obj"
+            },
+            {
+                "id": "83",
+                "label": "door hinge",
+                "position": [
+                    -4.113148191111016,
+                    -1.658824130773524,
+                    0.41448602857396005
+                ],
+                "size": [
+                    0.018183147190332427,
+                    0.020811749488514053,
+                    0.125355
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/83_mesh.obj"
+            },
+            {
+                "id": "94",
+                "label": "backpack",
+                "position": [
+                    -4.1468536453942795,
+                    2.8937034617048254,
+                    0.5730725285739601
+                ],
+                "size": [
+                    0.4909706280260604,
+                    0.3501626436827969,
+                    0.16779799999999995
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/94_mesh.obj",
+                "count": 1,
+                "caption": ""
+            },
+            {
+                "id": "33",
+                "label": "shelf",
+                "position": [
+                    -5.87057087100803,
+                    3.022418909017605,
+                    0.4895150285739601
+                ],
+                "size": [
+                    0.9687300334956017,
+                    0.38356691838248125,
+                    0.775725
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/33_mesh.obj",
+                "count": 3,
+                "caption": ""
+            },
+            {
+                "id": "14",
+                "label": "soap",
+                "position": [
+                    -5.696537143568747,
+                    -1.1654542191113226,
+                    0.9990440285739601
+                ],
+                "size": [
+                    0.08658023590399022,
+                    0.11480965961924161,
+                    0.142359
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/14_mesh.obj",
+                "count": 1,
+                "caption": ""
+            },
+            {
+                "id": "123",
+                "label": "tap",
+                "position": [
+                    -3.5542401244027317,
+                    -0.1603121196799694,
+                    1.2177085285739602
+                ],
+                "size": [
+                    0.22074358200443944,
+                    0.17667001823056894,
+                    0.35823000000000005
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/123_mesh.obj",
+                "count": 2,
+                "caption": ""
+            },
+            {
+                "id": "110",
+                "label": "spray bottle",
+                "position": [
+                    -6.256464826094737,
+                    -1.297020379107635,
+                    1.34821352857396
+                ],
+                "size": [
+                    0.09898398044736822,
+                    0.090049361339271,
+                    0.29854
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/110_mesh.obj",
+                "count": 1,
+                "caption": ""
+            },
+            {
+                "id": "32",
+                "label": "jacket",
+                "position": [
+                    -5.024669372059034,
+                    0.2318327870199257,
+                    1.58899352857396
+                ],
+                "size": [
+                    0.18978728764349473,
+                    0.2841313276902242,
+                    0.7168999999999999
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/32_mesh.obj",
+                "count": 4,
+                "caption": ""
+            },
+            {
+                "id": "98",
+                "label": "object",
+                "position": [
+                    -3.5533382427509297,
+                    2.868469600269816,
+                    0.1822955285739601
+                ],
+                "size": [
+                    0.25513820076803295,
+                    0.16253350699706814,
+                    0.10337199999999999
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/98_mesh.obj"
+            },
+            {
+                "id": "92",
+                "label": "object",
+                "position": [
+                    -5.984079713534207,
+                    3.803050790597908,
+                    0.40618752857396007
+                ],
+                "size": [
+                    0.07151820789188701,
+                    0.2002968795383735,
+                    0.038237999999999994
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/92_mesh.obj"
+            },
+            {
+                "id": "115",
+                "label": "object",
+                "position": [
+                    -6.347126051117114,
+                    -1.2954253412154,
+                    1.60975852857396
+                ],
+                "size": [
+                    0.09737622703972271,
+                    0.07548769087861862,
+                    0.18806999999999996
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/115_mesh.obj"
+            },
+            {
+                "id": "24",
+                "label": "object",
+                "position": [
+                    -6.000569065383404,
+                    4.807532008256723,
+                    2.22598852857396
+                ],
+                "size": [
+                    0.19463844383908313,
+                    0.029515780647404455,
+                    0.17913000000000023
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/24_mesh.obj"
+            },
+            {
+                "id": "4",
+                "label": "pot",
+                "position": [
+                    -3.446350062279693,
+                    0.7299408544619155,
+                    0.91382152857396
+                ],
+                "size": [
+                    0.09582497660576772,
+                    0.12024896103880867,
+                    0.142598
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/4_mesh.obj",
+                "count": 1,
+                "caption": ""
+            },
+            {
+                "id": "15",
+                "label": "sink",
+                "position": [
+                    -5.5766140144767835,
+                    -1.0463456965631843,
+                    0.77271052857396
+                ],
+                "size": [
+                    0.5190279588589002,
+                    0.3895351172497833,
+                    0.440466
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/15_mesh.obj",
+                "count": 2,
+                "caption": ""
+            },
+            {
+                "id": "124",
+                "label": "object",
+                "position": [
+                    -5.193462161051661,
+                    0.25639953466411824,
+                    0.30069802857396005
+                ],
+                "size": [
+                    0.2775007536010543,
+                    0.22518581883868216,
+                    0.200945
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/124_mesh.obj"
+            },
+            {
+                "id": "120",
+                "label": "laundry detergent",
+                "position": [
+                    -6.442673831238916,
+                    -1.2670124512576715,
+                    1.94562352857396
+                ],
+                "size": [
+                    0.1555456549081935,
+                    0.06180958630752609,
+                    0.23554000000000008
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/120_mesh.obj",
+                "count": 1,
+                "caption": ""
+            },
+            {
+                "id": "56",
+                "label": "socket",
+                "position": [
+                    -5.1401871950579325,
+                    -1.0163322386329718,
+                    0.40814252857396005
+                ],
+                "size": [
+                    0.01710075703914704,
+                    0.08236320098274796,
+                    0.08952399999999999
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/56_mesh.obj",
+                "count": 2,
+                "caption": ""
+            },
+            {
+                "id": "113",
+                "label": "brush",
+                "position": [
+                    -6.428109102865903,
+                    -1.2525910310107027,
+                    1.22246852857396
+                ],
+                "size": [
+                    0.08928836251755712,
+                    0.1609086541170155,
+                    0.04983000000000004
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/113_mesh.obj",
+                "count": 1,
+                "caption": ""
+            },
+            {
+                "id": "101",
+                "label": "suitcase",
+                "position": [
+                    -3.3942503363592453,
+                    4.381124485310259,
+                    0.47922202857396007
+                ],
+                "size": [
+                    0.48284428151913783,
+                    0.3263949570109581,
+                    0.7512310000000001
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/101_mesh.obj",
+                "count": 1,
+                "caption": ""
+            },
+            {
+                "id": "69",
+                "label": "kitchen cabinet",
+                "position": [
+                    -3.5256015746224674,
+                    0.019966514999649188,
+                    1.9830885285739601
+                ],
+                "size": [
+                    0.45161460463716097,
+                    1.220734950868071,
+                    0.80389
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/69_mesh.obj",
+                "count": 2,
+                "caption": ""
+            },
+            {
+                "id": "22",
+                "label": "heater",
+                "position": [
+                    -4.643124139388533,
+                    4.695481472386242,
+                    0.3722545285739601
+                ],
+                "size": [
+                    1.8145359476509135,
+                    0.13638528010642226,
+                    0.32320399999999994
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/22_mesh.obj",
+                "count": 1,
+                "caption": ""
+            },
+            {
+                "id": "75",
+                "label": "object",
+                "position": [
+                    -5.277827896802854,
+                    0.3999446085170284,
+                    0.60953952857396
+                ],
+                "size": [
+                    0.059898527268329005,
+                    0.04934617916306738,
+                    0.09758600000000006
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/75_mesh.obj"
+            },
+            {
+                "id": "9",
+                "label": "shower squeegee",
+                "position": [
+                    -5.306954204251667,
+                    -1.15635185905917,
+                    0.21039602857396006
+                ],
+                "size": [
+                    0.10031873761751253,
+                    0.17557521606074222,
+                    0.22738100000000003
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/9_mesh.obj",
+                "count": 1,
+                "caption": ""
+            },
+            {
+                "id": "19",
+                "label": "jacket",
+                "position": [
+                    -5.1639815868165275,
+                    0.03784860924267519,
+                    1.3727905285739601
+                ],
+                "size": [
+                    0.15563807605187474,
+                    0.1587097336179919,
+                    1.1043859999999999
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a7cc12c0e/19_mesh.obj",
+                "count": 4,
+                "caption": ""
+            }
+        ],
+        "inst_to_label": {
+            "0": "toilet paper holder",
+            "1": "board",
+            "2": "board",
+            "4": "pot",
+            "5": "bottle",
+            "6": "table",
+            "7": "socket",
+            "8": "cutting board",
+            "9": "shower squeegee",
+            "10": "flip flops",
+            "11": "toilet",
+            "12": "bottle",
+            "13": "toilet paper",
+            "14": "soap",
+            "15": "sink",
+            "16": "shower hose",
+            "17": "shower head",
+            "19": "jacket",
+            "20": "jacket",
+            "21": "jacket",
+            "22": "heater",
+            "23": "drying rack",
+            "24": "object",
+            "25": "pillow",
+            "26": "pillow",
+            "27": "pillow",
+            "28": "blanket",
+            "29": "wireless headphones",
+            "30": "laptop",
+            "32": "jacket",
+            "33": "shelf",
+            "34": "lamp",
+            "36": "rug",
+            "37": "shoes",
+            "38": "shoes",
+            "39": "object",
+            "40": "object",
+            "41": "object",
+            "47": "storage cabinet",
+            "56": "socket",
+            "57": "light switch",
+            "58": "light switch",
+            "59": "doorframe",
+            "60": "door",
+            "61": "smoke detector",
+            "62": "sink",
+            "63": "curtain",
+            "65": "door",
+            "66": "table",
+            "67": "chair",
+            "68": "chair",
+            "69": "kitchen cabinet",
+            "70": "kitchen cabinet",
+            "72": "shelf",
+            "74": "object",
+            "75": "object",
+            "76": "object",
+            "77": "bottle",
+            "78": "bottle",
+            "79": "bottle",
+            "80": "object",
+            "81": "object",
+            "82": "door hinge",
+            "83": "door hinge",
+            "84": "box",
+            "85": "lid",
+            "86": "shelf",
+            "87": "object",
+            "89": "rolling cabinet",
+            "90": "box",
+            "91": "object",
+            "92": "object",
+            "94": "backpack",
+            "95": "umbrella",
+            "96": "object",
+            "97": "object",
+            "98": "object",
+            "99": "object",
+            "100": "object",
+            "101": "suitcase",
+            "102": "trash can",
+            "103": "desk lamp",
+            "104": "notebook",
+            "105": "mouse",
+            "106": "object",
+            "107": "desk fan",
+            "108": "magazine",
+            "109": "bathroom shelf",
+            "110": "spray bottle",
+            "111": "object",
+            "112": "object",
+            "113": "brush",
+            "114": "object",
+            "115": "object",
+            "116": "object",
+            "117": "object",
+            "118": "object",
+            "119": "light switch",
+            "120": "laundry detergent",
+            "121": "bottle",
+            "123": "tap",
+            "124": "object",
+            "125": "object",
+            "126": "bed",
+            "128": "object",
+            "129": "ceiling lamp",
+            "131": "tap",
+            "133": "object",
+            "134": "object",
+            "135": "object",
+            "136": "structure",
+            "139": "microwave"
+        }
+    }
+}

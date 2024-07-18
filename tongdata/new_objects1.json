@@ -1,0 +1,481 @@
+{
+    "0a5c013435": {
+        "objects_info": [
+            {
+                "id": "6",
+                "label": "pipe",
+                "position": [
+                    0.057133005262613334,
+                    0.8956495779198408,
+                    1.7014396697464944
+                ],
+                "size": [
+                    0.10175000000000001,
+                    0.058640000000000025,
+                    3.3050768
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a5c013435/6_mesh.obj",
+                "count": 6,
+                "caption": "",
+                "location": [
+                    "left",
+                    "front",
+                    "up"
+                ]
+            },
+            {
+                "id": "2",
+                "label": "pipe",
+                "position": [
+                    0.14218750526261337,
+                    0.12275157791984082,
+                    3.1178680697464944
+                ],
+                "size": [
+                    2.431481,
+                    1.600716,
+                    0.9621200000000001
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a5c013435/2_mesh.obj",
+                "count": 6,
+                "caption": "",
+                "location": [
+                    "left",
+                    "back",
+                    "up"
+                ]
+            },
+            {
+                "id": "18",
+                "label": "box",
+                "position": [
+                    1.0463880052626133,
+                    0.6596695779198408,
+                    0.5963765697464942
+                ],
+                "size": [
+                    0.5964400000000003,
+                    0.45167999999999986,
+                    0.699143
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a5c013435/18_mesh.obj",
+                "count": 4,
+                "caption": "",
+                "location": [
+                    "right",
+                    "front",
+                    "down"
+                ]
+            },
+            {
+                "id": "13",
+                "label": "toilet paper",
+                "position": [
+                    0.9175530052626133,
+                    0.7097345779198408,
+                    0.7270415697464943
+                ],
+                "size": [
+                    0.12387000000000015,
+                    0.11702999999999997,
+                    0.108483
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a5c013435/13_mesh.obj",
+                "count": 2,
+                "caption": "",
+                "location": [
+                    "right",
+                    "front",
+                    "down"
+                ]
+            },
+            {
+                "id": "10",
+                "label": "box",
+                "position": [
+                    1.0439730052626133,
+                    -0.23044292208015915,
+                    0.17513366974649427
+                ],
+                "size": [
+                    0.28225000000000033,
+                    0.30966899999999997,
+                    0.3116288
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a5c013435/10_mesh.obj",
+                "count": 4,
+                "caption": "",
+                "location": [
+                    "right",
+                    "back",
+                    "down"
+                ]
+            },
+            {
+                "id": "8",
+                "label": "box",
+                "position": [
+                    1.2599730052626132,
+                    -0.26680292208015916,
+                    1.7044830697464943
+                ],
+                "size": [
+                    0.11248999999999976,
+                    0.17472699999999997,
+                    0.3105899999999999
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a5c013435/8_mesh.obj",
+                "count": 4,
+                "caption": "",
+                "location": [
+                    "right",
+                    "back",
+                    "up"
+                ]
+            },
+            {
+                "id": "21",
+                "label": "door",
+                "position": [
+                    -0.6118234947373867,
+                    0.9043395779198409,
+                    1.3587448697464943
+                ],
+                "size": [
+                    1.3249630000000001,
+                    0.15626000000000007,
+                    2.6791264
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a5c013435/21_mesh.obj",
+                "location": [
+                    "left",
+                    "front",
+                    "down"
+                ]
+            },
+            {
+                "id": "11",
+                "label": "ceiling lamp",
+                "position": [
+                    0.19525950526261318,
+                    0.007595077919840765,
+                    2.5655080697464943
+                ],
+                "size": [
+                    1.2850169999999999,
+                    0.1537289999999999,
+                    0.10280000000000022
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a5c013435/11_mesh.obj",
+                "location": [
+                    "left",
+                    "back",
+                    "up"
+                ]
+            },
+            {
+                "id": "17",
+                "label": "floor cleaner",
+                "position": [
+                    1.0812680052626131,
+                    0.33232057791984077,
+                    0.6713657697464943
+                ],
+                "size": [
+                    0.5531600000000001,
+                    0.7509579999999999,
+                    1.3136646
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a5c013435/17_mesh.obj",
+                "count": 1,
+                "caption": "",
+                "location": [
+                    "right",
+                    "front",
+                    "down"
+                ]
+            },
+            {
+                "id": "7",
+                "label": "pipe",
+                "position": [
+                    1.2736880052626134,
+                    0.07296407791984083,
+                    2.041418069746494
+                ],
+                "size": [
+                    0.15845999999999982,
+                    1.345691,
+                    1.6972599999999998
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a5c013435/7_mesh.obj",
+                "count": 6,
+                "caption": "",
+                "location": [
+                    "right",
+                    "back",
+                    "up"
+                ]
+            },
+            {
+                "id": "16",
+                "label": "object",
+                "position": [
+                    1.0504880052626133,
+                    0.7788795779198407,
+                    0.8477145697464943
+                ],
+                "size": [
+                    0.23926000000000025,
+                    0.21663999999999994,
+                    0.3278470000000001
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a5c013435/16_mesh.obj",
+                "location": [
+                    "right",
+                    "front",
+                    "down"
+                ]
+            },
+            {
+                "id": "5",
+                "label": "pipe",
+                "position": [
+                    1.0586430052626135,
+                    0.8571295779198408,
+                    2.529923069746494
+                ],
+                "size": [
+                    0.044789999999999885,
+                    0.040819999999999856,
+                    0.9801699999999998
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a5c013435/5_mesh.obj",
+                "count": 6,
+                "caption": "",
+                "location": [
+                    "right",
+                    "front",
+                    "up"
+                ]
+            },
+            {
+                "id": "12",
+                "label": "object",
+                "position": [
+                    0.9008780052626133,
+                    0.7898745779198408,
+                    0.7122125697464943
+                ],
+                "size": [
+                    0.25224,
+                    0.18825000000000003,
+                    0.19254099999999996
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a5c013435/12_mesh.obj",
+                "location": [
+                    "right",
+                    "front",
+                    "down"
+                ]
+            },
+            {
+                "id": "20",
+                "label": "cleaning trolley",
+                "position": [
+                    -0.03322699473738666,
+                    -0.2756494220801592,
+                    0.6089097697464942
+                ],
+                "size": [
+                    1.2906500000000003,
+                    0.7634380000000001,
+                    1.1800766
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a5c013435/20_mesh.obj",
+                "count": 1,
+                "caption": "",
+                "location": [
+                    "left",
+                    "back",
+                    "down"
+                ]
+            },
+            {
+                "id": "14",
+                "label": "object",
+                "position": [
+                    1.2300980052626131,
+                    0.6698795779198408,
+                    0.7822045697464943
+                ],
+                "size": [
+                    0.2645599999999999,
+                    0.4137200000000001,
+                    0.4874670000000001
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a5c013435/14_mesh.obj",
+                "location": [
+                    "right",
+                    "front",
+                    "down"
+                ]
+            },
+            {
+                "id": "4",
+                "label": "pipe",
+                "position": [
+                    -0.050976994737386705,
+                    -0.5935414220801593,
+                    2.060008069746494
+                ],
+                "size": [
+                    0.035209999999999964,
+                    0.04737199999999997,
+                    1.71394
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a5c013435/4_mesh.obj",
+                "count": 6,
+                "caption": "",
+                "location": [
+                    "left",
+                    "back",
+                    "up"
+                ]
+            },
+            {
+                "id": "15",
+                "label": "toilet paper",
+                "position": [
+                    1.0143730052626132,
+                    0.7107395779198408,
+                    0.7453440697464943
+                ],
+                "size": [
+                    0.13073000000000023,
+                    0.1488799999999999,
+                    0.11093799999999998
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a5c013435/15_mesh.obj",
+                "count": 2,
+                "caption": "",
+                "location": [
+                    "right",
+                    "front",
+                    "down"
+                ]
+            },
+            {
+                "id": "3",
+                "label": "sink",
+                "position": [
+                    1.1447530052626134,
+                    -0.2672734220801592,
+                    0.5840600697464943
+                ],
+                "size": [
+                    0.35490999999999984,
+                    0.517016,
+                    0.759
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a5c013435/3_mesh.obj",
+                "count": 1,
+                "caption": "",
+                "location": [
+                    "right",
+                    "back",
+                    "down"
+                ]
+            },
+            {
+                "id": "22",
+                "label": "ladder",
+                "position": [
+                    0.5343880052626133,
+                    0.8295095779198408,
+                    1.1408177697464943
+                ],
+                "size": [
+                    0.7584,
+                    0.29935999999999985,
+                    2.2441006000000003
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a5c013435/22_mesh.obj",
+                "count": 1,
+                "caption": "",
+                "location": [
+                    "right",
+                    "front",
+                    "down"
+                ]
+            },
+            {
+                "id": "9",
+                "label": "pipe",
+                "position": [
+                    0.02124240526261345,
+                    0.4418955779198408,
+                    1.3596589697464943
+                ],
+                "size": [
+                    2.6783312,
+                    1.0738280000000002,
+                    2.6776782
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a5c013435/9_mesh.obj",
+                "count": 6,
+                "caption": "",
+                "location": [
+                    "left",
+                    "front",
+                    "down"
+                ]
+            },
+            {
+                "id": "19",
+                "label": "box",
+                "position": [
+                    1.0578080052626133,
+                    0.5988745779198408,
+                    0.1709376197464943
+                ],
+                "size": [
+                    0.5683599999999998,
+                    0.44057000000000013,
+                    0.3066689
+                ],
+                "mesh": "/mnt/fillipo/Datasets/ScanNetpp/utils/objects/0a5c013435/19_mesh.obj",
+                "count": 4,
+                "caption": "",
+                "location": [
+                    "right",
+                    "front",
+                    "down"
+                ]
+            }
+        ],
+        "inst_to_label": {
+            "2": "pipe",
+            "3": "sink",
+            "4": "pipe",
+            "5": "pipe",
+            "6": "pipe",
+            "7": "pipe",
+            "8": "box",
+            "9": "pipe",
+            "10": "box",
+            "11": "ceiling lamp",
+            "12": "object",
+            "13": "toilet paper",
+            "14": "object",
+            "15": "toilet paper",
+            "16": "object",
+            "17": "floor cleaner",
+            "18": "box",
+            "19": "box",
+            "20": "cleaning trolley",
+            "21": "door",
+            "22": "ladder"
+        }
+    }
+}
